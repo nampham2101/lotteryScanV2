@@ -34,9 +34,18 @@ Before anything else, the MVP has to prove it can read a ticket from a photo.
 - **If it passes:** we continue building.
 - **If it fails:** we stop and look at other options (native app, another library, or something else).
 
+## Decisions
+
+- **A downloaded app, not a web app.** Leaves room to grow and add features that need the phone (full camera control, the phone's built-in text reader, notifications).
+- **Built with Flutter.** One app for Android and iOS. Chosen because it has fewer moving parts, and its checkup command (`flutter doctor`) says plainly what's missing or broken.
+  - *Revisit if:* we plan to hire JavaScript developers, or want a website that shares code with the app.
+
+## Leaning (not final)
+
+- **Android first, tested on an emulator.** Most users are expected to have Android phones. There's no Android phone for testing yet.
+
 ## Open questions (parked for later)
 
-- **Web app or not:** leaning toward a small web app, but not decided.
 - **How to read the picture:** an AI service or a library. Not decided.
 
 ## Repository
