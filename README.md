@@ -39,6 +39,8 @@ Before anything else, the MVP has to prove it can read a ticket from a photo.
 - **A downloaded app, not a web app.** Leaves room to grow and add features that need the phone (full camera control, the phone's built-in text reader, notifications).
 - **Built with Flutter.** One app for Android and iOS. Chosen because it has fewer moving parts, and its checkup command (`flutter doctor`) says plainly what's missing or broken.
   - *Revisit if:* we plan to hire JavaScript developers, or want a website that shares code with the app.
+- **The ticket is read on the phone**, with Google's free ML Kit text reader (Flutter add-on `google_mlkit_text_recognition`), not by an AI service. Faster, works offline, and has no fees.
+- **No cost each time someone uses the app.** Scanning a ticket and checking the result must be free. The app is free for users. App store fees are fine.
 
 ## Leaning (not final)
 
@@ -46,7 +48,8 @@ Before anything else, the MVP has to prove it can read a ticket from a photo.
 
 ## Open questions (parked for later)
 
-- **How to read the picture:** an AI service or a library. Not decided.
+- **Where the winning results come from:** needs a source that is free to use.
+- **Vietnamese accents:** not yet checked whether the ML Kit reader reads province names with accents (e.g. "Bến Tre") correctly.
 
 ## Repository
 
