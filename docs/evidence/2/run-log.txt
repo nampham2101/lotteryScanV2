@@ -1,0 +1,61 @@
+Resolving dependencies...
+Downloading packages...
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+5 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Launching lib/main.dart on sdk gphone16k arm64 in debug mode...
+Running Gradle task 'assembleDebug'...                          
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+Downloading Android CLI...
+Unpacking embedded installation...
+
+Terms of Service and License Agreement for the Android Software Development Kit
+
+https://developer.android.com/studio/terms
+
+Google collects usage data for the Android CLI, such as commands, sub-commands, and flags used. This data does not include custom parameters or identifiable information. This information helps improve the tool and is collected in accordance with Google's Privacy Policy.
+
+https://policies.google.com/privacy
+
+Disable Android CLI metrics collection by using the --no-metrics flag.
+
+Tip: For the best experience using Android CLI with agents, we strongly recommend running android init to install the necessary skills and resources.
+
+https://dl.google.com/android/repository/android-ndk-r28c-darwin.zip...
+
+Unzipping ndk/28.2.13676358......
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                            335.6s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          245ms
+I/FlutterActivityAndFragmentDelegate( 7269): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI( 7269): Beginning load of flutter...
+D/FlutterJNI( 7269): flutter (null) was loaded normally!
+I/flutter ( 7269): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterRenderer( 7269): Width is zero. 0,0
+D/FlutterRenderer( 7269): Width is zero. 0,0
+D/FlutterJNI( 7269): Sending viewport metrics to the engine.
+D/FlutterJNI( 7269): Sending viewport metrics to the engine.
+D/FlutterJNI( 7269): Sending viewport metrics to the engine.
+Syncing files to device sdk gphone16k arm64...                      77ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on sdk gphone16k arm64 is available at: http://127.0.0.1:52392/nvC-L03bR3I=/
+The Flutter DevTools debugger and profiler on sdk gphone16k arm64 is available at: http://127.0.0.1:52392/nvC-L03bR3I=/devtools/?uri=ws://127.0.0.1:52392/nvC-L03bR3I=/ws
+D/ProfileInstaller( 7269): Installing profile for com.nampham.lotteryscan
+D/VRI[MainActivity]( 7269): visibilityChanged oldVisibility=true newVisibility=false
