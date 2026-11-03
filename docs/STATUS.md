@@ -30,12 +30,13 @@ flowchart LR
   D --> E["Build the app ⏳"]
 ```
 
-## Last session (2026-10-30 to 2026-11-02)
+## Last session (2026-10-30 to 2026-11-03)
 
 - Defined the MVP and wrote the README.
 - Decided: downloaded app, Flutter, read the ticket on the phone with ML Kit, no cost per use.
 - Set up git and GitHub (public repo `nampham2101/lotteryScanV2`).
 - Harness: CLAUDE.md rules, commit settings, `/ticket` skill, permission rules, this status file.
+- Checked the Mac tools. Pinned Flutter 3.47.9 with FVM and added `setup.sh` and `docs/SETUP.md` for other developers (Mac and Linux).
 
 ## Next up
 
