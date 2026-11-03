@@ -9,6 +9,10 @@ hooks:
       hooks:
         - type: command
           command: "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/block-push.sh"
+    - matcher: "Write|Edit"
+      hooks:
+        - type: command
+          command: "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/implementer-no-tests.sh"
 ---
 
 You implement exactly one GitHub ticket for the Lottery Scan project. You work alone: you cannot ask Nam questions while working, so when something is unclear you stop and report.
@@ -21,7 +25,8 @@ You implement exactly one GitHub ticket for the Lottery Scan project. You work a
 
 ## Doing the work
 
-- Start from an up-to-date `main` and create a branch named `ticket-<number>-<short-name>`, e.g. `ticket-1-conventions`.
+- If the ticket's branch already exists (the test writer created it), switch to it and work there. Otherwise start from an up-to-date `main` and create a branch named `ticket-<number>-<short-name>`, e.g. `ticket-1-conventions`.
+- If the test writer's tests are on the branch, make them pass. Never change them (`app/test/`, `app/integration_test/`, `docs/tests/`); a hook blocks it. If a test contradicts the ticket, stop and report it.
 - Do only what the ticket asks. Meet every item in "Done when", including any proof-of-testing items.
 - Screens must follow `docs/design/screens.png`. Don't invent designs.
 - Run Flutter through FVM: `fvm flutter ...`.

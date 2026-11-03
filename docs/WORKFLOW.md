@@ -2,7 +2,7 @@
 
 How a piece of work goes from an idea to merged code.
 
-**Status:** partly built (`/refine`, `/ticket`, test writer, implementer). Each remaining piece gets built when the first real ticket needs it.
+**Status:** partly built (`/refine`, `/ticket`, `/work`, test writer, implementer). Each remaining piece gets built when the first real ticket needs it.
 
 ## The flow
 
@@ -28,7 +28,7 @@ flowchart TD
 |---|---|---|---|
 | `/refine` | Skill | Discuss the work, split when needed, write acceptance criteria, mark "test cases needed?" | ✅ |
 | `/ticket` | Skill | Draft and post the GitHub issue from `/refine`'s output | ✅ |
-| `/work` | Skill | Run one assigned ticket through the steps below, in our conversation | ⏳ |
+| `/work` | Skill | Run one assigned ticket from test writer to merge, in our conversation. Nam types `/work <issue number>`. See `.claude/skills/work/SKILL.md` | ✅ |
 | Test writer | Agent (Opus) | Write widget tests, integration tests and manual steps from the ticket's acceptance criteria only, before any code exists, on the ticket's branch. See `.claude/agents/test-writer.md` | ✅ |
 | Implementer | Agent (Sonnet) | Write the code for the ticket on its own branch, then report. See `.claude/agents/implementer.md` | ✅ |
 | Test check | Hook | Run the tests automatically and report failures | ⏳ |
@@ -47,8 +47,21 @@ flowchart TD
 - **Evidence links in a pull request point to `main`** (`.../blob/main/docs/evidence/<issue>/...`), not to the ticket branch, so they keep working after the branch is deleted.
 - **After merge, delete the ticket branch**, locally and on GitHub. Pull requests are squash-merged, so check the branch's content is on `main` (`git diff <branch> main`) rather than relying on `git branch --merged`.
 - **Agents use full model IDs** (e.g. `claude-sonnet-5-5`), not aliases like `sonnet`: Nam's global settings point the aliases at a local router.
-- **Test writer rules:** runs first, only for tickets marked "Test cases: needed". It creates the ticket's branch, writes the tests from "Done when" only (never from the implementer's code), runs them once to prove they fail because the feature is missing, commits, and reports. It may only write in `app/test/`, `app/integration_test/`, `docs/tests/<issue>.md`, `app/pubspec.yaml` (test add-ons) and `app/pubspec.lock`; a hook (`.claude/hooks/test-writer-paths.sh`) blocks anything else, and the block-push hook applies too. The implementer doesn't write tests.
-- **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the ticket with `/refine`, then the test writer runs again. (`/refine` and `/ticket` still need to learn to update an existing ticket; that's the next harness step.)
+- **Test writer rules:** runs first, only for tickets marked "Test cases: needed". It creates the ticket's branch, writes the tests from "Done when" only (never from the implementer's code), runs them once to prove they fail because the feature is missing, saves that run in `docs/evidence/<issue>/first-run.txt`, commits, and reports. It may only write in `app/test/`, `app/integration_test/`, `docs/tests/<issue>.md`, `docs/evidence/<issue>/first-run.txt`, `app/pubspec.yaml` (test add-ons) and `app/pubspec.lock`; a hook (`.claude/hooks/test-writer-paths.sh`) blocks anything else, and the block-push hook applies too. The implementer doesn't write or change tests; a hook (`.claude/hooks/implementer-no-tests.sh`) blocks it, and `/work` also checks no test file changed after the test writer's commit.
+- **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the ticket with `/refine`, then the test writer runs again. (`/refine` and `/ticket` can't update an existing ticket yet. That gets built only when a ticket actually hits an unclear criterion.)
+- **`/work` merges by itself** once every check passes: analyze, widget and integration tests, manual steps, no test files changed, every "Done when" item proven. Nam steps in only when it stops. Until CI exists, these checks run inside `/work` only.
+- **`/work` routing:**
+
+  | What fails | Where it goes | Fix round? |
+  |---|---|---|
+  | Tests still fail after the implementer | Back to the implementer, with the failing output | Yes |
+  | An unmet "Done when" item | Back to the implementer, with what's missing | Yes |
+  | The implementer says a test contradicts the ticket | Stop and ask Nam (the ticket may need `/refine`) | — |
+  | The test writer stops on an unclear criterion | Stop and ask Nam to run `/refine` | — |
+  | Any agent stops on a blocker or security risk | Stop and ask Nam | — |
+  | 3 fix rounds used up | Stop, and show Nam what was tried | — |
+
+- **Findings go to BACKLOG.md** as "not refined" items. Nothing is posted to GitHub without Nam.
 
 ## Decisions and reasons
 
@@ -70,4 +83,4 @@ flowchart TD
 
 ## Still to decide (when building)
 
-- Exactly where each problem goes back to: e.g. a failing test caused by a wrong test → test writer; caused by wrong code → implementer.- Confirm GitHub Actions is free for this public repository before setting up CI.
+- Confirm GitHub Actions is free for this public repository before setting up CI.

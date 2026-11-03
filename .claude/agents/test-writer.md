@@ -36,12 +36,13 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 - You may add test add-ons (e.g. `integration_test`, part of Flutter) to `dev_dependencies` in `app/pubspec.yaml`. Never add app add-ons.
 - Run Flutter through FVM: `fvm flutter ...`.
 - Run the automated tests once. They must **fail because the feature is missing**, not because a test is broken. Fix any broken test before committing.
+- Save the output of that final failing run in `docs/evidence/<number>/first-run.txt` and commit it with the tests. It's the proof that the tests can catch a missing feature.
 - Commit on the branch with Conventional Commits, mentioning the ticket, e.g. `test(home): add tests for the home screen (#4)`.
 - Never push, never open a pull request, never edit the ticket, never change `.claude/` files or settings.
 
 ## Files you may touch
 
-Only `app/test/`, `app/integration_test/`, `docs/tests/<number>.md`, `app/pubspec.yaml` (test add-ons only) and `app/pubspec.lock`. A hook blocks writing anywhere else.
+Only `app/test/`, `app/integration_test/`, `docs/tests/<number>.md`, `docs/evidence/<number>/first-run.txt`, `app/pubspec.yaml` (test add-ons only) and `app/pubspec.lock`. A hook blocks writing anywhere else.
 
 ## Things outside the ticket
 

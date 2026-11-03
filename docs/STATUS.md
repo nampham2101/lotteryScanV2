@@ -17,7 +17,7 @@ flowchart LR
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
     C3["/ticket skill ✅<br/>drafts + posts from /refine"]
     C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
-    C9["Ticket workflow /work 🔄<br/>test writer + implementer built, see WORKFLOW.md"]
+    C9["Ticket workflow /work 🔄<br/>/work, test writer, implementer built<br/>reviewer + CI to come"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -48,13 +48,14 @@ flowchart LR
 - Backlog item 2 refined and split into two tickets, both posted and unassigned: #4 home screen (sketch 1, the button does nothing yet) and #5 lock the app to portrait.
 - Ticket #4 (home screen) is done, merged (PR #6) and closed. It was the first run with the test writer: test writer → implementer → Claude verifies → PR → merge. Widget tests and Pixel_10 integration tests pass, manual steps run, proof in `docs/evidence/4/`. Nam chose to tick the proof box even though the test writer's first failing run wasn't saved. The merged branch is deleted.
 - Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. First live run on #4 worked without stopping.
+- Built `/work` (`/work <issue number>`, one ticket per run): test writer → implementer → checks (at most 3 fix rounds) → tick proven boxes → findings to BACKLOG → PR → merges by itself when every check passes. New hook stops the implementer from changing tests; the test writer now saves its first failing run in `docs/evidence/<issue>/first-run.txt`. Hooks pipe-tested; `/work` not yet run live.
 - Cleanup: backlog item 1 marked done, PR #3's evidence links now point to `main`, the merged branch is deleted. Rules for both added to WORKFLOW.md. This file trimmed to the latest session.
 
 ## Next up
 
-1. Teach `/refine` and `/ticket` to update an existing ticket, so unclear criteria found by the test writer can be fixed.
-2. Assign #5 (portrait lock), then run it the same way as #4: test writer → implementer → Claude verifies.
-3. Build the reviewer agent (with the verify part), shaped by those runs.
+1. Assign #5 (portrait lock) and run `/work 5`: the first live run of `/work`.
+2. Build the reviewer agent (with the verify part), shaped by those runs.
+3. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
 4. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
 5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 

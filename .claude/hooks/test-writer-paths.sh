@@ -16,10 +16,11 @@ esac
 if [[ "$rel" =~ ^app/test/.+ ||
       "$rel" =~ ^app/integration_test/.+ ||
       "$rel" =~ ^docs/tests/[0-9]+\.md$ ||
+      "$rel" =~ ^docs/evidence/[0-9]+/first-run\.txt$ ||
       "$rel" == "app/pubspec.yaml" ||
       "$rel" == "app/pubspec.lock" ]]; then
   exit 0
 fi
 
-echo "Blocked: the test writer may only write in app/test/, app/integration_test/, docs/tests/<number>.md, app/pubspec.yaml (test add-ons) and app/pubspec.lock. Tried: $file" >&2
+echo "Blocked: the test writer may only write in app/test/, app/integration_test/, docs/tests/<number>.md, docs/evidence/<number>/first-run.txt, app/pubspec.yaml (test add-ons) and app/pubspec.lock. Tried: $file" >&2
 exit 2
