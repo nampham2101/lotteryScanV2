@@ -11,6 +11,11 @@ These override the global defaults in `~/.claude/CLAUDE.md` where they differ.
 - **No unrequested opinions.** Answer what is asked and do what is asked. No recommendations, judgments or extra work unless Nam asks for them.
 - **During discussions:** ask one question at a time, repeat each answer back in your own words, and keep a running list of what's decided and what's open.
 
+## Design
+
+- Screens must follow the sketches in `docs/design/screens.png`. Don't invent new designs.
+- If a screen or element isn't in the sketches, ask Nam before building it.
+
 ## Status document
 
 - At the start of every session, read `docs/STATUS.md`.

@@ -41,6 +41,8 @@ flowchart LR
 - Checked the Mac tools. Pinned Flutter 3.47.9 with FVM and added `setup.sh` and `docs/SETUP.md` for other developers (Mac and Linux).
 - Added the `/refine` skill (discuss the work, split when needed, acceptance criteria: Given / When / Then for behavior, checklist otherwise, plus a "test cases needed?" mark). `/ticket` now drafts from `/refine`'s output and stays type-only.
 - Designed the ticket workflow (`/work` skill, test writer, implementer, reviewer, test hook, CI) in [WORKFLOW.md](WORKFLOW.md). Not built yet. Nam's gate is at release time; at most 3 fix rounds.
+- Sketched the MVP screens (home, camera with shutter, reading, won, lost, not drawn yet, can't read) and saved them as [design/screens.png](design/screens.png). Added a CLAUDE.md rule: screens follow the sketches, no invented designs.
+- Listed the tickets to refine in [BACKLOG.md](BACKLOG.md): 7 for the reading gate, 3 after it.
 
 ## Next up
 
@@ -53,7 +55,7 @@ Agreed order before writing code:
    - Done (2026-11-03): Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
 3. Nam sends the three ticket photos.
 4. Write `docs/CONVENTIONS.md`.
-5. Write the first ticket: `/refine` then `/ticket`, for "Test reading the three ticket fields from photos".
+5. Refine and post the tickets in [BACKLOG.md](BACKLOG.md), starting with #1 "Create the Flutter app": `/refine`, then `/ticket`.
 
 ## Open questions
 
