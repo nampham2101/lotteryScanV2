@@ -43,6 +43,7 @@ flowchart TD
 - **Agents report, `/work` decides.** The hook and the reviewer report problems; `/work` sends the work back to the right step.
 - **Build one piece at a time**, when a real ticket needs it. Suggested order: implementer, test check, test writer, reviewer, `/work`, CI.
 - **Implementer rules:** one branch per ticket (`ticket-<number>-<short-name>`), commits there, never pushes or opens a pull request. "Never push" is enforced by a hook (`.claude/hooks/block-push.sh`) that runs only while the implementer runs and blocks any `git push`. If the ticket is unclear or leaves a choice open, it stops and reports the question. If something blocks the ticket, it stops and reports. Trivial fixes in files it's already changing are allowed and reported.
+- **"Done when" boxes are ticked by the verifier, never the implementer.** For now the manager (Claude in the main conversation, later `/work`) checks the implementer's evidence against each item, shows Nam the result, and ticks only what's proven. Once built, the reviewer agent does this. Nam doesn't tick boxes by hand.
 - **Temporary exception:** until the test writer exists, the implementer writes simple tests itself (e.g. #2's "the app starts" test). The test writer gets built before the first ticket with real behavior to test.
 
 ## Decisions and reasons
@@ -51,6 +52,7 @@ flowchart TD
 |---|---|---|
 | Skills for steps that talk with Nam, agents for steps that don't | An agent can't stop midway to discuss with Nam; a skill runs in the conversation and can | An agent type gains a way to ask questions mid-task |
 | Reviewer is a separate agent | It starts fresh, without the implementer's reasoning, so it catches more | — |
+| The verifier ticks "Done when" boxes, not the implementer | The builder shouldn't certify its own work; ticking right after commit would show the ticket done before tests, review and merge; the implementer needs no GitHub write access | — |
 | Implementer on Sonnet | Tickets are small and precise; Sonnet is strong at code and uses less of the plan's usage | It often uses up its 3 fix rounds, or stops on things it should handle → switch to Opus |
 | Reviewer on Opus (planned) | A different model from the implementer shares fewer blind spots, so it catches more | — |
 | `/ticket` doesn't start the test writer | Wrong moment: tickets aren't approved until assigned. Keeps each skill to one job | Test cases written at work start turn out to be too late |

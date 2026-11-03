@@ -25,7 +25,7 @@ flowchart LR
   subgraph D["Reading test — the gate ⏳"]
     direction TB
     D1["Check Mac tools ✅"]
-    D4["Install Flutter + Android tools ⏳"]
+    D4["Install Flutter + Android tools ✅"]
     D2["Three ticket photos ⏳"]
     D3["Reading self-check script ⏳"]
   end
@@ -50,7 +50,7 @@ flowchart LR
 - Enforced "the implementer never pushes" with a hook in the agent file (`.claude/hooks/block-push.sh`). Pipe-tested; not yet seen in a live agent run.
 - Pinned the implementer to the full model ID `claude-sonnet-5-5`. The plain `sonnet` alias failed in the desktop app because the global settings rename it to a Gemini model meant for the local router. The router setup stays as it is. Revisit if the reviewer agent is built: it needs a full ID too.
 - Wrote [CONVENTIONS.md](CONVENTIONS.md) (ticket #1): folder structure, naming, code style, commit format, scope policy. Merged to `main` and issue #1 closed.
-- The implementer now ticks each met "Done when" box in the ticket after checking its work, and leaves unmet ones unticked. Not yet seen in a live run. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
+- "Done when" boxes are now ticked by the verifier, never the implementer: Claude as manager for now (checks the evidence, shows Nam, ticks only what's proven), the reviewer agent once built. The implementer's ticking step was removed. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
 
 ## Next up
 
@@ -59,8 +59,9 @@ Agreed order before writing code:
 1. ~~Check what's installed on the Mac~~ ✅ (2026-11-02)
    - Installed: Homebrew, Android Studio, Android SDK (API 34–36.1), Android emulator with a `Pixel_10` device, Java 21, Xcode 27.1 with iOS simulators.
    - Missing: Flutter, Android command-line tools, CocoaPods (only needed for iOS, later).
-2. Install Flutter and the Android command-line tools: run `./setup.sh` (see [SETUP.md](SETUP.md)).
-   - Done (2026-11-03): Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
+2. ~~Install Flutter and the Android command-line tools~~ ✅ (2026-11-03)
+   - Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
+   - Nam ran `./setup.sh` and installed the command-line tools. Checked: `fvm flutter doctor` passes for Flutter and Android (all licenses accepted); the `Pixel_10` emulator boots (Android 17, API 37) and Flutter sees it. Only Xcode/CocoaPods is flagged, which isn't needed while the app is Android only.
 3. Nam sends the three ticket photos.
 4. ~~Write `docs/CONVENTIONS.md`~~ ✅ (2026-11-03, ticket #1)
 5. Refine and post the tickets in [BACKLOG.md](BACKLOG.md), starting with #1 "Create the Flutter app": `/refine`, then `/ticket`.
@@ -73,5 +74,4 @@ Agreed order before writing code:
 ## Waiting on Nam
 
 - Three ticket photos from three different miền Nam provinces.
-- Android command-line tools: install from Android Studio → Settings → Android SDK → SDK Tools tab.
-- Accept the Android licenses (`flutter doctor --android-licenses`, after Flutter is installed). It asks you to type `y`.
+- Assign ticket #2 to start it.

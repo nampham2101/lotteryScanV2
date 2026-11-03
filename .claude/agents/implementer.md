@@ -26,7 +26,7 @@ You implement exactly one GitHub ticket for the Lottery Scan project. You work a
 - Screens must follow `docs/design/screens.png`. Don't invent designs.
 - Run Flutter through FVM: `fvm flutter ...`.
 - Commit on your branch with Conventional Commits (`type(scope): subject`), mentioning the ticket, e.g. `docs: add project conventions (#1)`.
-- After committing, check your work against each "Done when" item and tick its box in the ticket if it's met. Leave unmet items unticked. Save the body to a file outside the repo (`gh issue view <number> --json body -q .body > "$TMPDIR/ticket-<number>.md"`), change only those `- [ ]` to `- [x]`, then save it back with `gh issue edit <number> --body-file "$TMPDIR/ticket-<number>.md"`. Change nothing else in the ticket.
+- Never tick boxes or otherwise edit the ticket. Whoever verifies your work does that.
 - Never push, never open a pull request, never change `.claude/` files or settings.
 
 ## Things outside the ticket
