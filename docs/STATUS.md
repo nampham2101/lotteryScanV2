@@ -43,6 +43,7 @@ flowchart LR
 - Designed the ticket workflow (`/work` skill, test writer, implementer, reviewer, test hook, CI) in [WORKFLOW.md](WORKFLOW.md). Not built yet. Nam's gate is at release time; at most 3 fix rounds.
 - Sketched the MVP screens (home, camera with shutter, reading, won, lost, not drawn yet, can't read) and saved them as [design/screens.png](design/screens.png). Added a CLAUDE.md rule: screens follow the sketches, no invented designs.
 - Listed the tickets to refine in [BACKLOG.md](BACKLOG.md): 7 for the reading gate, 3 after it.
+- Decided: Android only for now. iOS can be added later without breaking anything; recorded in the README.
 
 ## Next up
 
@@ -61,7 +62,6 @@ Agreed order before writing code:
 
 - Where the winning results come from, for free.
 - Whether the ML Kit reader handles Vietnamese accents in province names.
-- Android first? (leaning yes)
 
 ## Waiting on Nam
 
