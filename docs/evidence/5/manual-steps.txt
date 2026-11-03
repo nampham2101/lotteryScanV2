@@ -1,0 +1,53 @@
+Manual steps for #5, run on Pixel_10 2026-11-03 15:53. Auto-rotate: 1
+Screen orientation 0 = upright. Acceleration 0:9.81 = upright, -9.81:0 = sideways right, 9.81:0 = sideways left.
+
+Step 1: turned sideways with the app open
+  tapped the Dò Vé Số icon at [285,1104][540,1386]
+  [upright, app open] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{200154739 u0 com.nampham.lotteryscan/.MainActivity
+  [sideways left] acceleration = 9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{200154739 u0 com.nampham.lotteryscan/.MainActivity
+  saved turned-left-window.png (emulator view, turned with the phone)
+  saved turned-left-screen.png (phone screen)
+  [back upright] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{200154739 u0 com.nampham.lotteryscan/.MainActivity
+  [sideways right] acceleration = -9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{200154739 u0 com.nampham.lotteryscan/.MainActivity
+  saved turned-right-window.png (emulator view, turned with the phone)
+  saved turned-right-screen.png (phone screen)
+  [back upright] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{200154739 u0 com.nampham.lotteryscan/.MainActivity
+
+Step 2: opened while sideways (app list tapped while upright, then turned, then tapped)
+  app list open, icon at [836,1929][1009,2124]
+  [sideways left, app closed] acceleration = 9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{180314293 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity
+  tapped the Dò Vé Số icon at [836,1929][1009,2124]
+  [opened sideways left] acceleration = 9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{264590923 u0 com.nampham.lotteryscan/.MainActivity
+  saved opened-left-window.png (emulator view, turned with the phone)
+  saved opened-left-screen.png (phone screen)
+  [sideways right, app closed] acceleration = -9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{180314293 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity
+  tapped the Dò Vé Số icon at [836,1929][1009,2124]
+  [opened sideways right] acceleration = -9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{32786053 u0 com.nampham.lotteryscan/.MainActivity
+  saved opened-right-window.png (emulator view, turned with the phone)
+  saved opened-right-screen.png (phone screen)
+  [back upright] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{32786053 u0 com.nampham.lotteryscan/.MainActivity
+
+Step 3: turn back upright
+  tapped the Dò Vé Số icon at [285,1104][540,1386]
+  [upright, app open] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{22790621 u0 com.nampham.lotteryscan/.MainActivity
+  saved before-turn.png (phone screen)
+  [sideways left] acceleration = 9.81:-1.90735e-06:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{22790621 u0 com.nampham.lotteryscan/.MainActivity
+  [back upright] acceleration = 0:9.81:0 | screen mCurrentOrientation=0 | topResumedActivity=ActivityRecord{22790621 u0 com.nampham.lotteryscan/.MainActivity
+  saved turned-back.png (phone screen)
+
+Screen turns Android logged during all steps (empty = none):
+(end)
+
+Results (checked by /work, 2026-11-03)
+- Step 1: pass. Phone turned left and right with the app open; Android kept the screen at orientation 0 the whole time.
+  turned-*-screen.png are tall (1080x2424) and read normally; turned-*-window.png show the app turned with the phone.
+- Step 2: pass. App closed, phone turned, icon tapped in the app list. It opened at orientation 0 both ways.
+  opened-*-screen.png are tall and read normally.
+- Step 3: pass. The same app instance stayed in front (same activity record, no restart). before-turn.png and
+  turned-back.png are byte-for-byte identical.
+- Every screen matches sketch 1 in docs/design/screens.png.
+How this run differs from docs/tests/5.md: the phone was turned with `adb emu rotate` (one quarter turn, like the
+toolbar button) instead of clicking the toolbar, and the window shots come from `adb emu screenrecord screenshot`
+instead of a Mac screenshot. Each `adb emu rotate` turns the same way, so "sideways left" is three turns in a row and
+passes briefly through upside-down. Not watched by eye: whether the screen flashes sideways while opening (step 2).
+That is covered by the automated test, which checks Android logged no screen turn during the opening.

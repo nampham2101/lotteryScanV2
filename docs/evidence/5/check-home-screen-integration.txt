@@ -1,0 +1,25 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  package_config 2.2.0 (3.0.0 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+10 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/integration_test/home_screen_test.dart
+Running Gradle task 'assembleDebug'...                              7.3s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        1,239ms
+00:00 +0: 1. opening Dò Vé Số on Pixel_10 shows the home screen, not a blank screen
+00:07 +1: 2. on Pixel_10 the home screen shows the sketch 1 texts with every accent and no text cut off
+00:11 +2: 3. on Pixel_10 tapping "Quét vé" once and then several times quickly stays on the home screen without an error
+00:16 +3: (tearDownAll)
+00:16 +3: All tests passed!
+exit 0
