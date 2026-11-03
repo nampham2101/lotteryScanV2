@@ -32,7 +32,7 @@ flowchart LR
   D --> E
   subgraph E["Build the app 🔄"]
     direction TB
-    E1["Blank Android app ✅<br/>ticket #2, waiting for review"]
+    E1["Blank Android app ✅<br/>ticket #2, merged"]
   end
 ```
 
@@ -55,7 +55,7 @@ flowchart LR
 - Pinned the implementer to the full model ID `claude-sonnet-5-5`. The plain `sonnet` alias failed in the desktop app because the global settings rename it to a Gemini model meant for the local router. The router setup stays as it is. Revisit if the reviewer agent is built: it needs a full ID too.
 - Wrote [CONVENTIONS.md](CONVENTIONS.md) (ticket #1): folder structure, naming, code style, commit format, scope policy. Merged to `main` and issue #1 closed.
 - "Done when" boxes are now ticked by the verifier, never the implementer: Claude as manager for now (checks the evidence, shows Nam, ticks only what's proven), the reviewer agent once built. The implementer's ticking step was removed. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
-- Built the blank Android app in `app/` (ticket #2, on branch `ticket-2-blank-app`, not merged yet): Flutter 3.47.9, name **Dò Vé Số**, package ID `com.nampham.lotteryscan`, one blank screen, counter demo removed, one test replaces the demo test. Proof is in `docs/evidence/2/`. README "Repository" section rewritten.
+- Built the blank Android app in `app/` (ticket #2, PR #3): Flutter 3.47.9, name **Dò Vé Số**, package ID `com.nampham.lotteryscan`, one blank screen, counter demo removed, one test replaces the demo test. Proof is in `docs/evidence/2/`. README "Repository" section rewritten. Claude checked the evidence and ticked the "Done when" boxes. Merged to `main` and issue #2 closed.
 
 ## Next up
 
@@ -69,7 +69,7 @@ Agreed order before writing code:
    - Nam ran `./setup.sh` and installed the command-line tools. Checked: `fvm flutter doctor` passes for Flutter and Android (all licenses accepted); the `Pixel_10` emulator boots (Android 17, API 37) and Flutter sees it. Only Xcode/CocoaPods is flagged, which isn't needed while the app is Android only.
 3. Nam sends the three ticket photos.
 4. ~~Write `docs/CONVENTIONS.md`~~ ✅ (2026-11-03, ticket #1)
-5. Refine and post the tickets in [BACKLOG.md](BACKLOG.md), starting with #1 "Create the Flutter app": `/refine`, then `/ticket`.
+5. Refine and post the tickets in [BACKLOG.md](BACKLOG.md): `/refine`, then `/ticket`. Backlog item 1 "Create the Flutter app" is done (tickets #1 and #2).
 
 ## Open questions
 
@@ -79,4 +79,3 @@ Agreed order before writing code:
 ## Waiting on Nam
 
 - Three ticket photos from three different miền Nam provinces.
-- Review ticket #2 (blank app) and merge it.
