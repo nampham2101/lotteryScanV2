@@ -13,7 +13,8 @@ flowchart LR
     direction TB
     C1["CLAUDE.md rules ✅"]
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
-    C3["/ticket skill ✅"]
+    C3["/ticket skill ✅<br/>drafts + posts from /refine"]
+    C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -37,6 +38,7 @@ flowchart LR
 - Set up git and GitHub (public repo `nampham2101/lotteryScanV2`).
 - Harness: CLAUDE.md rules, commit settings, `/ticket` skill, permission rules, this status file.
 - Checked the Mac tools. Pinned Flutter 3.47.9 with FVM and added `setup.sh` and `docs/SETUP.md` for other developers (Mac and Linux).
+- Added the `/refine` skill (discuss the work, split when needed, acceptance criteria: Given / When / Then for behavior, checklist otherwise, plus a "test cases needed?" mark). `/ticket` now drafts from `/refine`'s output and stays type-only.
 
 ## Next up
 
@@ -49,7 +51,7 @@ Agreed order before writing code:
    - Done (2026-11-03): Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
 3. Nam sends the three ticket photos.
 4. Write `docs/CONVENTIONS.md`.
-5. Write the first ticket with `/ticket`: "Test reading the three ticket fields from photos".
+5. Write the first ticket: `/refine` then `/ticket`, for "Test reading the three ticket fields from photos".
 
 ## Open questions
 

@@ -1,21 +1,27 @@
 ---
 name: ticket
-description: Draft a GitHub issue for this project in the fixed ticket format, show it to Nam, and post it only after Nam says yes.
+description: Draft GitHub issue(s) from the output of /refine, show them to Nam, and post each only after Nam says yes.
 disable-model-invocation: true
 ---
 
 # /ticket
 
-Nam describes a piece of work. Turn it into a GitHub issue.
+Turn the task(s) that /refine produced into GitHub issues.
+
+## 0. Check for /refine output
+
+If there's no /refine output for this work in the conversation, don't draft. Ask Nam to run /refine first.
+If /refine produced several tasks, draft and post them one at a time.
 
 ## 1. Draft the ticket
 
-Use exactly these five sections:
+Use exactly these sections, filled from /refine's summary:
 
 - **Title:** short, plain, starts with a verb (e.g. "Test reading the three ticket fields from photos").
 - **Why:** why the work is needed, in 1–3 sentences.
 - **What to do:** a short bullet list of the steps.
-- **Done when:** bullet list of checks that show the work is finished. Each one must be something Nam can see or verify.
+- **Done when:** the acceptance criteria from /refine, unchanged.
+- **Test cases:** the mark from /refine, unchanged: `needed — <reason>` or `not needed — <reason>`.
 - **Not included:** bullet list of related things this ticket does not cover.
 
 Keep it short and in plain words. No code unless Nam asks for it.
