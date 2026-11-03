@@ -2,7 +2,7 @@
 
 How a piece of work goes from an idea to merged code.
 
-**Status:** partly built (`/refine`, `/ticket`, implementer). Each remaining piece gets built when the first real ticket needs it.
+**Status:** partly built (`/refine`, `/ticket`, test writer, implementer). Each remaining piece gets built when the first real ticket needs it.
 
 ## The flow
 
@@ -29,7 +29,7 @@ flowchart TD
 | `/refine` | Skill | Discuss the work, split when needed, write acceptance criteria, mark "test cases needed?" | ✅ |
 | `/ticket` | Skill | Draft and post the GitHub issue from `/refine`'s output | ✅ |
 | `/work` | Skill | Run one assigned ticket through the steps below, in our conversation | ⏳ |
-| Test writer | Agent | Write test cases from the ticket's acceptance criteria, if the ticket says they're needed | ⏳ |
+| Test writer | Agent (Opus) | Write widget tests, integration tests and manual steps from the ticket's acceptance criteria only, before any code exists, on the ticket's branch. See `.claude/agents/test-writer.md` | ✅ |
 | Implementer | Agent (Sonnet) | Write the code for the ticket on its own branch, then report. See `.claude/agents/implementer.md` | ✅ |
 | Test check | Hook | Run the tests automatically and report failures | ⏳ |
 | Reviewer | Agent (Opus, planned) | Review the implementer's code with fresh eyes | ⏳ |
@@ -47,7 +47,8 @@ flowchart TD
 - **Evidence links in a pull request point to `main`** (`.../blob/main/docs/evidence/<issue>/...`), not to the ticket branch, so they keep working after the branch is deleted.
 - **After merge, delete the ticket branch**, locally and on GitHub. Pull requests are squash-merged, so check the branch's content is on `main` (`git diff <branch> main`) rather than relying on `git branch --merged`.
 - **Agents use full model IDs** (e.g. `claude-sonnet-5-5`), not aliases like `sonnet`: Nam's global settings point the aliases at a local router.
-- **Temporary exception:** until the test writer exists, the implementer writes simple tests itself (e.g. #2's "the app starts" test). The test writer gets built before the first ticket with real behavior to test.
+- **Test writer rules:** runs first, only for tickets marked "Test cases: needed". It creates the ticket's branch, writes the tests from "Done when" only (never from the implementer's code), runs them once to prove they fail because the feature is missing, commits, and reports. It may only write in `app/test/`, `app/integration_test/`, `docs/tests/<issue>.md`, `app/pubspec.yaml` (test add-ons) and `app/pubspec.lock`; a hook (`.claude/hooks/test-writer-paths.sh`) blocks anything else, and the block-push hook applies too. The implementer doesn't write tests.
+- **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the ticket with `/refine`, then the test writer runs again. (`/refine` and `/ticket` still need to learn to update an existing ticket; that's the next harness step.)
 
 ## Decisions and reasons
 
@@ -56,6 +57,7 @@ flowchart TD
 | Skills for steps that talk with Nam, agents for steps that don't | An agent can't stop midway to discuss with Nam; a skill runs in the conversation and can | An agent type gains a way to ask questions mid-task |
 | Reviewer is a separate agent | It starts fresh, without the implementer's reasoning, so it catches more | — |
 | The verifier ticks "Done when" boxes, not the implementer | The builder shouldn't certify its own work; ticking right after commit would show the ticket done before tests, review and merge; the implementer needs no GitHub write access | — |
+| Test writer on Opus | It defines what "correct" means, so its mistakes cost the most; a different model from the implementer won't share its misreading of a criterion | Its tests are consistently simple and right first time → Sonnet would do |
 | Implementer on Sonnet | Tickets are small and precise; Sonnet is strong at code and uses less of the plan's usage | It often uses up its 3 fix rounds, or stops on things it should handle → switch to Opus |
 | Reviewer on Opus (planned) | A different model from the implementer shares fewer blind spots, so it catches more | — |
 | `/ticket` doesn't start the test writer | Wrong moment: tickets aren't approved until assigned. Keeps each skill to one job | Test cases written at work start turn out to be too late |
@@ -68,6 +70,4 @@ flowchart TD
 
 ## Still to decide (when building)
 
-- Exactly where each problem goes back to: e.g. a failing test caused by a wrong test → test writer; caused by wrong code → implementer.
-- Where test cases live (ticket comment, test files, or both).
-- Confirm GitHub Actions is free for this public repository before setting up CI.
+- Exactly where each problem goes back to: e.g. a failing test caused by a wrong test → test writer; caused by wrong code → implementer.- Confirm GitHub Actions is free for this public repository before setting up CI.

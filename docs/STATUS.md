@@ -17,7 +17,7 @@ flowchart LR
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
     C3["/ticket skill ✅<br/>drafts + posts from /refine"]
     C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
-    C9["Ticket workflow /work 🔄<br/>implementer agent built, see WORKFLOW.md"]
+    C9["Ticket workflow /work 🔄<br/>test writer + implementer built, see WORKFLOW.md"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -45,14 +45,16 @@ flowchart LR
 - "Done when" boxes are ticked by the verifier (Claude for now, the reviewer later), never the implementer.
 - Flutter 3.47.9 and the Android tools are installed and checked; the `Pixel_10` emulator works.
 - Backlog item 2 refined and split into two tickets, both posted and unassigned: #4 home screen (sketch 1, the button does nothing yet) and #5 lock the app to portrait.
+- Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. Pipe-tested; not yet seen in a live run.
 - Cleanup: backlog item 1 marked done, PR #3's evidence links now point to `main`, the merged branch is deleted. Rules for both added to WORKFLOW.md. This file trimmed to the latest session.
 
 ## Next up
 
-1. Assign #4 (home screen) and #5 (portrait lock) to start them.
-2. Build the test writer agent before backlog item 3 (the camera), the first ticket with real behavior to test.
-3. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
-4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+1. Teach `/refine` and `/ticket` to update an existing ticket, so unclear criteria found by the test writer can be fixed.
+2. Assign #4 (home screen) and #5 (portrait lock), then run each: test writer → implementer → Claude verifies.
+3. Build the reviewer agent (with the verify part), shaped by those runs.
+4. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
+5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
 
