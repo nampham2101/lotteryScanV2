@@ -15,6 +15,7 @@ flowchart LR
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
     C3["/ticket skill ✅<br/>drafts + posts from /refine"]
     C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
+    C9["Ticket workflow /work ⏳<br/>designed, see WORKFLOW.md"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -39,6 +40,7 @@ flowchart LR
 - Harness: CLAUDE.md rules, commit settings, `/ticket` skill, permission rules, this status file.
 - Checked the Mac tools. Pinned Flutter 3.47.9 with FVM and added `setup.sh` and `docs/SETUP.md` for other developers (Mac and Linux).
 - Added the `/refine` skill (discuss the work, split when needed, acceptance criteria: Given / When / Then for behavior, checklist otherwise, plus a "test cases needed?" mark). `/ticket` now drafts from `/refine`'s output and stays type-only.
+- Designed the ticket workflow (`/work` skill, test writer, implementer, reviewer, test hook, CI) in [WORKFLOW.md](WORKFLOW.md). Not built yet. Nam's gate is at release time; at most 3 fix rounds.
 
 ## Next up
 
