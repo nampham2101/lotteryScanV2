@@ -49,7 +49,7 @@ flowchart LR
 - Built the implementer agent (`.claude/agents/implementer.md`, Sonnet): one branch per ticket, commits but never pushes, stops and reports when the ticket is unclear or something blocks it. Reviewer planned on Opus. Global rule changed: a blocker means stop and report, not fix.
 - Enforced "the implementer never pushes" with a hook in the agent file (`.claude/hooks/block-push.sh`). Pipe-tested; not yet seen in a live agent run.
 - Pinned the implementer to the full model ID `claude-sonnet-5-5`. The plain `sonnet` alias failed in the desktop app because the global settings rename it to a Gemini model meant for the local router. The router setup stays as it is. Revisit if the reviewer agent is built: it needs a full ID too.
-- Wrote [CONVENTIONS.md](CONVENTIONS.md) (ticket #1): folder structure, naming, code style, commit format, scope policy. Done on branch `ticket-1-conventions`, waiting for Nam's review. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
+- Wrote [CONVENTIONS.md](CONVENTIONS.md) (ticket #1): folder structure, naming, code style, commit format, scope policy. Merged to `main` and issue #1 closed. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
 
 ## Next up
 
@@ -61,7 +61,7 @@ Agreed order before writing code:
 2. Install Flutter and the Android command-line tools: run `./setup.sh` (see [SETUP.md](SETUP.md)).
    - Done (2026-11-03): Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
 3. Nam sends the three ticket photos.
-4. ~~Write `docs/CONVENTIONS.md`~~ ✅ (2026-11-03, ticket #1, on branch `ticket-1-conventions`)
+4. ~~Write `docs/CONVENTIONS.md`~~ ✅ (2026-11-03, ticket #1)
 5. Refine and post the tickets in [BACKLOG.md](BACKLOG.md), starting with #1 "Create the Flutter app": `/refine`, then `/ticket`.
 
 ## Open questions
