@@ -36,6 +36,7 @@ flowchart LR
     direction TB
     E1["Blank Android app ✅<br/>ticket #2, merged"]
     E2["Home screen ✅<br/>ticket #4, merged"]
+    E3["Portrait lock ✅<br/>ticket #5, PR #7"]
   end
 ```
 
@@ -50,15 +51,16 @@ flowchart LR
 - Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. First live run on #4 worked without stopping.
 - Built `/work` (`/work <issue number>`, one ticket per run): test writer → implementer → checks (at most 3 fix rounds) → tick proven boxes → findings to BACKLOG → PR → merges by itself when every check passes. New hook stops the implementer from changing tests; the test writer now saves its first failing run in `docs/evidence/<issue>/first-run.txt`. Hooks pipe-tested; `/work` not yet run live.
 - Added two backlog items from Nam (not refined): #11 change the home button text from "Quét vé" to something like "Chụp ảnh vé", with sketch 1 updated; #12 delete a ticket's proof of testing once it's closed and its branch deleted.
+- Ticket #5 (portrait lock) is done through the first live run of `/work` (PR #7), with no fix rounds. The test writer wrote 6 Flutter Driver tests that turn the `Pixel_10` emulator by its tilt sensor; all failed first. The implementer added one line to the Android manifest (`screenOrientation="portrait"`); all checks and manual steps pass, proof in `docs/evidence/5/`. `/work` ran the manual steps itself with `adb emu rotate` instead of toolbar clicks.
+- Added two backlog items found during #5 (not refined): #13 make `/work` run every kind of integration test; #14 write manual steps with adb commands Claude can run.
 - Cleanup: backlog item 1 marked done, PR #3's evidence links now point to `main`, the merged branch is deleted. Rules for both added to WORKFLOW.md. This file trimmed to the latest session.
 
 ## Next up
 
-1. Assign #5 (portrait lock) and run `/work 5`: the first live run of `/work`.
-2. Build the reviewer agent (with the verify part), shaped by those runs.
-3. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
-4. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
-5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+1. Build the reviewer agent (with the verify part), shaped by the #4 and #5 runs.
+2. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
+3. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
+4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
 

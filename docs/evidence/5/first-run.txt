@@ -1,0 +1,245 @@
+First run of ticket #5's integration tests on the Pixel_10 emulator, before the portrait lock exists.
+Run from app/ on 2026-11-03. Expected: every test fails because the screen turns with the phone.
+
+$ fvm flutter drive -d emulator-5554 --driver=integration_test/portrait_lock_driver.dart --target=integration_test/portrait_lock_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  package_config 2.2.0 (3.0.0 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+10 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                             10.1s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          291ms
+00:00 +0: (setUpAll)
+
+D/ProfileInstaller(12241): Installing profile for com.nampham.lotteryscan
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:61738/K-kGB1_IRfA=/
+VMServiceFlutterDriver: Isolate found with number: 8457496403233851
+VMServiceFlutterDriver: Isolate 8457496403233851 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:03 +0: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn
+
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/InsetsController(12241): hide(ime())
+I/ImeTracker(12241): com.nampham.lotteryscan:97a642b9: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/VRI[MainActivity](12241): WindowInsets changed: 2424x1080 statusBars:[0,137,0,0] mandatorySystemGestures:[0,137,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+00:09 +0 -1: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn [E]
+
+  Expected: <0>
+    Actual: <90>
+  the screen turned with the phone: it is not upright
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 66:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 121:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:09 +0 -1: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn
+
+D/VRI[MainActivity](12241): WindowInsets changed: 1080x2424 statusBars:[0,142,0,0] mandatorySystemGestures:[0,174,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/VRI[MainActivity](12241): WindowInsets changed: 2424x1080 statusBars:[0,137,0,0] mandatorySystemGestures:[0,137,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+00:16 +0 -2: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn [E]
+
+  Expected: <0>
+    Actual: <270>
+  the screen turned with the phone: it is not upright
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 66:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 121:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:16 +0 -2: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed
+
+D/VRI[MainActivity](12241): WindowInsets changed: 1080x2424 statusBars:[0,142,0,0] mandatorySystemGestures:[0,174,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/VRI[MainActivity](12241): WindowInsets changed: 2424x1080 statusBars:[0,137,0,0] mandatorySystemGestures:[0,137,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/VRI[MainActivity](12241): WindowInsets changed: 1080x2424 statusBars:[0,142,0,0] mandatorySystemGestures:[0,174,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+00:25 +0 -3: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed [E]
+
+  Expected: empty
+    Actual: [1793695265.783, 1793695268.779]
+  the screen turned 2 time(s) along the way
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 72:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 141:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:25 +0 -3: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed
+
+D/VRI[MainActivity](12241): WindowInsets changed: 2424x1080 statusBars:[0,137,0,0] mandatorySystemGestures:[0,137,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/VRI[MainActivity](12241): WindowInsets changed: 1080x2424 statusBars:[0,142,0,0] mandatorySystemGestures:[0,174,0,84] 
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+D/FlutterJNI(12241): Sending viewport metrics to the engine.
+00:34 +0 -4: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed [E]
+
+  Expected: empty
+    Actual: [1793695275.175, 1793695278.245]
+  the screen turned 2 time(s) along the way
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 72:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 141:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:34 +0 -4: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright
+
+D/FlutterJNI(12541): Beginning load of flutter...
+D/FlutterJNI(12541): flutter (null) was loaded normally!
+I/flutter (12541): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (12541): The Dart VM service is listening on http://127.0.0.1:44015/7gXPUhioQiY=/
+D/FlutterRenderer(12541): Width is zero. 0,0
+D/FlutterRenderer(12541): Width is zero. 0,0
+D/FlutterJNI(12541): Sending viewport metrics to the engine.
+D/FlutterJNI(12541): Sending viewport metrics to the engine.
+D/FlutterJNI(12541): Sending viewport metrics to the engine.
+00:45 +0 -5: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright [E]
+
+  Expected: <0>
+    Actual: <90>
+  the screen turned with the phone: it is not upright
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 66:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 178:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:45 +0 -5: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright
+
+D/FlutterJNI(12628): Beginning load of flutter...
+D/FlutterJNI(12628): flutter (null) was loaded normally!
+I/flutter (12628): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (12628): The Dart VM service is listening on http://127.0.0.1:42335/a4foFFwpn_w=/
+D/FlutterRenderer(12628): Width is zero. 0,0
+D/FlutterRenderer(12628): Width is zero. 0,0
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+00:55 +0 -6: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright [E]
+
+  Expected: <0>
+    Actual: <270>
+  the screen turned with the phone: it is not upright
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 66:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 178:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:55 +0 -6: (tearDownAll)
+
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+D/FlutterJNI(12628): Sending viewport metrics to the engine.
+00:58 +0 -6: Some tests failed.
+
+
+
+Failing tests:
+
+  .: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn
+
+  .: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn
+
+  .: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright
+
+  .: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright
+
+  ... and 2 more
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
+exit code: 1

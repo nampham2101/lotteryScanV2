@@ -1,0 +1,70 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  package_config 2.2.0 (3.0.0 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+10 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              4.4s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          928ms
+I/ham.lotteryscan(14681): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Choreographer(14681): Skipped 135 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(14681): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@dbd5320, of which baseContext=android.app.ContextImpl@a486595
+D/FlutterJNI(14681): Sending viewport metrics to the engine.
+D/ProfileInstaller(14681): Installing profile for com.nampham.lotteryscan
+00:00 [32m+0[0m: (setUpAll)[0m
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:63511/B-9AjT0H8r4=/
+VMServiceFlutterDriver: Isolate found with number: 8500545475280747
+VMServiceFlutterDriver: Isolate 8500545475280747 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:06 [32m+0[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn[0m
+
+I/Choreographer(14681): Skipped 160 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI(14681): Sending viewport metrics to the engine.
+D/InsetsController(14681): hide(ime())
+I/ImeTracker(14681): com.nampham.lotteryscan:1487183: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:12 [32m+1[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn[0m
+
+00:19 [32m+2[0m: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:28 [32m+3[0m: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:38 [32m+4[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI(14959): Beginning load of flutter...
+D/FlutterJNI(14959): flutter (null) was loaded normally!
+I/flutter (14959): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (14959): The Dart VM service is listening on http://127.0.0.1:41063/zQ-mZ_rdYTQ=/
+D/FlutterRenderer(14959): Width is zero. 0,0
+D/FlutterRenderer(14959): Width is zero. 0,0
+D/FlutterJNI(14959): Sending viewport metrics to the engine.
+D/FlutterJNI(14959): Sending viewport metrics to the engine.
+D/FlutterJNI(14959): Sending viewport metrics to the engine.
+00:48 [32m+5[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI(15044): Beginning load of flutter...
+D/FlutterJNI(15044): flutter (null) was loaded normally!
+I/flutter (15044): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (15044): The Dart VM service is listening on http://127.0.0.1:46413/EryuWIZyYKs=/
+D/FlutterRenderer(15044): Width is zero. 0,0
+D/FlutterRenderer(15044): Width is zero. 0,0
+D/FlutterJNI(15044): Sending viewport metrics to the engine.
+D/FlutterJNI(15044): Sending viewport metrics to the engine.
+D/FlutterJNI(15044): Sending viewport metrics to the engine.
+00:57 [32m+6[0m: (tearDownAll)[0m
+
+01:00 [32m+6[0m: All tests passed![0m
+
+exit 0
