@@ -29,7 +29,11 @@ flowchart LR
     D2["Three ticket photos ⏳"]
     D3["Reading self-check script ⏳"]
   end
-  D --> E["Build the app ⏳"]
+  D --> E
+  subgraph E["Build the app 🔄"]
+    direction TB
+    E1["Blank Android app ✅<br/>ticket #2, waiting for review"]
+  end
 ```
 
 ## Last session (2026-10-30 to 2026-11-03)
@@ -51,6 +55,7 @@ flowchart LR
 - Pinned the implementer to the full model ID `claude-sonnet-5-5`. The plain `sonnet` alias failed in the desktop app because the global settings rename it to a Gemini model meant for the local router. The router setup stays as it is. Revisit if the reviewer agent is built: it needs a full ID too.
 - Wrote [CONVENTIONS.md](CONVENTIONS.md) (ticket #1): folder structure, naming, code style, commit format, scope policy. Merged to `main` and issue #1 closed.
 - "Done when" boxes are now ticked by the verifier, never the implementer: Claude as manager for now (checks the evidence, shows Nam, ticks only what's proven), the reviewer agent once built. The implementer's ticking step was removed. Nam kept the six rules the implementer added beyond the ticket: single quotes, `const` where allowed, Vietnamese text for users, shared code in `app/lib/shared/`, `dart format` + `flutter analyze`, screens named `...Screen`.
+- Built the blank Android app in `app/` (ticket #2, on branch `ticket-2-blank-app`, not merged yet): Flutter 3.47.9, name **Dò Vé Số**, package ID `com.nampham.lotteryscan`, one blank screen, counter demo removed, one test replaces the demo test. Proof is in `docs/evidence/2/`. README "Repository" section rewritten.
 
 ## Next up
 
@@ -74,4 +79,4 @@ Agreed order before writing code:
 ## Waiting on Nam
 
 - Three ticket photos from three different miền Nam provinces.
-- Assign ticket #2 to start it.
+- Review ticket #2 (blank app) and merge it.
