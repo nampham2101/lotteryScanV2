@@ -2,7 +2,7 @@
 
 How a piece of work goes from an idea to merged code.
 
-**Status:** designed, **not built yet**. Each piece gets built when the first real ticket needs it.
+**Status:** partly built (`/refine`, `/ticket`, implementer). Each remaining piece gets built when the first real ticket needs it.
 
 ## The flow
 
@@ -30,9 +30,9 @@ flowchart TD
 | `/ticket` | Skill | Draft and post the GitHub issue from `/refine`'s output | ✅ |
 | `/work` | Skill | Run one assigned ticket through the steps below, in our conversation | ⏳ |
 | Test writer | Agent | Write test cases from the ticket's acceptance criteria, if the ticket says they're needed | ⏳ |
-| Implementer | Agent | Write the code for the ticket | ⏳ |
+| Implementer | Agent (Sonnet) | Write the code for the ticket on its own branch, then report. See `.claude/agents/implementer.md` | ✅ |
 | Test check | Hook | Run the tests automatically and report failures | ⏳ |
-| Reviewer | Agent | Review the implementer's code with fresh eyes | ⏳ |
+| Reviewer | Agent (Opus, planned) | Review the implementer's code with fresh eyes | ⏳ |
 | CI | GitHub Actions | Tests must pass before a pull request can merge | ⏳ |
 
 ## Rules
@@ -42,6 +42,8 @@ flowchart TD
 - **Test cases are written when work starts**, not when the ticket is created. Unassigned tickets are only proposals.
 - **Agents report, `/work` decides.** The hook and the reviewer report problems; `/work` sends the work back to the right step.
 - **Build one piece at a time**, when a real ticket needs it. Suggested order: implementer, test check, test writer, reviewer, `/work`, CI.
+- **Implementer rules:** one branch per ticket (`ticket-<number>-<short-name>`), commits there, never pushes or opens a pull request. If the ticket is unclear or leaves a choice open, it stops and reports the question. If something blocks the ticket, it stops and reports. Trivial fixes in files it's already changing are allowed and reported.
+- **Temporary exception:** until the test writer exists, the implementer writes simple tests itself (e.g. #2's "the app starts" test). The test writer gets built before the first ticket with real behavior to test.
 
 ## Decisions and reasons
 
@@ -49,6 +51,8 @@ flowchart TD
 |---|---|---|
 | Skills for steps that talk with Nam, agents for steps that don't | An agent can't stop midway to discuss with Nam; a skill runs in the conversation and can | An agent type gains a way to ask questions mid-task |
 | Reviewer is a separate agent | It starts fresh, without the implementer's reasoning, so it catches more | — |
+| Implementer on Sonnet | Tickets are small and precise; Sonnet is strong at code and uses less of the plan's usage | It often uses up its 3 fix rounds, or stops on things it should handle → switch to Opus |
+| Reviewer on Opus (planned) | A different model from the implementer shares fewer blind spots, so it catches more | — |
 | `/ticket` doesn't start the test writer | Wrong moment: tickets aren't approved until assigned. Keeps each skill to one job | Test cases written at work start turn out to be too late |
 | Gate at release, not at each pull request | Nam's attention goes to the running app instead of code diffs | Releases start shipping problems the flow should have caught |
 | 3-round loop limit | Stops endless fix loops, like the 24-hour runs in the previous attempt | 3 rounds turns out too few or too many in practice |

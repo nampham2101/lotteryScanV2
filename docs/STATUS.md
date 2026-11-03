@@ -15,7 +15,7 @@ flowchart LR
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
     C3["/ticket skill ✅<br/>drafts + posts from /refine"]
     C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
-    C9["Ticket workflow /work ⏳<br/>designed, see WORKFLOW.md"]
+    C9["Ticket workflow /work 🔄<br/>implementer agent built, see WORKFLOW.md"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -46,6 +46,7 @@ flowchart LR
 - Decided: Android only for now. iOS can be added later without breaking anything; recorded in the README.
 - Refined backlog item 1 into two tickets: #1 (write `docs/CONVENTIONS.md`) and #2 (blank Android app in `app/`, named "Dò Vé Số", package ID `com.nampham.lotteryscan`). Both posted, waiting for Nam to assign.
 - `/refine` now requires proof of testing: for tasks with test cases, proof of every test run (passed or failed) is committed in `docs/evidence/<issue number>/` and linked from the PR.
+- Built the implementer agent (`.claude/agents/implementer.md`, Sonnet): one branch per ticket, commits but never pushes, stops and reports when the ticket is unclear or something blocks it. Reviewer planned on Opus. Global rule changed: a blocker means stop and report, not fix.
 
 ## Next up
 
