@@ -35,7 +35,7 @@ flowchart LR
   subgraph E["Build the app 🔄"]
     direction TB
     E1["Blank Android app ✅<br/>ticket #2, merged"]
-    E2["Home screen 🔄<br/>ticket #4, built, waiting for verification"]
+    E2["Home screen 🔄<br/>ticket #4, verified, waiting for pull request"]
   end
 ```
 
@@ -46,14 +46,14 @@ flowchart LR
 - "Done when" boxes are ticked by the verifier (Claude for now, the reviewer later), never the implementer.
 - Flutter 3.47.9 and the Android tools are installed and checked; the `Pixel_10` emulator works.
 - Backlog item 2 refined and split into two tickets, both posted and unassigned: #4 home screen (sketch 1, the button does nothing yet) and #5 lock the app to portrait.
-- Ticket #4 (home screen) built on branch `ticket-4-home-screen`: widget tests and Pixel_10 integration tests pass, manual steps run, proof in `docs/evidence/4/`. Not yet verified or merged.
-- Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. Pipe-tested; not yet seen in a live run.
+- Ticket #4 (home screen) built on branch `ticket-4-home-screen`: widget tests and Pixel_10 integration tests pass, manual steps run, proof in `docs/evidence/4/`. Claude verified it and both "Done when" boxes are ticked. Nam chose to tick the proof box even though the test writer's first failing run wasn't saved. Not merged yet.
+- Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. First live run on #4 worked without stopping.
 - Cleanup: backlog item 1 marked done, PR #3's evidence links now point to `main`, the merged branch is deleted. Rules for both added to WORKFLOW.md. This file trimmed to the latest session.
 
 ## Next up
 
 1. Teach `/refine` and `/ticket` to update an existing ticket, so unclear criteria found by the test writer can be fixed.
-2. Verify #4 (home screen, built by the implementer, evidence in `docs/evidence/4/`), then run #5 (portrait lock) the same way: test writer → implementer → Claude verifies.
+2. Open the pull request for #4 (home screen, verified, evidence in `docs/evidence/4/`), then run #5 (portrait lock) the same way: test writer → implementer → Claude verifies.
 3. Build the reviewer agent (with the verify part), shaped by those runs.
 4. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
 5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
