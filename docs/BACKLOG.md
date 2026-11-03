@@ -29,6 +29,15 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 | 9 | Check a read ticket against the results (won, lost, or not drawn yet) | — | not refined |
 | 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | not refined |
 
+## Found along the way
+
+Items noticed during other work. They go through `/refine` like everything else.
+
+| # | Ticket | Needs from Nam | Status |
+|---|---|---|---|
+| 11 | Change the home button text: the person takes a photo of the ticket, so "Quét vé" (scan ticket) should say something like "Chụp ảnh vé". Update sketch 1 in `docs/design/` too, since screens must follow the sketches. | The exact wording | not refined |
+| 12 | Delete a ticket's proof of testing (`docs/evidence/<issue>/`) once the ticket is closed and its branch deleted | — | not refined |
+
 ## Built along the way
 
 The ticket workflow pieces ([WORKFLOW.md](WORKFLOW.md)) get built when the first ticket needs them, not as separate tickets up front: the `/work` skill, the test writer, implementer and reviewer agents, the test hook, and CI.
