@@ -1,0 +1,10 @@
+Manual steps from docs/tests/4.md, run on the Pixel_10 emulator (emulator-5554, 1080x2424, density 420).
+
+Step 1 (opens to the home screen): installed with `fvm flutter run -d emulator-5554` (run-log.txt), closed the app,
+  opened the app list (app-list.png), tapped "Dò Vé Số". Result: home screen (home-screen.png). PASSED.
+Step 2 (layout matches sketch 1): home-vs-sketch.png. Same order (title, line, round blue button with camera icon and
+  "Quét vé" in white), centred, white background, no top bar or other widgets. The sketch phone is shorter than the
+  Pixel_10, so sizes differ in proportion. The red DEBUG ribbon at the top right comes from the debug build, not from the app. PASSED.
+Step 3 (accents, nothing cut off): accents.png. Marks on ò, é, ố, ụ, ể, ế, ú, ô all show; no empty boxes, no "...". PASSED.
+Step 4 (tap does nothing): one tap, 2 s wait (after-one-tap.png), then five quick taps and 2 s wait (after-taps.png).
+  Same home screen both times; app still running (pid present, MainActivity on top). PASSED.
