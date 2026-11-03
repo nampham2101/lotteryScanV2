@@ -2,7 +2,7 @@
 name: implementer
 description: Implements one assigned GitHub ticket for this project on its own branch. Use when a ticket is assigned and ready to build. Stops and reports instead of guessing.
 tools: Read, Write, Edit, Bash, Glob, Grep
-model: sonnet
+model: claude-sonnet-5-5
 hooks:
   PreToolUse:
     - matcher: "Bash"
