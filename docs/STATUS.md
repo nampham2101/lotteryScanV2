@@ -44,6 +44,7 @@ flowchart LR
 - Sketched the MVP screens (home, camera with shutter, reading, won, lost, not drawn yet, can't read) and saved them as [design/screens.png](design/screens.png). Added a CLAUDE.md rule: screens follow the sketches, no invented designs.
 - Listed the tickets to refine in [BACKLOG.md](BACKLOG.md): 7 for the reading gate, 3 after it.
 - Decided: Android only for now. iOS can be added later without breaking anything; recorded in the README.
+- `/refine` now requires proof of testing: for tasks with test cases, proof of every test run (passed or failed) is committed in `docs/evidence/<issue number>/` and linked from the PR.
 
 ## Next up
 
