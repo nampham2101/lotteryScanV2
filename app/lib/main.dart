@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 void main() {
   runApp(const LotteryScanApp());
 }
@@ -9,6 +11,6 @@ class LotteryScanApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Dò Vé Số', home: Scaffold());
+    return const MaterialApp(title: 'Dò Vé Số', home: HomeScreen());
   }
 }

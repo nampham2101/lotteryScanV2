@@ -1,0 +1,41 @@
+Launching lib/main.dart on sdk gphone16k arm64 in debug mode...
+Running Gradle task 'assembleDebug'...                              5.3s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          277ms
+I/FlutterActivityAndFragmentDelegate( 9909): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI( 9909): Beginning load of flutter...
+D/FlutterJNI( 9909): flutter (null) was loaded normally!
+I/flutter ( 9909): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/FlutterRenderer( 9909): Width is zero. 0,0
+Syncing files to device sdk gphone16k arm64...                  
+D/WindowOnBackDispatcher( 9909): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@91138a8
+I/WindowExtensionsImpl( 9909): Initializing Window Extensions, vendor API level=10, activity embedding enabled=true
+W/UiContextUtils( 9909): Requested context is a non-UI Context. Creating a UI-Context with display: 0. Context: Context=android.app.Application@38b2ac9, of which baseContext=android.app.ContextImpl@ca991c
+Syncing files to device sdk gphone16k arm64...                      30ms
+D/VRI[MainActivity]( 9909): WindowInsets changed: 1080x2424 statusBars:[0,142,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,174,0,84] 
+D/FlutterRenderer( 9909): Width is zero. 0,0
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on sdk gphone16k arm64 is available at: http://127.0.0.1:57583/4Gd1XVjA9M0=/
+The Flutter DevTools debugger and profiler on sdk gphone16k arm64 is available at: http://127.0.0.1:57583/4Gd1XVjA9M0=/devtools/?uri=ws://127.0.0.1:57583/4Gd1XVjA9M0=/ws
+I/Surface ( 9909): Creating surface for consumer unnamed-9909-0 with slotExpansion=1 for 64 slots
+I/Surface ( 9909): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+D/FlutterJNI( 9909): Sending viewport metrics to the engine.
+I/ham.lotteryscan( 9909): Compiler allocated 5317KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Surface ( 9909): Creating surface for consumer unnamed-9909-1 with slotExpansion=1 for 64 slots
+I/Surface ( 9909): Creating surface for consumer 9468cc6 SurfaceView[com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity]#1(BLAST Consumer)1 with slotExpansion=1 for 64 slots
+D/FlutterJNI( 9909): Sending viewport metrics to the engine.
+D/WindowLayoutComponentImpl( 9909): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@1f517dd, of which baseContext=android.app.ContextImpl@d8b6d7f
+D/FlutterJNI( 9909): Sending viewport metrics to the engine.
+D/InsetsController( 9909): hide(ime())
+I/ImeTracker( 9909): com.nampham.lotteryscan:1dbc7d84: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/ProfileInstaller( 9909): Installing profile for com.nampham.lotteryscan
+
+Application finished.
