@@ -47,6 +47,7 @@ flowchart LR
 - Refined backlog item 1 into two tickets: #1 (write `docs/CONVENTIONS.md`) and #2 (blank Android app in `app/`, named "Dò Vé Số", package ID `com.nampham.lotteryscan`). Both posted, waiting for Nam to assign.
 - `/refine` now requires proof of testing: for tasks with test cases, proof of every test run (passed or failed) is committed in `docs/evidence/<issue number>/` and linked from the PR.
 - Built the implementer agent (`.claude/agents/implementer.md`, Sonnet): one branch per ticket, commits but never pushes, stops and reports when the ticket is unclear or something blocks it. Reviewer planned on Opus. Global rule changed: a blocker means stop and report, not fix.
+- Enforced "the implementer never pushes" with a hook in the agent file (`.claude/hooks/block-push.sh`). Pipe-tested; not yet seen in a live agent run.
 
 ## Next up
 

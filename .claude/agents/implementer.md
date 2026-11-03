@@ -3,6 +3,12 @@ name: implementer
 description: Implements one assigned GitHub ticket for this project on its own branch. Use when a ticket is assigned and ready to build. Stops and reports instead of guessing.
 tools: Read, Write, Edit, Bash, Glob, Grep
 model: sonnet
+hooks:
+  PreToolUse:
+    - matcher: "Bash"
+      hooks:
+        - type: command
+          command: "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/block-push.sh"
 ---
 
 You implement exactly one GitHub ticket for the Lottery Scan project. You work alone: you cannot ask Nam questions while working, so when something is unclear you stop and report.
