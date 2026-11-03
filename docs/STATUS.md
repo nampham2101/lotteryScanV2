@@ -17,11 +17,13 @@ flowchart LR
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
+    C7["Shared dev setup ✅<br/>Flutter 3.47.9 pinned, setup.sh"]
   end
   C --> D
   subgraph D["Reading test — the gate ⏳"]
     direction TB
-    D1["Check Mac tools ⏳<br/>Flutter, Android Studio, Xcode"]
+    D1["Check Mac tools ✅"]
+    D4["Install Flutter + Android tools ⏳"]
     D2["Three ticket photos ⏳"]
     D3["Reading self-check script ⏳"]
   end
@@ -37,7 +39,16 @@ flowchart LR
 
 ## Next up
 
-- Nam picks the next step: the notify-me hook, checking the Mac tools, or the reading test.
+Agreed order before writing code:
+
+1. ~~Check what's installed on the Mac~~ ✅ (2026-11-02)
+   - Installed: Homebrew, Android Studio, Android SDK (API 34–36.1), Android emulator with a `Pixel_10` device, Java 21, Xcode 27.1 with iOS simulators.
+   - Missing: Flutter, Android command-line tools, CocoaPods (only needed for iOS, later).
+2. Install Flutter and the Android command-line tools: run `./setup.sh` (see [SETUP.md](SETUP.md)).
+   - Done (2026-11-03): Flutter pinned to 3.47.9 with FVM, `setup.sh` (Mac and Linux, asks before each install) and `docs/SETUP.md` written. No Docker.
+3. Nam sends the three ticket photos.
+4. Write `docs/CONVENTIONS.md`.
+5. Write the first ticket with `/ticket`: "Test reading the three ticket fields from photos".
 
 ## Open questions
 
@@ -48,3 +59,5 @@ flowchart LR
 ## Waiting on Nam
 
 - Three ticket photos from three different miền Nam provinces.
+- Android command-line tools: install from Android Studio → Settings → Android SDK → SDK Tools tab.
+- Accept the Android licenses (`flutter doctor --android-licenses`, after Flutter is installed). It asks you to type `y`.
