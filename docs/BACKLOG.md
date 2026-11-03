@@ -12,7 +12,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 | # | Ticket | Needs from Nam | Status |
 |---|---|---|---|
 | 1 | Create the Flutter app (empty app on the pinned Flutter version) and write `docs/CONVENTIONS.md` | Flutter installed (`./setup.sh`) | done (#1, #2) |
-| 2 | Home screen with the "Quét vé" button (sketch 1) | — | #4 home screen done; #5 portrait lock posted |
+| 2 | Home screen with the "Quét vé" button (sketch 1) | — | #4 home screen done; #5 portrait lock done (PR #7) |
 | 3 | The button opens the camera; tapping the shutter takes the photo (sketch 2) | — | not refined |
 | 4 | Show the taken photo on screen | — | not refined |
 | 5 | Mark where each field sits on the ticket (ticket number, date, province), per province if layouts differ | The three ticket photos, and which area holds which field | not refined |
@@ -37,6 +37,8 @@ Items noticed during other work. They go through `/refine` like everything else.
 |---|---|---|---|
 | 11 | Change the home button text: the person takes a photo of the ticket, so "Quét vé" (scan ticket) should say something like "Chụp ảnh vé". Update sketch 1 in `docs/design/` too, since screens must follow the sketches. | The exact wording | not refined |
 | 12 | Delete a ticket's proof of testing (`docs/evidence/<issue>/`) once the ticket is closed and its branch deleted | — | not refined |
+| 13 | `/work` runs integration tests with one command, but #5's tests need `fvm flutter drive` and #4's need their file path. Make `/work` find and run every kind (found in #5) | — | not refined |
+| 14 | Manual steps say "click the emulator toolbar" and "take a Mac screenshot", which Claude can't do. Write them with `adb emu rotate` and `adb emu screenrecord screenshot`, which work. Note that `adb emu rotate` only turns one way (found in #5) | — | not refined |
 
 ## Built along the way
 
