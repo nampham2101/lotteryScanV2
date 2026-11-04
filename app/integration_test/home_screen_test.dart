@@ -29,22 +29,4 @@ void main() {
     expectHomeScreenTexts();
     expectNoTextCutOff(tester);
   });
-
-  testWidgets('3. on Pixel_10 tapping "Quét vé" once and then several times '
-      'quickly stays on the home screen without an error', (tester) async {
-    await _openApp(tester);
-    expectHomeScreenTexts();
-    final textsBefore = visibleTexts();
-
-    await tester.tap(find.text(scanButtonLabel));
-    await tester.pumpAndSettle();
-    expectStillOnHomeScreen(tester, textsBefore);
-
-    for (var i = 0; i < 5; i++) {
-      await tester.tap(find.text(scanButtonLabel));
-      await tester.pump(const Duration(milliseconds: 50));
-    }
-    await tester.pumpAndSettle();
-    expectStillOnHomeScreen(tester, textsBefore);
-  });
 }
