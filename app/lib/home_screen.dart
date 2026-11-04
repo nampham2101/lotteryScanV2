@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'camera_screen.dart';
+import 'shared/ticket_camera.dart';
+
 const _scanButtonBlue = Color(0xFF1A5FA6);
 const _scanButtonSize = 230.0;
 
@@ -59,16 +62,40 @@ class _HomeHeading extends StatelessWidget {
   }
 }
 
-/// The large round blue button. It does nothing yet: the camera comes in a
-/// later ticket.
-class ScanButton extends StatelessWidget {
+/// The large round blue button. It asks for camera access when needed and
+/// opens the camera screen once access is allowed. If access is refused, the
+/// home screen stays as it is: a later ticket decides what to tell the person.
+class ScanButton extends StatefulWidget {
   const ScanButton({super.key});
+
+  @override
+  State<ScanButton> createState() => _ScanButtonState();
+}
+
+class _ScanButtonState extends State<ScanButton> {
+  bool _isOpening = false;
+
+  Future<void> _openCamera() async {
+    if (_isOpening) return;
+    _isOpening = true;
+    final controller = await startTicketCamera();
+    _isOpening = false;
+    if (controller == null) return;
+    if (!mounted) {
+      await controller.dispose();
+      return;
+    }
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => CameraScreen(controller: controller),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      // An empty handler, not null: null would grey the button out.
-      onPressed: () {},
+      onPressed: _openCamera,
       style: FilledButton.styleFrom(
         backgroundColor: _scanButtonBlue,
         foregroundColor: Colors.white,

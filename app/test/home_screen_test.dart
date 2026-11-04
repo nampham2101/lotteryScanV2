@@ -80,33 +80,4 @@ void main() {
       expectNoTextCutOff(tester);
     });
   });
-
-  group('3. Tapping the button does nothing yet', () {
-    testWidgets('tapping "Quét vé" once stays on the home screen '
-        'with nothing changed and no error', (tester) async {
-      await _openApp(tester);
-      expectHomeScreenTexts();
-      final textsBefore = visibleTexts();
-
-      await tester.tap(find.text(scanButtonLabel));
-      await tester.pumpAndSettle();
-
-      expectStillOnHomeScreen(tester, textsBefore);
-    });
-
-    testWidgets('tapping "Quét vé" several times quickly stays on the '
-        'home screen with nothing changed and no error', (tester) async {
-      await _openApp(tester);
-      expectHomeScreenTexts();
-      final textsBefore = visibleTexts();
-
-      for (var i = 0; i < 5; i++) {
-        await tester.tap(find.text(scanButtonLabel));
-        await tester.pump(const Duration(milliseconds: 50));
-      }
-      await tester.pumpAndSettle();
-
-      expectStillOnHomeScreen(tester, textsBefore);
-    });
-  });
 }

@@ -1,0 +1,11 @@
+Permissions in the release APK built after fix round 1 (aapt2 dump permissions on app-release.apk).
+CAMERA is the only dangerous permission. ACCESS_NETWORK_STATE is a normal permission, and the
+DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION one is the app's own, from AndroidX. RECORD_AUDIO, WRITE_EXTERNAL_STORAGE and
+READ_EXTERNAL_STORAGE came from the camera add-on (camera_android_camerax; the merger added READ because WRITE was
+requested) and are removed with tools:node="remove" in AndroidManifest.xml.
+
+package: com.nampham.lotteryscan
+uses-permission: name='android.permission.CAMERA'
+permission: com.nampham.lotteryscan.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='com.nampham.lotteryscan.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+uses-permission: name='android.permission.ACCESS_NETWORK_STATE'

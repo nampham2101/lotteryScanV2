@@ -1,0 +1,51 @@
+== step 1
+'' '' true [28,753][1052,1720] grant_singleton
+'' '' true [28,753][1052,1720] grant_dialog
+'Allow Dò Vé Số to take pictures and record video?' '' false [133,974][947,1142] permission_message
+'While using the app' '' true [133,1205][947,1331] permission_allow_foreground_only_button
+'Only this time' '' true [133,1352][947,1478] permission_allow_one_time_button
+'Don’t allow' '' true [133,1499][947,1625] permission_deny_button
+com.google.android.permissioncontroller/com.android.permissioncontroller.permission.ui.GrantPermissionsActivity}
+== step 2
+'' 'Đặt vé vào khung' false [0,144][1080,212] 
+'' 'Chụp ảnh' true [424,1973][656,2204] 
+com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+== step 3
+'' 'Dò vé số' false [336,582][744,731] 
+'' 'Chụp vé để biết trúng hay không' false [194,773][886,842] 
+'' 'Quét vé' true [238,1198][842,1802] 
+-rw------- 1 u0_a328 u0_a328   297286 2026-11-04 09:39 ./app_flutter/ticket_photo.jpg
+-rw------- 1 u0_a328 u0_a328       24 2026-11-04 09:39 ./files/profileInstalled
+kept-photo.jpg: JPEG image data, Exif standard: [TIFF image data, little-endian, direntries=7, mod
+== step 4
+running after swipe: []
+'' 'Đặt vé vào khung' false [0,144][1080,212] 
+'' 'Chụp ảnh' true [424,1973][656,2204] 
+com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+== step 5
+-rw------- 1 u0_a328 u0_a328   297286 2026-11-04 09:39 ./app_flutter/ticket_photo.jpg
+-rw------- 1 u0_a328 u0_a328       24 2026-11-04 09:39 ./files/profileInstalled
+'' 'Đặt vé vào khung' false [0,144][1080,212] 
+'' 'Chụp ảnh' true [424,1973][656,2204] 
+'' 'Dò vé số' false [336,582][744,731] 
+'' 'Chụp vé để biết trúng hay không' false [194,773][886,842] 
+'' 'Quét vé' true [238,1198][842,1802] 
+com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+'' 'Đặt vé vào khung' false [0,144][1080,212] 
+'' 'Chụp ảnh' true [424,1973][656,2204] 
+'' 'Dò vé số' false [336,582][744,731] 
+'' 'Chụp vé để biết trúng hay không' false [194,773][886,842] 
+'' 'Quét vé' true [238,1198][842,1802] 
+com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+-rw------- 1 u0_a328 u0_a328   297286 2026-11-04 09:39 ./app_flutter/ticket_photo.jpg
+-rw------- 1 u0_a328 u0_a328       24 2026-11-04 09:39 ./files/profileInstalled
+file lists identical
+== back straight after the shutter
+back 0s after shutter: home shown=1 camera shown=0 ticket_photo present=1 front=com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity} pid_alive=yes
+back 0.1s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 0.2s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 0.3s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 0.5s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 0.8s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 1.2s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes
+back 2s after shutter: home shown=0 camera shown=0 ticket_photo present=1 front=com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity} pid_alive=yes

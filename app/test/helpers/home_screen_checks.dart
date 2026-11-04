@@ -72,28 +72,3 @@ void expectNoTextCutOff(WidgetTester tester) {
     );
   }
 }
-
-/// What is on screen right now, to compare before and after a tap.
-List<String> visibleTexts() => find
-    .byType(RichText)
-    .evaluate()
-    .map(
-      (element) =>
-          (element.renderObject! as RenderParagraph).text.toPlainText(),
-    )
-    .toList();
-
-/// Still on the home screen: same texts, no new page, popup or error.
-void expectStillOnHomeScreen(WidgetTester tester, List<String> textsBefore) {
-  expectHomeScreenTexts();
-  expect(visibleTexts(), textsBefore, reason: 'the screen changed');
-  expect(
-    Navigator.of(tester.element(find.text(homeTitle))).canPop(),
-    isFalse,
-    reason: 'a new page was opened on top of the home screen',
-  );
-  expect(find.byType(SnackBar), findsNothing, reason: 'a message appeared');
-  expect(find.byType(Dialog), findsNothing, reason: 'a popup appeared');
-  expect(find.byType(BottomSheet), findsNothing, reason: 'a sheet appeared');
-  expect(tester.takeException(), isNull, reason: 'the app threw an error');
-}

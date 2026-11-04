@@ -1,0 +1,49 @@
+Manual steps for ticket #8, from docs/tests/8.md. Run on 2026-11-04.
+
+WHERE EACH CHECK RAN
+
+The camera tests and these manual steps ran on Nam's real Pixel 7 (Android 17), by
+Nam's decision, not on the Pixel_10 emulator. The emulator's back camera shows a still
+scene, so "it shows a live camera picture" and the checks built on it can't pass there
+reliably (see second-run.txt). The phone was held in the hand so the picture moved.
+
+The home screen and portrait lock tests ran on the Pixel_10 emulator: the portrait lock
+tests fake turning the phone, which a real phone can't do.
+
+Run 1 on the phone (phone-camera-tests-run-1.txt) had 11 passed, 1 failed. Android's
+question had gone before the test could tap "While using the app", and the camera
+started before the test tapped anything. The most likely cause is a person tapping
+Allow by hand; the phone's log can't prove it. Run 2 (phone-camera-tests-run-2.txt),
+with nobody touching the screen, had 12 passed, 0 failed.
+
+The steps were driven with adb (real taps sent to the phone) and uiautomator, from a
+fresh install built with `fvm flutter build apk --debug`. Nothing was typed by hand.
+
+STEP 1: Android asks for camera access the first time. PASSED
+- Tapped Quét vé. Android showed "Allow Dò Vé Số to take pictures and record video?"
+- Tapped "While using the app". The camera screen opened with no second question.
+- Screenshot: asked-for-camera.png
+
+STEP 2: the camera screen matches sketch 2. PASSED, with one note
+- Dark background, "Đặt vé vào khung" at the top with correct accents, a dashed frame,
+  a round shutter at the bottom middle, a live camera picture inside the frame, and no
+  added buttons. The phone's accessibility list shows only the text and one tappable
+  item.
+- The picture moved between the two screenshots.
+- The red "DEBUG" corner banner comes from the debug build, not from the screen.
+- Note: the dashed frame is taller than in the sketch. It takes up about 68% of the
+  screen height, against about 53% in the sketch. The other elements match.
+- Screenshots: camera-screen.png, camera-screen-later.png
+
+STEP 3: the kept photo is the camera's picture. PASSED
+- Tapped the shutter. The home screen showed.
+- The photo is at ./app_flutter/ticket_photo.jpg inside the app's private folders.
+- It opens as a normal picture of what the camera was showing, upright and not blank.
+- Files: kept-photo.jpg, after-shutter-home.png
+
+STEP 4: no question after reopening the app. PASSED
+- Swiped the app away in recent apps. Its process was gone.
+- Reopened it and tapped Quét vé. The camera screen opened and Android asked nothing.
+- Screenshot: reopened-camera-screen.png
+
+The app was uninstalled from the phone afterwards.
