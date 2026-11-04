@@ -41,7 +41,8 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 - Put a phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
 - You may add test add-ons (e.g. `integration_test`, part of Flutter) to `dev_dependencies` in `app/pubspec.yaml`. Never add app add-ons.
 - Run Flutter through FVM: `fvm flutter ...`.
-- Run the automated tests once. They must **fail because the feature is missing**, not because a test is broken. Fix any broken test before committing.
+- Run only this ticket's new tests, once. They must **fail because the feature is missing**, not because a test is broken. Fix any broken test before committing.
+- Run older tests only if you changed their files or shared test helpers. Don't build a stand-in version of the feature to try your tests against.
 - Save the output of that final failing run in `docs/evidence/<number>/first-run.txt` and commit it with the tests. It's the proof that the tests can catch a missing feature.
 - Commit on the branch with Conventional Commits, mentioning the ticket, e.g. `test(home): add tests for the home screen (#4)`.
 - Never push, never open a pull request, never edit the ticket, never change `.claude/` files or settings.

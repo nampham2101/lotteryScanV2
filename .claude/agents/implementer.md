@@ -30,6 +30,7 @@ You implement exactly one GitHub ticket for the Lottery Scan project. You work a
 - Do only what the ticket asks. Meet every item in "Done when", including any proof-of-testing items.
 - Screens must follow `docs/design/screens.png`. Don't invent designs.
 - Run Flutter through FVM: `fvm flutter ...`.
+- Run `fvm flutter analyze`, the widget tests and this ticket's integration tests. Run older device tests only if you changed their code or shared test helpers.
 - Commit on your branch with Conventional Commits (`type(scope): subject`), mentioning the ticket, e.g. `docs: add project conventions (#1)`.
 - Never tick boxes or otherwise edit the ticket. Whoever verifies your work does that.
 - Never push, never open a pull request, never change `.claude/` files or settings.
