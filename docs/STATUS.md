@@ -58,13 +58,15 @@ flowchart LR
 - Decision: `/work` now runs the reviewer before the checks, because #8 ran a full test pass before each of its 4 reviews. The reviewer reviews code only, across all the ticket's changes every time, and reports every problem at once. The implementer fixes them all in one round, and improvements go to the backlog. The checks step now also proves "Done when" and ticks the boxes. Any code fix after a failed check goes back through the reviewer; a run problem just reruns the check. Manual steps now cover only what automated tests can't prove, and `/refine`'s proof line accepts saved test output. Accepted risk: `/work` judges its own evidence. Revisit if a ticket merges with a "Done when" item that wasn't really proven. #9 and #10 still carry the old proof line. Not yet run live.
 - Added `/ticket update <issue number>`: it shows Nam each changed line, old and new, and changes the ticket only after Nam's yes. `/refine` stays the place to change "Done when" items. Built now instead of waiting for an unclear criterion, because the workflow changes left #9 and #10 out of date.
 - Decision: the test writer now picks the device for each test, replacing the phone-first rule above. A device named in the ticket wins. Otherwise the default is `Pixel_10`, and a real phone is used only when the emulator can't prove the item, with phone tests in their own file. "It must pass on the Pixel 7" is removed from #10. Accepted risk: a bug that only shows on a real phone may first appear at the release check. Revisit if that happens. Not yet run live.
+- Decision: `/work`'s checks now run analyze, all the widget tests and the ticket's own device tests and manual steps. Older device tests run only if the ticket touched their code or shared test helpers; the rest wait for a regression run before a release. That run isn't designed yet. Accepted risk: a ticket can break an older feature and stay on `main` until then. Revisit if that happens. Not yet run live.
 
 ## Next up
 
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
-3. Nam runs `/work` on #10.
-4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+3. Design the regression run, which is needed before the first release.
+4. Nam runs `/work` on #10.
+5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
 

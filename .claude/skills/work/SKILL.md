@@ -42,7 +42,9 @@ Steps 4 and 5 share at most 3 fix rounds. After 3 rounds without passing: stop, 
 - Follow the "Where these run" line in `docs/tests/<number>.md`: the test writer chose the device for each test. Start `Pixel_10` if it isn't running.
 - If tests need a real phone, check `adb devices` lists one as `device`, and ask Nam to unlock it if it's locked. If none is connected: stop and tell Nam. Don't use the emulator instead.
 - Put a phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
-- Run `fvm flutter analyze` and the widget tests in `app/`, and each integration test on its device. Save the output in `docs/evidence/<number>/`, and say which device each run used.
+- Run `fvm flutter analyze` and all the widget tests in `app/`.
+- Run this ticket's integration tests, each on its device. Run older device tests only if the ticket touched their code or shared test helpers: check `git diff main...HEAD --stat`, and if unsure, run them. The rest wait for the regression run before a release.
+- Save the output in `docs/evidence/<number>/`, and say which device each run used.
 - Confirm the implementer changed no test files since the test writer's last commit.
 - Run each manual step in `docs/tests/<number>.md` on its device. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
 - Prove each "Done when" item, including every Given / When / Then and the checklist. Find the test or manual step that covers it and the saved output or screenshot showing it passed. Read the saved output and look at the screenshots yourself; a claim that something passed isn't proof.

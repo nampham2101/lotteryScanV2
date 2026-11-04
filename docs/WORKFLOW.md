@@ -36,6 +36,7 @@ flowchart TD
 | Test check | Hook | Run the tests automatically and report failures | ⏳ |
 | Reviewer | Agent (Opus) | Review the code with fresh eyes, across all the ticket's changes, before the checks. See `.claude/agents/reviewer.md` | ✅ |
 | CI | GitHub Actions | Tests must pass before a pull request can merge | ⏳ |
+| Regression run | Not designed yet | Run every test, including the ones that need the phone, before a release | ⏳ |
 
 ## Rules
 
@@ -53,8 +54,9 @@ flowchart TD
 - **Reviewer rules:** runs after the implementer and before the checks, given only the ticket number, never the implementer's report. It reviews the code only, across all the ticket's changes every time, reports every problem at once, and changes nothing: it has no file-editing tools, though it can run shell commands, so "never change files" rests on its instructions. The block-push hook applies too. All its problems go back together, as one fix round, shared with the checks. Improvements and style preferences go to the backlog, not back to the implementer.
 - **Code fixes go through the reviewer again.** Any code fix after a failed check returns to the reviewer before the checks rerun. A run problem with no code fix just reruns the check. Both count as a fix round.
 - **Device rule:** the test writer decides where each test runs, and `docs/tests/<issue>.md` says which device each one uses and why in its "Where these run" line. A device named in the ticket wins. Otherwise the default is the `Pixel_10` emulator, and a real phone is used only when the emulator can't prove the item, like a live camera picture. Tests that need the phone go in their own file. `/refine` names a device only when Nam asks. The phone's serial goes in `ANDROID_SERIAL`, never in the repo, and every command names its device. Evidence says which device each run used.
+- **What the checks run:** every ticket runs analyze, all the widget tests, and its own device tests and manual steps. Older device tests run only if the ticket touched their code or shared test helpers. All the tests run in the regression run before a release.
 - **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the criterion with `/refine`, `/ticket update` applies it to the ticket, then the test writer runs again.
-- **`/work` merges by itself** once every check passes: analyze, widget and integration tests, manual steps, no test files changed, every "Done when" item proven, and the reviewer says it looks good. Nam steps in only when it stops. Until CI exists, these checks run inside `/work` only.
+- **`/work` merges by itself** once every check passes: analyze, widget tests, the ticket's integration tests, manual steps, no test files changed, every "Done when" item proven, and the reviewer says it looks good. Nam steps in only when it stops. Until CI exists, these checks run inside `/work` only.
 - **`/work` routing:**
 
   | What fails | Where it goes | Fix round? |
@@ -89,6 +91,7 @@ flowchart TD
 | `/ticket` doesn't start the test writer | Wrong moment: tickets aren't approved until Nam runs `/work`. Keeps each skill to one job | Test cases written at work start turn out to be too late |
 | Running `/work` is the go signal, and `/work` assigns the ticket | Nam shouldn't have to go to GitHub just to start a ticket. Only Nam can start `/work`, so the approval stays with Nam | Something other than Nam can start `/work`, or more people work on tickets |
 | The test writer picks the device for each test, with the emulator as default | Most tests don't need the phone: 11 of #8's 12 camera tests passed on the emulator in one run. The phone needs Nam holding it, so using it only where needed lets more of `/work` run unattended. This replaces "real phone first" | A bug that only shows on a real phone reaches the release check |
+| Older device tests wait for the regression run before a release, unless the ticket touched their code | Each ticket's checks stay short, and #8's camera tests need Nam holding the phone. Analyze and widget tests still run on every ticket because they take seconds | A ticket breaks an older feature and it's only found at release |
 | Gate at release, not at each pull request | Nam's attention goes to the running app instead of code diffs | Releases start shipping problems the flow should have caught |
 | 3-round loop limit | Stops endless fix loops, like the 24-hour runs in the previous attempt | 3 rounds turns out too few or too many in practice |
 
@@ -97,7 +100,9 @@ flowchart TD
 - The reviewer agent catches slips but shares Claude's blind spots about design. The release check is the only gate for those.
 - `/work` runs the checks and judges its own evidence, with no separate agent looking at the proof.
 - Most tests run on the emulator, so a bug that only shows on a real phone may first appear at the release check.
+- A ticket can break an older feature and stay on `main` until the regression run, and several tickets may need checking to find which one did it. `/work` also has to judge what a ticket touched.
 
 ## Still to decide (when building)
 
 - Confirm GitHub Actions is free for this public repository before setting up CI.
+- How the regression run works before a release: what starts it, and how the tests that need the phone fit in.
