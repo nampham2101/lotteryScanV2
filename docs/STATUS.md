@@ -17,7 +17,7 @@ flowchart LR
     C2["Commit settings ✅<br/>personal email, no Co-Authored-By"]
     C3["/ticket skill ✅<br/>drafts + posts from /refine"]
     C8["/refine skill ✅<br/>discuss, split, acceptance criteria"]
-    C9["Ticket workflow /work 🔄<br/>/work, test writer, implementer built<br/>reviewer + CI to come"]
+    C9["Ticket workflow /work 🔄<br/>/work, test writer, implementer, reviewer built<br/>CI to come"]
     C4["Permission rules ✅"]
     C5["STATUS.md ✅"]
     C6["Notify-me hook ⏳"]
@@ -43,10 +43,11 @@ flowchart LR
 ## Latest session (2026-11-04)
 
 - Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
+- Built the reviewer agent (Opus 5.5) and added it to `/work` as a new step between the checks and the pull request. It reviews the finished work with fresh eyes, proves each "Done when" item from the saved evidence, and ticks the boxes only if everything looks good. It reports problems instead of fixing them: code problems go to the implementer, tests that prove nothing go to the test writer, and these share the 3 fix rounds. The block-push hook applies. Not yet run live.
 
 ## Next up
 
-1. Build the reviewer agent (with the verify part), shaped by the #4 and #5 runs.
+1. Nam assigns #8, which is also the reviewer's first live run.
 2. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
 3. Set up CI before tickets get bigger, so "tests must pass to merge" is enforced.
 4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
