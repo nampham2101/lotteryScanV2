@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
+import 'photo_screen.dart';
 import 'shared/ticket_photo.dart';
 
 const _screenBackground = Color(0xFF222222);
@@ -17,8 +18,8 @@ const _shutterCenterFromBottom = 0.13;
 
 /// Sketch 2: the live camera picture inside a dashed frame, with a round
 /// shutter button. It takes a camera that is already running, so it only opens
-/// once access is allowed. Closes by itself after the photo is kept, so the
-/// home screen shows again.
+/// once access is allowed. After the photo is kept it replaces itself with the
+/// photo screen, so the phone's back from there shows the home screen.
 class CameraScreen extends StatefulWidget {
   const CameraScreen({required this.controller, super.key});
 
@@ -56,9 +57,13 @@ class _CameraScreenState extends State<CameraScreen> {
     if (_isLeaving) return deleteTicketPhotoFile(photo.path);
     final staged = await stageTicketPhoto(photo);
     if (_isLeaving) return deleteTicketPhotoFile(staged.path);
-    keepStagedTicketPhoto(staged);
+    final kept = keepStagedTicketPhoto(staged);
+    final bytes = await kept.readAsBytes();
+    if (_isLeaving || !mounted) return;
     _isLeaving = true;
-    if (mounted) Navigator.of(context).pop();
+    await Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(builder: (_) => PhotoScreen(photoBytes: bytes)),
+    );
   }
 
   @override

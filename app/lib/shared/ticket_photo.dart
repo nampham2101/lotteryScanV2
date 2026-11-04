@@ -21,8 +21,9 @@ Future<File> stageTicketPhoto(XFile photo) async {
 /// Makes a staged photo the kept one, replacing the old one in a single step.
 /// Always the same name, so only one photo is ever kept. It doesn't wait, so
 /// nothing can happen between the caller's last check and the replacement.
-void keepStagedTicketPhoto(File staged) {
-  staged.renameSync('${staged.parent.path}/$_ticketPhotoName');
+/// Returns the kept photo.
+File keepStagedTicketPhoto(File staged) {
+  return staged.renameSync('${staged.parent.path}/$_ticketPhotoName');
 }
 
 /// Removes a photo file, for a photo the person chose to leave without.

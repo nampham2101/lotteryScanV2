@@ -39,6 +39,7 @@ flowchart LR
     E3["Portrait lock ✅<br/>ticket #5, PR #7"]
     E4["Take the photo ✅<br/>ticket #8, PR #11"]
     E5["Camera refused pop-up ✅<br/>ticket #9, PR #12"]
+    E6["Photo screen 🔄<br/>ticket #10, built, in checks"]
   end
 ```
 
@@ -59,6 +60,8 @@ flowchart LR
 - Added `/ticket update <issue number>`: it shows Nam each changed line, old and new, and changes the ticket only after Nam's yes. `/refine` stays the place to change "Done when" items. Built now instead of waiting for an unclear criterion, because the workflow changes left #9 and #10 out of date.
 - Decision: the test writer now picks the device for each test, replacing the phone-first rule above. A device named in the ticket wins. Otherwise the default is `Pixel_10`, and a real phone is used only when the emulator can't prove the item, with phone tests in their own file. "It must pass on the Pixel 7" is removed from #10. Accepted risk: a bug that only shows on a real phone may first appear at the release check. Revisit if that happens. Not yet run live.
 - Decision: `/work`'s checks now run analyze, all the widget tests and the ticket's own device tests and manual steps. Older device tests run only if the ticket touched their code or shared test helpers; the rest wait for a regression run before a release. That run isn't designed yet. Accepted risk: a ticket can break an older feature and stay on `main` until then. Revisit if that happens. Not yet run live.
+
+- #10 built on branch `ticket-10-photo-screen`: the shutter now replaces the camera screen with a temporary photo screen (the newest photo, fitted whole, no text, buttons or zoom), so back goes home. README line updated. All 13 of #10's tests passed on `Pixel_10` (`docs/evidence/10/photo-screen-run.txt`). #8's tests on the emulator fail only because its camera picture is still ("its picture is not moving"), saved as `docs/evidence/10/camera-run.txt`; they need the Pixel 7 held and moved.
 
 ## Next up
 
