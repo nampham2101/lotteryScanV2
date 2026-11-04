@@ -5,8 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:lotteryscan/main.dart' as app;
 
-// The real app for ticket #8's tests, started the way the phone starts it.
-// The tests in camera_driver.dart run on the Mac, so they ask the app what its
+// The real app for the tests of tickets #8 and #9, started the way the phone
+// starts it. Those tests (camera_driver.dart, camera_refused_driver.dart and
+// camera_refused_once_driver.dart) run on the Mac, so they ask the app what its
 // screen shows through this answer.
 //
 // The answer comes from the accessibility tree, the app's own list of what a

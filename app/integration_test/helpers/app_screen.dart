@@ -45,7 +45,18 @@ class AppScreen {
 
   List<ScreenItem> get tappable => items.where((item) => item.canTap).toList();
 
+  /// What can be tapped, without the dimmed area around a pop-up, which covers
+  /// the whole screen and isn't a button.
+  List<ScreenItem> get buttons => tappable
+      .where((item) => item.width < width || item.height < height)
+      .toList();
+
   bool shows(String text) => items.any((item) => item.label.contains(text));
+
+  /// Whether [text] is on screen on its own, with nothing added to it. Texts
+  /// that sit together can reach the tests as one item, one text on each line.
+  bool showsExactly(String text) =>
+      items.any((item) => item.label.split('\n').contains(text));
 
   ScreenItem itemWith(String text) =>
       items.firstWhere((item) => item.label.contains(text));

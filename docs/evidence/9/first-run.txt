@@ -1,0 +1,333 @@
+First run of ticket #9's integration tests on the Pixel_10 emulator, before the pop-up exists.
+Run from app/ on 2026-11-04. Expected: every test fails because the feature is missing: after a
+refusal the home screen stays as it is and no pop-up appears. Final result: 6 failed, 0 passed
+(5 in camera_refused_driver.dart, 1 in camera_refused_once_driver.dart).
+The camera library's debug lines (CXCP) and colour codes are removed. Nothing else is changed.
+
+$ adb -s emulator-5554 uninstall com.nampham.lotteryscan
+Failure [DELETE_FAILED_INTERNAL_ERROR]   (the app was already gone: flutter drive removes it when it ends)
+
+$ fvm flutter drive -d emulator-5554 --driver=integration_test/camera_refused_driver.dart --target=integration_test/camera_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.4s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          301ms
+D/WindowLayoutComponentImpl( 8805): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@604d6aa, of which baseContext=android.app.ContextImpl@81b8d77
+D/FlutterJNI( 8805): Sending viewport metrics to the engine.
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:58232/W8h8iHCK9ls=/
+VMServiceFlutterDriver: Isolate found with number: 82522997715995
+VMServiceFlutterDriver: Isolate 82522997715995 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Refusing access Given Android is asking for camera access, when the person refuses, then the pop-up appears on the home screen and the camera screen doesn't open
+
+D/FlutterJNI( 8805): Sending viewport metrics to the engine.
+D/InsetsController( 8805): hide(ime())
+I/ImeTracker( 8805): com.nampham.lotteryscan:2103fd92: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/QuirkSettingsLoader( 8805): QuirkSettings$MetadataHolderService is not found.
+D/CameraX ( 8805): QuirkSettings from app metadata: null
+D/CameraX ( 8805): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+D/DeviceQuirks( 8805): camera2 DeviceQuirks = 
+I/CameraManagerGlobal( 8805): Connecting to camera service
+D/CameraQuirks( 8805): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 8805): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository( 8805): Added camera: 1
+D/CameraQuirks( 8805): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository( 8805): Added camera: 10
+D/CameraQuirks( 8805): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+I/CameraPresencePrvdr( 8805): Starting CameraPresenceProvider monitoring.
+I/CameraPresenceSrc( 8805): First observer added. Starting monitoring.
+I/PipePresenceSrc( 8805): Starting to collect camera ID flow.
+D/CameraValidator( 8805): Verifying camera lens facing on emu64a16k
+D/CameraPresencePrvdr( 8805): Registered state observer for camera: 1
+D/CameraPresencePrvdr( 8805): Registered state observer for camera: 10
+D/PipePresenceSrc( 8805): Flow emitted new camera set: CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}
+I/PipePresenceSrc( 8805): Handling first camera set, triggering fresh query.
+D/PipePresenceSrc( 8805): [FetchData] Refreshed camera list from hardware: [CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}]
+D/ProfileInstaller( 8805): Installing profile for com.nampham.lotteryscan
+D/InsetsController( 8805): hide(ime())
+I/ImeTracker( 8805): com.nampham.lotteryscan:4999247: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:21 +0 -1: Refusing access Given Android is asking for camera access, when the person refuses, then the pop-up appears on the home screen and the camera screen doesn't open [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up ("Cần dùng camera") did not appear. In front: Window{6c0c080 u0 com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/refused_camera.dart 71:3  expectPopUpAppears
+  ===== asynchronous gap ===========================
+  integration_test/camera_refused_driver.dart 42:7   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:21 +0 -1: The pop-up Given the pop-up shows, then it reads "Cần dùng camera / Ứng dụng cần camera để chụp vé. Bạn hãy cho phép dùng camera trong phần Cài đặt của điện thoại." with an "Đóng" button
+
+D/InsetsController( 8805): hide(ime())
+I/ImeTracker( 8805): com.nampham.lotteryscan:dac990b9: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:43 +0 -2: The pop-up Given the pop-up shows, then it reads "Cần dùng camera / Ứng dụng cần camera để chụp vé. Bạn hãy cho phép dùng camera trong phần Cài đặt của điện thoại." with an "Đóng" button [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up ("Cần dùng camera") did not appear. In front: Window{6c0c080 u0 com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+
+
+  package:matcher/src/expect/expect.dart 187:31       fail
+  package:matcher/src/expect/expect.dart 182:3        _expect
+  package:matcher/src/expect/expect.dart 65:3         expect
+  integration_test/helpers/refused_camera.dart 71:3   expectPopUpAppears
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 132:3  givenPopUpShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_refused_driver.dart 61:7    main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15   Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11   Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9     Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:43 +0 -2: The pop-up Given the pop-up shows, when the person taps "Đóng", then it closes and the home screen shows
+
+V/Activity( 8805): No requestable permission in the request.
+01:14 +0 -3: The pop-up Given the pop-up shows, when the person taps "Đóng", then it closes and the home screen shows [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up ("Cần dùng camera") did not appear. In front: Window{6c0c080 u0 com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+
+
+  package:matcher/src/expect/expect.dart 187:31       fail
+  package:matcher/src/expect/expect.dart 182:3        _expect
+  package:matcher/src/expect/expect.dart 65:3         expect
+  integration_test/helpers/refused_camera.dart 71:3   expectPopUpAppears
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 132:3  givenPopUpShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_refused_driver.dart 68:7    main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15   Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11   Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9     Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:14 +0 -3: Refused for good Given the person has refused for good, when they tap "Quét vé", then the same pop-up appears, with no Android question
+
+V/Activity( 8805): No requestable permission in the request.
+01:35 +0 -4: Refused for good Given the person has refused for good, when they tap "Quét vé", then the same pop-up appears, with no Android question [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up did not appear
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/camera_refused_driver.dart 85:7   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:35 +0 -4: Changing their mind Given the person refused for good and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up
+
+V/Activity( 8805): No requestable permission in the request.
+02:06 +0 -5: Changing their mind Given the person refused for good and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up ("Cần dùng camera") did not appear. In front: Window{6c0c080 u0 com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+
+
+  package:matcher/src/expect/expect.dart 187:31       fail
+  package:matcher/src/expect/expect.dart 182:3        _expect
+  package:matcher/src/expect/expect.dart 65:3         expect
+  integration_test/helpers/refused_camera.dart 71:3   expectPopUpAppears
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 132:3  givenPopUpShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 158:3  givenAllowedInSettingsAfterThePopUp
+  ===== asynchronous gap ===========================
+  integration_test/camera_refused_driver.dart 100:7   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15   Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11   Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9     Invoker._waitForOutstandingCallbacks.<fn>
+
+
+02:06 +0 -5: (tearDownAll)
+
+02:06 +0 -5: Some tests failed.
+
+
+
+Failing tests:
+
+  .: Changing their mind Given the person refused for good and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up
+
+  .: Refused for good Given the person has refused for good, when they tap "Quét vé", then the same pop-up appears, with no Android question
+
+  .: Refusing access Given Android is asking for camera access, when the person refuses, then the pop-up appears on the home screen and the camera screen doesn't open
+
+  .: The pop-up Given the pop-up shows, then it reads "Cần dùng camera / Ứng dụng cần camera để chụp vé. Bạn hãy cho phép dùng camera trong phần Cài đặt của điện thoại." with an "Đóng" button
+
+  .: The pop-up Given the pop-up shows, when the person taps "Đóng", then it closes and the home screen shows
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
+
+$ adb -s emulator-5554 uninstall com.nampham.lotteryscan
+Failure [DELETE_FAILED_INTERNAL_ERROR]   (the app was already gone: flutter drive removes it when it ends)
+
+$ fvm flutter drive -d emulator-5554 --driver=integration_test/camera_refused_once_driver.dart --target=integration_test/camera_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              3.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          952ms
+I/ham.lotteryscan(11468): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Choreographer(11468): Skipped 100 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(11468): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@604d6aa, of which baseContext=android.app.ContextImpl@81b8d77
+D/FlutterJNI(11468): Sending viewport metrics to the engine.
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:59861/A4fLCTjiO6g=/
+VMServiceFlutterDriver: Isolate found with number: 4189766115209627
+VMServiceFlutterDriver: Isolate 4189766115209627 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/Choreographer(11468): Skipped 112 frames!  The application may be doing too much work on its main thread.
+VMServiceFlutterDriver: Connected to Flutter application.
+00:02 +0: Given the person refused once and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up
+
+D/FlutterJNI(11468): Sending viewport metrics to the engine.
+D/ProfileInstaller(11468): Installing profile for com.nampham.lotteryscan
+D/InsetsController(11468): hide(ime())
+I/ImeTracker(11468): com.nampham.lotteryscan:c3cb1c29: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/QuirkSettingsLoader(11468): QuirkSettings$MetadataHolderService is not found.
+D/CameraX (11468): QuirkSettings from app metadata: null
+D/CameraX (11468): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+D/DeviceQuirks(11468): camera2 DeviceQuirks = 
+I/CameraManagerGlobal(11468): Connecting to camera service
+D/CameraQuirks(11468): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(11468): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository(11468): Added camera: 1
+D/CameraQuirks(11468): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository(11468): Added camera: 10
+D/CameraQuirks(11468): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+I/CameraPresencePrvdr(11468): Starting CameraPresenceProvider monitoring.
+I/CameraPresenceSrc(11468): First observer added. Starting monitoring.
+I/PipePresenceSrc(11468): Starting to collect camera ID flow.
+D/CameraPresencePrvdr(11468): Registered state observer for camera: 1
+D/CameraPresencePrvdr(11468): Registered state observer for camera: 10
+D/CameraValidator(11468): Verifying camera lens facing on emu64a16k
+D/PipePresenceSrc(11468): Flow emitted new camera set: CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}
+I/PipePresenceSrc(11468): Handling first camera set, triggering fresh query.
+D/PipePresenceSrc(11468): [FetchData] Refreshed camera list from hardware: [CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}]
+D/InsetsController(11468): hide(ime())
+I/ImeTracker(11468): com.nampham.lotteryscan:565583b7: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:27 +0 -1: Given the person refused once and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up [E]
+
+  Expected: true
+    Actual: <false>
+  the pop-up ("Cần dùng camera") did not appear. In front: Window{210a058 u0 com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity}
+
+
+  package:matcher/src/expect/expect.dart 187:31          fail
+  package:matcher/src/expect/expect.dart 182:3           _expect
+  package:matcher/src/expect/expect.dart 65:3            expect
+  integration_test/helpers/refused_camera.dart 71:3      expectPopUpAppears
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 132:3     givenPopUpShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/refused_camera.dart 158:3     givenAllowedInSettingsAfterThePopUp
+  ===== asynchronous gap ===========================
+  integration_test/camera_refused_once_driver.dart 31:5  main.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15      Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11      Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9        Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:27 +0 -1: (tearDownAll)
+
+00:27 +0 -1: Some tests failed.
+
+
+
+Failing tests:
+
+  .: Given the person refused once and later allowed the camera in the phone's Settings, when they tap "Quét vé", then the camera screen opens with no pop-up
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
