@@ -28,7 +28,8 @@ flowchart LR
     direction TB
     D1["Check Mac tools ✅"]
     D4["Install Flutter + Android tools ✅"]
-    D2["Three ticket photos ⏳"]
+    D2["Ticket photos 🔄<br/>four from three provinces<br/>one needs a clean copy"]
+    D5["Reading rule ✅<br/>ticket #14, PR #15"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -45,6 +46,10 @@ flowchart LR
 
 ## Latest session (2026-11-04)
 
+- #14 merged (PR #15): `docs/TICKET-READING.md` now holds the reading rule, the area sizes and the four correct answers, and the README's gate says four photos from three provinces. The top area is 20% and the bottom band 35% of the ticket's height, checked on all four photos by eye. Nam gave all permissions for this run, so `/work` ran without stopping. Nobody had said where the photos were, so `/work` looked and found them in Downloads as `IMG_5902` to `IMG_5905`. The reviewer found two problems in its first review, wrong band notes and wrong figures. Both were fixed in one round, and the second review was clean. Analyze and the 6 widget tests passed. Backlog items 40–44 added.
+- Decision: the rule also ignores the sideways copies on the ticket's left and right edges, which the ticket didn't ask for. All four tickets have large sideways print on the right edge, inside the bottom band, and a right-to-left search reaches it first, so the ticket's rule fails without this. Item 6 should be refined with this exception (backlog item 40). Accepted risk: the 20% and 35% margins are about the same size as the by-eye measuring. Revisit when more tickets are checked (backlog item 42).
+- Backlog item 5 refined as one ticket and posted unassigned as #14. It delivers a written reading rule only, in a new `docs/TICKET-READING.md`, with no test cases needed. Decision: one rule for every province, measured from the ticket's edges. The province comes from the title strip on top, the date is the first date found going left to right along the bottom, and the ticket number is the first six digits found going right to left along the bottom. Boxes per province aren't needed, because no fixed line separates the date from the number on all three layouts. Finding the ticket and these areas in a photo moves to item 6. Accepted risk: Bạc Liêu's faint doubled digits may read as 12 digits. Item 6 tests this.
+- Decision: the test set is four photos from three provinces, with Bạc Liêu twice, instead of the gate's three. The README changes with item 5's ticket.
 - #10 merged (PR #13): the shutter now opens a temporary photo screen that shows only the newest photo, fitted whole, with no text, buttons or zooming. Back goes home, and "Quét vé" opens the camera again. The reviewer found two problems in its first review, a kept photo replaced after leaving and pasted test helpers. Both were fixed in one round, and the second review was clean. All #10 tests passed on `Pixel_10`. Because the ticket changed shared helpers and camera code, #8's 12 tests passed on the Pixel 7 and #9's and #5's tests on `Pixel_10`. #8's test no longer expects home after the shutter, on purpose, because #10 replaces that. Backlog items 33–39 added and item 32 extended. First live run of the test writer choosing devices and of `/work` running only the affected older tests.
 - #9 merged (PR #12): when camera access is refused, once or for good, home shows a pop-up "Cần dùng camera" with "Đóng", and the camera screen doesn't open. Allowing the camera later in Settings lets "Quét vé" open it as normal. First live run of the reviewer before the checks: it found no problems on the first review, so no fix rounds were used. All #9 tests passed on `Pixel_10`, and #8's 12 camera tests passed again on the Pixel 7. Backlog items 26–32 added from this ticket; item 25 is Nam's own. Three side runs by the agents have no saved output, which is a gap against the checklist's "every test run" wording (backlog item 32).
 - Backlog item 4 refined as one ticket and posted unassigned as #10. A temporary screen for the reading gate, with no sketch: the shutter goes to the photo instead of home, the screen shows only the photo, fitted whole with no zooming, and the phone's back goes home. It builds on #8, needs test cases, and must pass on the Pixel 7.
@@ -68,7 +73,7 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+4. Refine item 6 (finding and reading the three fields, then the go / no-go gate), using `docs/TICKET-READING.md` and backlog items 40–42.
 
 ## Open questions
 
@@ -77,4 +82,5 @@ flowchart LR
 
 ## Waiting on Nam
 
-- Three ticket photos from three different miền Nam provinces.
+- A clean, full-size copy of the Vĩnh Long photo (`IMG_5904`), needed for item 6. The copy in Downloads now has a green box on it.
+- Where the four photos will live for item 6. #14 used the copies in Downloads, and they aren't in the project.
