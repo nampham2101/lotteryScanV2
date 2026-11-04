@@ -6,16 +6,22 @@ import 'package:test/test.dart';
 import 'helpers/app_screen.dart';
 import 'helpers/phone.dart';
 
-// Integration tests for ticket #8, on the Pixel_10 emulator. They run on the
-// Mac, because only the Mac can answer Android's question, look into the
-// phone's gallery and use the back gesture. They talk to the real app started
-// from camera_app.dart. "Has never asked" needs a fresh install, so run them
-// from app/ with:
+// Integration tests for ticket #8, on a real phone (the Pixel 7), because the
+// Pixel_10 emulator's back camera shows a still scene. They run on the Mac,
+// because only the Mac can answer Android's question, look into the phone's
+// gallery and use the back gesture. They talk to the real app started from
+// camera_app.dart. "Has never asked" needs a fresh install, so run them from
+// app/ with the phone's serial from `adb devices`:
 //
+//   export ANDROID_SERIAL=<serial>
 //   adb uninstall com.nampham.lotteryscan
-//   fvm flutter drive -d emulator-5554 \
+//   fvm flutter drive -d "$ANDROID_SERIAL" \
 //     --driver=integration_test/camera_driver.dart \
 //     --target=integration_test/camera_app.dart
+//
+// Hold the phone in the hand so the picture moves during the run, and don't
+// touch the screen: a tap by hand can answer Android's question before the
+// test does.
 //
 // The first two tests are one story, in order: Android asks, the person allows.
 
@@ -29,6 +35,10 @@ const screenChangeTimeout = Duration(seconds: 15);
 
 /// Time for anything still being saved to show up before checking it didn't.
 const settleTime = Duration(seconds: 3);
+
+/// How long to keep watching for a question that arrives after the camera
+/// screen has appeared.
+const lateQuestionWatch = Duration(seconds: 5);
 
 final phone = Phone.fromEnvironment();
 late FlutterDriver driver;
@@ -64,7 +74,8 @@ Future<bool> isCameraScreenShowing() async {
   return screen.shows(cameraHint) && !screen.shows(scanButtonLabel);
 }
 
-/// The picture changes by itself on the emulator: its camera scene moves.
+/// The picture only changes when the view does, so this needs the phone held
+/// in the hand during the run. A phone lying still can fail it.
 Future<bool> isPictureMoving() async {
   const enoughChangedPixels = 20;
   final first = await phone.screenshot();
@@ -229,6 +240,19 @@ void main() {
             'Android is not asking for camera access, so there is nothing '
             'to allow. In front: ${await phone.windowInFront()}',
       );
+      final behindQuestion = await appScreen();
+      expect(
+        behindQuestion.shows(cameraHint),
+        isFalse,
+        reason:
+            'the camera screen is already open behind Android\'s question, '
+            'so allowing is not what opens it',
+      );
+      expect(
+        behindQuestion.shows(scanButtonLabel),
+        isTrue,
+        reason: 'the home screen is not behind Android\'s question',
+      );
 
       await phone.tap(question!.allowX, question.allowY);
 
@@ -246,10 +270,15 @@ void main() {
       await tapScanButton();
 
       var wasAsked = false;
-      await waitUntil(() async {
+      Future<bool> isAskedNow() async {
         wasAsked = await phone.isAndroidAskingForPermission();
-        return wasAsked || await isCameraScreenShowing();
+        return wasAsked;
+      }
+
+      await waitUntil(() async {
+        return await isAskedNow() || await isCameraScreenShowing();
       });
+      await waitUntil(isAskedNow, timeout: lateQuestionWatch);
       expect(wasAsked, isFalse, reason: 'Android asked a question');
       await expectCameraScreenOpens();
     }, timeout: testTimeout);
@@ -419,7 +448,7 @@ void main() {
         expect(
           await phone.usesBackGesture(),
           isTrue,
-          reason: 'SETUP: the emulator is not using gesture navigation',
+          reason: 'SETUP: the phone is not using gesture navigation',
         );
 
         await expectLeftWithoutPhoto(() async {
