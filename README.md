@@ -29,8 +29,8 @@ Anyone who buys a lottery ticket and has a smartphone with a camera.
 
 Before anything else, the MVP has to prove it can read a ticket from a photo.
 
-- **Test:** three ticket photos from three different provinces.
-- **Pass:** all three things (ticket number, draw date, province) are read correctly on all three tickets.
+- **Test:** four ticket photos from three different provinces.
+- **Pass:** all three things (ticket number, draw date, province) are read correctly on all four tickets.
 - **If it passes:** we continue building.
 - **If it fails:** we stop and look at other options (native app, another library, or something else).
 
