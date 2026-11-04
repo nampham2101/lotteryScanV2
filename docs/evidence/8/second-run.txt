@@ -1,0 +1,384 @@
+Run of ticket #8's integration tests on the Pixel_10 emulator, after the camera screen was built.
+Run from app/ on 2026-11-04 (same command as first-run.txt, run twice with the same result).
+Result: 11 passed, 1 failed. The one failure is "it shows a live camera picture": Android reports
+the app is using the camera, but the picture on screen does not change on its own. The Pixel_10
+emulator's back camera (hw.camera.back=virtualscene in its config.ini) shows a still room scene, so
+a working live preview looks frozen; only the first moments after opening change.
+Camera and Android debug lines (CXCP, DeferrableSurface and similar) are left out of the output below.
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          307ms
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:57357/68ZdY_EKkvo=/
+VMServiceFlutterDriver: Isolate found with number: 2277315890350071
+VMServiceFlutterDriver: Isolate 2277315890350071 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: First time, allowing access Given the app has never asked for camera access, when the person taps "Quét vé", then Android asks for camera access
+
+D/CameraX (15904): QuirkSettings from app metadata: null
+D/CameraX (15904): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+00:03 +1: First time, allowing access Given Android is asking, when the person allows it, then the camera screen opens
+
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f7b395e-b20c-4e71-b985-750e6e962e46
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-4ef70148-47db-476a-bc9f-39e855b59063
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b76804fa-0c74-47d6-86e9-eba547d31363
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f7b395e-b20c-4e71-b985-750e6e962e46
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-4ef70148-47db-476a-bc9f-39e855b59063
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b76804fa-0c74-47d6-86e9-eba547d31363
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f7b395e-b20c-4e71-b985-750e6e962e46
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-4ef70148-47db-476a-bc9f-39e855b59063
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b76804fa-0c74-47d6-86e9-eba547d31363
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f7b395e-b20c-4e71-b985-750e6e962e46
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@12ffd73, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-4ef70148-47db-476a-bc9f-39e855b59063
+I/Surface (15904): Creating surface for consumer unnamed-15904-2 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-0 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b76804fa-0c74-47d6-86e9-eba547d31363
+I/Surface (15904): Creating surface for consumer unnamed-15904-3 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-1 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-4 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-2 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-5 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-3 with slotExpansion=1 for 64 slots
+00:05 +2: Camera screen Given access is already allowed, when the person taps "Quét vé", then the camera screen opens with no question
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02d170) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02b800) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02c7d0) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-cb9cf132-4a05-40b7-acdc-dedd8a2bb34c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ed60175e-ea56-4562-9826-a16766214031
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-4aa75baf-e3c6-4c32-9af5-b5939d558517
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-cb9cf132-4a05-40b7-acdc-dedd8a2bb34c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ed60175e-ea56-4562-9826-a16766214031
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-4aa75baf-e3c6-4c32-9af5-b5939d558517
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-cb9cf132-4a05-40b7-acdc-dedd8a2bb34c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ed60175e-ea56-4562-9826-a16766214031
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-4aa75baf-e3c6-4c32-9af5-b5939d558517
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-cb9cf132-4a05-40b7-acdc-dedd8a2bb34c
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@be33999, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ed60175e-ea56-4562-9826-a16766214031
+I/Surface (15904): Creating surface for consumer unnamed-15904-6 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-4 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-4aa75baf-e3c6-4c32-9af5-b5939d558517
+I/Surface (15904): Creating surface for consumer unnamed-15904-7 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-5 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-8 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-6 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-9 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-7 with slotExpansion=1 for 64 slots
+00:08 +3: Camera screen Given the camera screen is open, then it matches sketch 2 it shows "Đặt vé vào khung" at the top
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc00ff50) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-f65b96cf-ff1f-4696-81c0-d00607e39f0d
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ae2abea1-c754-48d7-b56a-4746b0cc8fe7
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b0a68ab-6f27-4377-9313-145116f07e2c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-f65b96cf-ff1f-4696-81c0-d00607e39f0d
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ae2abea1-c754-48d7-b56a-4746b0cc8fe7
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b0a68ab-6f27-4377-9313-145116f07e2c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-f65b96cf-ff1f-4696-81c0-d00607e39f0d
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ae2abea1-c754-48d7-b56a-4746b0cc8fe7
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b0a68ab-6f27-4377-9313-145116f07e2c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-f65b96cf-ff1f-4696-81c0-d00607e39f0d
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@e67aae1, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-ae2abea1-c754-48d7-b56a-4746b0cc8fe7
+I/Surface (15904): Creating surface for consumer unnamed-15904-10 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-8 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b0a68ab-6f27-4377-9313-145116f07e2c
+I/Surface (15904): Creating surface for consumer unnamed-15904-11 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-9 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-12 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-10 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-13 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-11 with slotExpansion=1 for 64 slots
+00:13 +4: Camera screen Given the camera screen is open, then it matches sketch 2 it shows one round shutter button at the bottom middle and no added buttons
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc019270) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0177a0) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc03f650) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eb0cb373-a2fd-4b73-a164-285f40ca0717
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a0c54b27-9648-49cb-975d-040dd935ac3f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-1e0201ac-0b29-45b0-93a6-662d5094fe18
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eb0cb373-a2fd-4b73-a164-285f40ca0717
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a0c54b27-9648-49cb-975d-040dd935ac3f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-1e0201ac-0b29-45b0-93a6-662d5094fe18
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eb0cb373-a2fd-4b73-a164-285f40ca0717
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a0c54b27-9648-49cb-975d-040dd935ac3f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-1e0201ac-0b29-45b0-93a6-662d5094fe18
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eb0cb373-a2fd-4b73-a164-285f40ca0717
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@f7d22f7, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a0c54b27-9648-49cb-975d-040dd935ac3f
+I/Surface (15904): Creating surface for consumer unnamed-15904-14 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-12 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-1e0201ac-0b29-45b0-93a6-662d5094fe18
+I/Surface (15904): Creating surface for consumer unnamed-15904-15 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-13 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-16 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-14 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-17 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-15 with slotExpansion=1 for 64 slots
+00:18 +5: Camera screen Given the camera screen is open, then it matches sketch 2 it has a dark background
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02bee0) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc013700) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01e4f0) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-24376907-a717-4d8b-9178-a3da5f1d9e31
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-963fa21b-e5cc-43a6-97eb-ff8d9695bb23
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-34ef96fc-f682-47c7-8d50-202bdfd4f25f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-24376907-a717-4d8b-9178-a3da5f1d9e31
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-963fa21b-e5cc-43a6-97eb-ff8d9695bb23
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-34ef96fc-f682-47c7-8d50-202bdfd4f25f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-24376907-a717-4d8b-9178-a3da5f1d9e31
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-963fa21b-e5cc-43a6-97eb-ff8d9695bb23
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-34ef96fc-f682-47c7-8d50-202bdfd4f25f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-24376907-a717-4d8b-9178-a3da5f1d9e31
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@52a2736, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-963fa21b-e5cc-43a6-97eb-ff8d9695bb23
+I/Surface (15904): Creating surface for consumer unnamed-15904-18 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-16 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-34ef96fc-f682-47c7-8d50-202bdfd4f25f
+I/Surface (15904): Creating surface for consumer unnamed-15904-19 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-17 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-20 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-18 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-21 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-19 with slotExpansion=1 for 64 slots
+00:25 +6: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01f410) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc019950) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01fd00) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eef6cbdc-846f-43ad-921b-e4512620d204
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8eb0d790-8aa7-4ee4-bf5f-1e74c8dcce69
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-11ef5452-d22f-498b-9e45-d0388a127083
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eef6cbdc-846f-43ad-921b-e4512620d204
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8eb0d790-8aa7-4ee4-bf5f-1e74c8dcce69
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-11ef5452-d22f-498b-9e45-d0388a127083
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eef6cbdc-846f-43ad-921b-e4512620d204
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8eb0d790-8aa7-4ee4-bf5f-1e74c8dcce69
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-11ef5452-d22f-498b-9e45-d0388a127083
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-eef6cbdc-846f-43ad-921b-e4512620d204
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@da5e60c, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8eb0d790-8aa7-4ee4-bf5f-1e74c8dcce69
+I/Surface (15904): Creating surface for consumer unnamed-15904-22 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-20 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-11ef5452-d22f-498b-9e45-d0388a127083
+I/Surface (15904): Creating surface for consumer unnamed-15904-23 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-21 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-24 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-22 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-25 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-23 with slotExpansion=1 for 64 slots
+00:37 +6 -1: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture [E]
+
+  Expected: true
+    Actual: <false>
+  the picture on the screen is not moving
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/camera_driver.dart 332:9          main.<fn>.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:37 +6 -1: Taking the photo Given the camera screen is open, when the person taps the shutter, then the photo is kept inside the app and the home screen shows
+
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc020750) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc021e00) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01b840) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d81d618e-2830-4fde-9efa-ea9f5bc748fb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5a1edb65-a393-4474-a93a-1b2695c42e4a
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-513db80d-933f-4a17-b942-b32e3c9a1b47
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d81d618e-2830-4fde-9efa-ea9f5bc748fb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5a1edb65-a393-4474-a93a-1b2695c42e4a
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-513db80d-933f-4a17-b942-b32e3c9a1b47
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d81d618e-2830-4fde-9efa-ea9f5bc748fb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5a1edb65-a393-4474-a93a-1b2695c42e4a
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-513db80d-933f-4a17-b942-b32e3c9a1b47
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d81d618e-2830-4fde-9efa-ea9f5bc748fb
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@67bb0a7, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5a1edb65-a393-4474-a93a-1b2695c42e4a
+I/Surface (15904): Creating surface for consumer unnamed-15904-26 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-24 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-513db80d-933f-4a17-b942-b32e3c9a1b47
+I/Surface (15904): Creating surface for consumer unnamed-15904-27 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-25 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-28 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-26 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-29 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-27 with slotExpansion=1 for 64 slots
+00:43 +7 -1: Taking the photo Given a photo is already kept, when the person takes another, then only the new photo is kept
+
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-e21d08cd-8017-4486-8c4e-81717ba61cce
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b0f4cd35-41c3-437c-8aa0-4cba89d3001e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5b650c7c-4f41-46a0-b8e6-835ce75ed0fd
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-e21d08cd-8017-4486-8c4e-81717ba61cce
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b0f4cd35-41c3-437c-8aa0-4cba89d3001e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5b650c7c-4f41-46a0-b8e6-835ce75ed0fd
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-e21d08cd-8017-4486-8c4e-81717ba61cce
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b0f4cd35-41c3-437c-8aa0-4cba89d3001e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5b650c7c-4f41-46a0-b8e6-835ce75ed0fd
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-e21d08cd-8017-4486-8c4e-81717ba61cce
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@b3bd7cf, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b0f4cd35-41c3-437c-8aa0-4cba89d3001e
+I/Surface (15904): Creating surface for consumer unnamed-15904-30 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-28 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5b650c7c-4f41-46a0-b8e6-835ce75ed0fd
+I/Surface (15904): Creating surface for consumer unnamed-15904-31 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-29 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-32 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-30 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-33 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-31 with slotExpansion=1 for 64 slots
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc046030) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01b210) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc017dd0) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01a240) with descriptor: '(not cached)'
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-8939d912-71ec-476a-b520-8b0812741054
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5f937da7-bb86-4726-b712-b3a09fb86a19
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7ecb82a2-cf7f-406d-9c9d-6a4c3c656a0f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-8939d912-71ec-476a-b520-8b0812741054
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5f937da7-bb86-4726-b712-b3a09fb86a19
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7ecb82a2-cf7f-406d-9c9d-6a4c3c656a0f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-8939d912-71ec-476a-b520-8b0812741054
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5f937da7-bb86-4726-b712-b3a09fb86a19
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7ecb82a2-cf7f-406d-9c9d-6a4c3c656a0f
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-8939d912-71ec-476a-b520-8b0812741054
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@70f1bfc, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-5f937da7-bb86-4726-b712-b3a09fb86a19
+I/Surface (15904): Creating surface for consumer unnamed-15904-34 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-32 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7ecb82a2-cf7f-406d-9c9d-6a4c3c656a0f
+I/Surface (15904): Creating surface for consumer unnamed-15904-35 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-33 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-36 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-34 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-37 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-35 with slotExpansion=1 for 64 slots
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01a2f0) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc024740) with descriptor: '(not cached)'
+00:57 +8 -1: Taking the photo Given a photo was taken, then nothing new appears in the phone's gallery
+
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-baf44420-ee47-4c77-9d99-9a8dbbfb0a5e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b6f989ca-c551-49a7-9792-3c2d82f48dcb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-80ba4cd3-d451-40d4-bd78-75b5b9d4d792
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-baf44420-ee47-4c77-9d99-9a8dbbfb0a5e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b6f989ca-c551-49a7-9792-3c2d82f48dcb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-80ba4cd3-d451-40d4-bd78-75b5b9d4d792
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-baf44420-ee47-4c77-9d99-9a8dbbfb0a5e
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b6f989ca-c551-49a7-9792-3c2d82f48dcb
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-80ba4cd3-d451-40d4-bd78-75b5b9d4d792
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-baf44420-ee47-4c77-9d99-9a8dbbfb0a5e
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@a2d6a46, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-b6f989ca-c551-49a7-9792-3c2d82f48dcb
+I/Surface (15904): Creating surface for consumer unnamed-15904-38 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-36 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-80ba4cd3-d451-40d4-bd78-75b5b9d4d792
+I/Surface (15904): Creating surface for consumer unnamed-15904-39 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-37 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-40 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-38 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-41 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-39 with slotExpansion=1 for 64 slots
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc022a60) with descriptor: '(not cached)'
+01:06 +9 -1: Leaving without a photo Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo is taken
+
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-85a68c21-ea93-462d-9d3c-0294eb122f53
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a217c174-c78c-4d04-bba5-a140cdb8a188
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8bce5b7b-1dcc-42ad-8863-e43f6c8005de
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-85a68c21-ea93-462d-9d3c-0294eb122f53
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a217c174-c78c-4d04-bba5-a140cdb8a188
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8bce5b7b-1dcc-42ad-8863-e43f6c8005de
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-85a68c21-ea93-462d-9d3c-0294eb122f53
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a217c174-c78c-4d04-bba5-a140cdb8a188
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8bce5b7b-1dcc-42ad-8863-e43f6c8005de
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-85a68c21-ea93-462d-9d3c-0294eb122f53
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@c874c10, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-a217c174-c78c-4d04-bba5-a140cdb8a188
+I/Surface (15904): Creating surface for consumer unnamed-15904-42 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-40 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8bce5b7b-1dcc-42ad-8863-e43f6c8005de
+I/Surface (15904): Creating surface for consumer unnamed-15904-43 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-41 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-44 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-42 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-45 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-43 with slotExpansion=1 for 64 slots
+W/ham.lotteryscan(15904): Suspending all threads took: 9.631ms
+I/ham.lotteryscan(15904): Background concurrent mark compact GC freed 4029KB AllocSpace bytes, 2(288KB) LOS objects, 49% free, 4353KB/8707KB, paused 9.901ms,506us total 142.022ms
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc013b20) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01a2f0) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0220c0) with descriptor: '(not cached)'
+01:15 +10 -1: Leaving without a photo Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo is taken
+
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-79476d77-abb0-4bde-94d8-cb4c2433a19c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8af7493-73a8-4297-a5e6-84d8b0a0e113
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b4cfb575-36ac-42ed-912a-838d74cb6818
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-79476d77-abb0-4bde-94d8-cb4c2433a19c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8af7493-73a8-4297-a5e6-84d8b0a0e113
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b4cfb575-36ac-42ed-912a-838d74cb6818
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-79476d77-abb0-4bde-94d8-cb4c2433a19c
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8af7493-73a8-4297-a5e6-84d8b0a0e113
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b4cfb575-36ac-42ed-912a-838d74cb6818
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-79476d77-abb0-4bde-94d8-cb4c2433a19c
+D/Preview (15904): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@be849fb{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@8d651d1, zslDisabled=false}, secondaryStreamSpec null
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8af7493-73a8-4297-a5e6-84d8b0a0e113
+I/Surface (15904): Creating surface for consumer unnamed-15904-46 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f21m4-15904-44 with slotExpansion=1 for 64 slots
+D/UseCase (15904): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-b4cfb575-36ac-42ed-912a-838d74cb6818
+I/Surface (15904): Creating surface for consumer unnamed-15904-47 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-45 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-48 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f23m4-15904-46 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer unnamed-15904-49 with slotExpansion=1 for 64 slots
+I/Surface (15904): Creating surface for consumer ImageReader-1280x720f22m7-15904-47 with slotExpansion=1 for 64 slots
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc016510) with descriptor: '(not cached)'
+I/libbinder.BpBinder(15904): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01de10) with descriptor: '(not cached)'
+01:25 +11 -1: (tearDownAll)
+
+01:25 +11 -1: Some tests failed.
+
+
+
+Failing tests:
+
+  .: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'camera_screen.dart';
+
 const _scanButtonBlue = Color(0xFF1A5FA6);
 const _scanButtonSize = 230.0;
 
@@ -59,16 +61,15 @@ class _HomeHeading extends StatelessWidget {
   }
 }
 
-/// The large round blue button. It does nothing yet: the camera comes in a
-/// later ticket.
+/// The large round blue button. It opens the camera screen.
 class ScanButton extends StatelessWidget {
   const ScanButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      // An empty handler, not null: null would grey the button out.
-      onPressed: () {},
+      onPressed: () => Navigator.of(context)
+          .push(MaterialPageRoute<void>(builder: (_) => const CameraScreen())),
       style: FilledButton.styleFrom(
         backgroundColor: _scanButtonBlue,
         foregroundColor: Colors.white,
