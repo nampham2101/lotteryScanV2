@@ -54,8 +54,9 @@ class _CameraScreenState extends State<CameraScreen> {
       rethrow;
     }
     if (_isLeaving) return deleteTicketPhotoFile(photo.path);
-    final kept = await keepTicketPhoto(photo);
-    if (_isLeaving) return deleteTicketPhotoFile(kept.path);
+    final staged = await stageTicketPhoto(photo);
+    if (_isLeaving) return deleteTicketPhotoFile(staged.path);
+    keepStagedTicketPhoto(staged);
     _isLeaving = true;
     if (mounted) Navigator.of(context).pop();
   }
