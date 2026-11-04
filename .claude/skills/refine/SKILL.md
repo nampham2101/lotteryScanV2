@@ -30,7 +30,7 @@ Then mark each task **Test cases: needed** or **Test cases: not needed**, with a
 Behavior tasks usually need them; checklist-only tasks usually don't.
 
 **Proof of testing.** For every task marked *Test cases: needed*, add this item to its checklist:
-- [ ] Proof of every test run, **passed or failed**, is committed in `docs/evidence/<issue number>/` and linked from the PR description. Use a screenshot for anything visible on screen, and the terminal output otherwise.
+- [ ] Proof of every test run, **passed or failed**, is committed in `docs/evidence/<issue number>/` and linked from the PR description. Saved test output is enough for anything an automated test proves. Use a screenshot for what only a manual step can show.
 
 Show the criteria and the mark to Nam and change them until Nam confirms. Nam may override the mark.
 

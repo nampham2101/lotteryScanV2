@@ -1,6 +1,6 @@
 ---
 name: work
-description: Run one GitHub ticket through the workflow - assign it to Nam, then test writer, implementer, checks, reviewer, pull request and merge. Nam types /work <issue number>, and that is the go signal.
+description: Run one GitHub ticket through the workflow - assign it to Nam, then test writer, implementer, reviewer, checks, pull request and merge. Nam types /work <issue number>, and that is the go signal.
 disable-model-invocation: true
 ---
 
@@ -26,24 +26,28 @@ You are the manager. You run one ticket from start to merge by handing work to t
 - Run the **implementer** agent on the ticket, on the same branch.
 - If it stops (question, blocker, security risk), or says a test contradicts the ticket: show Nam and stop.
 
-## 4. Check (at most 3 fix rounds)
+Steps 4 and 5 share at most 3 fix rounds. After 3 rounds without passing: stop, and show Nam what failed and what was tried.
+
+## 4. Review
+
+- Run the **reviewer** agent on the ticket. Give it only the ticket number, never the implementer's report. It reviews all the ticket's changes every time, not just the latest fix, and reports every problem at once.
+- If it stops: show Nam and stop.
+- If it finds problems: send them all back in one go, then run the reviewer again. That's one round.
+  - Code problems: the **implementer** fixes them all, with exactly what's wrong.
+  - Tests that prove nothing: the **test writer**, in the same round. Tell it to fix only those tests on the existing branch; the feature exists now, so they don't need to fail first.
+- If it says everything looks good: continue.
+
+## 5. Check
 
 - Pick the device: if `adb devices` lists a real phone as `device`, use it, and ask Nam to unlock it if it's locked. Otherwise use the `Pixel_10` emulator. Put the phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
 - Follow the "Where these run" line in `docs/tests/<number>.md`. Tests that control the emulator itself stay on `Pixel_10` even when a phone is connected. If tests need a real phone and none is connected: stop and tell Nam. Don't use the emulator instead.
 - Run `fvm flutter analyze` and the widget tests in `app/`, and the integration tests on that device. Save the output in `docs/evidence/<number>/`, and say which device each run used.
 - Confirm the implementer changed no test files since the test writer's last commit.
 - Run each manual step in `docs/tests/<number>.md` on that device. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
-- If anything fails: send it back to the implementer with exactly what failed, and check again. That's one round.
-- After 3 rounds without passing: stop, and show Nam what failed and what was tried.
-
-## 5. Review
-
-- Run the **reviewer** agent on the ticket. Give it only the ticket number, never the implementer's report. It proves each "Done when" item and ticks the boxes when everything looks good.
-- If it stops: show Nam and stop.
-- If it finds problems: send each one to who it names, then go back to step 4. That's one round, counted with step 4's.
-  - Code problem: the **implementer**, with exactly what's wrong.
-  - A test that proves nothing: the **test writer**. Tell it to fix only that test on the existing branch; the feature exists now, so the test doesn't need to fail first.
-- If it says everything looks good: continue.
+- Prove each "Done when" item, including every Given / When / Then and the checklist. Find the test or manual step that covers it and the saved output or screenshot showing it passed. Read the saved output and look at the screenshots yourself; a claim that something passed isn't proof.
+- If something fails or isn't proven and it needs a code fix: send it to the implementer with exactly what failed, then go back to step 4. That's one round.
+- If it needs no code fix (a run problem, like the phone held still, or a proof that wasn't saved): run that check again. That's one round.
+- When everything passes and is proven: tick the "Done when" boxes in the ticket with `gh issue edit <number> --body-file <file>`, changing nothing else in it.
 
 ## 6. Record
 
