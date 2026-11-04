@@ -38,11 +38,13 @@ flowchart LR
     E2["Home screen ✅<br/>ticket #4, merged"]
     E3["Portrait lock ✅<br/>ticket #5, PR #7"]
     E4["Take the photo ✅<br/>ticket #8, PR #11"]
+    E5["Camera refused pop-up 🔄<br/>ticket #9, built, in review"]
   end
 ```
 
 ## Latest session (2026-11-04)
 
+- #9 built on its branch: when camera access is refused, once or for good, home shows a pop-up "Cần dùng camera" with "Đóng". Both integration test files pass on the `Pixel_10`, and proof is in `docs/evidence/9/`. Not yet reviewed or merged.
 - Backlog item 4 refined as one ticket and posted unassigned as #10. A temporary screen for the reading gate, with no sketch: the shutter goes to the photo instead of home, the screen shows only the photo, fitted whole with no zooming, and the phone's back goes home. It builds on #8, needs test cases, and must pass on the Pixel 7.
 - Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
 - Built the reviewer agent (Opus 5.5) and added it to `/work` as a new step between the checks and the pull request. It reviews the finished work with fresh eyes, proves each "Done when" item from the saved evidence, and ticks the boxes only if everything looks good. It reports problems instead of fixing them: code problems go to the implementer, tests that prove nothing go to the test writer, and these share the 3 fix rounds. The block-push hook applies. Not yet run live.

@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import 'camera_screen.dart';
@@ -63,8 +64,8 @@ class _HomeHeading extends StatelessWidget {
 }
 
 /// The large round blue button. It asks for camera access when needed and
-/// opens the camera screen once access is allowed. If access is refused, the
-/// home screen stays as it is: a later ticket decides what to tell the person.
+/// opens the camera screen once access is allowed. If access is refused, it
+/// shows a pop-up that says where to allow the camera.
 class ScanButton extends StatefulWidget {
   const ScanButton({super.key});
 
@@ -78,9 +79,17 @@ class _ScanButtonState extends State<ScanButton> {
   Future<void> _openCamera() async {
     if (_isOpening) return;
     _isOpening = true;
-    final controller = await startTicketCamera();
+    final CameraController? started;
+    try {
+      started = await startTicketCamera();
+    } on CameraAccessRefusedException {
+      _isOpening = false;
+      if (mounted) await _showRefusedPopUp();
+      return;
+    }
     _isOpening = false;
-    if (controller == null) return;
+    if (started == null) return;
+    final controller = started;
     if (!mounted) {
       await controller.dispose();
       return;
@@ -88,6 +97,25 @@ class _ScanButtonState extends State<ScanButton> {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => CameraScreen(controller: controller),
+      ),
+    );
+  }
+
+  Future<void> _showRefusedPopUp() {
+    return showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Cần dùng camera'),
+        content: const Text(
+          'Ứng dụng cần camera để chụp vé. Bạn hãy cho phép dùng camera '
+          'trong phần Cài đặt của điện thoại.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('Đóng'),
+          ),
+        ],
       ),
     );
   }
