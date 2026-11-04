@@ -38,13 +38,13 @@ flowchart LR
     E2["Home screen ✅<br/>ticket #4, merged"]
     E3["Portrait lock ✅<br/>ticket #5, PR #7"]
     E4["Take the photo ✅<br/>ticket #8, PR #11"]
-    E5["Camera refused pop-up 🔄<br/>ticket #9, built, in review"]
+    E5["Camera refused pop-up ✅<br/>ticket #9, PR #12"]
   end
 ```
 
 ## Latest session (2026-11-04)
 
-- #9 built on its branch: when camera access is refused, once or for good, home shows a pop-up "Cần dùng camera" with "Đóng". Both integration test files pass on the `Pixel_10`, and proof is in `docs/evidence/9/`. Not yet reviewed or merged.
+- #9 merged (PR #12): when camera access is refused, once or for good, home shows a pop-up "Cần dùng camera" with "Đóng", and the camera screen doesn't open. Allowing the camera later in Settings lets "Quét vé" open it as normal. First live run of the reviewer before the checks: it found no problems on the first review, so no fix rounds were used. All #9 tests passed on `Pixel_10`, and #8's 12 camera tests passed again on the Pixel 7. Backlog items 26–32 added from this ticket; item 25 is Nam's own. Three side runs by the agents have no saved output, which is a gap against the checklist's "every test run" wording (backlog item 32).
 - Backlog item 4 refined as one ticket and posted unassigned as #10. A temporary screen for the reading gate, with no sketch: the shutter goes to the photo instead of home, the screen shows only the photo, fitted whole with no zooming, and the phone's back goes home. It builds on #8, needs test cases, and must pass on the Pixel 7.
 - Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
 - Built the reviewer agent (Opus 5.5) and added it to `/work` as a new step between the checks and the pull request. It reviews the finished work with fresh eyes, proves each "Done when" item from the saved evidence, and ticks the boxes only if everything looks good. It reports problems instead of fixing them: code problems go to the implementer, tests that prove nothing go to the test writer, and these share the 3 fix rounds. The block-push hook applies. Not yet run live.
@@ -63,7 +63,7 @@ flowchart LR
 
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
-3. Nam runs `/work` on #9 or #10.
+3. Nam runs `/work` on #10.
 4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
