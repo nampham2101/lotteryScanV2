@@ -40,20 +40,9 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-03)
+## Latest session (2026-11-04)
 
-- Tickets #1 (`docs/CONVENTIONS.md`) and #2 (blank Android app "Dò Vé Số", PR #3) are done, merged and closed. First real run of the workflow: `/refine` → `/ticket` → assign → implementer → evidence → verifier ticks → PR → merge.
-- Built the implementer agent (Sonnet, full model ID `claude-sonnet-5-5`), with a hook that blocks `git push` while it runs.
-- "Done when" boxes are ticked by the verifier (Claude for now, the reviewer later), never the implementer.
-- Flutter 3.47.9 and the Android tools are installed and checked; the `Pixel_10` emulator works.
-- Backlog item 2 refined and split into two tickets, both posted and unassigned: #4 home screen (sketch 1, the button does nothing yet) and #5 lock the app to portrait.
-- Ticket #4 (home screen) is done, merged (PR #6) and closed. It was the first run with the test writer: test writer → implementer → Claude verifies → PR → merge. Widget tests and Pixel_10 integration tests pass, manual steps run, proof in `docs/evidence/4/`. Nam chose to tick the proof box even though the test writer's first failing run wasn't saved. The merged branch is deleted.
-- Built the test writer agent (Opus 5.5): writes widget tests, integration tests and manual steps from "Done when" only, before any code, on the ticket's branch. A hook limits it to the test folders, `docs/tests/<issue>.md` and `pubspec`; the block-push hook applies too. Unclear criteria go back to `/refine`. First live run on #4 worked without stopping.
-- Built `/work` (`/work <issue number>`, one ticket per run): test writer → implementer → checks (at most 3 fix rounds) → tick proven boxes → findings to BACKLOG → PR → merges by itself when every check passes. New hook stops the implementer from changing tests; the test writer now saves its first failing run in `docs/evidence/<issue>/first-run.txt`. Hooks pipe-tested; `/work` not yet run live.
-- Added two backlog items from Nam (not refined): #11 change the home button text from "Quét vé" to something like "Chụp ảnh vé", with sketch 1 updated; #12 delete a ticket's proof of testing once it's closed and its branch deleted.
-- Ticket #5 (portrait lock) is done through the first live run of `/work` (PR #7), with no fix rounds. The test writer wrote 6 Flutter Driver tests that turn the `Pixel_10` emulator by its tilt sensor; all failed first. The implementer added one line to the Android manifest (`screenOrientation="portrait"`); all checks and manual steps pass, proof in `docs/evidence/5/`. `/work` ran the manual steps itself with `adb emu rotate` instead of toolbar clicks.
-- Added two backlog items found during #5 (not refined): #13 make `/work` run every kind of integration test; #14 write manual steps with adb commands Claude can run.
-- Cleanup: backlog item 1 marked done, PR #3's evidence links now point to `main`, the merged branch is deleted. Rules for both added to WORKFLOW.md. This file trimmed to the latest session.
+- Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
 
 ## Next up
 

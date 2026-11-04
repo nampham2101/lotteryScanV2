@@ -13,7 +13,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 |---|---|---|---|
 | 1 | Create the Flutter app (empty app on the pinned Flutter version) and write `docs/CONVENTIONS.md` | Flutter installed (`./setup.sh`) | done (#1, #2) |
 | 2 | Home screen with the "Quét vé" button (sketch 1) | — | #4 home screen done; #5 portrait lock done (PR #7) |
-| 3 | The button opens the camera; tapping the shutter takes the photo (sketch 2) | — | not refined |
+| 3 | The button opens the camera; tapping the shutter takes the photo (sketch 2) | — | posted (#8 take the photo, #9 camera refused) |
 | 4 | Show the taken photo on screen | — | not refined |
 | 5 | Mark where each field sits on the ticket (ticket number, date, province), per province if layouts differ | The three ticket photos, and which area holds which field | not refined |
 | 6 | Read the three fields from those areas; check against the three saved photos | The correct values for the three photos | not refined |
