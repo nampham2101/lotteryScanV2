@@ -39,11 +39,12 @@ Steps 4 and 5 share at most 3 fix rounds. After 3 rounds without passing: stop, 
 
 ## 5. Check
 
-- Pick the device: if `adb devices` lists a real phone as `device`, use it, and ask Nam to unlock it if it's locked. Otherwise use the `Pixel_10` emulator. Put the phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
-- Follow the "Where these run" line in `docs/tests/<number>.md`. Tests that control the emulator itself stay on `Pixel_10` even when a phone is connected. If tests need a real phone and none is connected: stop and tell Nam. Don't use the emulator instead.
-- Run `fvm flutter analyze` and the widget tests in `app/`, and the integration tests on that device. Save the output in `docs/evidence/<number>/`, and say which device each run used.
+- Follow the "Where these run" line in `docs/tests/<number>.md`: the test writer chose the device for each test. Start `Pixel_10` if it isn't running.
+- If tests need a real phone, check `adb devices` lists one as `device`, and ask Nam to unlock it if it's locked. If none is connected: stop and tell Nam. Don't use the emulator instead.
+- Put a phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
+- Run `fvm flutter analyze` and the widget tests in `app/`, and each integration test on its device. Save the output in `docs/evidence/<number>/`, and say which device each run used.
 - Confirm the implementer changed no test files since the test writer's last commit.
-- Run each manual step in `docs/tests/<number>.md` on that device. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
+- Run each manual step in `docs/tests/<number>.md` on its device. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
 - Prove each "Done when" item, including every Given / When / Then and the checklist. Find the test or manual step that covers it and the saved output or screenshot showing it passed. Read the saved output and look at the screenshots yourself; a claim that something passed isn't proof.
 - If something fails or isn't proven and it needs a code fix: send it to the implementer with exactly what failed, then go back to step 4. That's one round.
 - If it needs no code fix (a run problem, like the phone held still, or a proof that wasn't saved): run that check again. That's one round.
