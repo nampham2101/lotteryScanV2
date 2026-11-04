@@ -39,12 +39,13 @@ flowchart LR
     E3["Portrait lock ✅<br/>ticket #5, PR #7"]
     E4["Take the photo ✅<br/>ticket #8, PR #11"]
     E5["Camera refused pop-up ✅<br/>ticket #9, PR #12"]
-    E6["Photo screen 🔄<br/>ticket #10, built, in checks"]
+    E6["Photo screen ✅<br/>ticket #10, PR #13"]
   end
 ```
 
 ## Latest session (2026-11-04)
 
+- #10 merged (PR #13): the shutter now opens a temporary photo screen that shows only the newest photo, fitted whole, with no text, buttons or zooming. Back goes home, and "Quét vé" opens the camera again. The reviewer found two problems in its first review, a kept photo replaced after leaving and pasted test helpers. Both were fixed in one round, and the second review was clean. All #10 tests passed on `Pixel_10`. Because the ticket changed shared helpers and camera code, #8's 12 tests passed on the Pixel 7 and #9's and #5's tests on `Pixel_10`. #8's test no longer expects home after the shutter, on purpose, because #10 replaces that. Backlog items 33–39 added and item 32 extended. First live run of the test writer choosing devices and of `/work` running only the affected older tests.
 - #9 merged (PR #12): when camera access is refused, once or for good, home shows a pop-up "Cần dùng camera" with "Đóng", and the camera screen doesn't open. Allowing the camera later in Settings lets "Quét vé" open it as normal. First live run of the reviewer before the checks: it found no problems on the first review, so no fix rounds were used. All #9 tests passed on `Pixel_10`, and #8's 12 camera tests passed again on the Pixel 7. Backlog items 26–32 added from this ticket; item 25 is Nam's own. Three side runs by the agents have no saved output, which is a gap against the checklist's "every test run" wording (backlog item 32).
 - Backlog item 4 refined as one ticket and posted unassigned as #10. A temporary screen for the reading gate, with no sketch: the shutter goes to the photo instead of home, the screen shows only the photo, fitted whole with no zooming, and the phone's back goes home. It builds on #8, needs test cases, and must pass on the Pixel 7.
 - Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
@@ -61,15 +62,12 @@ flowchart LR
 - Decision: the test writer now picks the device for each test, replacing the phone-first rule above. A device named in the ticket wins. Otherwise the default is `Pixel_10`, and a real phone is used only when the emulator can't prove the item, with phone tests in their own file. "It must pass on the Pixel 7" is removed from #10. Accepted risk: a bug that only shows on a real phone may first appear at the release check. Revisit if that happens. Not yet run live.
 - Decision: `/work`'s checks now run analyze, all the widget tests and the ticket's own device tests and manual steps. Older device tests run only if the ticket touched their code or shared test helpers; the rest wait for a regression run before a release. That run isn't designed yet. Accepted risk: a ticket can break an older feature and stay on `main` until then. Revisit if that happens. Not yet run live.
 
-- #10 built on branch `ticket-10-photo-screen`: the shutter now replaces the camera screen with a temporary photo screen (the newest photo, fitted whole, no text, buttons or zoom), so back goes home. README line updated. All 13 of #10's tests passed on `Pixel_10` (`docs/evidence/10/photo-screen-run.txt`). #8's tests on the emulator fail only because its camera picture is still ("its picture is not moving"), saved as `docs/evidence/10/camera-run.txt`; they need the Pixel 7 held and moved.
-
 ## Next up
 
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Nam runs `/work` on #10.
-5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
 
