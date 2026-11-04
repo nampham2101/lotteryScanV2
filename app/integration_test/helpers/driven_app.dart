@@ -7,8 +7,8 @@ import 'app_screen.dart';
 import 'phone.dart';
 
 // Shared by the tests that run on the Mac and drive the real app started from
-// camera_app.dart (tickets #8 and #9), so they never drift apart on what the
-// home screen and the camera screen are.
+// camera_app.dart (tickets #8, #9 and #10), so they never drift apart on what
+// the home screen and the camera screen are.
 
 const homeTitle = 'Dò vé số';
 const homeSubtitle = 'Chụp vé để biết trúng hay không';
@@ -62,6 +62,50 @@ Future<bool> isCameraScreenShowing() async {
 Future<void> tapScanButton() async {
   final button = (await appScreen()).itemWith(scanButtonLabel);
   await phone.tap(button.centerX.round(), button.centerY.round());
+}
+
+/// The one thing on the camera screen that can be tapped.
+Future<ScreenItem> findShutter() async {
+  final tappable = (await appScreen()).tappable;
+  expect(
+    tappable,
+    hasLength(1),
+    reason: 'the camera screen must have the shutter and no other button',
+  );
+  return tappable.single;
+}
+
+/// Taps the shutter and says when, by the phone's clock.
+Future<double> tapShutter() async {
+  final shutter = await findShutter();
+  final tappedAt = await phone.clock();
+  await phone.tap(shutter.centerX.round(), shutter.centerY.round());
+  return tappedAt;
+}
+
+/// Given: access is already allowed.
+Future<void> givenCameraAllowed() async {
+  await phone.allowCameraAccess();
+  expect(
+    await phone.cameraAccess(),
+    CameraAccess.allowed,
+    reason: 'the app does not request camera access from Android',
+  );
+}
+
+/// Then: a photo written after the shutter tap is inside the app. File times
+/// are in whole seconds, so the tap time is rounded down.
+Future<void> expectPhotoKeptSince(double tappedAt) async {
+  var photos = <KeptPhoto>[];
+  final isKept = await waitUntil(() async {
+    photos = await phone.photosInsideApp();
+    return photos.any((photo) => photo.modifiedAt >= tappedAt.floor());
+  });
+  expect(
+    isKept,
+    isTrue,
+    reason: 'no new photo inside the app. It holds: $photos',
+  );
 }
 
 /// Given: the home screen is showing. Goes back from wherever a test ended.

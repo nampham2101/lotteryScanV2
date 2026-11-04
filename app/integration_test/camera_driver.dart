@@ -1,7 +1,6 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
-import 'helpers/app_screen.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/phone.dart';
 
@@ -37,35 +36,6 @@ Future<bool> isPictureMoving() async {
   return false;
 }
 
-/// The one thing on the camera screen that can be tapped.
-Future<ScreenItem> findShutter() async {
-  final tappable = (await appScreen()).tappable;
-  expect(
-    tappable,
-    hasLength(1),
-    reason: 'the camera screen must have the shutter and no other button',
-  );
-  return tappable.single;
-}
-
-/// Taps the shutter and says when, by the phone's clock.
-Future<double> tapShutter() async {
-  final shutter = await findShutter();
-  final tappedAt = await phone.clock();
-  await phone.tap(shutter.centerX.round(), shutter.centerY.round());
-  return tappedAt;
-}
-
-/// Given: access is already allowed.
-Future<void> givenCameraAllowed() async {
-  await phone.allowCameraAccess();
-  expect(
-    await phone.cameraAccess(),
-    CameraAccess.allowed,
-    reason: 'the app does not request camera access from Android',
-  );
-}
-
 /// Given: the camera screen is open, showing the moving picture, as it is when
 /// a person looks at it and taps the shutter.
 Future<void> givenCameraScreenOpen() async {
@@ -88,23 +58,7 @@ Future<void> givenCameraScreenOpen() async {
 Future<void> takePhoto() async {
   await givenCameraScreenOpen();
   final tappedAt = await tapShutter();
-  await expectHomeScreenShows();
   await expectPhotoKeptSince(tappedAt);
-}
-
-/// Then: a photo written after the shutter tap is inside the app. File times
-/// are in whole seconds, so the tap time is rounded down.
-Future<void> expectPhotoKeptSince(double tappedAt) async {
-  var photos = <KeptPhoto>[];
-  final isKept = await waitUntil(() async {
-    photos = await phone.photosInsideApp();
-    return photos.any((photo) => photo.modifiedAt >= tappedAt.floor());
-  });
-  expect(
-    isKept,
-    isTrue,
-    reason: 'no new photo inside the app. It holds: $photos',
-  );
 }
 
 void main() {
@@ -283,19 +237,16 @@ void main() {
   });
 
   group('Taking the photo', () {
-    test(
-      'Given the camera screen is open, when the person taps the shutter, '
-      'then the photo is kept inside the app and the home screen shows',
-      () async {
-        await givenCameraScreenOpen();
+    // Ticket #10 moved what shows after the shutter to the photo screen, and
+    // tests it in photo_screen_driver.dart.
+    test('Given the camera screen is open, when the person taps the shutter, '
+        'then the photo is kept inside the app', () async {
+      await givenCameraScreenOpen();
 
-        final tappedAt = await tapShutter();
+      final tappedAt = await tapShutter();
 
-        await expectHomeScreenShows();
-        await expectPhotoKeptSince(tappedAt);
-      },
-      timeout: testTimeout,
-    );
+      await expectPhotoKeptSince(tappedAt);
+    }, timeout: testTimeout);
 
     test('Given a photo is already kept, when the person takes another, '
         'then only the new photo is kept', () async {
@@ -306,7 +257,6 @@ void main() {
       await givenCameraScreenOpen();
       final tappedAt = await tapShutter();
 
-      await expectHomeScreenShows();
       await expectPhotoKeptSince(tappedAt);
       await Future<void>.delayed(settleTime);
       final photos = await phone.photosInsideApp();
