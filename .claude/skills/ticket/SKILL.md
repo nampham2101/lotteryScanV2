@@ -1,12 +1,12 @@
 ---
 name: ticket
-description: Draft GitHub issue(s) from the output of /refine, show them to Nam, and post each only after Nam says yes.
+description: Draft GitHub issue(s) from the output of /refine, show them to Nam, and post each only after Nam says yes. /ticket update <issue number> changes an existing ticket the same way.
 disable-model-invocation: true
 ---
 
 # /ticket
 
-Turn the task(s) that /refine produced into GitHub issues.
+Turn the task(s) that /refine produced into GitHub issues. To change an existing ticket, skip to "Updating an existing ticket" below.
 
 ## 0. Check for /refine output
 
@@ -43,3 +43,12 @@ After Nam says yes, post it with `gh issue create`, using the title, body and la
 - The repository is public, so the issue is visible to everyone.
 
 Show Nam the link to the new issue.
+
+## Updating an existing ticket
+
+Nam types `/ticket update <issue number>` and says what should change.
+
+1. Read it: `gh issue view <number>`. Stop and tell Nam if it's closed.
+2. Change only what Nam asked for. Keep every other line exactly as it is, including ticked boxes. A new or changed "Done when" item goes through /refine first.
+3. Show Nam each changed line, old and new. Do not change the ticket until Nam says yes.
+4. After Nam says yes, apply it with `gh issue edit <number> --body-file <file>`. The repository is public, so the change is visible to everyone. Show Nam the link.

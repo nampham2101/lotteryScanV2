@@ -29,7 +29,7 @@ flowchart TD
 | Piece | Type | Job | Built? |
 |---|---|---|---|
 | `/refine` | Skill | Discuss the work, split when needed, write acceptance criteria, mark "test cases needed?" | ✅ |
-| `/ticket` | Skill | Draft and post the GitHub issue from `/refine`'s output | ✅ |
+| `/ticket` | Skill | Draft and post the GitHub issue from `/refine`'s output. `/ticket update <issue number>` changes an existing ticket, after Nam's yes | ✅ |
 | `/work` | Skill | Assign one ticket to Nam and run it from test writer to merge, in our conversation. Nam types `/work <issue number>`, and that is the go signal. See `.claude/skills/work/SKILL.md` | ✅ |
 | Test writer | Agent (Opus) | Write widget tests, integration tests and manual steps from the ticket's acceptance criteria only, before any code exists, on the ticket's branch. See `.claude/agents/test-writer.md` | ✅ |
 | Implementer | Agent (Sonnet) | Write the code for the ticket on its own branch, then report. See `.claude/agents/implementer.md` | ✅ |
@@ -53,7 +53,7 @@ flowchart TD
 - **Reviewer rules:** runs after the implementer and before the checks, given only the ticket number, never the implementer's report. It reviews the code only, across all the ticket's changes every time, reports every problem at once, and changes nothing: it has no file-editing tools, though it can run shell commands, so "never change files" rests on its instructions. The block-push hook applies too. All its problems go back together, as one fix round, shared with the checks. Improvements and style preferences go to the backlog, not back to the implementer.
 - **Code fixes go through the reviewer again.** Any code fix after a failed check returns to the reviewer before the checks rerun. A run problem with no code fix just reruns the check. Both count as a fix round.
 - **Device rule:** tests run on a real phone when `adb devices` lists one, and on the `Pixel_10` emulator when it doesn't. Each `docs/tests/<issue>.md` has a "Where these run" line for tests tied to one device: tests that control the emulator itself stay on `Pixel_10`, and tests that need a real camera picture need a real phone. The phone's serial goes in `ANDROID_SERIAL`, never in the repo, and every command names its device. Evidence says which device each run used.
-- **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the ticket with `/refine`, then the test writer runs again. (`/refine` and `/ticket` can't update an existing ticket yet. That gets built only when a ticket actually hits an unclear criterion.)
+- **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the criterion with `/refine`, `/ticket update` applies it to the ticket, then the test writer runs again.
 - **`/work` merges by itself** once every check passes: analyze, widget and integration tests, manual steps, no test files changed, every "Done when" item proven, and the reviewer says it looks good. Nam steps in only when it stops. Until CI exists, these checks run inside `/work` only.
 - **`/work` routing:**
 
@@ -69,6 +69,7 @@ flowchart TD
   | Tests need a real phone and none is connected | Stop and tell Nam | — |
   | 3 fix rounds used up | Stop, and show Nam what was tried | — |
 
+- **A workflow change can leave tickets out of date.** When a rule changes, check the open tickets and update them with `/ticket update`.
 - **Findings go to BACKLOG.md** as "not refined" items. Nothing is posted to GitHub without Nam.
 
 ## Decisions and reasons
