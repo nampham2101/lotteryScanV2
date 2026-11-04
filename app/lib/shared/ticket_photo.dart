@@ -16,3 +16,9 @@ Future<File> keepTicketPhoto(XFile photo) async {
   await File(photo.path).delete();
   return kept;
 }
+
+/// Removes a photo file, for a photo the person chose to leave without.
+Future<void> deleteTicketPhotoFile(String path) async {
+  final file = File(path);
+  if (await file.exists()) await file.delete();
+}

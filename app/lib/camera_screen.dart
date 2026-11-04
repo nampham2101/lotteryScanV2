@@ -31,6 +31,11 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   bool _isTakingPhoto = false;
 
+  // True once this screen is closing, by the person's back or by itself.
+  // Closing twice would take the home screen away too, and a photo finished
+  // after the person left must not be kept.
+  bool _isLeaving = false;
+
   @override
   void dispose() {
     widget.controller.dispose();
@@ -38,50 +43,65 @@ class _CameraScreenState extends State<CameraScreen> {
   }
 
   Future<void> _takePhoto() async {
-    if (_isTakingPhoto) return;
+    if (_isTakingPhoto || _isLeaving) return;
     _isTakingPhoto = true;
-    final photo = await widget.controller.takePicture();
-    await keepTicketPhoto(photo);
+    final XFile photo;
+    try {
+      photo = await widget.controller.takePicture();
+    } on CameraException {
+      // Leaving closes the camera under a photo that is still being taken.
+      if (_isLeaving) return;
+      rethrow;
+    }
+    if (_isLeaving) return deleteTicketPhotoFile(photo.path);
+    final kept = await keepTicketPhoto(photo);
+    if (_isLeaving) return deleteTicketPhotoFile(kept.path);
+    _isLeaving = true;
     if (mounted) Navigator.of(context).pop();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: _screenBackground,
-      body: LayoutBuilder(
-        builder: (context, screen) {
-          final frameSide = screen.maxWidth * (1 - 2 * _frameSideInset);
-          return Stack(
-            children: [
-              Positioned(
-                top: screen.maxHeight * _hintTop,
-                left: 0,
-                right: 0,
-                child: const Text(
-                  'Đặt vé vào khung',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+    return PopScope(
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) _isLeaving = true;
+      },
+      child: Scaffold(
+        backgroundColor: _screenBackground,
+        body: LayoutBuilder(
+          builder: (context, screen) {
+            final frameSide = screen.maxWidth * (1 - 2 * _frameSideInset);
+            return Stack(
+              children: [
+                Positioned(
+                  top: screen.maxHeight * _hintTop,
+                  left: 0,
+                  right: 0,
+                  child: const Text(
+                    'Đặt vé vào khung',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
                 ),
-              ),
-              Positioned(
-                top: screen.maxHeight * _frameCenter - frameSide / 2,
-                left: screen.maxWidth * _frameSideInset,
-                width: frameSide,
-                height: frameSide,
-                child: _CameraFrame(controller: widget.controller),
-              ),
-              Positioned(
-                bottom:
-                    screen.maxHeight * _shutterCenterFromBottom -
-                    _shutterSize / 2,
-                left: 0,
-                right: 0,
-                child: Center(child: _ShutterButton(onPressed: _takePhoto)),
-              ),
-            ],
-          );
-        },
+                Positioned(
+                  top: screen.maxHeight * _frameCenter - frameSide / 2,
+                  left: screen.maxWidth * _frameSideInset,
+                  width: frameSide,
+                  height: frameSide,
+                  child: _CameraFrame(controller: widget.controller),
+                ),
+                Positioned(
+                  bottom:
+                      screen.maxHeight * _shutterCenterFromBottom -
+                      _shutterSize / 2,
+                  left: 0,
+                  right: 0,
+                  child: Center(child: _ShutterButton(onPressed: _takePhoto)),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
