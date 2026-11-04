@@ -1,12 +1,13 @@
 import 'dart:io';
 
 // The Pixel_10 emulator, driven from the Mac with adb, for the tests of tickets
-// #5 and #8. Turning it sets its accelerometer, which is what a real turn
+// #5, #8 and #9. Turning it sets its accelerometer, which is what a real turn
 // changes, so Android decides by itself whether the screen turns.
 
 const appPackage = 'com.nampham.lotteryscan';
 
 const _cameraPermission = 'android.permission.CAMERA';
+const _allowInSettingsButton = 'allow_foreground_only_radio_button';
 
 /// What Android remembers about this app and the camera.
 enum CameraAccess { neverAsked, allowed, refused }
@@ -14,8 +15,14 @@ enum CameraAccess { neverAsked, allowed, refused }
 /// A photo inside the app's private folders.
 typedef KeptPhoto = ({String path, int modifiedAt, int bytes});
 
-/// Android's question to the person, with the button that allows it.
-typedef PermissionQuestion = ({String message, int allowX, int allowY});
+/// Android's question to the person, with the buttons that allow and refuse.
+typedef PermissionQuestion = ({
+  String message,
+  int allowX,
+  int allowY,
+  int refuseX,
+  int refuseY,
+});
 
 /// What the phone's screen shows, pixel by pixel.
 class ScreenPixels {
@@ -241,6 +248,53 @@ class Phone {
     return hasPersonAnswered ? CameraAccess.refused : CameraAccess.neverAsked;
   }
 
+  /// Whether Android will never ask again: only the phone's Settings can
+  /// change the answer now.
+  Future<bool> isCameraRefusedForGood() async {
+    final dump = await _shell('dumpsys package $appPackage');
+    final match = RegExp('$_cameraPermission: granted=false, flags=\\[(.*)\\]')
+        .firstMatch(dump);
+    return match != null && match[1]!.contains('USER_FIXED');
+  }
+
+  /// Allows the camera the way a person does in the phone's Settings: App
+  /// info, Permissions, Camera, then "Allow only while using the app". Then
+  /// goes back to the app with the back button. Reads the English Settings.
+  Future<void> allowCameraInSettings() async {
+    await _shell(
+      'am start -a android.settings.APPLICATION_DETAILS_SETTINGS '
+      '-d package:$appPackage',
+    );
+    await _tapOnScreen('text="Permissions"');
+    await _tapOnScreen('text="Camera"');
+    await _tapOnScreen('resource-id="[^"]*:id/$_allowInSettingsButton"');
+    await Future<void>.delayed(const Duration(seconds: 1));
+    for (var tries = 0; tries < 5 && !await isAppInFront(); tries++) {
+      await pressBackButton();
+      await Future<void>.delayed(const Duration(milliseconds: 1500));
+    }
+  }
+
+  /// Waits for what [attribute] describes to be on screen, then taps it.
+  Future<void> _tapOnScreen(String attribute) async {
+    final item = RegExp('<node [^>]*$attribute[^>]*>');
+    for (var tries = 0; tries < 20; tries++) {
+      final window = await _run([
+        'exec-out',
+        'uiautomator',
+        'dump',
+        '/dev/tty',
+      ]);
+      if (item.firstMatch(window)?[0] case final found?) {
+        final (x, y) = _middleOf(found);
+        await tap(x, y);
+        return;
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    }
+    throw StateError('not on screen: $attribute. In: ${await windowInFront()}');
+  }
+
   /// Allows the camera in Android's settings, so no question is needed.
   /// Android says nothing if the app doesn't request the camera at all, so
   /// check [cameraAccess] afterwards.
@@ -258,19 +312,34 @@ class Phone {
       window,
       'permission_allow_foreground_only_button',
     );
-    if (message == null || allowButton == null) return null;
+    // The second time Android asks, its refuse button is a different one.
+    final refuseButton =
+        _screenItem(window, 'permission_deny_button') ??
+        _screenItem(window, 'permission_deny_and_dont_ask_again_button');
+    if (message == null || allowButton == null || refuseButton == null) {
+      return null;
+    }
 
     final text = RegExp(r' text="([^"]*)"').firstMatch(message)![1]!;
+    final (allowX, allowY) = _middleOf(allowButton);
+    final (refuseX, refuseY) = _middleOf(refuseButton);
+    return (
+      message: text,
+      allowX: allowX,
+      allowY: allowY,
+      refuseX: refuseX,
+      refuseY: refuseY,
+    );
+  }
+
+  /// The middle of one thing on screen in a uiautomator dump.
+  (int, int) _middleOf(String item) {
     final bounds = RegExp(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"')
-        .firstMatch(allowButton)!;
+        .firstMatch(item)!;
     final [left, top, right, bottom] = [
       for (final group in [1, 2, 3, 4]) int.parse(bounds[group]!),
     ];
-    return (
-      message: text,
-      allowX: (left + right) ~/ 2,
-      allowY: (top + bottom) ~/ 2,
-    );
+    return ((left + right) ~/ 2, (top + bottom) ~/ 2);
   }
 
   /// The description of one thing on screen in a uiautomator dump.
