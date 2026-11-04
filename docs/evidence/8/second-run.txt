@@ -6,6 +6,20 @@ emulator's back camera (hw.camera.back=virtualscene in its config.ini) shows a s
 a working live preview looks frozen; only the first moments after opening change.
 Camera and Android debug lines (CXCP, DeferrableSurface and similar) are left out of the output below.
 
+NOTE added in fix round 1 (the lines above this note are the original header):
+- This file is the SECOND of the two runs mentioned above, and its log was trimmed. Debug lines (CXCP,
+  DeferrableSurface and similar) were removed, and the colour codes were stripped. The untrimmed output
+  of this run was not saved.
+- The FIRST of the two runs also ended with 11 passed and 1 failed, the same live-picture test failing
+  for the same reason. Its output was first thought lost, but a copy was still in the session's scratch
+  folder, so it is saved untrimmed as second-run-first-of-two-untrimmed.txt.
+- Both runs were of the code later committed as be11a41, before the fix round. Later runs are in
+  fix-round-1-emulator-<n>.txt, all untrimmed.
+- Run 1 of the fix round (fix-round-1-emulator-1.txt) started while the Pixel 7 was also plugged in, so
+  its `adb uninstall` step failed with "more than one device". The tests themselves only talk to
+  emulator-5554. The Pixel 7 was not used.
+
+
 Resolving dependencies...
 Downloading packages...
   _fe_analyzer_shared 103.0.0 (111.0.0 available)

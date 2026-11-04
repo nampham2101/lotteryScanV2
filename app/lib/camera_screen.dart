@@ -4,67 +4,43 @@ import 'package:flutter/material.dart';
 import 'shared/ticket_photo.dart';
 
 const _screenBackground = Color(0xFF222222);
-const _frameInset = 24.0;
 const _shutterSize = 88.0;
 
+// Where sketch 2 puts things, as a share of the screen: the hint 7% down, the
+// square frame as wide as 89% of the screen with its middle 44% down, the
+// shutter's middle 13% up from the bottom. Phones are taller than the sketch,
+// so the frame keeps its square shape and its middle, not its height.
+const _hintTop = 0.06;
+const _frameCenter = 0.44;
+const _frameSideInset = 0.055;
+const _shutterCenterFromBottom = 0.13;
+
 /// Sketch 2: the live camera picture inside a dashed frame, with a round
-/// shutter button. Closes by itself after the photo is kept, so the home
-/// screen shows again.
+/// shutter button. It takes a camera that is already running, so it only opens
+/// once access is allowed. Closes by itself after the photo is kept, so the
+/// home screen shows again.
 class CameraScreen extends StatefulWidget {
-  const CameraScreen({super.key});
+  const CameraScreen({required this.controller, super.key});
+
+  final CameraController controller;
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
 }
 
 class _CameraScreenState extends State<CameraScreen> {
-  CameraController? _controller;
   bool _isTakingPhoto = false;
 
   @override
-  void initState() {
-    super.initState();
-    _startCamera();
-  }
-
-  @override
   void dispose() {
-    _controller?.dispose();
+    widget.controller.dispose();
     super.dispose();
   }
 
-  Future<void> _startCamera() async {
-    try {
-      final cameras = await availableCameras();
-      final back = cameras.firstWhere(
-        (camera) => camera.lensDirection == CameraLensDirection.back,
-        orElse: () => cameras.first,
-      );
-      // No audio: the app only needs pictures, and asking for the
-      // microphone too would add a second question.
-      final controller = CameraController(
-        back,
-        ResolutionPreset.high,
-        enableAudio: false,
-      );
-      await controller.initialize();
-      if (!mounted) {
-        await controller.dispose();
-        return;
-      }
-      setState(() => _controller = controller);
-    } on CameraException {
-      // Refused or broken camera: a later ticket decides what to tell the
-      // person. For now, go back to the home screen.
-      if (mounted) Navigator.of(context).pop();
-    }
-  }
-
   Future<void> _takePhoto() async {
-    final controller = _controller;
-    if (controller == null || _isTakingPhoto) return;
+    if (_isTakingPhoto) return;
     _isTakingPhoto = true;
-    final photo = await controller.takePicture();
+    final photo = await widget.controller.takePicture();
     await keepTicketPhoto(photo);
     if (mounted) Navigator.of(context).pop();
   }
@@ -73,28 +49,39 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: _screenBackground,
-      body: SafeArea(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 24),
-              child: Text(
-                'Đặt vé vào khung',
-                style: TextStyle(fontSize: 18, color: Colors.white),
+      body: LayoutBuilder(
+        builder: (context, screen) {
+          final frameSide = screen.maxWidth * (1 - 2 * _frameSideInset);
+          return Stack(
+            children: [
+              Positioned(
+                top: screen.maxHeight * _hintTop,
+                left: 0,
+                right: 0,
+                child: const Text(
+                  'Đặt vé vào khung',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(_frameInset),
-                child: _CameraFrame(controller: _controller),
+              Positioned(
+                top: screen.maxHeight * _frameCenter - frameSide / 2,
+                left: screen.maxWidth * _frameSideInset,
+                width: frameSide,
+                height: frameSide,
+                child: _CameraFrame(controller: widget.controller),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 32),
-              child: _ShutterButton(onPressed: _takePhoto),
-            ),
-          ],
-        ),
+              Positioned(
+                bottom:
+                    screen.maxHeight * _shutterCenterFromBottom -
+                    _shutterSize / 2,
+                left: 0,
+                right: 0,
+                child: Center(child: _ShutterButton(onPressed: _takePhoto)),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
@@ -104,29 +91,26 @@ class _CameraScreenState extends State<CameraScreen> {
 class _CameraFrame extends StatelessWidget {
   const _CameraFrame({required this.controller});
 
-  final CameraController? controller;
+  final CameraController controller;
 
   @override
   Widget build(BuildContext context) {
-    final controller = this.controller;
     return CustomPaint(
       foregroundPainter: _DashedFramePainter(),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
-        child: controller == null
-            ? const SizedBox.expand()
-            : SizedBox.expand(
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    width: 100,
-                    // The preview is wider than tall, and the phone is held
-                    // upright, so the picture's height is the longer side.
-                    height: 100 * controller.value.aspectRatio,
-                    child: CameraPreview(controller),
-                  ),
-                ),
-              ),
+        child: SizedBox.expand(
+          child: FittedBox(
+            fit: BoxFit.cover,
+            child: SizedBox(
+              width: 100,
+              // The preview is wider than tall, and the phone is held
+              // upright, so the picture's height is the longer side.
+              height: 100 * controller.value.aspectRatio,
+              child: CameraPreview(controller),
+            ),
+          ),
+        ),
       ),
     );
   }
