@@ -1,13 +1,21 @@
 import 'dart:io';
 
 // The Pixel_10 emulator, driven from the Mac with adb, for the tests of tickets
-// #5, #8 and #9. Turning it sets its accelerometer, which is what a real turn
-// changes, so Android decides by itself whether the screen turns.
+// #5, #8, #9 and #10. Turning it sets its accelerometer, which is what a real
+// turn changes, so Android decides by itself whether the screen turns.
 
 const appPackage = 'com.nampham.lotteryscan';
 
 const _cameraPermission = 'android.permission.CAMERA';
 const _allowInSettingsButton = 'allow_foreground_only_radio_button';
+
+// The emulator's touch screen reads every place on this scale, not in pixels.
+const _touchScale = 32767;
+const _endOfTouch = 'EV_SYN:0:0';
+
+/// Flutter ignores a second tap that lands under 40 ms after the first, and
+/// treats a gap over 300 ms as two separate taps.
+const _doubleTapGap = Duration(milliseconds: 80);
 
 /// What Android remembers about this app and the camera.
 enum CameraAccess { neverAsked, allowed, refused }
@@ -100,6 +108,9 @@ class Phone {
   final String _adb;
   final String _serial;
 
+  /// How many quarter turns the emulator's camera is from where it started.
+  var _quarterTurns = 0;
+
   Future<String> _run(List<String> args) async {
     final result = await Process.run(_adb, ['-s', _serial, ...args]);
     if (result.exitCode != 0) {
@@ -112,6 +123,22 @@ class Phone {
   }
 
   Future<String> _shell(String command) => _run(['shell', command]);
+
+  /// Turns the emulator's camera a quarter turn, so it sees another view of its
+  /// room. Sensors alone don't move that picture. An app locked upright stays
+  /// upright. Android needs a moment to catch up with the new picture.
+  Future<void> turnCamera() async {
+    await _run(['emu', 'rotate']);
+    _quarterTurns = (_quarterTurns + 1) % 4;
+    await Future<void>.delayed(const Duration(seconds: 2));
+  }
+
+  /// Undoes [turnCamera], so the next test finds the room upright again.
+  Future<void> turnCameraBack() async {
+    while (_quarterTurns != 0) {
+      await turnCamera();
+    }
+  }
 
   /// Turns the phone, then waits long enough for Android to turn the screen
   /// if it is going to.
@@ -228,6 +255,110 @@ class Phone {
     'input swipe 0 ${screenHeight ~/ 2} '
     '${screenWidth * 6 ~/ 10} ${screenHeight ~/ 2} 300',
   );
+
+  /// Real fingers on the emulator's touch screen, through the same path a
+  /// person's fingers take. `adb shell input` can't do this: it has one finger.
+  Future<void> _touch(List<String> events) =>
+      _run(['emu', 'event', 'send', ...events, _endOfTouch]);
+
+  int _touchPlace(num place, num screenSize) =>
+      place * _touchScale ~/ screenSize;
+
+  List<String> _fingerAt(
+    int finger, {
+    required int x,
+    required int y,
+    required int screenWidth,
+    required int screenHeight,
+  }) => [
+    'EV_ABS:ABS_MT_SLOT:$finger',
+    'EV_ABS:ABS_MT_POSITION_X:${_touchPlace(x, screenWidth)}',
+    'EV_ABS:ABS_MT_POSITION_Y:${_touchPlace(y, screenHeight)}',
+  ];
+
+  List<String> _fingerDown(int finger) => [
+    'EV_ABS:ABS_MT_SLOT:$finger',
+    'EV_ABS:ABS_MT_TRACKING_ID:${finger + 1}',
+    'EV_ABS:ABS_MT_PRESSURE:100',
+  ];
+
+  List<String> _fingerUp(int finger) => [
+    'EV_ABS:ABS_MT_SLOT:$finger',
+    'EV_ABS:ABS_MT_TRACKING_ID:-1',
+  ];
+
+  /// Two fingers in the middle of the screen that slide apart, or together if
+  /// [isSpreading] is false. [whileHeld] runs before the fingers lift, for
+  /// looking at the screen in the middle of the pinch.
+  Future<void> pinch({
+    required int screenWidth,
+    required int screenHeight,
+    required bool isSpreading,
+    required Future<void> Function() whileHeld,
+  }) async {
+    const steps = 12;
+    final middleY = screenHeight ~/ 2;
+    final near = screenHeight ~/ 12;
+    final far = screenHeight ~/ 3;
+    final x = screenWidth ~/ 2;
+
+    Future<void> placeFingers(int distance, {bool isLanding = false}) =>
+        _touch([
+          if (isLanding) ..._fingerDown(0),
+          ..._fingerAt(
+            0,
+            x: x,
+            y: middleY - distance,
+            screenWidth: screenWidth,
+            screenHeight: screenHeight,
+          ),
+          if (isLanding) ..._fingerDown(1),
+          ..._fingerAt(
+            1,
+            x: x,
+            y: middleY + distance,
+            screenWidth: screenWidth,
+            screenHeight: screenHeight,
+          ),
+        ]);
+
+    final start = isSpreading ? near : far;
+    final end = isSpreading ? far : near;
+    await placeFingers(start, isLanding: true);
+    for (var step = 1; step <= steps; step++) {
+      await placeFingers(start + (end - start) * step ~/ steps);
+      await Future<void>.delayed(const Duration(milliseconds: 16));
+    }
+    try {
+      await whileHeld();
+    } finally {
+      // A finger left down would spoil every test after this one.
+      await _touch([..._fingerUp(0), ..._fingerUp(1)]);
+    }
+  }
+
+  /// Two quick taps with one finger, at [x], [y], in phone pixels.
+  Future<void> doubleTap({
+    required int x,
+    required int y,
+    required int screenWidth,
+    required int screenHeight,
+  }) async {
+    for (var tap = 0; tap < 2; tap++) {
+      await _touch([
+        ..._fingerDown(0),
+        ..._fingerAt(
+          0,
+          x: x,
+          y: y,
+          screenWidth: screenWidth,
+          screenHeight: screenHeight,
+        ),
+      ]);
+      await _touch(_fingerUp(0));
+      if (tap == 0) await Future<void>.delayed(_doubleTapGap);
+    }
+  }
 
   /// Whether the phone uses gestures, not buttons, to go back.
   Future<bool> usesBackGesture() async {
@@ -368,6 +499,23 @@ class Phone {
             bytes: int.parse(match[2]!),
           ),
     ]..sort((a, b) => a.path.compareTo(b.path));
+  }
+
+  /// The contents of a file inside the app, by the path [photosInsideApp] gave.
+  Future<List<int>> fileInsideApp(String path) async {
+    final result = await Process.run(_adb, [
+      '-s',
+      _serial,
+      'exec-out',
+      'run-as',
+      appPackage,
+      'cat',
+      path,
+    ], stdoutEncoding: null);
+    if (result.exitCode != 0) {
+      throw StateError('cannot read $path: ${result.stderr}');
+    }
+    return result.stdout as List<int>;
   }
 
   /// Everything the phone's gallery can show: what Android has listed in its

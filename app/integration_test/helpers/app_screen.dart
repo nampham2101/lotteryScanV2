@@ -7,6 +7,7 @@ class ScreenItem {
   ScreenItem.fromJson(Map<String, dynamic> json)
     : label = json['label'] as String,
       canTap = json['canTap'] as bool,
+      isImage = json['isImage'] as bool,
       left = (json['left'] as num).toDouble(),
       top = (json['top'] as num).toDouble(),
       right = (json['right'] as num).toDouble(),
@@ -14,6 +15,10 @@ class ScreenItem {
 
   final String label;
   final bool canTap;
+
+  /// A picture with a description for screen readers. That description is
+  /// never drawn, so it isn't text on screen.
+  final bool isImage;
   final double left;
   final double top;
   final double right;
@@ -34,6 +39,10 @@ class AppScreen {
   AppScreen.fromJson(Map<String, dynamic> json)
     : width = (json['width'] as num).toDouble(),
       height = (json['height'] as num).toDouble(),
+      barsTop = (json['barsTop'] as num).toDouble(),
+      barsBottom = (json['barsBottom'] as num).toDouble(),
+      touches = json['touches'] as int,
+      twoFingerTouches = json['twoFingerTouches'] as int,
       items = [
         for (final item in json['items'] as List<dynamic>)
           ScreenItem.fromJson(item as Map<String, dynamic>),
@@ -41,6 +50,15 @@ class AppScreen {
 
   final double width;
   final double height;
+
+  /// How much of the top and the bottom the phone's own bars cover.
+  final double barsTop;
+  final double barsBottom;
+
+  /// Fingers that have reached the app since it started, and how many of them
+  /// landed while another finger was down.
+  final int touches;
+  final int twoFingerTouches;
   final List<ScreenItem> items;
 
   List<ScreenItem> get tappable => items.where((item) => item.canTap).toList();
@@ -50,6 +68,10 @@ class AppScreen {
   List<ScreenItem> get buttons => tappable
       .where((item) => item.width < width || item.height < height)
       .toList();
+
+  /// Words drawn on screen.
+  List<ScreenItem> get texts =>
+      items.where((item) => item.label.isNotEmpty && !item.isImage).toList();
 
   bool shows(String text) => items.any((item) => item.label.contains(text));
 

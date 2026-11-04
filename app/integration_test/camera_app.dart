@@ -1,14 +1,15 @@
 import 'dart:convert';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:lotteryscan/main.dart' as app;
 
-// The real app for the tests of tickets #8 and #9, started the way the phone
-// starts it. Those tests (camera_driver.dart, camera_refused_driver.dart and
-// camera_refused_once_driver.dart) run on the Mac, so they ask the app what its
-// screen shows through this answer.
+// The real app for the tests of tickets #8, #9 and #10, started the way the
+// phone starts it. Those tests (camera_driver.dart, camera_refused_driver.dart,
+// camera_refused_once_driver.dart and photo_screen_driver.dart) run on the Mac,
+// so they ask the app what its screen shows through this answer.
 //
 // The answer comes from the accessibility tree, the app's own list of what a
 // person can see and tap. A screen hidden behind another one isn't in it, and
@@ -17,20 +18,42 @@ import 'package:lotteryscan/main.dart' as app;
 
 SemanticsHandle? _accessibility;
 
+// Every finger that reached the app. "The photo stayed the same size" only
+// means something if the fingers landed, so the tests check these too.
+final _fingersDown = <int>{};
+var _touches = 0;
+var _twoFingerTouches = 0;
+
 void main() {
   enableFlutterDriverExtension(handler: (_) async => jsonEncode(_screenNow()));
   _accessibility = SemanticsBinding.instance.ensureSemantics();
+  GestureBinding.instance.pointerRouter.addGlobalRoute(_countFingers);
   app.main();
 }
 
-/// The size the app is drawn at, in phone pixels, and every text and tappable
-/// thing on screen with where it sits.
+void _countFingers(PointerEvent event) {
+  if (event is PointerDownEvent) {
+    _fingersDown.add(event.pointer);
+    _touches++;
+    if (_fingersDown.length == 2) _twoFingerTouches++;
+  } else if (event is PointerUpEvent || event is PointerCancelEvent) {
+    _fingersDown.remove(event.pointer);
+  }
+}
+
+/// The size the app is drawn at, in phone pixels, how much of it the phone's
+/// own bars cover, the fingers so far, and every text and tappable thing on
+/// screen with where it sits.
 Map<String, Object?> _screenNow() {
   assert(_accessibility != null);
   final view = WidgetsBinding.instance.platformDispatcher.views.first;
   return {
     'width': view.physicalSize.width,
     'height': view.physicalSize.height,
+    'barsTop': view.padding.top,
+    'barsBottom': view.padding.bottom,
+    'touches': _touches,
+    'twoFingerTouches': _twoFingerTouches,
     'items': _itemsOnScreen(),
   };
 }
@@ -51,6 +74,7 @@ List<Map<String, Object>> _itemsOnScreen() {
       items.add({
         'label': data.label,
         'canTap': canTap,
+        'isImage': data.flagsCollection.isImage,
         'left': rect.left,
         'top': rect.top,
         'right': rect.right,
