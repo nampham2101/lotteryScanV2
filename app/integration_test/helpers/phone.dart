@@ -1,10 +1,65 @@
 import 'dart:io';
 
-// The Pixel_10 emulator, driven from the Mac with adb, for ticket #5's tests.
-// Turning it sets its accelerometer, which is what a real turn changes, so
-// Android decides by itself whether the screen turns.
+// The Pixel_10 emulator, driven from the Mac with adb, for the tests of tickets
+// #5 and #8. Turning it sets its accelerometer, which is what a real turn
+// changes, so Android decides by itself whether the screen turns.
 
 const appPackage = 'com.nampham.lotteryscan';
+
+const _cameraPermission = 'android.permission.CAMERA';
+
+/// What Android remembers about this app and the camera.
+enum CameraAccess { neverAsked, allowed, refused }
+
+/// A photo inside the app's private folders.
+typedef KeptPhoto = ({String path, int modifiedAt, int bytes});
+
+/// Android's question to the person, with the button that allows it.
+typedef PermissionQuestion = ({String message, int allowX, int allowY});
+
+/// What the phone's screen shows, pixel by pixel.
+class ScreenPixels {
+  ScreenPixels(this._bytes)
+    : width = _readHeader(_bytes, 0),
+      height = _readHeader(_bytes, 4);
+
+  static const _headerBytes = 16;
+  static const _bytesPerPixel = 4;
+
+  final List<int> _bytes;
+  final int width;
+  final int height;
+
+  static int _readHeader(List<int> bytes, int offset) =>
+      bytes[offset] |
+      bytes[offset + 1] << 8 |
+      bytes[offset + 2] << 16 |
+      bytes[offset + 3] << 24;
+
+  int _pixelStart(int x, int y) =>
+      _headerBytes + (y * width + x) * _bytesPerPixel;
+
+  /// From 0 (black) to 255 (white).
+  int brightness(int x, int y) {
+    final start = _pixelStart(x, y);
+    return (_bytes[start] + _bytes[start + 1] + _bytes[start + 2]) ~/ 3;
+  }
+
+  /// How many sampled pixels differ from [other]. The top and bottom tenths
+  /// are left out: the clock in the status bar changes by itself.
+  int changedPixels(ScreenPixels other) {
+    const step = 10;
+    const smallestChange = 12;
+    var changed = 0;
+    for (var y = height ~/ 10; y < height * 9 ~/ 10; y += step) {
+      for (var x = 0; x < width; x += step) {
+        final difference = brightness(x, y) - other.brightness(x, y);
+        if (difference.abs() >= smallestChange) changed++;
+      }
+    }
+    return changed;
+  }
+}
 
 /// How the phone is held. `acceleration` is what the accelerometer reads
 /// (x:y:z in m/s²): gravity pulls along the phone's long side when upright,
@@ -151,5 +206,136 @@ class Phone {
       '-c android.intent.category.LAUNCHER -n $activity',
     );
     await Future<void>.delayed(const Duration(seconds: 4));
+  }
+
+  /// A finger tap at [x], [y], in phone pixels.
+  Future<void> tap(int x, int y) => _shell('input tap $x $y');
+
+  Future<void> pressBackButton() => _shell('input keyevent KEYCODE_BACK');
+
+  /// The back gesture: a finger swiping in from the left edge of the screen.
+  Future<void> swipeBack({
+    required int screenWidth,
+    required int screenHeight,
+  }) => _shell(
+    'input swipe 0 ${screenHeight ~/ 2} '
+    '${screenWidth * 6 ~/ 10} ${screenHeight ~/ 2} 300',
+  );
+
+  /// Whether the phone uses gestures, not buttons, to go back.
+  Future<bool> usesBackGesture() async {
+    const gestureNavigation = '2';
+    return (await _shell('settings get secure navigation_mode')).trim() ==
+        gestureNavigation;
+  }
+
+  Future<CameraAccess> cameraAccess() async {
+    final dump = await _shell('dumpsys package $appPackage');
+    final match = RegExp('$_cameraPermission: granted=(\\w+), flags=\\[(.*)\\]')
+        .firstMatch(dump);
+    if (match == null) return CameraAccess.neverAsked;
+    if (match[1] == 'true') return CameraAccess.allowed;
+    final flags = match[2]!;
+    final hasPersonAnswered =
+        flags.contains('USER_SET') || flags.contains('USER_FIXED');
+    return hasPersonAnswered ? CameraAccess.refused : CameraAccess.neverAsked;
+  }
+
+  /// Allows the camera in Android's settings, so no question is needed.
+  /// Android says nothing if the app doesn't request the camera at all, so
+  /// check [cameraAccess] afterwards.
+  Future<void> allowCameraAccess() =>
+      _shell('pm grant $appPackage $_cameraPermission');
+
+  Future<bool> isAndroidAskingForPermission() async =>
+      (await windowInFront()).contains('GrantPermissionsActivity');
+
+  /// Android's question on screen now, or null if there is none.
+  Future<PermissionQuestion?> permissionQuestion() async {
+    final window = await _run(['exec-out', 'uiautomator', 'dump', '/dev/tty']);
+    final message = _screenItem(window, 'permission_message');
+    final allowButton = _screenItem(
+      window,
+      'permission_allow_foreground_only_button',
+    );
+    if (message == null || allowButton == null) return null;
+
+    final text = RegExp(r' text="([^"]*)"').firstMatch(message)![1]!;
+    final bounds = RegExp(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"')
+        .firstMatch(allowButton)!;
+    final [left, top, right, bottom] = [
+      for (final group in [1, 2, 3, 4]) int.parse(bounds[group]!),
+    ];
+    return (
+      message: text,
+      allowX: (left + right) ~/ 2,
+      allowY: (top + bottom) ~/ 2,
+    );
+  }
+
+  /// The description of one thing on screen in a uiautomator dump.
+  String? _screenItem(String window, String id) =>
+      RegExp('<node [^>]*resource-id="[^"]*:id/$id"[^>]*>')
+          .firstMatch(window)?[0];
+
+  /// Every photo in the app's private folders, whatever its name or folder.
+  /// Files are recognised by their content, not by their name. `code_cache`
+  /// holds the app's own code, never a photo.
+  Future<List<KeptPhoto>> photosInsideApp() async {
+    final lines = await _shell(
+      'run-as $appPackage sh -c \''
+      'find . -type f ! -path "./code_cache/*" | while read -r f; do '
+      'case "\$(file -b "\$f")" in '
+      '*JPEG*|*PNG*|*WebP*|*HEIF*|*HEIC*) stat -c "%Y %s %n" "\$f";; '
+      'esac; done\'',
+    );
+    return [
+      for (final line in lines.trim().split('\n'))
+        if (RegExp(r'^(\d+) (\d+) (.+)$').firstMatch(line.trim())
+            case final match?)
+          (
+            path: match[3]!,
+            modifiedAt: int.parse(match[1]!),
+            bytes: int.parse(match[2]!),
+          ),
+    ]..sort((a, b) => a.path.compareTo(b.path));
+  }
+
+  /// Everything the phone's gallery can show: what Android has listed in its
+  /// picture index, and any picture file in shared storage it hasn't listed
+  /// yet. `Android/` holds apps' own folders, which the gallery doesn't show.
+  Future<List<String>> galleryPhotos() async {
+    final listed = await _shell(
+      'content query --uri content://media/external/images/media '
+      '--projection _id:_display_name:_data',
+    );
+    final files = await _shell(
+      "find /sdcard/ -type f -not -path '/sdcard/Android/*' \\( "
+      "-iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o "
+      "-iname '*.webp' -o -iname '*.heic' \\)",
+    );
+    return [
+      for (final line in '$listed\n$files'.split('\n'))
+        if (line.trim().isNotEmpty && line.trim() != 'No result found.')
+          line.trim(),
+    ]..sort();
+  }
+
+  /// Whether Android reports this app as the one using a camera right now.
+  Future<bool> isAppUsingCamera() async =>
+      (await _shell('dumpsys media.camera'))
+          .contains('Client Package Name: $appPackage');
+
+  Future<ScreenPixels> screenshot() async {
+    final result = await Process.run(_adb, [
+      '-s',
+      _serial,
+      'exec-out',
+      'screencap',
+    ], stdoutEncoding: null);
+    if (result.exitCode != 0) {
+      throw StateError('screencap failed: ${result.stderr}');
+    }
+    return ScreenPixels(result.stdout as List<int>);
   }
 }
