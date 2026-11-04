@@ -1,5 +1,6 @@
-Manual steps for ticket #8, from docs/tests/8.md, after fix round 2. Run on 2026-11-04.
-The runs from earlier rounds are in before-fix-round-1/ and before-fix-round-2/.
+Manual steps for ticket #8, from docs/tests/8.md, after fix round 3. Run on 2026-11-04.
+The runs from earlier rounds are in before-fix-round-1/, before-fix-round-2/ and
+before-fix-round-3/. The raw output of every step below is in manual-steps-raw-log.txt.
 
 NAM'S DECISIONS
 
@@ -15,84 +16,69 @@ NAM'S DECISIONS
 
 RUNS ON THE FINAL CODE
 
-- phone-camera-tests-run-5.txt: 12 passed, 0 failed. Phone moved by hand the whole time,
+- phone-camera-tests-run-6.txt: 12 passed, 0 failed. Phone moved by hand the whole time,
   nobody touched the screen. Full output, with only the line holding the phone's serial
   number removed.
 - check-home-screen-integration.txt: home screen tests on the Pixel 7, passed.
 - check-portrait-lock-drive.txt: portrait lock tests on the Pixel_10 emulator, passed.
 - check-analyze.txt, check-widget-tests.txt: passed.
 
-The steps below were driven with adb (real taps sent to the phone) and uiautomator,
-from a fresh install built with `fvm flutter build apk --debug`. Nothing was typed by
-hand. The app was uninstalled from the phone afterwards.
+The steps were driven with adb (real taps sent to the phone) and uiautomator, from a
+fresh install built with `fvm flutter build apk --debug`. Nothing was typed by hand. The
+app was uninstalled from the phone afterwards.
 
 STEP 1: Android asks for camera access the first time. PASSED
-- Tapped Quét vé. Android showed "Allow Dò Vé Số to take pictures and record video?"
-  over the home screen. The camera screen was not open behind it.
-- Tapped "While using the app". The camera screen opened with no second question.
+- Tapped Quét vé. Android's question showed over the home screen, with the camera screen
+  not open behind it. Tapped "While using the app". The camera screen opened with no
+  second question.
 - Screenshot: asked-for-camera.png
 
 STEP 2: the camera screen matches sketch 2. PASSED
 - Dark background, "Đặt vé vào khung" at the top with correct accents, a square dashed
   frame, a round shutter at the bottom middle, a live camera picture inside the frame,
-  and no added buttons. The phone's accessibility list shows only the text and one
-  tappable item.
-- The picture moved between the two screenshots.
+  and no added buttons. The picture moved between the two screenshots.
 - The red "DEBUG" corner banner comes from the debug build, not from the screen.
 - Screenshots: camera-screen.png, camera-screen-later.png
 
 STEP 3: the kept photo is the camera's picture. PASSED
-- Tapped the shutter. The home screen showed.
-- The photo is at ./app_flutter/ticket_photo.jpg inside the app's private folders.
-- It opens as a normal picture of what the camera was showing, upright and not blank.
-  It shows the camera's whole view, which is wider than the dashed frame.
+- Tapped the shutter. The home screen showed. The photo is at
+  ./app_flutter/ticket_photo.jpg inside the app's private folders, and no temporary file
+  was left. It opens as a normal picture, upright and not blank. It shows the camera's
+  whole view, which is wider than the dashed frame.
 - Files: kept-photo.jpg, after-shutter-home.png
 
 STEP 4: no question after reopening the app. PASSED
-- Swiped the app away in recent apps. Its process was gone.
-- Reopened it and tapped Quét vé. The camera screen opened and Android asked nothing.
+- Swiped the app away in recent apps, and its process was gone. Reopened it and tapped
+  Quét vé. The camera screen opened and Android asked nothing.
 - Screenshot: reopened-camera-screen.png
 
 STEP 5: leaving the camera screen with back. PASSED
-- Back button (KEYCODE_BACK) from the camera screen: the app's home screen showed.
-- Back gesture (swipe from the left edge, 0,1200 to 648,1200) from the camera screen:
-  the app's home screen showed.
-- The app's file lists before and after were identical, so no photo was taken:
-    ./app_flutter/ticket_photo.jpg  297286 bytes, 2026-11-04 09:39, before and after
-- The app stayed in front both times.
+- The back button and the back gesture each returned to the app's home screen, with the
+  app staying in front. The app's file lists before and after are identical, so no photo
+  was taken. Both lists are in manual-steps-raw-log.txt.
 - Screenshots: back-button-home.png, back-gesture-home.png
 
 EXTRA CHECK, NOT IN docs/tests/8.md: back straight after the shutter
 
-This tries the bug from the second review on the real phone. No test covers it.
+This tries the bugs from the second and third reviews on the real phone. No test covers
+them. Raw output: back-after-shutter-raw-log.txt. Earlier attempts are in
+before-fix-round-3/: the attempt with 12 tries is back-after-shutter-raw-log.txt, and the
+invalid attempt is at the end of manual-steps-raw-log.txt. That one ran 8 tries without
+reopening the app, so after the second try its taps went to the phone's own home screen,
+and those tries prove nothing. The phone's log showed no other app opened.
 
-First attempt, not valid. It ran 8 tries in a row without reopening the app. The second
-try left the app, so the later 6 tries sent their taps to the phone's own home screen.
-The phone's log shows no other app opened. Those tries prove nothing.
+This attempt had 12 tries, starting with a kept photo. Each one closed and reopened the
+app, confirmed the camera screen was showing, then sent the shutter tap and the back key
+with the delay shown. The state was read 2.5 seconds later.
 
-Second attempt, 12 tries. Each one closed and reopened the app, confirmed the camera
-screen was showing, then sent the shutter tap and the back key with the delay shown.
-The log line is the state 2.5 seconds later.
+- 5 tries (delays 0s, 0s, 0.05s, 0.05s, 0.15s): back arrived first. The person stayed on
+  the home screen, and the earlier photo was unchanged.
+- 7 tries (delays 0.1s, 0.1s, 0.15s, 0.2s, 0.2s, 0.3s, 0.3s): the photo was kept and the
+  screen closed by itself first, so back then landed on the home screen and left the
+  app, which is normal for back on a home screen.
 
-  Delay  Where it ended                  Photo before        Photo after
-  0s     app, home screen                none                none
-  0s     app, home screen                none                none
-  0.1s   left to the phone's launcher    none                290679, 09:44
-  0.1s   app, home screen                290679, 09:44       290679, 09:44
-  0.2s   left to the phone's launcher    290679, 09:44       294243, 09:44
-  0.2s   left to the phone's launcher    294243, 09:44       295579, 09:44
-  0.3s   left to the phone's launcher    295579, 09:44       296621, 09:45
-  0.3s   left to the phone's launcher    296621, 09:45       298087, 09:45
-  0.4s   left to the phone's launcher    298087, 09:45       302249, 09:45
-  0.4s   left to the phone's launcher    302249, 09:45       295640, 09:45
-  0.5s   left to the phone's launcher    295640, 09:45       328530, 09:46
-  0.6s   left to the phone's launcher    328530, 09:46       294483, 09:46
-
-Reading: the app never ended up blank. When back arrived first (the 0s tries and the
-fourth try), the person stayed on home and no photo was added or lost. In the other
-tries the photo was kept and the screen closed by itself first, so back then landed on
-the home screen and left the app, which is normal for back on a home screen.
+The app never ended up blank, and the kept photo was never lost. No temporary file was
+left behind.
 
 Not proven: adb can't aim at the few milliseconds while the file is being saved, so
-these tries don't show the app is safe in that exact moment. The known gap there is
-that back can replace an earlier kept photo and then delete the new one, leaving none.
+these tries may not have landed in that exact moment.
