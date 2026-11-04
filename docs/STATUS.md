@@ -37,6 +37,7 @@ flowchart LR
     E1["Blank Android app ✅<br/>ticket #2, merged"]
     E2["Home screen ✅<br/>ticket #4, merged"]
     E3["Portrait lock ✅<br/>ticket #5, PR #7"]
+    E4["Take the photo ✅<br/>ticket #8, PR #11"]
   end
 ```
 
@@ -46,13 +47,18 @@ flowchart LR
 - Built the reviewer agent (Opus 5.5) and added it to `/work` as a new step between the checks and the pull request. It reviews the finished work with fresh eyes, proves each "Done when" item from the saved evidence, and ticks the boxes only if everything looks good. It reports problems instead of fixing them: code problems go to the implementer, tests that prove nothing go to the test writer, and these share the 3 fix rounds. The block-push hook applies. Not yet run live.
 - Decision: CI waits until #8 is merged, instead of "before tickets get bigger". It wouldn't add much for #8 because the camera proof comes from the emulator, #8 is already the reviewer's first live run, and #8 will show how tests behave with a real camera add-on. Accepted risk: until then, "tests must pass to merge" depends only on `/work`, since `main` has no protection rules. Bring CI forward if `/work` ever merges something that fails on a clean copy, or merges with failing tests.
 - Decision: running `/work` is now the go signal, and `/work` assigns the ticket to Nam when it starts, so Nam doesn't have to assign it on GitHub first. Both `/work 8` and `/work ticket 8` work. Not yet run live.
+- #8 merged (PR #11): "Quét vé" asks for camera access from home, opens the sketch 2 camera screen once allowed, and the shutter keeps one private photo and returns home. Back returns home with no photo taken. This was the first live run of the reviewer: 4 reviews and all 3 fix rounds.
+- Decision: testing uses Nam's Pixel 7 instead of the `Pixel_10` emulator, because the emulator's back camera shows a still scene. The portrait lock tests stay on the emulator, because they fake turning the phone. Accepted risk: camera tests need Nam holding the phone and moving it, so they can't run unattended. Revisit when designing CI (backlog item 22).
+- Decision: the dashed frame stays square, about 40% of the Pixel 7's height. Real phones are taller than the sketch, so it can't be both square and 53% of the height. Revisit if lining up a real ticket is awkward.
+- Decision: `/work` checks the evidence link once the pull request is open, not the reviewer, because the reviewer runs before the pull request exists. `/work` and the reviewer's instructions don't say this yet (backlog item 21).
 
 ## Next up
 
-1. Nam runs `/work 8`, which is also the reviewer's first live run.
-2. Design CI right after #8 is merged, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
-3. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
-4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
+1. Decide how to handle backlog items 21–22 (`/work`'s device and link rules, and tests that need a moving picture), since CI depends on them.
+2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
+3. Nam runs `/work` on #9 or #10.
+4. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
+5. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.
 
 ## Open questions
 
