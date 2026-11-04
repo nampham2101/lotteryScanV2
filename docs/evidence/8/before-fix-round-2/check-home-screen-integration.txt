@@ -1,0 +1,8 @@
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/integration_test/home_screen_test.dart
+Running Gradle task 'assembleDebug'...                             10.9s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...           5.0s
+00:00 +0: 1. opening Dò Vé Số on Pixel_10 shows the home screen, not a blank screen
+00:00 +1: 2. on Pixel_10 the home screen shows the sketch 1 texts with every accent and no text cut off
+00:01 +2: (tearDownAll)
+00:01 +2: All tests passed!

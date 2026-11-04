@@ -18,57 +18,57 @@ Downloading packages...
 Got dependencies!
 15 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
-Running Gradle task 'assembleDebug'...                              5.7s
+Running Gradle task 'assembleDebug'...                              5.8s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
-Installing build/app/outputs/flutter-apk/app-debug.apk...        1,262ms
-I/ham.lotteryscan(26060): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
-I/Choreographer(26060): Skipped 105 frames!  The application may be doing too much work on its main thread.
-D/WindowLayoutComponentImpl(26060): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@604d6aa, of which baseContext=android.app.ContextImpl@81b8d77
-D/FlutterJNI(26060): Sending viewport metrics to the engine.
+Installing build/app/outputs/flutter-apk/app-debug.apk...          710ms
+I/ham.lotteryscan(27376): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Choreographer(27376): Skipped 90 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(27376): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@604d6aa, of which baseContext=android.app.ContextImpl@81b8d77
+D/FlutterJNI(27376): Sending viewport metrics to the engine.
 00:00 +0: (setUpAll)
 
-D/ProfileInstaller(26060): Installing profile for com.nampham.lotteryscan
-VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:52671/q8L-w48b7d0=/
-VMServiceFlutterDriver: Isolate found with number: 4377087307017827
-VMServiceFlutterDriver: Isolate 4377087307017827 is runnable.
+D/ProfileInstaller(27376): Installing profile for com.nampham.lotteryscan
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:56465/X-Fmzgi-Snk=/
+VMServiceFlutterDriver: Isolate found with number: 4727701852637827
+VMServiceFlutterDriver: Isolate 4727701852637827 is runnable.
 VMServiceFlutterDriver: Isolate is paused at start.
 VMServiceFlutterDriver: Attempting to resume isolate
-I/Choreographer(26060): Skipped 77 frames!  The application may be doing too much work on its main thread.
 VMServiceFlutterDriver: Connected to Flutter application.
+I/Choreographer(27376): Skipped 88 frames!  The application may be doing too much work on its main thread.
 00:04 +0: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn
 
-D/FlutterJNI(26060): Sending viewport metrics to the engine.
-D/InsetsController(26060): hide(ime())
-I/ImeTracker(26060): com.nampham.lotteryscan:a4bc58cb: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-00:12 +1: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn
+D/FlutterJNI(27376): Sending viewport metrics to the engine.
+D/InsetsController(27376): hide(ime())
+I/ImeTracker(27376): com.nampham.lotteryscan:32cb8aa4: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:11 +1: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn
 
 00:18 +2: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed
 
 00:27 +3: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed
 
-00:37 +4: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright
+00:36 +4: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright
 
-D/FlutterJNI(26328): Beginning load of flutter...
-D/FlutterJNI(26328): flutter (null) was loaded normally!
-I/flutter (26328): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
-I/flutter (26328): The Dart VM service is listening on http://127.0.0.1:40913/jj4Mx0G2vDI=/
-D/FlutterRenderer(26328): Width is zero. 0,0
-D/FlutterRenderer(26328): Width is zero. 0,0
-D/FlutterJNI(26328): Sending viewport metrics to the engine.
-D/FlutterJNI(26328): Sending viewport metrics to the engine.
-D/FlutterJNI(26328): Sending viewport metrics to the engine.
-00:47 +5: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright
+D/FlutterJNI(27663): Beginning load of flutter...
+D/FlutterJNI(27663): flutter (null) was loaded normally!
+I/flutter (27663): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (27663): The Dart VM service is listening on http://127.0.0.1:35687/ZpkhBXQ5EeY=/
+D/FlutterRenderer(27663): Width is zero. 0,0
+D/FlutterRenderer(27663): Width is zero. 0,0
+D/FlutterJNI(27663): Sending viewport metrics to the engine.
+D/FlutterJNI(27663): Sending viewport metrics to the engine.
+D/FlutterJNI(27663): Sending viewport metrics to the engine.
+00:46 +5: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright
 
-D/FlutterJNI(26413): Beginning load of flutter...
-D/FlutterJNI(26413): flutter (null) was loaded normally!
-I/flutter (26413): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
-I/flutter (26413): The Dart VM service is listening on http://127.0.0.1:36291/Gl_ldqsyKlI=/
-D/FlutterRenderer(26413): Width is zero. 0,0
-D/FlutterRenderer(26413): Width is zero. 0,0
-D/FlutterJNI(26413): Sending viewport metrics to the engine.
-D/FlutterJNI(26413): Sending viewport metrics to the engine.
-D/FlutterJNI(26413): Sending viewport metrics to the engine.
+D/FlutterJNI(27747): Beginning load of flutter...
+D/FlutterJNI(27747): flutter (null) was loaded normally!
+I/flutter (27747): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (27747): The Dart VM service is listening on http://127.0.0.1:35421/56FuXZjW62U=/
+D/FlutterRenderer(27747): Width is zero. 0,0
+D/FlutterRenderer(27747): Width is zero. 0,0
+D/FlutterJNI(27747): Sending viewport metrics to the engine.
+D/FlutterJNI(27747): Sending viewport metrics to the engine.
+D/FlutterJNI(27747): Sending viewport metrics to the engine.
 00:56 +6: (tearDownAll)
 
-01:00 +6: All tests passed!
+00:59 +6: All tests passed!
 
