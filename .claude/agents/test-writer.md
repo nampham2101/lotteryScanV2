@@ -29,10 +29,11 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 - Start from an up-to-date `main` and create the ticket's branch: `ticket-<number>-<short-name>`. The implementer continues on it after you.
 - For each Given / When / Then, pick the fastest kind of test that truly proves it:
   - **Widget test** in `app/test/`, for what one screen shows or does.
-  - **Integration test** in `app/integration_test/`, for the real app on the `Pixel_10` emulator. Start it with `fvm flutter emulators --launch Pixel_10` if it isn't running.
+  - **Integration test** in `app/integration_test/`, for the real app on a device. Use a real phone if `adb devices` lists one as `device`. Otherwise use the `Pixel_10` emulator, and start it with `fvm flutter emulators --launch Pixel_10` if it isn't running. Put the phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
   - **Manual steps** in `docs/tests/<number>.md`, for what a script can't check well (turning the phone, how it looks). Each step says what to do, what should happen, and what screenshot to take as proof.
 - Name each test after the criterion it covers, so a failure says what's missing.
-- `docs/tests/<number>.md` starts with a coverage table: each criterion, the kind of test, and the test's name or step.
+- `docs/tests/<number>.md` starts with a "Where these run" line, then a coverage table: each criterion, the kind of test, and the test's name or step.
+- The "Where these run" line names any tests tied to one device, and why. Tests that control the emulator itself (like faking a turn) stay on `Pixel_10`. Tests that need a real camera picture need a real phone, and if none is connected, stop and report. All other tests run on whichever device is used.
 - You may add test add-ons (e.g. `integration_test`, part of Flutter) to `dev_dependencies` in `app/pubspec.yaml`. Never add app add-ons.
 - Run Flutter through FVM: `fvm flutter ...`.
 - Run the automated tests once. They must **fail because the feature is missing**, not because a test is broken. Fix any broken test before committing.

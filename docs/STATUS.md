@@ -52,10 +52,11 @@ flowchart LR
 - Decision: testing uses Nam's Pixel 7 instead of the `Pixel_10` emulator, because the emulator's back camera shows a still scene. The portrait lock tests stay on the emulator, because they fake turning the phone. Accepted risk: camera tests need Nam holding the phone and moving it, so they can't run unattended. Revisit when designing CI (backlog item 22).
 - Decision: the dashed frame stays square, about 40% of the Pixel 7's height. Real phones are taller than the sketch, so it can't be both square and 53% of the height. Revisit if lining up a real ticket is awkward.
 - Decision: `/work` checks the evidence link once the pull request is open, not the reviewer, because the reviewer runs before the pull request exists. `/work` and the reviewer's instructions don't say this yet (backlog item 21).
+- Decision: tests now run on a real phone when one is connected, otherwise on `Pixel_10`. This widens the Pixel 7 decision above from one ticket to a rule in `/work` and the test writer. Tests that control the emulator itself stay on `Pixel_10`. Tests that need a real camera picture and find no phone stop and tell Nam. Not yet run live.
 
 ## Next up
 
-1. Decide how to handle backlog items 21–22 (`/work`'s device and link rules, and tests that need a moving picture), since CI depends on them.
+1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Nam runs `/work` on #9 or #10.
 4. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.

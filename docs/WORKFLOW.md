@@ -50,6 +50,7 @@ flowchart TD
 - **Agents use full model IDs** (e.g. `claude-sonnet-5-5`), not aliases like `sonnet`: Nam's global settings point the aliases at a local router.
 - **Test writer rules:** runs first, only for tickets marked "Test cases: needed". It creates the ticket's branch, writes the tests from "Done when" only (never from the implementer's code), runs them once to prove they fail because the feature is missing, saves that run in `docs/evidence/<issue>/first-run.txt`, commits, and reports. It may only write in `app/test/`, `app/integration_test/`, `docs/tests/<issue>.md`, `docs/evidence/<issue>/first-run.txt`, `app/pubspec.yaml` (test add-ons) and `app/pubspec.lock`; a hook (`.claude/hooks/test-writer-paths.sh`) blocks anything else, and the block-push hook applies too. The implementer doesn't write or change tests; a hook (`.claude/hooks/implementer-no-tests.sh`) blocks it, and `/work` also checks no test file changed after the test writer's commit.
 - **Reviewer rules:** runs after the checks pass, given only the ticket number, never the implementer's report. It reviews the branch against the ticket, proves each "Done when" item from `docs/evidence/<issue>/`, and reports. Ticking boxes is its only change: it has no file-editing tools, though it can run shell commands, so "never change files" rests on its instructions. The block-push hook applies too. Its problems use the same 3 fix rounds as the checks. Style preferences are suggested issues, not problems.
+- **Device rule:** tests run on a real phone when `adb devices` lists one, and on the `Pixel_10` emulator when it doesn't. Each `docs/tests/<issue>.md` has a "Where these run" line for tests tied to one device: tests that control the emulator itself stay on `Pixel_10`, and tests that need a real camera picture need a real phone. The phone's serial goes in `ANDROID_SERIAL`, never in the repo, and every command names its device. Evidence says which device each run used.
 - **Unclear criteria go back to `/refine`.** If the test writer can't test a criterion as written, it stops and reports. Claude shows Nam the question, Nam fixes the ticket with `/refine`, then the test writer runs again. (`/refine` and `/ticket` can't update an existing ticket yet. That gets built only when a ticket actually hits an unclear criterion.)
 - **`/work` merges by itself** once every check passes: analyze, widget and integration tests, manual steps, no test files changed, every "Done when" item proven, and the reviewer says it looks good. Nam steps in only when it stops. Until CI exists, these checks run inside `/work` only.
 - **`/work` routing:**
@@ -63,6 +64,7 @@ flowchart TD
   | The implementer says a test contradicts the ticket | Stop and ask Nam (the ticket may need `/refine`) | — |
   | The test writer stops on an unclear criterion | Stop and ask Nam to run `/refine` | — |
   | Any agent stops on a blocker or security risk | Stop and ask Nam | — |
+  | Tests need a real phone and none is connected | Stop and tell Nam | — |
   | 3 fix rounds used up | Stop, and show Nam what was tried | — |
 
 - **Findings go to BACKLOG.md** as "not refined" items. Nothing is posted to GitHub without Nam.
@@ -79,6 +81,7 @@ flowchart TD
 | Reviewer on Opus | A different model from the implementer shares fewer blind spots, so it catches more | — |
 | `/ticket` doesn't start the test writer | Wrong moment: tickets aren't approved until Nam runs `/work`. Keeps each skill to one job | Test cases written at work start turn out to be too late |
 | Running `/work` is the go signal, and `/work` assigns the ticket | Nam shouldn't have to go to GitHub just to start a ticket. Only Nam can start `/work`, so the approval stays with Nam | Something other than Nam can start `/work`, or more people work on tickets |
+| Test on a real phone first, the emulator if none is connected | A real phone is closest to what people use, and the emulator's back camera shows a still scene. The emulator keeps work moving when the phone isn't plugged in | Real-camera tests stop too often because no phone is connected |
 | Gate at release, not at each pull request | Nam's attention goes to the running app instead of code diffs | Releases start shipping problems the flow should have caught |
 | 3-round loop limit | Stops endless fix loops, like the 24-hour runs in the previous attempt | 3 rounds turns out too few or too many in practice |
 

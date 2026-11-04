@@ -28,9 +28,11 @@ You are the manager. You run one ticket from start to merge by handing work to t
 
 ## 4. Check (at most 3 fix rounds)
 
-- Run `fvm flutter analyze` and the widget tests in `app/`, and the integration tests on the `Pixel_10` emulator. Save the output in `docs/evidence/<number>/`.
+- Pick the device: if `adb devices` lists a real phone as `device`, use it, and ask Nam to unlock it if it's locked. Otherwise use the `Pixel_10` emulator. Put the phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
+- Follow the "Where these run" line in `docs/tests/<number>.md`. Tests that control the emulator itself stay on `Pixel_10` even when a phone is connected. If tests need a real phone and none is connected: stop and tell Nam. Don't use the emulator instead.
+- Run `fvm flutter analyze` and the widget tests in `app/`, and the integration tests on that device. Save the output in `docs/evidence/<number>/`, and say which device each run used.
 - Confirm the implementer changed no test files since the test writer's last commit.
-- Run each manual step in `docs/tests/<number>.md` on the emulator. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
+- Run each manual step in `docs/tests/<number>.md` on that device. Save a screenshot or result for each in `docs/evidence/<number>/`. Compare screens with `docs/design/screens.png`.
 - If anything fails: send it back to the implementer with exactly what failed, and check again. That's one round.
 - After 3 rounds without passing: stop, and show Nam what failed and what was tried.
 
