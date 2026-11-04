@@ -45,10 +45,11 @@ flowchart LR
 - Backlog item 3 refined and split into two tickets, both posted and unassigned. #8 take the photo: "Quét vé" asks for camera access, opens the sketch 2 screen, the shutter keeps the photo inside the app and returns home, and the phone's back goes home. #9 camera refused (builds on #8): one pop-up on home, whether refused once or for good. Both need test cases, and passing on the `Pixel_10` emulator is enough. A camera or save failure is not included.
 - Built the reviewer agent (Opus 5.5) and added it to `/work` as a new step between the checks and the pull request. It reviews the finished work with fresh eyes, proves each "Done when" item from the saved evidence, and ticks the boxes only if everything looks good. It reports problems instead of fixing them: code problems go to the implementer, tests that prove nothing go to the test writer, and these share the 3 fix rounds. The block-push hook applies. Not yet run live.
 - Decision: CI waits until #8 is merged, instead of "before tickets get bigger". It wouldn't add much for #8 because the camera proof comes from the emulator, #8 is already the reviewer's first live run, and #8 will show how tests behave with a real camera add-on. Accepted risk: until then, "tests must pass to merge" depends only on `/work`, since `main` has no protection rules. Bring CI forward if `/work` ever merges something that fails on a clean copy, or merges with failing tests.
+- Decision: running `/work` is now the go signal, and `/work` assigns the ticket to Nam when it starts, so Nam doesn't have to assign it on GitHub first. Both `/work 8` and `/work ticket 8` work. Not yet run live.
 
 ## Next up
 
-1. Nam assigns #8, which is also the reviewer's first live run.
+1. Nam runs `/work 8`, which is also the reviewer's first live run.
 2. Design CI right after #8 is merged, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Teach `/refine` and `/ticket` to update an existing ticket, only once a ticket actually hits an unclear criterion.
 4. Backlog items 5–6 (reading the ticket, then the go / no-go gate) wait on Nam's three photos.

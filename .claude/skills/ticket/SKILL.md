@@ -39,7 +39,7 @@ Do not post until Nam says yes. If Nam asks for changes, update the draft and sh
 ## 4. Post it
 
 After Nam says yes, post it with `gh issue create`, using the title, body and labels.
-- Do not assign anyone. Nam assigns tickets, and assignment is the go signal.
+- Do not assign anyone. `/work` assigns the ticket when Nam runs it, and running it is the go signal.
 - The repository is public, so the issue is visible to everyone.
 
 Show Nam the link to the new issue.

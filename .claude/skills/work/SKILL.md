@@ -1,6 +1,6 @@
 ---
 name: work
-description: Run one assigned GitHub ticket through the workflow - test writer, implementer, checks, reviewer, pull request and merge. Nam types /work <issue number>.
+description: Run one GitHub ticket through the workflow - assign it to Nam, then test writer, implementer, checks, reviewer, pull request and merge. Nam types /work <issue number>, and that is the go signal.
 disable-model-invocation: true
 ---
 
@@ -10,7 +10,9 @@ You are the manager. You run one ticket from start to merge by handing work to t
 
 ## 1. Check the ticket
 
-- Read it: `gh issue view <number>`. Stop and tell Nam if it's closed, not assigned (assignment is the go signal), or has no "Done when".
+- `/work 8` and `/work ticket 8` both mean issue 8.
+- Read it: `gh issue view <number>`. Stop and tell Nam if it's closed or has no "Done when".
+- Assign it to Nam: `gh issue edit <number> --add-assignee @me`. Nam running `/work` is the go signal, so don't stop if it wasn't assigned before.
 - Start from an up-to-date `main`.
 
 ## 2. Tests (only if the ticket says "Test cases: needed")
