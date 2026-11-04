@@ -27,20 +27,6 @@ bool _looksLikePhotoScreen(AppScreen screen) =>
 bool _looksLikeHomeScreen(AppScreen screen) =>
     screen.shows(homeTitle) || screen.shows(scanButtonLabel);
 
-/// Given: the camera screen is open. The emulator's picture is still, so this
-/// doesn't wait for it to move.
-Future<void> givenCameraScreenOpen() async {
-  await givenHomeScreen();
-  await givenCameraAllowed();
-  await tapScanButton();
-  await expectCameraScreenOpens();
-  expect(
-    await waitUntil(phone.isAppUsingCamera),
-    isTrue,
-    reason: 'the camera screen is open but the app is not using the camera',
-  );
-}
-
 /// When the shutter was tapped: watches what the app does next, so that a home
 /// screen that only flashes by is caught as well. The app's list of what's on
 /// screen is empty for a moment whenever a screen closes, so the photo screen
@@ -125,19 +111,6 @@ Future<img.Image> givenPhotoTakenEarlier() async {
   await phone.pressBackButton();
   await expectHomeScreenShows();
   return photo;
-}
-
-Future<void> useBackGesture() async {
-  expect(
-    await phone.usesBackGesture(),
-    isTrue,
-    reason: 'SETUP: the phone is not using gesture navigation',
-  );
-  final screen = await appScreen();
-  await phone.swipeBack(
-    screenWidth: screen.width.round(),
-    screenHeight: screen.height.round(),
-  );
 }
 
 /// Then: the home screen shows and stays, and [earlierPhoto] never appears on

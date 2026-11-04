@@ -118,6 +118,38 @@ Future<void> givenHomeScreen() async {
   fail('SETUP: the home screen is not showing: ${await phone.windowInFront()}');
 }
 
+/// Then: Android says the app is using the camera.
+Future<void> expectAppUsingCamera() async {
+  expect(
+    await waitUntil(phone.isAppUsingCamera),
+    isTrue,
+    reason: 'the camera screen is open but the app is not using the camera',
+  );
+}
+
+/// Given: the camera screen is open, with the camera running.
+Future<void> givenCameraScreenOpen() async {
+  await givenHomeScreen();
+  await givenCameraAllowed();
+  await tapScanButton();
+  await expectCameraScreenOpens();
+  await expectAppUsingCamera();
+}
+
+/// The back gesture, on a phone that uses gestures to go back.
+Future<void> useBackGesture() async {
+  expect(
+    await phone.usesBackGesture(),
+    isTrue,
+    reason: 'SETUP: the phone is not using gesture navigation',
+  );
+  final screen = await appScreen();
+  await phone.swipeBack(
+    screenWidth: screen.width.round(),
+    screenHeight: screen.height.round(),
+  );
+}
+
 Future<void> expectCameraScreenOpens() async {
   expect(
     await waitUntil(isCameraScreenShowing),

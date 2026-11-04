@@ -121,11 +121,7 @@ void main() {
       await tapScanButton();
 
       await expectCameraScreenOpens();
-      expect(
-        await waitUntil(phone.isAppUsingCamera),
-        isTrue,
-        reason: 'the camera screen is open but the app is not using the camera',
-      );
+      await expectAppUsingCamera();
     }
 
     test('Given the person left the photo screen with the back button, when '

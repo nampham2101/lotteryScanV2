@@ -38,16 +38,8 @@ Future<bool> isPictureMoving() async {
 
 /// Given: the camera screen is open, showing the moving picture, as it is when
 /// a person looks at it and taps the shutter.
-Future<void> givenCameraScreenOpen() async {
-  await givenHomeScreen();
-  await givenCameraAllowed();
-  await tapScanButton();
-  await expectCameraScreenOpens();
-  expect(
-    await waitUntil(phone.isAppUsingCamera),
-    isTrue,
-    reason: 'the camera screen is open but the app is not using the camera',
-  );
+Future<void> givenMovingPictureOnCamera() async {
+  await givenCameraScreenOpen();
   expect(
     await waitUntil(isPictureMoving),
     isTrue,
@@ -56,7 +48,7 @@ Future<void> givenCameraScreenOpen() async {
 }
 
 Future<void> takePhoto() async {
-  await givenCameraScreenOpen();
+  await givenMovingPictureOnCamera();
   final tappedAt = await tapShutter();
   await expectPhotoKeptSince(tappedAt);
 }
@@ -155,7 +147,7 @@ void main() {
     // The dashed frame and how the whole screen looks are manual step 2.
     group('Given the camera screen is open, then it matches sketch 2', () {
       test('it shows "Đặt vé vào khung" at the top', () async {
-        await givenCameraScreenOpen();
+        await givenMovingPictureOnCamera();
 
         final screen = await appScreen();
         expect(
@@ -167,7 +159,7 @@ void main() {
 
       test('it shows one round shutter button at the bottom middle '
           'and no added buttons', () async {
-        await givenCameraScreenOpen();
+        await givenMovingPictureOnCamera();
 
         final screen = await appScreen();
         final shutter = await findShutter();
@@ -189,7 +181,7 @@ void main() {
       }, timeout: testTimeout);
 
       test('it has a dark background', () async {
-        await givenCameraScreenOpen();
+        await givenMovingPictureOnCamera();
 
         // Beside the text and the shutter, and in the bottom corners: places
         // in the sketch that are outside the frame, so never the picture.
@@ -220,7 +212,7 @@ void main() {
       }, timeout: testTimeout);
 
       test('it shows a live camera picture', () async {
-        await givenCameraScreenOpen();
+        await givenMovingPictureOnCamera();
 
         expect(
           await phone.isAppUsingCamera(),
@@ -241,7 +233,7 @@ void main() {
     // tests it in photo_screen_driver.dart.
     test('Given the camera screen is open, when the person taps the shutter, '
         'then the photo is kept inside the app', () async {
-      await givenCameraScreenOpen();
+      await givenMovingPictureOnCamera();
 
       final tappedAt = await tapShutter();
 
@@ -254,7 +246,7 @@ void main() {
       // File times are in whole seconds: this tells the two photos apart.
       await Future<void>.delayed(const Duration(seconds: 2));
 
-      await givenCameraScreenOpen();
+      await givenMovingPictureOnCamera();
       final tappedAt = await tapShutter();
 
       await expectPhotoKeptSince(tappedAt);
@@ -281,7 +273,7 @@ void main() {
   group('Leaving without a photo', () {
     /// Then: the home screen shows, and nothing was added or replaced.
     Future<void> expectLeftWithoutPhoto(Future<void> Function() goBack) async {
-      await givenCameraScreenOpen();
+      await givenMovingPictureOnCamera();
       final photosBefore = await phone.photosInsideApp();
       final galleryBefore = await phone.galleryPhotos();
 
@@ -306,25 +298,9 @@ void main() {
       return expectLeftWithoutPhoto(phone.pressBackButton);
     }, timeout: testTimeout);
 
-    test(
-      'Given the camera screen is open, when the person uses the phone\'s '
-      'back gesture, then the home screen shows and no photo is taken',
-      () async {
-        expect(
-          await phone.usesBackGesture(),
-          isTrue,
-          reason: 'SETUP: the phone is not using gesture navigation',
-        );
-
-        await expectLeftWithoutPhoto(() async {
-          final screen = await appScreen();
-          await phone.swipeBack(
-            screenWidth: screen.width.round(),
-            screenHeight: screen.height.round(),
-          );
-        });
-      },
-      timeout: testTimeout,
-    );
+    test('Given the camera screen is open, when the person uses the phone\'s '
+        'back gesture, then the home screen shows and no photo is taken', () {
+      return expectLeftWithoutPhoto(useBackGesture);
+    }, timeout: testTimeout);
   });
 }
