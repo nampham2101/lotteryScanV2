@@ -15,7 +15,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 | 2 | Home screen with the "Quét vé" button (sketch 1) | — | #4 home screen done; #5 portrait lock done (PR #7) |
 | 3 | The button opens the camera; tapping the shutter takes the photo (sketch 2) | — | #8 take the photo done (PR #11); #9 camera refused done (PR #12) |
 | 4 | Show the taken photo on screen | — | done (#10, PR #13) |
-| 5 | Mark where each field sits on the ticket (ticket number, date, province), per province if layouts differ | The three ticket photos, and which area holds which field | posted (#14) |
+| 5 | Mark where each field sits on the ticket (ticket number, date, province), per province if layouts differ | The three ticket photos, and which area holds which field | done (#14, PR #15) |
 | 6 | Read the three fields from those areas; check against the three saved photos | The correct values for the three photos | not refined |
 | 7 | Show what was read on a temporary screen (ticket number, date, province) | — | not refined |
 
