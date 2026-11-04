@@ -1,0 +1,1624 @@
+First run of ticket #10's integration tests on the Pixel_10 emulator, before the photo screen exists.
+Run from app/ on 2026-11-04. Expected: every test fails because the feature is missing: after the
+shutter the app still goes back to the home screen, so no photo screen opens. Final result: 13 failed,
+0 passed, all with the same reason ("the home screen showed after the shutter, not the photo screen").
+The camera library's debug lines (CXCP) and colour codes are removed. Nothing else is changed.
+
+$ adb -s emulator-5554 uninstall com.nampham.lotteryscan
+$ fvm flutter drive -d emulator-5554 --driver=integration_test/photo_screen_driver.dart --target=integration_test/camera_app.dart
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              8.4s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          292ms
+D/WindowLayoutComponentImpl( 7161): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@604d6aa, of which baseContext=android.app.ContextImpl@81b8d77
+D/FlutterJNI( 7161): Sending viewport metrics to the engine.
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:61981/NXxZ4v3icPY=/
+VMServiceFlutterDriver: Isolate found with number: 5034828726370007
+VMServiceFlutterDriver: Isolate 5034828726370007 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Taking the photo Given the camera screen is open, when the person taps the shutter, then the photo screen shows the photo just taken, and the home screen doesn't show
+
+D/FlutterJNI( 7161): Sending viewport metrics to the engine.
+D/InsetsController( 7161): hide(ime())
+I/ImeTracker( 7161): com.nampham.lotteryscan:582c4443: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/QuirkSettingsLoader( 7161): QuirkSettings$MetadataHolderService is not found.
+D/CameraX ( 7161): QuirkSettings from app metadata: null
+D/CameraX ( 7161): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+D/DeviceQuirks( 7161): camera2 DeviceQuirks = 
+I/CameraManagerGlobal( 7161): Connecting to camera service
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository( 7161): Added camera: 1
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraRepository( 7161): Added camera: 10
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+I/CameraPresencePrvdr( 7161): Starting CameraPresenceProvider monitoring.
+I/CameraPresenceSrc( 7161): First observer added. Starting monitoring.
+I/PipePresenceSrc( 7161): Starting to collect camera ID flow.
+D/CameraValidator( 7161): Verifying camera lens facing on emu64a16k
+D/CameraPresencePrvdr( 7161): Registered state observer for camera: 1
+D/CameraPresencePrvdr( 7161): Registered state observer for camera: 10
+D/PipePresenceSrc( 7161): Flow emitted new camera set: CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}
+I/PipePresenceSrc( 7161): Handling first camera set, triggering fresh query.
+D/PipePresenceSrc( 7161): [FetchData] Refreshed camera list from hardware: [CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}]
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/DeviceQuirks( 7161): core DeviceQuirks = SurfaceOrderQuirk
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@48dbef {useCases=[Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc, ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d, ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc, ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d, ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@be2a6fc, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@14a1185, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@fbe2bda, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b781a656-b7ec-4033-8676-1f883479facc
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@978ad83, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@391fb00}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@9bc72c}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@9bc72c}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@9bc72c
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-652c8f32-741c-4d5d-ba24-14f5f2e28b5d
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@9796c71, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@9796c71, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-2 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-0 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@823ca56}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-945274b8-1d85-445a-88f0-60d65abf6cbc
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@8adcfc4, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-3 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-1 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-4 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-2 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@12ffd73}
+D/ImageCapture( 7161): onCameraControlReady
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-5 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-3 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@9bc72c
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@823ca56}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@823ca56
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@12ffd73}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@12ffd73
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@9bc72c
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@823ca56
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@12ffd73
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@9bc72c
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@823ca56
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@12ffd73
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 0, mTagBundleKey = 197647633
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 0
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 0, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 0
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 0
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 0
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+D/ProfileInstaller( 7161): Installing profile for com.nampham.lotteryscan
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-3] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@9bc72c
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-3](id:1bf900000005,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@391fb00
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@391fb00}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@9bc72c
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@823ca56
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@12ffd73
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-3](id:1bf900000005,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-3](id:1bf900000005,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-3](id:1bf900000005,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-3](id:1bf900000005,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@9bc72c
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@9bc72c}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@9bc72c}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@823ca56
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@823ca56}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@823ca56}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@12ffd73
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@12ffd73}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@12ffd73}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-2] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc030920) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc030b30) with descriptor: '(not cached)'
+00:02 +0 -1: Taking the photo Given the camera screen is open, when the person taps the shutter, then the photo screen shows the photo just taken, and the home screen doesn't show [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 37:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:02 +0 -1: Taking the photo Given a photo was taken earlier, when the person takes another, then the photo screen shows the new photo, not the old one
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@74a8ac2 {useCases=[Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125, ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a, ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125, ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a, ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@51060d3, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@babb410, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@d58bb09, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-b630a664-8f6a-48c0-ae5d-65aa047ab125
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@9ba910e, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@b76372f}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@bb9174b}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@bb9174b}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@bb9174b
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-62fc5fb1-96c4-4a8d-9539-c97315d29e4a
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@67d3bd4, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@67d3bd4, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-6 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-4 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@585417d}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-7b2ade4b-4424-4f75-9538-712549518197
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@c0324c3, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-7 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-5 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-8 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-6 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@45c4140}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@bb9174b
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@585417d}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@585417d
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@45c4140}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@45c4140
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-9 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-7 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@bb9174b
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@585417d
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@45c4140
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@bb9174b
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@585417d
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@45c4140
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0354c0) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 1, mTagBundleKey = 98511404
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 1
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 1, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 1
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 1
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 1
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-7] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@bb9174b
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@b76372f
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@b76372f}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@bb9174b
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@585417d
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@45c4140
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-7](id:1bf900000009,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-7](id:1bf900000009,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-7](id:1bf900000009,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-7](id:1bf900000009,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-7](id:1bf900000009,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@bb9174b
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@bb9174b}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@bb9174b}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@585417d
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@585417d}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@585417d}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@45c4140
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@45c4140}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@45c4140}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-6] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc025870) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0253a0) with descriptor: '(not cached)'
+00:04 +0 -2: Taking the photo Given a photo was taken earlier, when the person takes another, then the photo screen shows the new photo, not the old one [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 124:17  givenPhotoTakenEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 44:24    main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:04 +0 -2: The photo screen Given the photo screen is open, then the whole photo fits on the screen, the right way up
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@8cbd3f9 {useCases=[Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305, ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8, ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305, ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8, ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@4f54f3e, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@28bd19f, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@f60e2ec, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1b340adf-65b0-415d-bb4a-9c217281d305
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@fecb6b5, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@c73214a}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@b4a0816}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@b4a0816}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@b4a0816
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c8d5be0f-121c-4efa-86ab-8b9ac6a261d8
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@86ab433, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@86ab433, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-10 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-8 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@ac873f0}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-95ccf014-6562-492d-a669-6b3c14aac696
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@3b203ee, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-11 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-9 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-12 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-10 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@812608f}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@b4a0816
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@ac873f0}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@ac873f0
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@812608f}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@812608f
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-13 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-11 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@b4a0816
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@ac873f0
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@812608f
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@b4a0816
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@ac873f0
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@812608f
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc024ed0) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 2, mTagBundleKey = 38447034
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 2
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 2, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 2
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 2
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 2
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-11] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@b4a0816
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@c73214a
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@c73214a}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@b4a0816
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@ac873f0
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@812608f
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-11](id:1bf90000000d,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-11](id:1bf90000000d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-11](id:1bf90000000d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-11](id:1bf90000000d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@b4a0816
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@b4a0816}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@b4a0816}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@ac873f0
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@ac873f0}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@ac873f0}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-8] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@812608f
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@812608f}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@812608f}
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-10] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc021880) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0208b0) with descriptor: '(not cached)'
+00:05 +0 -3: The photo screen Given the photo screen is open, then the whole photo fits on the screen, the right way up [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 60:21    main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:05 +0 -3: The photo screen Given the photo screen is open, then it has no text and no buttons
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@3196d70 {useCases=[Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382, ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161, ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382, ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161, ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@5cbe8e9, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@5ff596e, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@40cc80f, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-68e84987-b318-4e07-bbae-2d9af4110382
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@8fff09c, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@4f12aa5}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@46ecc21}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@46ecc21}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@46ecc21
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-561c52c7-79fe-4231-a80f-42e294849161
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@13b82d2, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@13b82d2, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-14 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-12 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@89edfa3}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e8274a06-9df6-4ad9-90a5-f7039c73d0e4
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@ab3de59, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-15 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-13 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-16 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-14 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@e2afa1e}
+D/ImageCapture( 7161): onCameraControlReady
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-17 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-15 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@46ecc21
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@89edfa3}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@89edfa3
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@e2afa1e}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@e2afa1e
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@46ecc21
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@89edfa3
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@e2afa1e
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@46ecc21
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@89edfa3
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@e2afa1e
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02c930) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 3, mTagBundleKey = 189971064
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 3
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 3, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 3
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 3
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 3
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-15] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@46ecc21
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@4f12aa5
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@4f12aa5}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@46ecc21
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@89edfa3
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@e2afa1e
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-15](id:1bf900000011,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-15](id:1bf900000011,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-15](id:1bf900000011,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-15](id:1bf900000011,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-15](id:1bf900000011,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@46ecc21
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@46ecc21}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@46ecc21}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@89edfa3
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@89edfa3}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@89edfa3}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@e2afa1e
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@e2afa1e}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@e2afa1e}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-12] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-13] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-14] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0418b0) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc03f9c0) with descriptor: '(not cached)'
+00:07 +0 -4: The photo screen Given the photo screen is open, then it has no text and no buttons [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 68:9     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:07 +0 -4: The photo screen Given the photo screen is open, when the person pinches outwards, then the photo stays the same size
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@39baf9e {useCases=[Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4, ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573, ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4, ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573, ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@b001a7f, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@4582a4c, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@9355a95, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-feebe8ef-cb93-4d3f-ac01-9f10bf0cbad4
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@18f27aa, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f85df9b}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@fd8da77}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@fd8da77}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@fd8da77
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-abdf5af4-de2e-4f8d-9848-b488c043b573
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@39f1d50, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@39f1d50, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-18 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-16 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@18e0b49}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-687bc5e1-cc13-45d4-a485-c5d97b5956ff
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@1aa16f, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-19 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-17 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-20 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-18 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@360be7c}
+D/ImageCapture( 7161): onCameraControlReady
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-21 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-19 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@fd8da77
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@18e0b49}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@18e0b49
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@360be7c}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@360be7c
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@fd8da77
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@18e0b49
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@360be7c
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@fd8da77
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@18e0b49
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@360be7c
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc040620) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 4, mTagBundleKey = 232416794
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 4
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 4, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 4
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 4
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 4
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-19] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@fd8da77
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@f85df9b
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f85df9b}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@fd8da77
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@18e0b49
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@360be7c
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+00:08 +0 -5: The photo screen Given the photo screen is open, when the person pinches outwards, then the photo stays the same size [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 189:17  expectPinchLeavesPhotoAlone
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:08 +0 -5: The photo screen Given the photo screen is open, when the person pinches inwards, then the photo stays the same size
+
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-19](id:1bf900000015,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-19](id:1bf900000015,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-19](id:1bf900000015,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-19](id:1bf900000015,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-19](id:1bf900000015,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@fd8da77
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@fd8da77}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@fd8da77}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@18e0b49
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@18e0b49}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@18e0b49}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@360be7c
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@360be7c}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@360be7c}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-16] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-17] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-18] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0418b0) with descriptor: '(not cached)'
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@14d51ce {useCases=[Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a, ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d, ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a, ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d, ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@2cc8ef, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@248ffc, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@c584685, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-6e9fc3ef-9097-4101-99f4-0a2cd8aff76a
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@6f0bcda, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@8a7050b}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@d3ee6e7}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@d3ee6e7}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0c94c42a-9d02-46dd-b8e4-f54bb7cfe06d
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@adf9400, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@adf9400, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-22 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-20 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@84a3439}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-56b80f83-be40-4178-a09b-2f619fa892eb
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@bc7cbdf, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-23 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-21 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-24 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-22 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@1a9f02c}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@84a3439}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@84a3439
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@1a9f02c}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@1a9f02c
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-25 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-23 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@84a3439
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@1a9f02c
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@84a3439
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@1a9f02c
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02e770) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 5, mTagBundleKey = 223995579
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 5
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 5, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 5
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 5
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 5
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-23] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@8a7050b
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@8a7050b}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@d3ee6e7
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@84a3439
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@1a9f02c
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-23](id:1bf900000019,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-23](id:1bf900000019,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-23](id:1bf900000019,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-23](id:1bf900000019,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@d3ee6e7
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@d3ee6e7}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@d3ee6e7}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@84a3439
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@84a3439}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@84a3439}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@1a9f02c
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@1a9f02c}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@1a9f02c}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-20] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-21] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-22] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02d430) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc019f80) with descriptor: '(not cached)'
+00:10 +0 -6: The photo screen Given the photo screen is open, when the person pinches inwards, then the photo stays the same size [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 189:17  expectPinchLeavesPhotoAlone
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:10 +0 -6: The photo screen Given the photo screen is open, when the person double-taps, then the photo stays the same size
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@4300fb9 {useCases=[Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183, ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d, ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183, ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d, ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@f573ffe, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@a19d35f, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@5e021ac, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-fa12668c-7d11-4bfe-928b-935a1f3f3183
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@1b8ee75, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@7e35e0a}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@86150d6}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@86150d6}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@86150d6
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-8f7692bb-19fb-4d31-9aca-d6387d03d57d
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@42d09f3, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@42d09f3, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-26 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-24 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@52776b0}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-823bdbfc-0fa1-4d00-b410-e128aa5d25e6
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@9d1a4ae, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-27 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-25 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-28 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-26 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@b04524f}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@86150d6
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@52776b0}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@52776b0
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@b04524f}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@b04524f
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-29 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-27 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@86150d6
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@52776b0
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@b04524f
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@86150d6
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@52776b0
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@b04524f
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc024060) with descriptor: '(not cached)'
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 6, mTagBundleKey = 256178341
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 6
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 6, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 6
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 6
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 6
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+00:11 +0 -7: The photo screen Given the photo screen is open, when the person double-taps, then the photo stays the same size [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 217:17  expectDoubleTapLeavesPhotoAlone
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:11 +0 -7: Leaving Given the photo screen is open, when the person uses the phone's back button, then the home screen shows
+
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-27] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@86150d6
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@7e35e0a
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@7e35e0a}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@86150d6
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@52776b0
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@b04524f
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-27](id:1bf90000001d,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-27](id:1bf90000001d,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-27](id:1bf90000001d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-27](id:1bf90000001d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-27](id:1bf90000001d,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@86150d6
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@86150d6}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@86150d6}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@52776b0
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@52776b0}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@52776b0}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@b04524f
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@b04524f}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@b04524f}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-24] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-25] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-26] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0203e0) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01e4f0) with descriptor: '(not cached)'
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@c79f030 {useCases=[Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a, ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441, ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a, ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441, ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@c3a14a9, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@abc7a2e, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@d0e39cf, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9d04b125-712f-4a08-a4f1-44e0146a2d1a
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@9c5df5c, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@765265}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@57eafe1}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@57eafe1}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@57eafe1
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-e7e6b4af-e721-431e-b191-4d407363b441
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@5d2c792, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@5d2c792, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-30 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-28 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@79a563}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-e9edb722-4660-4f13-9acc-224f379c5e65
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@1e47a19, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-31 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-29 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-32 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-30 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@3d1cade}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@57eafe1
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@79a563}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@79a563
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@3d1cade}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@3d1cade
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-33 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-31 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@57eafe1
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@79a563
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@3d1cade
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@57eafe1
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@79a563
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@3d1cade
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc03f9c0) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 7, mTagBundleKey = 67891276
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 7
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 7, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 7
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 7
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 7
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-31] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@57eafe1
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@765265
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@765265}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@57eafe1
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@79a563
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@3d1cade
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-31](id:1bf900000021,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@57eafe1
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@57eafe1}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@57eafe1}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@79a563
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@79a563}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@79a563}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@3d1cade
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@3d1cade}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@3d1cade}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-28] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-29] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-30] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0215c0) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01a7c0) with descriptor: '(not cached)'
+00:13 +0 -8: Leaving Given the photo screen is open, when the person uses the phone's back button, then the home screen shows [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 95:7     main.<fn>.expectBackGoesHome
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:13 +0 -8: Leaving Given the photo screen is open, when the person uses the phone's back gesture, then the home screen shows
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@280a512 {useCases=[Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995, ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf, ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995, ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf, ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@fdf4e3, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@7509ee0, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@efc1599, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-c6b986a5-decb-4abb-b96e-d90fc92b5995
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@d40005e, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@b10fc3f}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@b231d5b}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@b231d5b}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@b231d5b
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7d1f0857-5f3b-4f75-9ad8-cd42b7371ebf
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@4852da4, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@4852da4, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-34 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-32 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@174970d}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5123c0ba-23ab-4889-bd51-f78bbcac4718
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@fc5dcd3, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-35 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-33 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-36 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-34 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@eb98010}
+D/ImageCapture( 7161): onCameraControlReady
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-37 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-35 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@b231d5b
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@174970d}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@174970d
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@eb98010}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@eb98010
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@b231d5b
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@174970d
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@eb98010
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@b231d5b
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@174970d
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@eb98010
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc020120) with descriptor: '(not cached)'
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 8, mTagBundleKey = 35341457
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 8
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 8, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 8
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 8
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 8
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-35] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@b231d5b
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@b10fc3f
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@b10fc3f}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@b231d5b
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@174970d
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@eb98010
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+00:14 +0 -9: Leaving Given the photo screen is open, when the person uses the phone's back gesture, then the home screen shows [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 95:7     main.<fn>.expectBackGoesHome
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:14 +0 -9: Leaving Given the person left the photo screen with the back button, when they tap "Quét vé", then the camera screen opens
+
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-35](id:1bf900000025,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-35](id:1bf900000025,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-35](id:1bf900000025,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-35](id:1bf900000025,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-35](id:1bf900000025,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@b231d5b
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@b231d5b}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@b231d5b}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@174970d
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@174970d}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@174970d}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@eb98010
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@eb98010}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@eb98010}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-32] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-33] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-34] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc030b30) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01df70) with descriptor: '(not cached)'
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@be822b6 {useCases=[Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9, ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3, ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9, ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3, ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@b2e6bb7, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@e1fcf24, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@e805a8d, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d2adccf5-8c4c-4262-98b7-c3c01582dde9
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@e4bb442, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@4340c53}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@3e91aaf}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@3e91aaf}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-f5273dd9-062c-4fa1-a2b8-0807356dacb3
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@8c62aa8, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@8c62aa8, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-38 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-36 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@34f89c1}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-5543112c-e1ee-4d49-b0db-3dd6bb7860a0
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@67bb0a7, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-39 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-37 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-40 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-38 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@aa74954}
+D/ImageCapture( 7161): onCameraControlReady
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-41 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-39 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@34f89c1}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@34f89c1
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@aa74954}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@aa74954
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@34f89c1
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@aa74954
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@34f89c1
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@aa74954
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01a7c0) with descriptor: '(not cached)'
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 9, mTagBundleKey = 237466301
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 9
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 9, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 9
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 9
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 9
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-39] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@4340c53
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@4340c53}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@3e91aaf
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@34f89c1
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@aa74954
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-39](id:1bf900000029,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-39](id:1bf900000029,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-39](id:1bf900000029,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-39](id:1bf900000029,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-39](id:1bf900000029,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@3e91aaf
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@3e91aaf}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@3e91aaf}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@34f89c1
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@34f89c1}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@34f89c1}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-36] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@aa74954
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@aa74954}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@aa74954}
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-37] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-38] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc029390) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc022170) with descriptor: '(not cached)'
+00:15 +0 -10: Leaving Given the person left the photo screen with the back button, when they tap "Quét vé", then the camera screen opens [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 117:7    main.<fn>.expectCameraOpensAfterLeaving
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:15 +0 -10: Leaving Given the person left the photo screen with the back gesture, when they tap "Quét vé", then the camera screen opens
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@b321428 {useCases=[Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1, ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2, ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1, ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2, ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@566f541, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@cd66ae6, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@fc1c827, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-d4f589ae-d221-4621-91d8-57de443656a1
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@5a84ad4, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@36ca47d}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@51d951f}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@51d951f}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@51d951f
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-c25eb72f-e77d-4820-b956-0ef4ab6a67f2
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@526d758, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@526d758, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-42 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-40 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@d36b0b1}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8a994041-5b59-4446-9335-5ccf0f1fc75e
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@7970917, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-43 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-41 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-44 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-42 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@ede1104}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@51d951f
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@d36b0b1}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@d36b0b1
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@ede1104}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@ede1104
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-45 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-43 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@51d951f
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@d36b0b1
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@ede1104
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@51d951f
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@d36b0b1
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@ede1104
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc01ff10) with descriptor: '(not cached)'
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 10, mTagBundleKey = 176261293
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 10
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 10, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 10
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 10
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 10
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-43] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@51d951f
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@36ca47d
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@36ca47d}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@51d951f
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@d36b0b1
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@ede1104
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-43](id:1bf90000002d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-43](id:1bf90000002d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-43](id:1bf90000002d,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-43](id:1bf90000002d,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@51d951f
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@51d951f}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@51d951f}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@d36b0b1
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@d36b0b1}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@d36b0b1}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@ede1104
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@ede1104}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@ede1104}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-40] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-41] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-42] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc040570) with descriptor: '(not cached)'
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc02a620) with descriptor: '(not cached)'
+00:17 +0 -11: Leaving Given the person left the photo screen with the back gesture, when they tap "Quét vé", then the camera screen opens [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 117:7    main.<fn>.expectCameraOpensAfterLeaving
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:17 +0 -11: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo screen appears
+
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@ceb20d8 {useCases=[Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f, ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae, ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f, ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae, ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@32efc31, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@abe7f16, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@ed90097, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-0f31a249-49a1-48ec-8734-fb653b9d014f
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@c5d7284, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@2c62a6d}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@9280069}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@9280069}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@9280069
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-97d57263-f64f-4ba1-9890-172e38f062ae
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@15937fa, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@15937fa, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-46 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-44 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@76731ab}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-8d86ca8c-da01-4476-9bdd-5b8578002ce9
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@54653a1, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-47 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-45 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-48 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-46 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@bf2d9c6}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@9280069
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@76731ab}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@76731ab
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@bf2d9c6}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@bf2d9c6
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-49 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-47 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@9280069
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@76731ab
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@bf2d9c6
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@9280069
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@76731ab
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@bf2d9c6
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc0283c0) with descriptor: '(not cached)'
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 11, mTagBundleKey = 14656942
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 11
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 11, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 11
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 11
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 11
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-47] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@9280069
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@2c62a6d
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@2c62a6d}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@9280069
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@76731ab
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@bf2d9c6
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-47](id:1bf900000031,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-47](id:1bf900000031,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-47](id:1bf900000031,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-47](id:1bf900000031,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-47](id:1bf900000031,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@9280069
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@9280069}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@9280069}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@76731ab
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@76731ab}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@76731ab}
+00:18 +0 -12: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo screen appears [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-44] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@bf2d9c6
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@bf2d9c6}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@bf2d9c6}
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 124:17  givenPhotoTakenEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 146:28   main.<fn>.expectBackFromCameraGoesHome
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:18 +0 -12: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo screen appears
+
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-45] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-46] abandonLocked: ConsumerBase is abandoned!
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc021d50) with descriptor: '(not cached)'
+D/Recorder( 7161): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup( 7161): resolveFeatureGroup: sessionConfig = SessionConfig@fc3feb3 {useCases=[Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd, ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68, ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter( 7161): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd, ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68, ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65], featureGroup = null
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.PreviewConfig@f802c70, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@5bd3be9, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65
+D/SupportedOutputSizesCollector( 7161): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@909b06e, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks( 7161): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-9a88e07a-9f90-4d29-8943-d18cc4d589cd
+D/Preview ( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@ff5d30f, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface( 7161): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@e939f9c}
+D/DeferrableSurface( 7161): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@91988}
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@91988}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@91988
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-7869ca90-ca6d-4365-a3bf-6e0c20b69c68
+D/ImageCapture( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@58bec5d, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture( 7161): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@58bec5d, zslDisabled=false})
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-50 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f21m4-7161-48 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@b8629d2}
+D/UseCase ( 7161): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-d0e1102b-52b1-4075-8749-fbf06cceaa65
+D/ImageAnalysis( 7161): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@9f1480b{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@def91a0, zslDisabled=false}, secondaryStreamSpec null
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-51 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-49 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-52 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f23m4-7161-50 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@f1ff159}
+D/ImageCapture( 7161): onCameraControlReady
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@91988
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@b8629d2}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@b8629d2
+D/DeferrableSurface( 7161): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@f1ff159}
+D/DeferrableSurface( 7161): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@f1ff159
+I/Surface ( 7161): Creating surface for consumer unnamed-7161-53 with slotExpansion=1 for 64 slots
+I/Surface ( 7161): Creating surface for consumer ImageReader-1280x720f22m7-7161-51 with slotExpansion=1 for 64 slots
+D/DeferrableSurface( 7161): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@91988
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@b8629d2
+D/DeferrableSurface( 7161): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@f1ff159
+D/DeferrableSurface( 7161): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@91988
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@b8629d2
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@f1ff159
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@e70b7ab
+I/libbinder.BpBinder( 7161): onLastStrongRef automatically unlinking death recipients for binder (0xb40070e3dc025500) with descriptor: '(not cached)'
+D/ImageCapture( 7161): takePictureInternal
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/ProcessingRequest( 7161): ProcessingRequest: mRequestId = 12, mTagBundleKey = 242934207
+D/ProcessingRequest( 7161): onCaptureStarted: request ID = 12
+D/CaptureNode( 7161): OnImageAvailableListener: mCurrentRequest ID = 12, image.isNull = false
+I/ProcessingRequest( 7161): onImageCaptured: request ID = 12
+D/TakePictureManagerImpl( 7161): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl( 7161): No new request.
+D/ProcessingNode( 7161): processOnDiskCapture: request ID = 12
+I/ProcessingRequest( 7161): onFinalResult(OutputFileResults): request ID = 12
+D/WindowOnBackDispatcher( 7161): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@39c65f9
+E/ConsumerBase( 7161): [ImageReader-1280x720f22m7-7161-51] abandonLocked: ConsumerBase is abandoned!
+00:20 +0 -13: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo screen appears [E]
+
+  Expected: false
+    Actual: <true>
+  the home screen showed after the shutter, not the photo screen. On screen: ["Dò vé số" at (336.321533203125, 593.7916666666667)-(743.678466796875, 743.4166666666667), "Chụp vé để biết trúng hay không" at (193.54101562500003, 785.4166666666667)-(886.458984375, 853.6666666666667), "Quét vé" at (238.12500000000003, 1215.1)-(841.875, 1818.85), can be tapped]
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/helpers/photo_screen.dart 53:5    expectPhotoScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 116:3   givenPhotoScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 124:17  givenPhotoTakenEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 146:28   main.<fn>.expectBackFromCameraGoesHome
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:20 +0 -13: (tearDownAll)
+
+D/DeferrableSurface( 7161): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@91988
+D/DeferrableSurface( 7161): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@e939f9c
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@e939f9c}
+D/DeferrableSurface( 7161): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@91988
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+D/ImageCapture( 7161): clearPipeline
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@b8629d2
+D/DeferrableSurface( 7161): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@f1ff159
+W/ScreenFlashWrapper( 7161): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-51](id:1bf900000035,api:4,p:539,c:7161) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-51](id:1bf900000035,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-51](id:1bf900000035,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-51](id:1bf900000035,api:4,p:539,c:7161) cancelBuffer: BufferQueue has been abandoned
+00:20 +0 -13: Some tests failed.
+
+
+
+Failing tests:
+
+  .: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo screen appears
+
+  .: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo screen appears
+
+  .: Leaving Given the person left the photo screen with the back button, when they tap "Quét vé", then the camera screen opens
+
+  .: Leaving Given the person left the photo screen with the back gesture, when they tap "Quét vé", then the camera screen opens
+
+  ... and 9 more
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
+E/BufferQueueProducer( 7161): [ImageReader-1280x720f22m7-7161-51](id:1bf900000035,api:4,p:539,c:7161) queueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@91988
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@91988}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@91988}
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@b8629d2
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@b8629d2}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@b8629d2}
+E/ConsumerBase( 7161): [ImageReader-1280x720f21m4-7161-48] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface( 7161): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@f1ff159
+D/DeferrableSurface( 7161): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@f1ff159}
+D/DeferrableSurface( 7161): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@f1ff159}
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-49] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase( 7161): [ImageReader-1280x720f23m4-7161-50] abandonLocked: ConsumerBase is abandoned!

@@ -7,8 +7,8 @@ import 'app_screen.dart';
 import 'phone.dart';
 
 // Shared by the tests that run on the Mac and drive the real app started from
-// camera_app.dart (tickets #8 and #9), so they never drift apart on what the
-// home screen and the camera screen are.
+// camera_app.dart (tickets #8, #9 and #10), so they never drift apart on what
+// the home screen and the camera screen are.
 
 const homeTitle = 'Dò vé số';
 const homeSubtitle = 'Chụp vé để biết trúng hay không';
@@ -64,6 +64,50 @@ Future<void> tapScanButton() async {
   await phone.tap(button.centerX.round(), button.centerY.round());
 }
 
+/// The one thing on the camera screen that can be tapped.
+Future<ScreenItem> findShutter() async {
+  final tappable = (await appScreen()).tappable;
+  expect(
+    tappable,
+    hasLength(1),
+    reason: 'the camera screen must have the shutter and no other button',
+  );
+  return tappable.single;
+}
+
+/// Taps the shutter and says when, by the phone's clock.
+Future<double> tapShutter() async {
+  final shutter = await findShutter();
+  final tappedAt = await phone.clock();
+  await phone.tap(shutter.centerX.round(), shutter.centerY.round());
+  return tappedAt;
+}
+
+/// Given: access is already allowed.
+Future<void> givenCameraAllowed() async {
+  await phone.allowCameraAccess();
+  expect(
+    await phone.cameraAccess(),
+    CameraAccess.allowed,
+    reason: 'the app does not request camera access from Android',
+  );
+}
+
+/// Then: a photo written after the shutter tap is inside the app. File times
+/// are in whole seconds, so the tap time is rounded down.
+Future<void> expectPhotoKeptSince(double tappedAt) async {
+  var photos = <KeptPhoto>[];
+  final isKept = await waitUntil(() async {
+    photos = await phone.photosInsideApp();
+    return photos.any((photo) => photo.modifiedAt >= tappedAt.floor());
+  });
+  expect(
+    isKept,
+    isTrue,
+    reason: 'no new photo inside the app. It holds: $photos',
+  );
+}
+
 /// Given: the home screen is showing. Goes back from wherever a test ended.
 Future<void> givenHomeScreen() async {
   for (var tries = 0; tries < 3; tries++) {
@@ -72,6 +116,38 @@ Future<void> givenHomeScreen() async {
     await Future<void>.delayed(const Duration(seconds: 2));
   }
   fail('SETUP: the home screen is not showing: ${await phone.windowInFront()}');
+}
+
+/// Then: Android says the app is using the camera.
+Future<void> expectAppUsingCamera() async {
+  expect(
+    await waitUntil(phone.isAppUsingCamera),
+    isTrue,
+    reason: 'the camera screen is open but the app is not using the camera',
+  );
+}
+
+/// Given: the camera screen is open, with the camera running.
+Future<void> givenCameraScreenOpen() async {
+  await givenHomeScreen();
+  await givenCameraAllowed();
+  await tapScanButton();
+  await expectCameraScreenOpens();
+  await expectAppUsingCamera();
+}
+
+/// The back gesture, on a phone that uses gestures to go back.
+Future<void> useBackGesture() async {
+  expect(
+    await phone.usesBackGesture(),
+    isTrue,
+    reason: 'SETUP: the phone is not using gesture navigation',
+  );
+  final screen = await appScreen();
+  await phone.swipeBack(
+    screenWidth: screen.width.round(),
+    screenHeight: screen.height.round(),
+  );
 }
 
 Future<void> expectCameraScreenOpens() async {

@@ -51,7 +51,7 @@ Before anything else, the MVP has to prove it can read a ticket from a photo.
 
 ## Repository
 
-- `app/`: the Flutter app (Android only for now). Name under the icon: **Dò Vé Số**, package ID `com.nampham.lotteryscan`. It opens to the home screen (sketch 1) with a "Quét vé" button that opens the camera screen (sketch 2); the shutter keeps the photo inside the app and returns home.
+- `app/`: the Flutter app (Android only for now). Name under the icon: **Dò Vé Số**, package ID `com.nampham.lotteryscan`. It opens to the home screen (sketch 1) with a "Quét vé" button that opens the camera screen (sketch 2); the shutter keeps the photo inside the app and shows it on a temporary photo screen; back from there returns home.
 - `docs/`: project docs: [CONVENTIONS.md](docs/CONVENTIONS.md), [SETUP.md](docs/SETUP.md), [STATUS.md](docs/STATUS.md), [WORKFLOW.md](docs/WORKFLOW.md), [BACKLOG.md](docs/BACKLOG.md), the screen sketches in `docs/design/`, and proof of test runs in `docs/evidence/`.
 - `setup.sh`: installs the tools a developer needs (see [docs/SETUP.md](docs/SETUP.md)).
 - `.fvmrc`: pins Flutter to 3.47.9, so `fvm flutter` uses that version.
