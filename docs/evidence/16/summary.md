@@ -43,7 +43,7 @@ Compared by eye against the pictures, in `docs/photos/`. Printed, then read.
 
 **IMG_5903 (Long An)**
 - Sideways left copy `R 051669` -> `D051 669` (stray `D`, a space inside the number; the `R` is a separate block).
-- Title strip `XỔ SỐ KIẾN THIẾT LONG AN` and `10.000đ`: not read (only `XỔ số KIẾN THIẾT` from the diamond logo under the clock, with ố read as `số`).
+- Title strip `XỔ SỐ KIẾN THIẾT LONG AN` and `10.000đ`: not read (only the diamond logo under the clock was read: it prints `XỔ SỐ KIẾN THIẾT` and was read as `XỔ số KIẾN THIẾT`, with `SỐ` in lower case).
 - `KQXS Long An soạn:` -> `KQXS Long An soąn:`; `XSLA gửi 997` -> `-XSLA gii 997`; `XSLA 10K4` -> `Dc XSLA 10K4`.
 - `KHÔNG` -> `KHONG`; `MỘT` -> `MỌT`.
 - Small words `Không Năm Một Sáu Sáu Chín` -> `KhôngNămzMộtzeSáee SåiShín`.
@@ -67,6 +67,7 @@ Compared by eye against the pictures, in `docs/photos/`. Printed, then read.
 - The curved text round the logo, `CÔNG TY XỔ SỐ KIẾN THIẾT` -> `cÔNG`, `TY X6s KIE` (the rest not read).
 - `LOẠI T11-K1` -> `LOẠI T114K1 C`; `T11-K1` -> `Ti1-K1`.
 - `MỞ NGÀY THỨ BA` -> `MỚ NGÀY THỨ BẢ`.
+- `ĐỒNG` under `2 TỶ` -> `DONG`.
 - `03-11-2026` -> `0311-2026` (first dash lost).
 - Small number `C 747421` -> `C747431` (2 read as 3).
 - Small words `Bảy Bốn Bảy Bốn Hai Một` -> `Biy Bốn Biy Bốn Hai Một`; further word pieces `Bay`, `Bn,`, `Báy`, `lai`, `Mit` and `4Bem7Tay`, `4Pér`, which come from the small words printed above and on the big digits.
