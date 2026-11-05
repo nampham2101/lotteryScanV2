@@ -1,6 +1,6 @@
 # Reading a ticket
 
-The rule item 6 follows to find the province, ticket number and draw date on a photo. It was checked against four real tickets (see "The four tickets"). The photos are not kept in the project.
+The rule item 6 follows to find the province, ticket number and draw date on a photo. It was checked against four real tickets (see "The four tickets"). The photos are kept in the project, in [`docs/photos/`](photos/): `IMG_5902.jpg`, `IMG_5903.jpg`, `IMG_5904.jpg` (the clean Vĩnh Long one) and `IMG_5905.jpg`, upright and full size (3024 by 4032, or 4284 by 5712 for IMG_5903 and IMG_5905), plus `dalat.jpg`, a 520 by 252 picture of a Đà Lạt ticket (number 152712, date CN-24-11-2019) that is not one of the four. The pixel positions below were measured on smaller copies, so they do not match those sizes. What ML Kit read on all five is in [`docs/evidence/16/`](evidence/16/summary.md).
 
 ## The rule
 
