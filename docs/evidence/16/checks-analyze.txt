@@ -1,0 +1,4 @@
+device: Mac (no device)
+Analyzing app...                                                
+No issues found! (ran in 14.3s)
+exit 0

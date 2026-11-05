@@ -1,0 +1,74 @@
+device: Pixel_10 (emulator-5554), after a reboot
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.1s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          393ms
+D/WindowLayoutComponentImpl( 3412): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@63094b, of which baseContext=android.app.ContextImpl@10be5d4
+D/FlutterJNI( 3412): Sending viewport metrics to the engine.
+I/HWUI    ( 3412): Using FreeType backend (prop=Auto)
+00:00 [32m+0[0m: (setUpAll)[0m
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:54426/VVAKj8_oa-4=/
+VMServiceFlutterDriver: Isolate found with number: 4514156035861451
+VMServiceFlutterDriver: Isolate 4514156035861451 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:03 [32m+0[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn[0m
+
+D/ProfileInstaller( 3412): Installing profile for com.nampham.lotteryscan
+D/FlutterJNI( 3412): Sending viewport metrics to the engine.
+D/InsetsController( 3412): hide(ime())
+I/ImeTracker( 3412): com.nampham.lotteryscan:36fab2a5: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+00:09 [32m+1[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn[0m
+
+00:16 [32m+2[0m: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:25 [32m+3[0m: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:35 [32m+4[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI( 3734): Beginning load of flutter...
+D/FlutterJNI( 3734): flutter (null) was loaded normally!
+I/flutter ( 3734): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter ( 3734): The Dart VM service is listening on http://127.0.0.1:36001/Oq7gz5wmixE=/
+D/FlutterRenderer( 3734): Width is zero. 0,0
+D/FlutterRenderer( 3734): Width is zero. 0,0
+D/FlutterJNI( 3734): Sending viewport metrics to the engine.
+D/FlutterJNI( 3734): Sending viewport metrics to the engine.
+D/FlutterJNI( 3734): Sending viewport metrics to the engine.
+00:45 [32m+5[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI( 3822): Beginning load of flutter...
+D/FlutterJNI( 3822): flutter (null) was loaded normally!
+I/flutter ( 3822): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter ( 3822): The Dart VM service is listening on http://127.0.0.1:45613/ZAHsxbgmLeE=/
+D/FlutterRenderer( 3822): Width is zero. 0,0
+D/FlutterRenderer( 3822): Width is zero. 0,0
+D/FlutterJNI( 3822): Sending viewport metrics to the engine.
+D/FlutterJNI( 3822): Sending viewport metrics to the engine.
+D/FlutterJNI( 3822): Sending viewport metrics to the engine.
+00:55 [32m+6[0m: (tearDownAll)[0m
+
+00:58 [32m+6[0m: All tests passed![0m
+
+exit 0

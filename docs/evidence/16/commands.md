@@ -91,3 +91,11 @@ git checkout -- app/android/app/src/debug/AndroidManifest.xml     # restored, no
 `no-internet/permissions-runner-debug.txt` lists no INTERNET. (A first attempt of this run failed only because the output folder was given as a relative path; it was repeated.) The run is in `no-internet/` (JSON, `run.log`, `run-app.log`). `run-app.log` also shows the Dart debug service failing to open its local socket ("Operation not permitted"), which is what a build without INTERNET does. The five JSON files were compared with the originals by script: the text, the blocks with all boxes, corner points, angles and confidences, and the picture sizes are identical on all five.
 
 **Release app opens:** the normal release APK was built and installed on `Pixel_10` and opened to the home screen: `release-home.png`.
+
+## 7. Checks by `/work`
+
+- `checks-analyze.txt` and `checks-widget-tests.txt` ran on the Mac.
+- `checks-home-screen.txt`, `checks-portrait-lock.txt`, `checks-camera-refused.txt`, `checks-camera-refused-once.txt` and `checks-photo-screen.txt` ran on `Pixel_10` (`emulator-5554`). They are older tickets' tests. They ran because this ticket changed the app's Android setup.
+- `failed-run-1/` holds the first try of the last four. All failed, because a "Dò Vé Số isn't responding" pop-up stayed on the emulator and covered the app. The emulator had been up for 4 hours, and the same pop-up had appeared on it on 3 November, before ML Kit was added. After a reboot, all four passed with no new pop-up.
+- #8's camera tests (`camera_driver.dart`) were not run. They need the Pixel 7 and someone holding it. `checks-photo-screen.txt` covers the camera path on the emulator.
+- By hand, on the release build, on `Pixel_10`: home, "Quét vé", "While using the app", the camera screen (`release-camera.png`), the shutter, the photo screen (`release-photo.png`), back to home.
