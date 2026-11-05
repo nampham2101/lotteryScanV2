@@ -47,6 +47,9 @@ flowchart LR
 
 ## Latest session (2026-11-05)
 
+- Decision: items 6 and 7 swap, so item 7 comes before the rest of item 6. #16 only read the saved high-resolution pictures, and Nam wants to compare those results with what ML Kit reads on a photo taken in the app. Item 7 is being refined.
+- Decision: the app's camera keeps its current size, about 1280×720, for this comparison. ML Kit's guide sets no overall photo size, only a target of at least 16×16 pixels per character, and whether a ticket's print meets that at 1280×720 hasn't been measured. Revisit if the comparison shows the print is too small to read.
+- Backlog item 7 refined as one ticket and posted unassigned as #18. The temporary screen shows the photo at once with "Đang đọc vé..." below it, then ML Kit's `text` value exactly as given, in a part that scrolls on its own. No text or a failed read shows "Không đọc được vé". Nothing else is saved, and Nam compares the text with #16 afterwards. A release-build read (backlog item 48) is left out.
 - #16 merged (PR #17): ML Kit is in the app and ran on all five pictures on `Pixel_10`, and everything it read is saved with positions in `docs/evidence/16/`. The big ticket number along the bottom wasn't read as digits on any picture. The number was found as one word in small print on three of the five, the date on four and the province on four, and accents came through only partly. Nam looked at the results and is satisfied with them. The release APK grew from 46.7 MB to 78.2 MB. Backlog items 45–56 added.
 - #16 used all 3 fix rounds, and the fourth review still found two mistakes in the results summary: a missing Đà Lạt misread and a wrong position for `C871723`. `/work` stopped. Decision: Nam accepted both without a fix and told `/work` to go on, so the ticket's "Any misread is written down" box is ticked with one known gap. Both are in backlog item 45, to use when refining item 6.
 - Decision: the release app has no internet permission. ML Kit's libraries added it, the README promises reading works offline, and ML Kit read all five pictures identically without it. `/work` decided this and told Nam afterwards. Revisit if the app needs the internet, for example for winning results.
@@ -82,7 +85,7 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Refine the rest of item 6 from #16's results in `docs/evidence/16/summary.md`, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
+4. Refine item 7, then the rest of item 6 from #16's results in `docs/evidence/16/summary.md` and the comparison with photos taken in the app, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
 
 ## Open questions
 
