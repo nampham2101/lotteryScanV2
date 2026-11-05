@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
 import 'app_screen.dart';
 import 'driven_app.dart';
+import 'photo_hash.dart';
 import 'photo_screen.dart';
 import 'shown_photo.dart';
 
@@ -25,11 +24,15 @@ class ReadSeen {
   ReadSeen.fromJson(Map<String, dynamic> json)
     : photoHash = json['photoHash'] as int?,
       isFinished = json['isFinished'] as bool,
-      text = json['text'] as String?;
+      text = json['text'] as String?,
+      failure = json['failure'] as String?;
 
   final int? photoHash;
   final bool isFinished;
   final String? text;
+
+  /// Why real ML Kit gave no answer.
+  final String? failure;
 }
 
 /// Something on screen that scrolls. Its place is in phone pixels.
@@ -118,23 +121,11 @@ Future<ReadSeen> finishedRealRead(int read) async {
   return (await readerReport()).reads[read];
 }
 
-/// Same sum as `_hash` in ticket_text_app.dart.
-int _hash(List<int> bytes) {
-  var hash = 2166136261;
-  for (final byte in bytes) {
-    hash = ((hash ^ byte) * 16777619) & 0xffffffff;
-  }
-  return hash;
-}
-
 /// Then: what ML Kit was given for read number [read] is the photo kept now.
 Future<void> expectReadWasOfKeptPhoto(int read) async {
-  final photos = await phone.photosInsideApp();
-  photos.sort((a, b) => a.modifiedAt.compareTo(b.modifiedAt));
-  final kept = await phone.fileInsideApp(photos.last.path);
   expect(
     (await readerReport()).reads[read].photoHash,
-    _hash(kept),
+    photoHash(await newestPhotoFile()),
     reason: 'ML Kit was given something other than the photo just taken',
   );
 }
@@ -230,22 +221,14 @@ Future<ScrollArea> scrollingTextArea() async {
   return area!;
 }
 
-/// One finger swiping up on [area], through the same path a person's finger
-/// takes. This is here and not in `Phone`, so the tests of tickets #8 and #9
-/// keep using a file that hasn't changed.
-Future<void> _swipeUp(ScrollArea area) async {
-  final serial = Platform.environment['ANDROID_SERIAL'] ?? 'emulator-5554';
-  final x = (area.left + area.right) ~/ 2;
+/// One finger swiping up on [area].
+Future<void> _swipeUp(ScrollArea area) {
   final height = area.bottom - area.top;
-  final from = (area.top + height * 0.8).round();
-  final to = (area.top + height * 0.2).round();
-  final result = await Process.run('adb', [
-    '-s',
-    serial,
-    'shell',
-    'input swipe $x $from $x $to 300',
-  ]);
-  expect(result.exitCode, 0, reason: 'the swipe failed: ${result.stderr}');
+  return phone.swipeUp(
+    x: (area.left + area.right) ~/ 2,
+    fromY: (area.top + height * 0.8).round(),
+    toY: (area.top + height * 0.2).round(),
+  );
 }
 
 /// When the person swipes on the text until it stops moving. Returns the area

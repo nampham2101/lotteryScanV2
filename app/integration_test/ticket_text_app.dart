@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart' show TestDefaultBinaryMessenger;
 
 import 'camera_app.dart' as camera_app;
+import 'helpers/photo_hash.dart';
 
 // The real app for the tests of ticket #18: the same start as camera_app.dart,
 // with the real camera and the real screens. Only ML Kit's answers are in the
@@ -48,12 +49,16 @@ class _Read {
 
   /// What real ML Kit gave, or what a test chose.
   String? text;
+
+  /// Why real ML Kit gave no answer.
+  String? failure;
   bool isFinished = false;
 
   Map<String, Object?> toJson() => {
     'photoHash': photoHash,
     'isFinished': isFinished,
     'text': text,
+    'failure': failure,
   };
 }
 
@@ -91,6 +96,9 @@ Future<Object?> _readForReal(_Read read, MethodCall call) async {
     final answer = await _askRealReader(call);
     read.text = (answer! as Map<Object?, Object?>)['text']! as String;
     return answer;
+  } catch (error) {
+    read.failure = '$error';
+    rethrow;
   } finally {
     read.isFinished = true;
   }
@@ -102,18 +110,9 @@ int? _hashOfPicture(MethodCall call) {
   final path = picture['path'] as String?;
   final bytes = picture['bytes'] as List<int>?;
   if (path != null && File(path).existsSync()) {
-    return _hash(File(path).readAsBytesSync());
+    return photoHash(File(path).readAsBytesSync());
   }
-  return bytes == null ? null : _hash(bytes);
-}
-
-/// FNV-1a. The tests on the Mac work out the same number from the kept photo.
-int _hash(List<int> bytes) {
-  var hash = 2166136261;
-  for (final byte in bytes) {
-    hash = ((hash ^ byte) * 16777619) & 0xffffffff;
-  }
-  return hash;
+  return bytes == null ? null : photoHash(bytes);
 }
 
 Future<developer.ServiceExtensionResponse> _obey(

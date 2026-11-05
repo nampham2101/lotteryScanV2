@@ -65,12 +65,17 @@ Future<void> expectPhotoScreenOpensWithoutHome() async {
   );
 }
 
+/// The contents of the newest photo inside the app.
+Future<List<int>> newestPhotoFile() async {
+  final photos = await phone.photosInsideApp();
+  photos.sort((a, b) => a.modifiedAt.compareTo(b.modifiedAt));
+  return phone.fileInsideApp(photos.last.path);
+}
+
 /// The newest photo inside the app, written after [tappedAt].
 Future<img.Image> keptPhotoSince(double tappedAt) async {
   await expectPhotoKeptSince(tappedAt);
-  final photos = await phone.photosInsideApp();
-  photos.sort((a, b) => a.modifiedAt.compareTo(b.modifiedAt));
-  return uprightPhoto(await phone.fileInsideApp(photos.last.path));
+  return uprightPhoto(await newestPhotoFile());
 }
 
 Future<double> _differenceNow(img.Image photo) async =>

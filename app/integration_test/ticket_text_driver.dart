@@ -78,15 +78,20 @@ void main() {
     }, timeout: testTimeout);
 
     test('Given a photo taken in the app, when real ML Kit reads it, then the '
-        'screen shows exactly what ML Kit gave, or "Không đọc được vé" if it '
-        'gave nothing', () async {
+        'read works and the screen shows exactly what ML Kit gave, or "Không '
+        'đọc được vé" if the text it gave is empty', () async {
       await useRealReader();
       await givenCameraScreenOpen();
 
       final tappedAt = await tapShutter();
 
       final read = await finishedRealRead(0);
-      final text = read.text ?? '';
+      expect(
+        read.text,
+        isNotNull,
+        reason: 'real ML Kit did not give an answer: ${read.failure}',
+      );
+      final text = read.text!;
       await expectOnlyTextIs(text.isEmpty ? couldNotReadText : text);
       await expectScreenShows(await keptPhotoSince(tappedAt));
       await expectReadWasOfKeptPhoto(0);
