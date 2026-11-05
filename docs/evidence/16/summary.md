@@ -19,7 +19,7 @@ Correct answers are in [`docs/TICKET-READING.md`](../../TICKET-READING.md). Đà
 | Picture | Ticket number | Date | Province | Province accents came through? |
 |---|---|---|---|---|
 | IMG_5902 (Bạc Liêu, 871723, 20-10-2026) | **Yes (one word)**, twice: `871723` and `C871723`, both small copies in the top strip. The big number along the bottom was not read at all. | **Yes (one word)**: `20-10-2026`, bottom left. | **Yes, without the dot under A**: title line reads `BAC LIÊUM0LOOOn` (the words `BAC` and `LIÊUM0LOOOn`; the "10.000đ" is glued on to LIÊU). The sideways logo text reads `BAC LIỆU`. | **Partly.** Ê came through in the title (`LIÊU`). Ạ was lost every time (`BAC`). The sideways copy has the wrong accent (`LIỆU`, with ệ). |
-| IMG_5903 (Long An, 051669, 24-10-2026) | **Split only**: `D051` and `669` are two words on one line, the sideways copy on the left edge (angle about -86 degrees), with a stray `D`. No word holds the six digits. The big number along the bottom was not read. | **Yes (one word)**: `24-10-2026`, bottom, under "MỞ NGÀY THỨ BẢY". | **Yes**: `Long An` twice, but only in small print (`KQXS Long An soąn:`, `In tại CTy CP in Long An`). The title strip "XỔ SỐ KIẾN THIẾT LONG AN" was not read; only `XỔ số KIẾN THIẾT` from the clock logo was. | Not applicable: the name has no accents. |
+| IMG_5903 (Long An, 051669, 24-10-2026) | **Split only**: `D051` and `669` are two words on one line, the sideways copy on the left edge (angle about -86 degrees), with a stray `D`. No word holds the six digits. The big number along the bottom was not read. | **Yes (one word)**: `24-10-2026`, bottom, under "MỞ NGÀY THỨ BẢY". | **Yes**: `Long An` twice, but only in small print (`KQXS Long An soąn:`, `In tại CTy CP in Long An`). The title strip "XỔ SỐ KIẾN THIẾT LONG AN" was not read; only `XỔ số KIẾN THIẾT` from the diamond logo under the clock was. | Not applicable: the name has no accents. |
 | IMG_5904 (Vĩnh Long, 011221, 30-10-2026) | **Yes (one word)**: `011221`, the small copy in the box on the left. The right-hand small copy is **split** (`0112`, `2`, `1`). The big number along the bottom was not read. | **Yes (one word)**: `30-10-2026`, the small copy on the right. The date printed `30 - 10 - 2026` is **split** into `O30-`, `10-`, `2026`, with a stray `O`. | **Yes, without the tilde on I**: `VINH LONG` in the title line (`XŐ SỐ KIỄN THIẾT VINH LONG HnOOna`), and `VIinh Long` in the small print. | **No.** Ĩ became `I` (and `Ii` in the small print). |
 | IMG_5905 (Bạc Liêu, 747421, 03-11-2026) | **No.** Nothing holds 747421. Closest: `C747431` (one digit wrong, 2 read as 3), a small copy. The big number was not read. | **Split / damaged**: `0311-2026` is one word with the first dash lost (all the digits, but not `03-11-2026`). | **No.** Closest: `THIETBACHIÊU` inside `631XOSỐKẾN THIETBACHIÊU 10LO0O00` (spaces lost, L read as H, dot under A lost). | **Partly, but it is not a read of the name.** Ê is there in `HIÊU`; Ạ is lost. |
 | dalat (Đà Lạt, 152712, CN-24-11-2019) | **Yes (one word)**: `H152712` (a small copy on the left, with the `H` stuck to it). The small copy on the right is **split and damaged** (`Hl`, `52`, `7`, `12`: the 1s are lost or misread). The big number was not read. | **Yes (one word)**, three times: `CN-24-11-2019` (sideways on the left edge, bottom left, top right), with the `CN-` stuck on. | **Yes, without accents**: `DA LAT` (the logo) and `Dà Lạt` (small print, in `NHận KOXS Dà Lạt som nhất:`). Another small line reads `Da Lai`. | **Partly.** `à` and `ạ` came through once, in the small print. Đ was lost every time (`D`, `DA`). In the logo all three accents were lost (`DA LAT`). |
@@ -43,12 +43,13 @@ Compared by eye against the pictures, in `docs/photos/`. Printed, then read.
 
 **IMG_5903 (Long An)**
 - Sideways left copy `R 051669` -> `D051 669` (stray `D`, a space inside the number; the `R` is a separate block).
-- Title strip `XỔ SỐ KIẾN THIẾT LONG AN` and `10.000đ`: not read (only `XỔ số KIẾN THIẾT` from the clock logo, with ố read as `số`).
+- Title strip `XỔ SỐ KIẾN THIẾT LONG AN` and `10.000đ`: not read (only `XỔ số KIẾN THIẾT` from the diamond logo under the clock, with ố read as `số`).
 - `KQXS Long An soạn:` -> `KQXS Long An soąn:`; `XSLA gửi 997` -> `-XSLA gii 997`; `XSLA 10K4` -> `Dc XSLA 10K4`.
 - `KHÔNG` -> `KHONG`; `MỘT` -> `MỌT`.
 - Small words `Không Năm Một Sáu Sáu Chín` -> `KhôngNămzMộtzeSáee SåiShín`.
 - Small date under the big number `THỨ BẢY 24-10-2026` -> `Y 2024sHU3` and `a4-10`.
-- Stamp and sideways print on the right edge -> `9999999999` (angle about -43 degrees), `TNHA`, `12`, `1981`.
+- The round stamp's `TNHH` (in `CÔNG TY TNHH MTV ...`) -> `TNHA`.
+- The border pattern of the diamond under the clock (spirals, no text) -> `9999999999` (angle about -43 degrees); this is not ticket text. The clock's `12` and `1981` (and `T7K`) were read correctly.
 - The big `051669` was not read.
 
 **IMG_5904 (Vĩnh Long)**

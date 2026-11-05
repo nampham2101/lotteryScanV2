@@ -66,3 +66,28 @@ fvm flutter test
 ```
 
 The release APK of the normal app was installed on `Pixel_10` and opened: the home screen shows as before.
+
+## 6. Fix round 1: the INTERNET permission
+
+ML Kit's libraries (Google's `transport-backend-cct`) added `android.permission.INTERNET` to the release app. `AndroidManifest.xml` now removes it with `tools:node="remove"`. Permission listings of the built APKs, from `aapt2` in Android build-tools 36.0.0:
+
+```
+cd app
+fvm flutter build apk --release && fvm flutter build apk --debug
+~/Library/Android/sdk/build-tools/36.0.0/aapt2 dump permissions build/app/outputs/flutter-apk/app-release.apk > ../docs/evidence/16/permissions-release.txt
+~/Library/Android/sdk/build-tools/36.0.0/aapt2 dump permissions build/app/outputs/flutter-apk/app-debug.apk   > ../docs/evidence/16/permissions-debug.txt
+```
+
+Release lists no INTERNET; debug still does (`permissions-release.txt`, `permissions-debug.txt`).
+
+**ML Kit with no INTERNET permission** (`no-internet/`). A release build can't use `run-as`, and the debug build gets INTERNET from `app/android/app/src/debug/AndroidManifest.xml`. So for this one run only, I deleted the `<uses-permission ... INTERNET/>` line from that debug manifest, then:
+
+```
+app/tool/read_photos.sh emulator-5554 "$PWD/docs/evidence/16/no-internet"
+aapt2 dump permissions app/build/app/outputs/flutter-apk/app-debug.apk > docs/evidence/16/no-internet/permissions-runner-debug.txt
+git checkout -- app/android/app/src/debug/AndroidManifest.xml     # restored, not committed
+```
+
+`no-internet/permissions-runner-debug.txt` lists no INTERNET. (A first attempt of this run failed only because the output folder was given as a relative path; it was repeated.) The run is in `no-internet/` (JSON, `run.log`, `run-app.log`). `run-app.log` also shows the Dart debug service failing to open its local socket ("Operation not permitted"), which is what a build without INTERNET does. The five JSON files were compared with the originals by script: the text, the blocks with all boxes, corner points, angles and confidences, and the picture sizes are identical on all five.
+
+**Release app opens:** the normal release APK was built and installed on `Pixel_10` and opened to the home screen: `release-home.png`.

@@ -1,12 +1,14 @@
 #!/bin/bash
 # Ticket #16: run ML Kit on the five ticket pictures on the Pixel_10 emulator.
 # Usage (from the repo root): app/tool/read_photos.sh <emulator serial, e.g. emulator-5554>
+# Optional second argument: the folder to save the output in (default docs/evidence/16).
 # The serial is required so the Pixel 7 phone is never touched.
 set -euo pipefail
 SERIAL="${1:?give the emulator serial, e.g. emulator-5554}"
 PKG=com.nampham.lotteryscan
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-OUT="$ROOT/docs/evidence/16"
+OUT="${2:-$ROOT/docs/evidence/16}"
+mkdir -p "$OUT"
 
 echo "device: $SERIAL"
 adb -s "$SERIAL" shell getprop ro.product.model

@@ -1,0 +1,6824 @@
+{
+  "picture": "IMG_5902.jpg",
+  "script": "latin",
+  "pictureSize": {
+    "width": 3024,
+    "height": 4032
+  },
+  "sizeNote": "Size of the picture file as Flutter decodes it, which is what ML Kit is handed (the files carry no rotation note).",
+  "device": {
+    "model": "sdk_gphone16k_arm64",
+    "product": "sdk_gphone16k_arm64",
+    "manufacturer": "Google",
+    "androidRelease": "17",
+    "apiLevel": "37",
+    "cpuAbi": "arm64-v8a",
+    "qemu": "1",
+    "avdName": "Pixel_10",
+    "fingerprint": "google/sdk_gphone16k_arm64/emu64a16k:17/CE2A.260420.051.A2/16418371:user/dev-keys"
+  },
+  "readMilliseconds": 3139,
+  "text": "C\nV\nLOẠI TỈ0-K3\nMỞ NGÀY, THỨ BA\n20-10-2026\nB\nAG XE SÜ KIẾN THIẾT BAC LIỆU\nH\n871723 XỔ SỐ KIẾN THIẾT, BAC LIÊUM0LOOOn\nChức mủng2010)\nN\nBay\nM\nK\nC871723\nZAN\nDONGD\nFal\nT10-K3\nL\nalt\nBAC",
+  "blocks": [
+    {
+      "text": "C",
+      "boundingBox": {
+        "left": 240.0,
+        "top": 300.0,
+        "right": 304.0,
+        "bottom": 370.0
+      },
+      "cornerPoints": [
+        {
+          "x": 254,
+          "y": 300
+        },
+        {
+          "x": 304,
+          "y": 311
+        },
+        {
+          "x": 290,
+          "y": 370
+        },
+        {
+          "x": 240,
+          "y": 359
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "C",
+          "boundingBox": {
+            "left": 240.0,
+            "top": 300.0,
+            "right": 304.0,
+            "bottom": 370.0
+          },
+          "cornerPoints": [
+            {
+              "x": 254,
+              "y": 300
+            },
+            {
+              "x": 304,
+              "y": 311
+            },
+            {
+              "x": 290,
+              "y": 370
+            },
+            {
+              "x": 240,
+              "y": 359
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.56640625,
+          "angle": 12.673089027404785,
+          "elements": [
+            {
+              "text": "C",
+              "boundingBox": {
+                "left": 240.0,
+                "top": 300.0,
+                "right": 304.0,
+                "bottom": 370.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 254,
+                  "y": 300
+                },
+                {
+                  "x": 304,
+                  "y": 311
+                },
+                {
+                  "x": 290,
+                  "y": 370
+                },
+                {
+                  "x": 240,
+                  "y": 359
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.56640625,
+              "angle": 12.673089027404785,
+              "symbols": [
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 240.0,
+                    "top": 300.0,
+                    "right": 304.0,
+                    "bottom": 370.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 254,
+                      "y": 300
+                    },
+                    {
+                      "x": 304,
+                      "y": 311
+                    },
+                    {
+                      "x": 290,
+                      "y": 370
+                    },
+                    {
+                      "x": 240,
+                      "y": 359
+                    }
+                  ],
+                  "confidence": 0.56640625,
+                  "angle": 12.673089027404785
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "V",
+      "boundingBox": {
+        "left": 652.0,
+        "top": 349.0,
+        "right": 715.0,
+        "bottom": 415.0
+      },
+      "cornerPoints": [
+        {
+          "x": 660,
+          "y": 349
+        },
+        {
+          "x": 715,
+          "y": 356
+        },
+        {
+          "x": 707,
+          "y": 415
+        },
+        {
+          "x": 652,
+          "y": 408
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "V",
+          "boundingBox": {
+            "left": 652.0,
+            "top": 349.0,
+            "right": 715.0,
+            "bottom": 415.0
+          },
+          "cornerPoints": [
+            {
+              "x": 660,
+              "y": 349
+            },
+            {
+              "x": 715,
+              "y": 356
+            },
+            {
+              "x": 707,
+              "y": 415
+            },
+            {
+              "x": 652,
+              "y": 408
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.50390625,
+          "angle": 7.545413494110107,
+          "elements": [
+            {
+              "text": "V",
+              "boundingBox": {
+                "left": 652.0,
+                "top": 349.0,
+                "right": 715.0,
+                "bottom": 415.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 660,
+                  "y": 349
+                },
+                {
+                  "x": 715,
+                  "y": 356
+                },
+                {
+                  "x": 707,
+                  "y": 415
+                },
+                {
+                  "x": 652,
+                  "y": 408
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.50390625,
+              "angle": 7.545413494110107,
+              "symbols": [
+                {
+                  "text": "V",
+                  "boundingBox": {
+                    "left": 652.0,
+                    "top": 349.0,
+                    "right": 715.0,
+                    "bottom": 415.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 660,
+                      "y": 349
+                    },
+                    {
+                      "x": 715,
+                      "y": 356
+                    },
+                    {
+                      "x": 707,
+                      "y": 415
+                    },
+                    {
+                      "x": 652,
+                      "y": 408
+                    }
+                  ],
+                  "confidence": 0.50390625,
+                  "angle": 7.545413494110107
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "LOẠI TỈ0-K3\nMỞ NGÀY, THỨ BA\n20-10-2026",
+      "boundingBox": {
+        "left": 211.0,
+        "top": 2598.0,
+        "right": 771.0,
+        "bottom": 2912.0
+      },
+      "cornerPoints": [
+        {
+          "x": 211,
+          "y": 2656
+        },
+        {
+          "x": 744,
+          "y": 2598
+        },
+        {
+          "x": 771,
+          "y": 2854
+        },
+        {
+          "x": 238,
+          "y": 2912
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "LOẠI TỈ0-K3",
+          "boundingBox": {
+            "left": 244.0,
+            "top": 2606.0,
+            "right": 753.0,
+            "bottom": 2745.0
+          },
+          "cornerPoints": [
+            {
+              "x": 244,
+              "y": 2653
+            },
+            {
+              "x": 745,
+              "y": 2606
+            },
+            {
+              "x": 753,
+              "y": 2698
+            },
+            {
+              "x": 252,
+              "y": 2745
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.6382812261581421,
+          "angle": -5.332363605499268,
+          "elements": [
+            {
+              "text": "LOẠI",
+              "boundingBox": {
+                "left": 244.0,
+                "top": 2633.0,
+                "right": 461.0,
+                "bottom": 2745.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 244,
+                  "y": 2653
+                },
+                {
+                  "x": 453,
+                  "y": 2633
+                },
+                {
+                  "x": 461,
+                  "y": 2725
+                },
+                {
+                  "x": 252,
+                  "y": 2745
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.7568359375,
+              "angle": -5.332363605499268,
+              "symbols": [
+                {
+                  "text": "L",
+                  "boundingBox": {
+                    "left": 244.0,
+                    "top": 2648.0,
+                    "right": 313.0,
+                    "bottom": 2745.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 244,
+                      "y": 2654
+                    },
+                    {
+                      "x": 305,
+                      "y": 2648
+                    },
+                    {
+                      "x": 313,
+                      "y": 2739
+                    },
+                    {
+                      "x": 252,
+                      "y": 2745
+                    }
+                  ],
+                  "confidence": 0.828125,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "O",
+                  "boundingBox": {
+                    "left": 328.0,
+                    "top": 2642.0,
+                    "right": 376.0,
+                    "bottom": 2737.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 328,
+                      "y": 2646
+                    },
+                    {
+                      "x": 368,
+                      "y": 2642
+                    },
+                    {
+                      "x": 376,
+                      "y": 2733
+                    },
+                    {
+                      "x": 336,
+                      "y": 2737
+                    }
+                  ],
+                  "confidence": 0.6796875,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "Ạ",
+                  "boundingBox": {
+                    "left": 376.0,
+                    "top": 2637.0,
+                    "right": 416.0,
+                    "bottom": 2732.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 376,
+                      "y": 2641
+                    },
+                    {
+                      "x": 408,
+                      "y": 2637
+                    },
+                    {
+                      "x": 416,
+                      "y": 2728
+                    },
+                    {
+                      "x": 384,
+                      "y": 2732
+                    }
+                  ],
+                  "confidence": 0.69921875,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 422.0,
+                    "top": 2634.0,
+                    "right": 460.0,
+                    "bottom": 2728.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 422,
+                      "y": 2637
+                    },
+                    {
+                      "x": 452,
+                      "y": 2634
+                    },
+                    {
+                      "x": 460,
+                      "y": 2725
+                    },
+                    {
+                      "x": 430,
+                      "y": 2728
+                    }
+                  ],
+                  "confidence": 0.8203125,
+                  "angle": -5.332363605499268
+                }
+              ]
+            },
+            {
+              "text": "TỈ0-K3",
+              "boundingBox": {
+                "left": 470.0,
+                "top": 2606.0,
+                "right": 753.0,
+                "bottom": 2724.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 470,
+                  "y": 2632
+                },
+                {
+                  "x": 745,
+                  "y": 2606
+                },
+                {
+                  "x": 753,
+                  "y": 2698
+                },
+                {
+                  "x": 478,
+                  "y": 2724
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.5592448115348816,
+              "angle": -5.332363605499268,
+              "symbols": [
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 470.0,
+                    "top": 2627.0,
+                    "right": 526.0,
+                    "bottom": 2723.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 470,
+                      "y": 2632
+                    },
+                    {
+                      "x": 518,
+                      "y": 2627
+                    },
+                    {
+                      "x": 526,
+                      "y": 2718
+                    },
+                    {
+                      "x": 478,
+                      "y": 2723
+                    }
+                  ],
+                  "confidence": 0.76171875,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "Ỉ",
+                  "boundingBox": {
+                    "left": 523.0,
+                    "top": 2624.0,
+                    "right": 561.0,
+                    "bottom": 2718.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 523,
+                      "y": 2627
+                    },
+                    {
+                      "x": 553,
+                      "y": 2624
+                    },
+                    {
+                      "x": 561,
+                      "y": 2715
+                    },
+                    {
+                      "x": 531,
+                      "y": 2718
+                    }
+                  ],
+                  "confidence": 0.19140625,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 568.0,
+                    "top": 2619.0,
+                    "right": 618.0,
+                    "bottom": 2714.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 568,
+                      "y": 2623
+                    },
+                    {
+                      "x": 610,
+                      "y": 2619
+                    },
+                    {
+                      "x": 618,
+                      "y": 2710
+                    },
+                    {
+                      "x": 576,
+                      "y": 2714
+                    }
+                  ],
+                  "confidence": 0.52734375,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "-",
+                  "boundingBox": {
+                    "left": 618.0,
+                    "top": 2616.0,
+                    "right": 648.0,
+                    "bottom": 2710.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 618,
+                      "y": 2619
+                    },
+                    {
+                      "x": 640,
+                      "y": 2616
+                    },
+                    {
+                      "x": 648,
+                      "y": 2707
+                    },
+                    {
+                      "x": 626,
+                      "y": 2710
+                    }
+                  ],
+                  "confidence": 0.55859375,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "K",
+                  "boundingBox": {
+                    "left": 651.0,
+                    "top": 2610.0,
+                    "right": 709.0,
+                    "bottom": 2706.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 651,
+                      "y": 2615
+                    },
+                    {
+                      "x": 701,
+                      "y": 2610
+                    },
+                    {
+                      "x": 709,
+                      "y": 2701
+                    },
+                    {
+                      "x": 659,
+                      "y": 2706
+                    }
+                  ],
+                  "confidence": 0.6796875,
+                  "angle": -5.332363605499268
+                },
+                {
+                  "text": "3",
+                  "boundingBox": {
+                    "left": 702.0,
+                    "top": 2606.0,
+                    "right": 753.0,
+                    "bottom": 2702.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 702,
+                      "y": 2611
+                    },
+                    {
+                      "x": 745,
+                      "y": 2606
+                    },
+                    {
+                      "x": 753,
+                      "y": 2697
+                    },
+                    {
+                      "x": 710,
+                      "y": 2702
+                    }
+                  ],
+                  "confidence": 0.63671875,
+                  "angle": -5.332363605499268
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "MỞ NGÀY, THỨ BA",
+          "boundingBox": {
+            "left": 233.0,
+            "top": 2706.0,
+            "right": 734.0,
+            "bottom": 2828.0
+          },
+          "cornerPoints": [
+            {
+              "x": 233,
+              "y": 2754
+            },
+            {
+              "x": 727,
+              "y": 2706
+            },
+            {
+              "x": 734,
+              "y": 2780
+            },
+            {
+              "x": 240,
+              "y": 2828
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.6927083134651184,
+          "angle": -5.501023769378662,
+          "elements": [
+            {
+              "text": "MỞ",
+              "boundingBox": {
+                "left": 233.0,
+                "top": 2744.0,
+                "right": 334.0,
+                "bottom": 2827.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 233,
+                  "y": 2754
+                },
+                {
+                  "x": 327,
+                  "y": 2744
+                },
+                {
+                  "x": 334,
+                  "y": 2817
+                },
+                {
+                  "x": 240,
+                  "y": 2827
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.6015625,
+              "angle": -5.50102424621582,
+              "symbols": [
+                {
+                  "text": "M",
+                  "boundingBox": {
+                    "left": 233.0,
+                    "top": 2748.0,
+                    "right": 293.0,
+                    "bottom": 2827.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 233,
+                      "y": 2754
+                    },
+                    {
+                      "x": 286,
+                      "y": 2748
+                    },
+                    {
+                      "x": 293,
+                      "y": 2821
+                    },
+                    {
+                      "x": 240,
+                      "y": 2827
+                    }
+                  ],
+                  "confidence": 0.93359375,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "Ở",
+                  "boundingBox": {
+                    "left": 288.0,
+                    "top": 2745.0,
+                    "right": 334.0,
+                    "bottom": 2822.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 288,
+                      "y": 2749
+                    },
+                    {
+                      "x": 327,
+                      "y": 2745
+                    },
+                    {
+                      "x": 334,
+                      "y": 2818
+                    },
+                    {
+                      "x": 295,
+                      "y": 2822
+                    }
+                  ],
+                  "confidence": 0.26953125,
+                  "angle": -5.5010247230529785
+                }
+              ]
+            },
+            {
+              "text": "NGÀY,",
+              "boundingBox": {
+                "left": 381.0,
+                "top": 2724.0,
+                "right": 547.0,
+                "bottom": 2814.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 381,
+                  "y": 2740
+                },
+                {
+                  "x": 540,
+                  "y": 2724
+                },
+                {
+                  "x": 547,
+                  "y": 2798
+                },
+                {
+                  "x": 388,
+                  "y": 2814
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.717968761920929,
+              "angle": -5.501023769378662,
+              "symbols": [
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 381.0,
+                    "top": 2736.0,
+                    "right": 419.0,
+                    "bottom": 2813.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 381,
+                      "y": 2740
+                    },
+                    {
+                      "x": 412,
+                      "y": 2736
+                    },
+                    {
+                      "x": 419,
+                      "y": 2809
+                    },
+                    {
+                      "x": 388,
+                      "y": 2813
+                    }
+                  ],
+                  "confidence": 0.9453125,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "G",
+                  "boundingBox": {
+                    "left": 418.0,
+                    "top": 2733.0,
+                    "right": 456.0,
+                    "bottom": 2810.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 418,
+                      "y": 2737
+                    },
+                    {
+                      "x": 449,
+                      "y": 2733
+                    },
+                    {
+                      "x": 456,
+                      "y": 2806
+                    },
+                    {
+                      "x": 425,
+                      "y": 2810
+                    }
+                  ],
+                  "confidence": 0.9765625,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "À",
+                  "boundingBox": {
+                    "left": 468.0,
+                    "top": 2729.0,
+                    "right": 501.0,
+                    "bottom": 2805.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 468,
+                      "y": 2732
+                    },
+                    {
+                      "x": 494,
+                      "y": 2729
+                    },
+                    {
+                      "x": 501,
+                      "y": 2802
+                    },
+                    {
+                      "x": 475,
+                      "y": 2805
+                    }
+                  ],
+                  "confidence": 0.4296875,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "Y",
+                  "boundingBox": {
+                    "left": 497.0,
+                    "top": 2727.0,
+                    "right": 522.0,
+                    "bottom": 2802.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 497,
+                      "y": 2729
+                    },
+                    {
+                      "x": 515,
+                      "y": 2727
+                    },
+                    {
+                      "x": 522,
+                      "y": 2800
+                    },
+                    {
+                      "x": 504,
+                      "y": 2802
+                    }
+                  ],
+                  "confidence": 0.8984375,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": ",",
+                  "boundingBox": {
+                    "left": 521.0,
+                    "top": 2725.0,
+                    "right": 546.0,
+                    "bottom": 2800.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 521,
+                      "y": 2727
+                    },
+                    {
+                      "x": 539,
+                      "y": 2725
+                    },
+                    {
+                      "x": 546,
+                      "y": 2798
+                    },
+                    {
+                      "x": 528,
+                      "y": 2800
+                    }
+                  ],
+                  "confidence": 0.33984375,
+                  "angle": -5.5010247230529785
+                }
+              ]
+            },
+            {
+              "text": "THỨ",
+              "boundingBox": {
+                "left": 551.0,
+                "top": 2713.0,
+                "right": 658.0,
+                "bottom": 2797.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 551,
+                  "y": 2723
+                },
+                {
+                  "x": 651,
+                  "y": 2713
+                },
+                {
+                  "x": 658,
+                  "y": 2787
+                },
+                {
+                  "x": 558,
+                  "y": 2797
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.73828125,
+              "angle": -5.50102424621582,
+              "symbols": [
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 551.0,
+                    "top": 2721.0,
+                    "right": 588.0,
+                    "bottom": 2797.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 551,
+                      "y": 2724
+                    },
+                    {
+                      "x": 581,
+                      "y": 2721
+                    },
+                    {
+                      "x": 588,
+                      "y": 2794
+                    },
+                    {
+                      "x": 558,
+                      "y": 2797
+                    }
+                  ],
+                  "confidence": 0.94140625,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "H",
+                  "boundingBox": {
+                    "left": 589.0,
+                    "top": 2717.0,
+                    "right": 623.0,
+                    "bottom": 2793.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 589,
+                      "y": 2720
+                    },
+                    {
+                      "x": 616,
+                      "y": 2717
+                    },
+                    {
+                      "x": 623,
+                      "y": 2790
+                    },
+                    {
+                      "x": 596,
+                      "y": 2793
+                    }
+                  ],
+                  "confidence": 0.9140625,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "Ứ",
+                  "boundingBox": {
+                    "left": 627.0,
+                    "top": 2713.0,
+                    "right": 658.0,
+                    "bottom": 2789.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 627,
+                      "y": 2716
+                    },
+                    {
+                      "x": 651,
+                      "y": 2713
+                    },
+                    {
+                      "x": 658,
+                      "y": 2786
+                    },
+                    {
+                      "x": 634,
+                      "y": 2789
+                    }
+                  ],
+                  "confidence": 0.359375,
+                  "angle": -5.5010247230529785
+                }
+              ]
+            },
+            {
+              "text": "BA",
+              "boundingBox": {
+                "left": 663.0,
+                "top": 2706.0,
+                "right": 734.0,
+                "bottom": 2786.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 663,
+                  "y": 2713
+                },
+                {
+                  "x": 727,
+                  "y": 2706
+                },
+                {
+                  "x": 734,
+                  "y": 2779
+                },
+                {
+                  "x": 670,
+                  "y": 2786
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.65234375,
+              "angle": -5.50102424621582,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 663.0,
+                    "top": 2709.0,
+                    "right": 701.0,
+                    "bottom": 2786.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 663,
+                      "y": 2713
+                    },
+                    {
+                      "x": 694,
+                      "y": 2709
+                    },
+                    {
+                      "x": 701,
+                      "y": 2782
+                    },
+                    {
+                      "x": 670,
+                      "y": 2786
+                    }
+                  ],
+                  "confidence": 0.921875,
+                  "angle": -5.5010247230529785
+                },
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 696.0,
+                    "top": 2706.0,
+                    "right": 734.0,
+                    "bottom": 2783.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 696,
+                      "y": 2710
+                    },
+                    {
+                      "x": 727,
+                      "y": 2706
+                    },
+                    {
+                      "x": 734,
+                      "y": 2779
+                    },
+                    {
+                      "x": 703,
+                      "y": 2783
+                    }
+                  ],
+                  "confidence": 0.3828125,
+                  "angle": -5.5010247230529785
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "20-10-2026",
+          "boundingBox": {
+            "left": 232.0,
+            "top": 2783.0,
+            "right": 729.0,
+            "bottom": 2912.0
+          },
+          "cornerPoints": [
+            {
+              "x": 232,
+              "y": 2848
+            },
+            {
+              "x": 721,
+              "y": 2783
+            },
+            {
+              "x": 729,
+              "y": 2847
+            },
+            {
+              "x": 240,
+              "y": 2912
+            }
+          ],
+          "recognizedLanguages": [
+            "am"
+          ],
+          "confidence": 0.85546875,
+          "angle": -7.524181842803955,
+          "elements": [
+            {
+              "text": "20-10-2026",
+              "boundingBox": {
+                "left": 232.0,
+                "top": 2783.0,
+                "right": 729.0,
+                "bottom": 2912.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 232,
+                  "y": 2848
+                },
+                {
+                  "x": 721,
+                  "y": 2783
+                },
+                {
+                  "x": 729,
+                  "y": 2847
+                },
+                {
+                  "x": 240,
+                  "y": 2912
+                }
+              ],
+              "recognizedLanguages": [
+                "am"
+              ],
+              "confidence": 0.85546875,
+              "angle": -7.524181842803955,
+              "symbols": [
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 232.0,
+                    "top": 2837.0,
+                    "right": 330.0,
+                    "bottom": 2912.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 232,
+                      "y": 2849
+                    },
+                    {
+                      "x": 322,
+                      "y": 2837
+                    },
+                    {
+                      "x": 330,
+                      "y": 2900
+                    },
+                    {
+                      "x": 240,
+                      "y": 2912
+                    }
+                  ],
+                  "confidence": 0.8984375,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 331.0,
+                    "top": 2831.0,
+                    "right": 364.0,
+                    "bottom": 2898.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 331,
+                      "y": 2835
+                    },
+                    {
+                      "x": 356,
+                      "y": 2831
+                    },
+                    {
+                      "x": 364,
+                      "y": 2894
+                    },
+                    {
+                      "x": 339,
+                      "y": 2898
+                    }
+                  ],
+                  "confidence": 0.92578125,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "-",
+                  "boundingBox": {
+                    "left": 353.0,
+                    "top": 2827.0,
+                    "right": 399.0,
+                    "bottom": 2896.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 353,
+                      "y": 2833
+                    },
+                    {
+                      "x": 391,
+                      "y": 2827
+                    },
+                    {
+                      "x": 399,
+                      "y": 2890
+                    },
+                    {
+                      "x": 361,
+                      "y": 2896
+                    }
+                  ],
+                  "confidence": 0.5625,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "1",
+                  "boundingBox": {
+                    "left": 418.0,
+                    "top": 2817.0,
+                    "right": 473.0,
+                    "bottom": 2887.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 418,
+                      "y": 2824
+                    },
+                    {
+                      "x": 465,
+                      "y": 2817
+                    },
+                    {
+                      "x": 473,
+                      "y": 2880
+                    },
+                    {
+                      "x": 426,
+                      "y": 2887
+                    }
+                  ],
+                  "confidence": 0.76171875,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 481.0,
+                    "top": 2812.0,
+                    "right": 517.0,
+                    "bottom": 2879.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 481,
+                      "y": 2816
+                    },
+                    {
+                      "x": 509,
+                      "y": 2812
+                    },
+                    {
+                      "x": 517,
+                      "y": 2875
+                    },
+                    {
+                      "x": 489,
+                      "y": 2879
+                    }
+                  ],
+                  "confidence": 0.93359375,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "-",
+                  "boundingBox": {
+                    "left": 505.0,
+                    "top": 2807.0,
+                    "right": 545.0,
+                    "bottom": 2875.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 505,
+                      "y": 2812
+                    },
+                    {
+                      "x": 537,
+                      "y": 2807
+                    },
+                    {
+                      "x": 545,
+                      "y": 2870
+                    },
+                    {
+                      "x": 513,
+                      "y": 2875
+                    }
+                  ],
+                  "confidence": 0.7421875,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 556.0,
+                    "top": 2800.0,
+                    "right": 607.0,
+                    "bottom": 2869.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 556,
+                      "y": 2806
+                    },
+                    {
+                      "x": 599,
+                      "y": 2800
+                    },
+                    {
+                      "x": 607,
+                      "y": 2863
+                    },
+                    {
+                      "x": 564,
+                      "y": 2869
+                    }
+                  ],
+                  "confidence": 0.921875,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 611.0,
+                    "top": 2792.0,
+                    "right": 659.0,
+                    "bottom": 2861.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 611,
+                      "y": 2798
+                    },
+                    {
+                      "x": 651,
+                      "y": 2792
+                    },
+                    {
+                      "x": 659,
+                      "y": 2855
+                    },
+                    {
+                      "x": 619,
+                      "y": 2861
+                    }
+                  ],
+                  "confidence": 0.9453125,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 671.0,
+                    "top": 2786.0,
+                    "right": 709.0,
+                    "bottom": 2854.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 671,
+                      "y": 2791
+                    },
+                    {
+                      "x": 701,
+                      "y": 2786
+                    },
+                    {
+                      "x": 709,
+                      "y": 2849
+                    },
+                    {
+                      "x": 679,
+                      "y": 2854
+                    }
+                  ],
+                  "confidence": 0.9609375,
+                  "angle": -7.524181842803955
+                },
+                {
+                  "text": "6",
+                  "boundingBox": {
+                    "left": 706.0,
+                    "top": 2783.0,
+                    "right": 729.0,
+                    "bottom": 2849.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 706,
+                      "y": 2786
+                    },
+                    {
+                      "x": 721,
+                      "y": 2783
+                    },
+                    {
+                      "x": 729,
+                      "y": 2846
+                    },
+                    {
+                      "x": 714,
+                      "y": 2849
+                    }
+                  ],
+                  "confidence": 0.90234375,
+                  "angle": -7.524181842803955
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "B",
+      "boundingBox": {
+        "left": 1068.0,
+        "top": 399.0,
+        "right": 1122.0,
+        "bottom": 465.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1079,
+          "y": 399
+        },
+        {
+          "x": 1122,
+          "y": 406
+        },
+        {
+          "x": 1111,
+          "y": 465
+        },
+        {
+          "x": 1068,
+          "y": 458
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "B",
+          "boundingBox": {
+            "left": 1068.0,
+            "top": 399.0,
+            "right": 1122.0,
+            "bottom": 465.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1079,
+              "y": 399
+            },
+            {
+              "x": 1122,
+              "y": 406
+            },
+            {
+              "x": 1111,
+              "y": 465
+            },
+            {
+              "x": 1068,
+              "y": 458
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.86328125,
+          "angle": 10.386127471923828,
+          "elements": [
+            {
+              "text": "B",
+              "boundingBox": {
+                "left": 1068.0,
+                "top": 399.0,
+                "right": 1122.0,
+                "bottom": 465.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1079,
+                  "y": 399
+                },
+                {
+                  "x": 1122,
+                  "y": 406
+                },
+                {
+                  "x": 1111,
+                  "y": 465
+                },
+                {
+                  "x": 1068,
+                  "y": 458
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.86328125,
+              "angle": 10.386127471923828,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 1068.0,
+                    "top": 399.0,
+                    "right": 1122.0,
+                    "bottom": 465.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1079,
+                      "y": 399
+                    },
+                    {
+                      "x": 1122,
+                      "y": 406
+                    },
+                    {
+                      "x": 1111,
+                      "y": 465
+                    },
+                    {
+                      "x": 1068,
+                      "y": 458
+                    }
+                  ],
+                  "confidence": 0.86328125,
+                  "angle": 10.386127471923828
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "AG XE SÜ KIẾN THIẾT BAC LIỆU",
+      "boundingBox": {
+        "left": 762.0,
+        "top": 1999.0,
+        "right": 811.0,
+        "bottom": 2498.0
+      },
+      "cornerPoints": [
+        {
+          "x": 762,
+          "y": 2498
+        },
+        {
+          "x": 770,
+          "y": 1999
+        },
+        {
+          "x": 811,
+          "y": 1999
+        },
+        {
+          "x": 803,
+          "y": 2498
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "AG XE SÜ KIẾN THIẾT BAC LIỆU",
+          "boundingBox": {
+            "left": 762.0,
+            "top": 1999.0,
+            "right": 811.0,
+            "bottom": 2498.0
+          },
+          "cornerPoints": [
+            {
+              "x": 762,
+              "y": 2498
+            },
+            {
+              "x": 770,
+              "y": 1999
+            },
+            {
+              "x": 811,
+              "y": 1999
+            },
+            {
+              "x": 803,
+              "y": 2498
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.4099786877632141,
+          "angle": -89.0271987915039,
+          "elements": [
+            {
+              "text": "AG",
+              "boundingBox": {
+                "left": 763.0,
+                "top": 2454.0,
+                "right": 803.0,
+                "bottom": 2498.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 763,
+                  "y": 2498
+                },
+                {
+                  "x": 763,
+                  "y": 2454
+                },
+                {
+                  "x": 803,
+                  "y": 2454
+                },
+                {
+                  "x": 803,
+                  "y": 2498
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.08984375,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 763.0,
+                    "top": 2476.0,
+                    "right": 803.0,
+                    "bottom": 2498.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 763,
+                      "y": 2498
+                    },
+                    {
+                      "x": 763,
+                      "y": 2476
+                    },
+                    {
+                      "x": 803,
+                      "y": 2476
+                    },
+                    {
+                      "x": 803,
+                      "y": 2498
+                    }
+                  ],
+                  "confidence": 0.1015625,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "G",
+                  "boundingBox": {
+                    "left": 763.0,
+                    "top": 2454.0,
+                    "right": 803.0,
+                    "bottom": 2469.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 763,
+                      "y": 2469
+                    },
+                    {
+                      "x": 763,
+                      "y": 2454
+                    },
+                    {
+                      "x": 803,
+                      "y": 2454
+                    },
+                    {
+                      "x": 803,
+                      "y": 2469
+                    }
+                  ],
+                  "confidence": 0.078125,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "XE",
+              "boundingBox": {
+                "left": 764.0,
+                "top": 2364.0,
+                "right": 805.0,
+                "bottom": 2408.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 764,
+                  "y": 2408
+                },
+                {
+                  "x": 764,
+                  "y": 2364
+                },
+                {
+                  "x": 805,
+                  "y": 2364
+                },
+                {
+                  "x": 805,
+                  "y": 2408
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.126953125,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "X",
+                  "boundingBox": {
+                    "left": 764.0,
+                    "top": 2386.0,
+                    "right": 804.0,
+                    "bottom": 2408.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 764,
+                      "y": 2408
+                    },
+                    {
+                      "x": 764,
+                      "y": 2386
+                    },
+                    {
+                      "x": 804,
+                      "y": 2386
+                    },
+                    {
+                      "x": 804,
+                      "y": 2408
+                    }
+                  ],
+                  "confidence": 0.1640625,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "E",
+                  "boundingBox": {
+                    "left": 765.0,
+                    "top": 2364.0,
+                    "right": 805.0,
+                    "bottom": 2379.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 765,
+                      "y": 2379
+                    },
+                    {
+                      "x": 765,
+                      "y": 2364
+                    },
+                    {
+                      "x": 805,
+                      "y": 2364
+                    },
+                    {
+                      "x": 805,
+                      "y": 2379
+                    }
+                  ],
+                  "confidence": 0.08984375,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "SÜ",
+              "boundingBox": {
+                "left": 765.0,
+                "top": 2313.0,
+                "right": 805.0,
+                "bottom": 2346.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 765,
+                  "y": 2346
+                },
+                {
+                  "x": 765,
+                  "y": 2313
+                },
+                {
+                  "x": 805,
+                  "y": 2313
+                },
+                {
+                  "x": 805,
+                  "y": 2346
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.2421875,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "S",
+                  "boundingBox": {
+                    "left": 765.0,
+                    "top": 2330.0,
+                    "right": 805.0,
+                    "bottom": 2346.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 765,
+                      "y": 2346
+                    },
+                    {
+                      "x": 765,
+                      "y": 2330
+                    },
+                    {
+                      "x": 805,
+                      "y": 2330
+                    },
+                    {
+                      "x": 805,
+                      "y": 2346
+                    }
+                  ],
+                  "confidence": 0.40625,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "Ü",
+                  "boundingBox": {
+                    "left": 765.0,
+                    "top": 2313.0,
+                    "right": 805.0,
+                    "bottom": 2325.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 765,
+                      "y": 2325
+                    },
+                    {
+                      "x": 765,
+                      "y": 2313
+                    },
+                    {
+                      "x": 805,
+                      "y": 2313
+                    },
+                    {
+                      "x": 805,
+                      "y": 2325
+                    }
+                  ],
+                  "confidence": 0.078125,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "KIẾN",
+              "boundingBox": {
+                "left": 765.0,
+                "top": 2236.0,
+                "right": 807.0,
+                "bottom": 2299.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 765,
+                  "y": 2299
+                },
+                {
+                  "x": 766,
+                  "y": 2236
+                },
+                {
+                  "x": 807,
+                  "y": 2236
+                },
+                {
+                  "x": 806,
+                  "y": 2299
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.5107421875,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "K",
+                  "boundingBox": {
+                    "left": 766.0,
+                    "top": 2288.0,
+                    "right": 806.0,
+                    "bottom": 2299.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 766,
+                      "y": 2299
+                    },
+                    {
+                      "x": 766,
+                      "y": 2288
+                    },
+                    {
+                      "x": 806,
+                      "y": 2288
+                    },
+                    {
+                      "x": 806,
+                      "y": 2299
+                    }
+                  ],
+                  "confidence": 0.72265625,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 766.0,
+                    "top": 2274.0,
+                    "right": 806.0,
+                    "bottom": 2287.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 766,
+                      "y": 2287
+                    },
+                    {
+                      "x": 766,
+                      "y": 2274
+                    },
+                    {
+                      "x": 806,
+                      "y": 2274
+                    },
+                    {
+                      "x": 806,
+                      "y": 2287
+                    }
+                  ],
+                  "confidence": 0.6875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "Ế",
+                  "boundingBox": {
+                    "left": 766.0,
+                    "top": 2254.0,
+                    "right": 806.0,
+                    "bottom": 2269.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 766,
+                      "y": 2269
+                    },
+                    {
+                      "x": 766,
+                      "y": 2254
+                    },
+                    {
+                      "x": 806,
+                      "y": 2254
+                    },
+                    {
+                      "x": 806,
+                      "y": 2269
+                    }
+                  ],
+                  "confidence": 0.3671875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 767.0,
+                    "top": 2236.0,
+                    "right": 807.0,
+                    "bottom": 2249.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 767,
+                      "y": 2249
+                    },
+                    {
+                      "x": 767,
+                      "y": 2236
+                    },
+                    {
+                      "x": 807,
+                      "y": 2236
+                    },
+                    {
+                      "x": 807,
+                      "y": 2249
+                    }
+                  ],
+                  "confidence": 0.265625,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "THIẾT",
+              "boundingBox": {
+                "left": 767.0,
+                "top": 2131.0,
+                "right": 809.0,
+                "bottom": 2217.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 767,
+                  "y": 2217
+                },
+                {
+                  "x": 768,
+                  "y": 2131
+                },
+                {
+                  "x": 809,
+                  "y": 2131
+                },
+                {
+                  "x": 808,
+                  "y": 2217
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.53515625,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 767.0,
+                    "top": 2201.0,
+                    "right": 807.0,
+                    "bottom": 2217.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 767,
+                      "y": 2217
+                    },
+                    {
+                      "x": 767,
+                      "y": 2201
+                    },
+                    {
+                      "x": 807,
+                      "y": 2201
+                    },
+                    {
+                      "x": 807,
+                      "y": 2217
+                    }
+                  ],
+                  "confidence": 0.32421875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "H",
+                  "boundingBox": {
+                    "left": 768.0,
+                    "top": 2184.0,
+                    "right": 808.0,
+                    "bottom": 2196.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 768,
+                      "y": 2196
+                    },
+                    {
+                      "x": 768,
+                      "y": 2184
+                    },
+                    {
+                      "x": 808,
+                      "y": 2184
+                    },
+                    {
+                      "x": 808,
+                      "y": 2196
+                    }
+                  ],
+                  "confidence": 0.67578125,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 768.0,
+                    "top": 2171.0,
+                    "right": 808.0,
+                    "bottom": 2183.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 768,
+                      "y": 2183
+                    },
+                    {
+                      "x": 768,
+                      "y": 2171
+                    },
+                    {
+                      "x": 808,
+                      "y": 2171
+                    },
+                    {
+                      "x": 808,
+                      "y": 2183
+                    }
+                  ],
+                  "confidence": 0.328125,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "Ế",
+                  "boundingBox": {
+                    "left": 768.0,
+                    "top": 2151.0,
+                    "right": 808.0,
+                    "bottom": 2166.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 768,
+                      "y": 2166
+                    },
+                    {
+                      "x": 768,
+                      "y": 2151
+                    },
+                    {
+                      "x": 808,
+                      "y": 2151
+                    },
+                    {
+                      "x": 808,
+                      "y": 2166
+                    }
+                  ],
+                  "confidence": 0.65234375,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 768.0,
+                    "top": 2131.0,
+                    "right": 808.0,
+                    "bottom": 2145.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 768,
+                      "y": 2145
+                    },
+                    {
+                      "x": 768,
+                      "y": 2131
+                    },
+                    {
+                      "x": 808,
+                      "y": 2131
+                    },
+                    {
+                      "x": 808,
+                      "y": 2145
+                    }
+                  ],
+                  "confidence": 0.6953125,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "BAC",
+              "boundingBox": {
+                "left": 769.0,
+                "top": 2068.0,
+                "right": 809.0,
+                "bottom": 2122.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 769,
+                  "y": 2122
+                },
+                {
+                  "x": 769,
+                  "y": 2068
+                },
+                {
+                  "x": 809,
+                  "y": 2068
+                },
+                {
+                  "x": 809,
+                  "y": 2122
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.6888020634651184,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 769.0,
+                    "top": 2105.0,
+                    "right": 809.0,
+                    "bottom": 2122.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 769,
+                      "y": 2122
+                    },
+                    {
+                      "x": 769,
+                      "y": 2105
+                    },
+                    {
+                      "x": 809,
+                      "y": 2105
+                    },
+                    {
+                      "x": 809,
+                      "y": 2122
+                    }
+                  ],
+                  "confidence": 0.8046875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 769.0,
+                    "top": 2086.0,
+                    "right": 809.0,
+                    "bottom": 2100.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 769,
+                      "y": 2100
+                    },
+                    {
+                      "x": 769,
+                      "y": 2086
+                    },
+                    {
+                      "x": 809,
+                      "y": 2086
+                    },
+                    {
+                      "x": 809,
+                      "y": 2100
+                    }
+                  ],
+                  "confidence": 0.4921875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 770.0,
+                    "top": 2068.0,
+                    "right": 810.0,
+                    "bottom": 2081.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 770,
+                      "y": 2081
+                    },
+                    {
+                      "x": 770,
+                      "y": 2068
+                    },
+                    {
+                      "x": 810,
+                      "y": 2068
+                    },
+                    {
+                      "x": 810,
+                      "y": 2081
+                    }
+                  ],
+                  "confidence": 0.76953125,
+                  "angle": -89.02720642089844
+                }
+              ]
+            },
+            {
+              "text": "LIỆU",
+              "boundingBox": {
+                "left": 770.0,
+                "top": 1999.0,
+                "right": 810.0,
+                "bottom": 2054.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 770,
+                  "y": 2054
+                },
+                {
+                  "x": 770,
+                  "y": 1999
+                },
+                {
+                  "x": 810,
+                  "y": 1999
+                },
+                {
+                  "x": 810,
+                  "y": 2054
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.3291015625,
+              "angle": -89.0271987915039,
+              "symbols": [
+                {
+                  "text": "L",
+                  "boundingBox": {
+                    "left": 770.0,
+                    "top": 2043.0,
+                    "right": 810.0,
+                    "bottom": 2054.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 770,
+                      "y": 2054
+                    },
+                    {
+                      "x": 770,
+                      "y": 2043
+                    },
+                    {
+                      "x": 810,
+                      "y": 2043
+                    },
+                    {
+                      "x": 810,
+                      "y": 2054
+                    }
+                  ],
+                  "confidence": 0.44140625,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 770.0,
+                    "top": 2029.0,
+                    "right": 810.0,
+                    "bottom": 2042.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 770,
+                      "y": 2042
+                    },
+                    {
+                      "x": 770,
+                      "y": 2029
+                    },
+                    {
+                      "x": 810,
+                      "y": 2029
+                    },
+                    {
+                      "x": 810,
+                      "y": 2042
+                    }
+                  ],
+                  "confidence": 0.4375,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "Ệ",
+                  "boundingBox": {
+                    "left": 771.0,
+                    "top": 2010.0,
+                    "right": 811.0,
+                    "bottom": 2022.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 771,
+                      "y": 2022
+                    },
+                    {
+                      "x": 771,
+                      "y": 2010
+                    },
+                    {
+                      "x": 811,
+                      "y": 2010
+                    },
+                    {
+                      "x": 811,
+                      "y": 2022
+                    }
+                  ],
+                  "confidence": 0.171875,
+                  "angle": -89.02720642089844
+                },
+                {
+                  "text": "U",
+                  "boundingBox": {
+                    "left": 771.0,
+                    "top": 1999.0,
+                    "right": 811.0,
+                    "bottom": 2008.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 771,
+                      "y": 2008
+                    },
+                    {
+                      "x": 771,
+                      "y": 1999
+                    },
+                    {
+                      "x": 811,
+                      "y": 1999
+                    },
+                    {
+                      "x": 811,
+                      "y": 2008
+                    }
+                  ],
+                  "confidence": 0.265625,
+                  "angle": -89.02720642089844
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "H",
+      "boundingBox": {
+        "left": 1335.0,
+        "top": 18.0,
+        "right": 1391.0,
+        "bottom": 85.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1335,
+          "y": 18
+        },
+        {
+          "x": 1391,
+          "y": 18
+        },
+        {
+          "x": 1391,
+          "y": 85
+        },
+        {
+          "x": 1335,
+          "y": 85
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "H",
+          "boundingBox": {
+            "left": 1335.0,
+            "top": 18.0,
+            "right": 1391.0,
+            "bottom": 85.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1335,
+              "y": 18
+            },
+            {
+              "x": 1391,
+              "y": 18
+            },
+            {
+              "x": 1391,
+              "y": 85
+            },
+            {
+              "x": 1335,
+              "y": 85
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.6484375,
+          "angle": 0.0,
+          "elements": [
+            {
+              "text": "H",
+              "boundingBox": {
+                "left": 1335.0,
+                "top": 18.0,
+                "right": 1391.0,
+                "bottom": 85.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1335,
+                  "y": 18
+                },
+                {
+                  "x": 1391,
+                  "y": 18
+                },
+                {
+                  "x": 1391,
+                  "y": 85
+                },
+                {
+                  "x": 1335,
+                  "y": 85
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.6484375,
+              "angle": 0.0,
+              "symbols": [
+                {
+                  "text": "H",
+                  "boundingBox": {
+                    "left": 1335.0,
+                    "top": 18.0,
+                    "right": 1391.0,
+                    "bottom": 85.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1335,
+                      "y": 18
+                    },
+                    {
+                      "x": 1391,
+                      "y": 18
+                    },
+                    {
+                      "x": 1391,
+                      "y": 85
+                    },
+                    {
+                      "x": 1335,
+                      "y": 85
+                    }
+                  ],
+                  "confidence": 0.6484375,
+                  "angle": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "871723 XỔ SỐ KIẾN THIẾT, BAC LIÊUM0LOOOn",
+      "boundingBox": {
+        "left": 389.0,
+        "top": 1824.0,
+        "right": 2327.0,
+        "bottom": 1995.0
+      },
+      "cornerPoints": [
+        {
+          "x": 393,
+          "y": 1824
+        },
+        {
+          "x": 2327,
+          "y": 1900
+        },
+        {
+          "x": 2323,
+          "y": 1995
+        },
+        {
+          "x": 389,
+          "y": 1919
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "871723 XỔ SỐ KIẾN THIẾT, BAC LIÊUM0LOOOn",
+          "boundingBox": {
+            "left": 389.0,
+            "top": 1824.0,
+            "right": 2327.0,
+            "bottom": 1995.0
+          },
+          "cornerPoints": [
+            {
+              "x": 393,
+              "y": 1824
+            },
+            {
+              "x": 2327,
+              "y": 1900
+            },
+            {
+              "x": 2323,
+              "y": 1995
+            },
+            {
+              "x": 389,
+              "y": 1919
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.5850183963775635,
+          "angle": 2.2719852924346924,
+          "elements": [
+            {
+              "text": "871723",
+              "boundingBox": {
+                "left": 389.0,
+                "top": 1824.0,
+                "right": 733.0,
+                "bottom": 1932.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 393,
+                  "y": 1824
+                },
+                {
+                  "x": 733,
+                  "y": 1837
+                },
+                {
+                  "x": 729,
+                  "y": 1932
+                },
+                {
+                  "x": 389,
+                  "y": 1919
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.8404948115348816,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "8",
+                  "boundingBox": {
+                    "left": 389.0,
+                    "top": 1825.0,
+                    "right": 445.0,
+                    "bottom": 1921.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 393,
+                      "y": 1825
+                    },
+                    {
+                      "x": 445,
+                      "y": 1827
+                    },
+                    {
+                      "x": 441,
+                      "y": 1921
+                    },
+                    {
+                      "x": 389,
+                      "y": 1919
+                    }
+                  ],
+                  "confidence": 0.8828125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "7",
+                  "boundingBox": {
+                    "left": 453.0,
+                    "top": 1827.0,
+                    "right": 508.0,
+                    "bottom": 1923.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 457,
+                      "y": 1827
+                    },
+                    {
+                      "x": 508,
+                      "y": 1829
+                    },
+                    {
+                      "x": 504,
+                      "y": 1923
+                    },
+                    {
+                      "x": 453,
+                      "y": 1921
+                    }
+                  ],
+                  "confidence": 0.8046875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "1",
+                  "boundingBox": {
+                    "left": 531.0,
+                    "top": 1830.0,
+                    "right": 586.0,
+                    "bottom": 1926.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 535,
+                      "y": 1830
+                    },
+                    {
+                      "x": 586,
+                      "y": 1832
+                    },
+                    {
+                      "x": 582,
+                      "y": 1926
+                    },
+                    {
+                      "x": 531,
+                      "y": 1924
+                    }
+                  ],
+                  "confidence": 0.91796875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "7",
+                  "boundingBox": {
+                    "left": 600.0,
+                    "top": 1833.0,
+                    "right": 643.0,
+                    "bottom": 1928.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 604,
+                      "y": 1833
+                    },
+                    {
+                      "x": 643,
+                      "y": 1834
+                    },
+                    {
+                      "x": 639,
+                      "y": 1928
+                    },
+                    {
+                      "x": 600,
+                      "y": 1927
+                    }
+                  ],
+                  "confidence": 0.9140625,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 649.0,
+                    "top": 1835.0,
+                    "right": 688.0,
+                    "bottom": 1930.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 653,
+                      "y": 1835
+                    },
+                    {
+                      "x": 688,
+                      "y": 1836
+                    },
+                    {
+                      "x": 684,
+                      "y": 1930
+                    },
+                    {
+                      "x": 649,
+                      "y": 1929
+                    }
+                  ],
+                  "confidence": 0.83203125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "3",
+                  "boundingBox": {
+                    "left": 698.0,
+                    "top": 1837.0,
+                    "right": 733.0,
+                    "bottom": 1932.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 702,
+                      "y": 1837
+                    },
+                    {
+                      "x": 733,
+                      "y": 1838
+                    },
+                    {
+                      "x": 729,
+                      "y": 1932
+                    },
+                    {
+                      "x": 698,
+                      "y": 1931
+                    }
+                  ],
+                  "confidence": 0.69140625,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "XỔ",
+              "boundingBox": {
+                "left": 853.0,
+                "top": 1843.0,
+                "right": 990.0,
+                "bottom": 1942.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 857,
+                  "y": 1843
+                },
+                {
+                  "x": 990,
+                  "y": 1848
+                },
+                {
+                  "x": 986,
+                  "y": 1942
+                },
+                {
+                  "x": 853,
+                  "y": 1937
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.27734375,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "X",
+                  "boundingBox": {
+                    "left": 853.0,
+                    "top": 1843.0,
+                    "right": 921.0,
+                    "bottom": 1939.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 857,
+                      "y": 1843
+                    },
+                    {
+                      "x": 921,
+                      "y": 1845
+                    },
+                    {
+                      "x": 917,
+                      "y": 1939
+                    },
+                    {
+                      "x": 853,
+                      "y": 1937
+                    }
+                  ],
+                  "confidence": 0.44921875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "Ổ",
+                  "boundingBox": {
+                    "left": 941.0,
+                    "top": 1846.0,
+                    "right": 990.0,
+                    "bottom": 1941.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 945,
+                      "y": 1846
+                    },
+                    {
+                      "x": 990,
+                      "y": 1847
+                    },
+                    {
+                      "x": 986,
+                      "y": 1941
+                    },
+                    {
+                      "x": 941,
+                      "y": 1940
+                    }
+                  ],
+                  "confidence": 0.10546875,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "SỐ",
+              "boundingBox": {
+                "left": 961.0,
+                "top": 1847.0,
+                "right": 1069.0,
+                "bottom": 1945.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 965,
+                  "y": 1847
+                },
+                {
+                  "x": 1069,
+                  "y": 1851
+                },
+                {
+                  "x": 1065,
+                  "y": 1945
+                },
+                {
+                  "x": 961,
+                  "y": 1941
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.546875,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "S",
+                  "boundingBox": {
+                    "left": 961.0,
+                    "top": 1847.0,
+                    "right": 1040.0,
+                    "bottom": 1944.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 965,
+                      "y": 1847
+                    },
+                    {
+                      "x": 1040,
+                      "y": 1850
+                    },
+                    {
+                      "x": 1036,
+                      "y": 1944
+                    },
+                    {
+                      "x": 961,
+                      "y": 1941
+                    }
+                  ],
+                  "confidence": 0.53515625,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "Ố",
+                  "boundingBox": {
+                    "left": 1054.0,
+                    "top": 1851.0,
+                    "right": 1069.0,
+                    "bottom": 1945.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1058,
+                      "y": 1851
+                    },
+                    {
+                      "x": 1069,
+                      "y": 1851
+                    },
+                    {
+                      "x": 1065,
+                      "y": 1945
+                    },
+                    {
+                      "x": 1054,
+                      "y": 1945
+                    }
+                  ],
+                  "confidence": 0.55859375,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "KIẾN",
+              "boundingBox": {
+                "left": 1083.0,
+                "top": 1852.0,
+                "right": 1264.0,
+                "bottom": 1954.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1087,
+                  "y": 1852
+                },
+                {
+                  "x": 1264,
+                  "y": 1859
+                },
+                {
+                  "x": 1260,
+                  "y": 1954
+                },
+                {
+                  "x": 1083,
+                  "y": 1947
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.5849609375,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "K",
+                  "boundingBox": {
+                    "left": 1083.0,
+                    "top": 1852.0,
+                    "right": 1137.0,
+                    "bottom": 1948.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1087,
+                      "y": 1852
+                    },
+                    {
+                      "x": 1137,
+                      "y": 1854
+                    },
+                    {
+                      "x": 1133,
+                      "y": 1948
+                    },
+                    {
+                      "x": 1083,
+                      "y": 1946
+                    }
+                  ],
+                  "confidence": 0.53125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 1132.0,
+                    "top": 1854.0,
+                    "right": 1173.0,
+                    "bottom": 1949.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1136,
+                      "y": 1854
+                    },
+                    {
+                      "x": 1173,
+                      "y": 1855
+                    },
+                    {
+                      "x": 1169,
+                      "y": 1949
+                    },
+                    {
+                      "x": 1132,
+                      "y": 1948
+                    }
+                  ],
+                  "confidence": 0.578125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "Ế",
+                  "boundingBox": {
+                    "left": 1196.0,
+                    "top": 1857.0,
+                    "right": 1235.0,
+                    "bottom": 1952.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1200,
+                      "y": 1857
+                    },
+                    {
+                      "x": 1235,
+                      "y": 1858
+                    },
+                    {
+                      "x": 1231,
+                      "y": 1952
+                    },
+                    {
+                      "x": 1196,
+                      "y": 1951
+                    }
+                  ],
+                  "confidence": 0.3125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 1235.0,
+                    "top": 1858.0,
+                    "right": 1264.0,
+                    "bottom": 1953.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1239,
+                      "y": 1858
+                    },
+                    {
+                      "x": 1264,
+                      "y": 1859
+                    },
+                    {
+                      "x": 1260,
+                      "y": 1953
+                    },
+                    {
+                      "x": 1235,
+                      "y": 1952
+                    }
+                  ],
+                  "confidence": 0.91796875,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "THIẾT,",
+              "boundingBox": {
+                "left": 1304.0,
+                "top": 1860.0,
+                "right": 1507.0,
+                "bottom": 1962.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1308,
+                  "y": 1860
+                },
+                {
+                  "x": 1507,
+                  "y": 1867
+                },
+                {
+                  "x": 1503,
+                  "y": 1962
+                },
+                {
+                  "x": 1304,
+                  "y": 1955
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.6731770634651184,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 1304.0,
+                    "top": 1861.0,
+                    "right": 1347.0,
+                    "bottom": 1956.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1308,
+                      "y": 1861
+                    },
+                    {
+                      "x": 1347,
+                      "y": 1862
+                    },
+                    {
+                      "x": 1343,
+                      "y": 1956
+                    },
+                    {
+                      "x": 1304,
+                      "y": 1955
+                    }
+                  ],
+                  "confidence": 0.875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "H",
+                  "boundingBox": {
+                    "left": 1356.0,
+                    "top": 1863.0,
+                    "right": 1388.0,
+                    "bottom": 1958.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1360,
+                      "y": 1863
+                    },
+                    {
+                      "x": 1388,
+                      "y": 1864
+                    },
+                    {
+                      "x": 1384,
+                      "y": 1958
+                    },
+                    {
+                      "x": 1356,
+                      "y": 1957
+                    }
+                  ],
+                  "confidence": 0.8125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 1383.0,
+                    "top": 1864.0,
+                    "right": 1424.0,
+                    "bottom": 1959.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1387,
+                      "y": 1864
+                    },
+                    {
+                      "x": 1424,
+                      "y": 1865
+                    },
+                    {
+                      "x": 1420,
+                      "y": 1959
+                    },
+                    {
+                      "x": 1383,
+                      "y": 1958
+                    }
+                  ],
+                  "confidence": 0.703125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "Ế",
+                  "boundingBox": {
+                    "left": 1449.0,
+                    "top": 1867.0,
+                    "right": 1482.0,
+                    "bottom": 1962.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1453,
+                      "y": 1867
+                    },
+                    {
+                      "x": 1482,
+                      "y": 1868
+                    },
+                    {
+                      "x": 1478,
+                      "y": 1962
+                    },
+                    {
+                      "x": 1449,
+                      "y": 1961
+                    }
+                  ],
+                  "confidence": 0.4296875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 1472.0,
+                    "top": 1867.0,
+                    "right": 1491.0,
+                    "bottom": 1961.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1476,
+                      "y": 1867
+                    },
+                    {
+                      "x": 1491,
+                      "y": 1867
+                    },
+                    {
+                      "x": 1487,
+                      "y": 1961
+                    },
+                    {
+                      "x": 1472,
+                      "y": 1961
+                    }
+                  ],
+                  "confidence": 0.8671875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": ",",
+                  "boundingBox": {
+                    "left": 1488.0,
+                    "top": 1868.0,
+                    "right": 1507.0,
+                    "bottom": 1962.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1492,
+                      "y": 1868
+                    },
+                    {
+                      "x": 1507,
+                      "y": 1868
+                    },
+                    {
+                      "x": 1503,
+                      "y": 1962
+                    },
+                    {
+                      "x": 1488,
+                      "y": 1962
+                    }
+                  ],
+                  "confidence": 0.3515625,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "BAC",
+              "boundingBox": {
+                "left": 1539.0,
+                "top": 1870.0,
+                "right": 1672.0,
+                "bottom": 1969.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1543,
+                  "y": 1870
+                },
+                {
+                  "x": 1672,
+                  "y": 1875
+                },
+                {
+                  "x": 1668,
+                  "y": 1969
+                },
+                {
+                  "x": 1539,
+                  "y": 1964
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.6901041865348816,
+              "angle": 2.2719852924346924,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 1539.0,
+                    "top": 1870.0,
+                    "right": 1582.0,
+                    "bottom": 1965.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1543,
+                      "y": 1870
+                    },
+                    {
+                      "x": 1582,
+                      "y": 1871
+                    },
+                    {
+                      "x": 1578,
+                      "y": 1965
+                    },
+                    {
+                      "x": 1539,
+                      "y": 1964
+                    }
+                  ],
+                  "confidence": 0.92578125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 1588.0,
+                    "top": 1872.0,
+                    "right": 1627.0,
+                    "bottom": 1967.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1592,
+                      "y": 1872
+                    },
+                    {
+                      "x": 1627,
+                      "y": 1873
+                    },
+                    {
+                      "x": 1623,
+                      "y": 1967
+                    },
+                    {
+                      "x": 1588,
+                      "y": 1966
+                    }
+                  ],
+                  "confidence": 0.28125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 1637.0,
+                    "top": 1874.0,
+                    "right": 1672.0,
+                    "bottom": 1969.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1641,
+                      "y": 1874
+                    },
+                    {
+                      "x": 1672,
+                      "y": 1875
+                    },
+                    {
+                      "x": 1668,
+                      "y": 1969
+                    },
+                    {
+                      "x": 1637,
+                      "y": 1968
+                    }
+                  ],
+                  "confidence": 0.86328125,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            },
+            {
+              "text": "LIÊUM0LOOOn",
+              "boundingBox": {
+                "left": 1700.0,
+                "top": 1876.0,
+                "right": 2327.0,
+                "bottom": 1995.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1704,
+                  "y": 1876
+                },
+                {
+                  "x": 2327,
+                  "y": 1900
+                },
+                {
+                  "x": 2323,
+                  "y": 1995
+                },
+                {
+                  "x": 1700,
+                  "y": 1971
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.4318181872367859,
+              "angle": 2.2719850540161133,
+              "symbols": [
+                {
+                  "text": "L",
+                  "boundingBox": {
+                    "left": 1700.0,
+                    "top": 1877.0,
+                    "right": 1731.0,
+                    "bottom": 1972.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1704,
+                      "y": 1877
+                    },
+                    {
+                      "x": 1731,
+                      "y": 1878
+                    },
+                    {
+                      "x": 1727,
+                      "y": 1972
+                    },
+                    {
+                      "x": 1700,
+                      "y": 1971
+                    }
+                  ],
+                  "confidence": 0.91015625,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "I",
+                  "boundingBox": {
+                    "left": 1731.0,
+                    "top": 1878.0,
+                    "right": 1766.0,
+                    "bottom": 1973.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1735,
+                      "y": 1878
+                    },
+                    {
+                      "x": 1766,
+                      "y": 1879
+                    },
+                    {
+                      "x": 1762,
+                      "y": 1973
+                    },
+                    {
+                      "x": 1731,
+                      "y": 1972
+                    }
+                  ],
+                  "confidence": 0.8671875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "Ê",
+                  "boundingBox": {
+                    "left": 1775.0,
+                    "top": 1879.0,
+                    "right": 1815.0,
+                    "bottom": 1974.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1779,
+                      "y": 1879
+                    },
+                    {
+                      "x": 1815,
+                      "y": 1880
+                    },
+                    {
+                      "x": 1811,
+                      "y": 1974
+                    },
+                    {
+                      "x": 1775,
+                      "y": 1973
+                    }
+                  ],
+                  "confidence": 0.44921875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "U",
+                  "boundingBox": {
+                    "left": 1803.0,
+                    "top": 1881.0,
+                    "right": 1880.0,
+                    "bottom": 1977.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1807,
+                      "y": 1881
+                    },
+                    {
+                      "x": 1880,
+                      "y": 1883
+                    },
+                    {
+                      "x": 1876,
+                      "y": 1977
+                    },
+                    {
+                      "x": 1803,
+                      "y": 1975
+                    }
+                  ],
+                  "confidence": 0.8125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "M",
+                  "boundingBox": {
+                    "left": 1941.0,
+                    "top": 1886.0,
+                    "right": 2023.0,
+                    "bottom": 1983.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1945,
+                      "y": 1886
+                    },
+                    {
+                      "x": 2023,
+                      "y": 1889
+                    },
+                    {
+                      "x": 2019,
+                      "y": 1983
+                    },
+                    {
+                      "x": 1941,
+                      "y": 1980
+                    }
+                  ],
+                  "confidence": 0.296875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 2043.0,
+                    "top": 1890.0,
+                    "right": 2080.0,
+                    "bottom": 1985.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2047,
+                      "y": 1890
+                    },
+                    {
+                      "x": 2080,
+                      "y": 1891
+                    },
+                    {
+                      "x": 2076,
+                      "y": 1985
+                    },
+                    {
+                      "x": 2043,
+                      "y": 1984
+                    }
+                  ],
+                  "confidence": 0.19140625,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "L",
+                  "boundingBox": {
+                    "left": 2078.0,
+                    "top": 1892.0,
+                    "right": 2105.0,
+                    "bottom": 1986.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2082,
+                      "y": 1892
+                    },
+                    {
+                      "x": 2105,
+                      "y": 1892
+                    },
+                    {
+                      "x": 2101,
+                      "y": 1986
+                    },
+                    {
+                      "x": 2078,
+                      "y": 1986
+                    }
+                  ],
+                  "confidence": 0.34765625,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "O",
+                  "boundingBox": {
+                    "left": 2099.0,
+                    "top": 1892.0,
+                    "right": 2147.0,
+                    "bottom": 1987.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2103,
+                      "y": 1892
+                    },
+                    {
+                      "x": 2147,
+                      "y": 1893
+                    },
+                    {
+                      "x": 2143,
+                      "y": 1987
+                    },
+                    {
+                      "x": 2099,
+                      "y": 1986
+                    }
+                  ],
+                  "confidence": 0.171875,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "O",
+                  "boundingBox": {
+                    "left": 2174.0,
+                    "top": 1895.0,
+                    "right": 2231.0,
+                    "bottom": 1991.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2178,
+                      "y": 1895
+                    },
+                    {
+                      "x": 2231,
+                      "y": 1897
+                    },
+                    {
+                      "x": 2227,
+                      "y": 1991
+                    },
+                    {
+                      "x": 2174,
+                      "y": 1989
+                    }
+                  ],
+                  "confidence": 0.234375,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "O",
+                  "boundingBox": {
+                    "left": 2242.0,
+                    "top": 1898.0,
+                    "right": 2284.0,
+                    "bottom": 1993.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2246,
+                      "y": 1898
+                    },
+                    {
+                      "x": 2284,
+                      "y": 1899
+                    },
+                    {
+                      "x": 2280,
+                      "y": 1993
+                    },
+                    {
+                      "x": 2242,
+                      "y": 1992
+                    }
+                  ],
+                  "confidence": 0.125,
+                  "angle": 2.2719852924346924
+                },
+                {
+                  "text": "n",
+                  "boundingBox": {
+                    "left": 2293.0,
+                    "top": 1900.0,
+                    "right": 2327.0,
+                    "bottom": 1995.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2297,
+                      "y": 1900
+                    },
+                    {
+                      "x": 2327,
+                      "y": 1901
+                    },
+                    {
+                      "x": 2323,
+                      "y": 1995
+                    },
+                    {
+                      "x": 2293,
+                      "y": 1994
+                    }
+                  ],
+                  "confidence": 0.34375,
+                  "angle": 2.2719852924346924
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Chức mủng2010)",
+      "boundingBox": {
+        "left": 976.0,
+        "top": 2030.0,
+        "right": 1445.0,
+        "bottom": 2139.0
+      },
+      "cornerPoints": [
+        {
+          "x": 982,
+          "y": 2030
+        },
+        {
+          "x": 1445,
+          "y": 2063
+        },
+        {
+          "x": 1439,
+          "y": 2139
+        },
+        {
+          "x": 976,
+          "y": 2106
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "Chức mủng2010)",
+          "boundingBox": {
+            "left": 976.0,
+            "top": 2030.0,
+            "right": 1445.0,
+            "bottom": 2139.0
+          },
+          "cornerPoints": [
+            {
+              "x": 982,
+              "y": 2030
+            },
+            {
+              "x": 1445,
+              "y": 2063
+            },
+            {
+              "x": 1439,
+              "y": 2139
+            },
+            {
+              "x": 976,
+              "y": 2106
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.6120793223381042,
+          "angle": 4.17084264755249,
+          "elements": [
+            {
+              "text": "Chức",
+              "boundingBox": {
+                "left": 976.0,
+                "top": 2030.0,
+                "right": 1080.0,
+                "bottom": 2113.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 982,
+                  "y": 2030
+                },
+                {
+                  "x": 1080,
+                  "y": 2037
+                },
+                {
+                  "x": 1074,
+                  "y": 2113
+                },
+                {
+                  "x": 976,
+                  "y": 2106
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.587890625,
+              "angle": 4.17084264755249,
+              "symbols": [
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 976.0,
+                    "top": 2031.0,
+                    "right": 993.0,
+                    "bottom": 2106.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 982,
+                      "y": 2031
+                    },
+                    {
+                      "x": 993,
+                      "y": 2031
+                    },
+                    {
+                      "x": 987,
+                      "y": 2106
+                    },
+                    {
+                      "x": 976,
+                      "y": 2106
+                    }
+                  ],
+                  "confidence": 0.66796875,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "h",
+                  "boundingBox": {
+                    "left": 981.0,
+                    "top": 2031.0,
+                    "right": 1013.0,
+                    "bottom": 2107.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 987,
+                      "y": 2031
+                    },
+                    {
+                      "x": 1013,
+                      "y": 2032
+                    },
+                    {
+                      "x": 1007,
+                      "y": 2107
+                    },
+                    {
+                      "x": 981,
+                      "y": 2106
+                    }
+                  ],
+                  "confidence": 0.5390625,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "ứ",
+                  "boundingBox": {
+                    "left": 1030.0,
+                    "top": 2034.0,
+                    "right": 1063.0,
+                    "bottom": 2111.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1036,
+                      "y": 2034
+                    },
+                    {
+                      "x": 1063,
+                      "y": 2036
+                    },
+                    {
+                      "x": 1057,
+                      "y": 2111
+                    },
+                    {
+                      "x": 1030,
+                      "y": 2109
+                    }
+                  ],
+                  "confidence": 0.3203125,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "c",
+                  "boundingBox": {
+                    "left": 1060.0,
+                    "top": 2037.0,
+                    "right": 1080.0,
+                    "bottom": 2113.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1066,
+                      "y": 2037
+                    },
+                    {
+                      "x": 1080,
+                      "y": 2038
+                    },
+                    {
+                      "x": 1074,
+                      "y": 2113
+                    },
+                    {
+                      "x": 1060,
+                      "y": 2112
+                    }
+                  ],
+                  "confidence": 0.82421875,
+                  "angle": 4.170843601226807
+                }
+              ]
+            },
+            {
+              "text": "mủng2010)",
+              "boundingBox": {
+                "left": 1105.0,
+                "top": 2039.0,
+                "right": 1446.0,
+                "bottom": 2139.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1111,
+                  "y": 2039
+                },
+                {
+                  "x": 1446,
+                  "y": 2063
+                },
+                {
+                  "x": 1440,
+                  "y": 2139
+                },
+                {
+                  "x": 1105,
+                  "y": 2115
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.6228298544883728,
+              "angle": 4.170842170715332,
+              "symbols": [
+                {
+                  "text": "m",
+                  "boundingBox": {
+                    "left": 1105.0,
+                    "top": 2040.0,
+                    "right": 1132.0,
+                    "bottom": 2116.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1111,
+                      "y": 2040
+                    },
+                    {
+                      "x": 1132,
+                      "y": 2041
+                    },
+                    {
+                      "x": 1126,
+                      "y": 2116
+                    },
+                    {
+                      "x": 1105,
+                      "y": 2115
+                    }
+                  ],
+                  "confidence": 0.8046875,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "ủ",
+                  "boundingBox": {
+                    "left": 1126.0,
+                    "top": 2041.0,
+                    "right": 1161.0,
+                    "bottom": 2118.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1132,
+                      "y": 2041
+                    },
+                    {
+                      "x": 1161,
+                      "y": 2043
+                    },
+                    {
+                      "x": 1155,
+                      "y": 2118
+                    },
+                    {
+                      "x": 1126,
+                      "y": 2116
+                    }
+                  ],
+                  "confidence": 0.15625,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "n",
+                  "boundingBox": {
+                    "left": 1174.0,
+                    "top": 2045.0,
+                    "right": 1211.0,
+                    "bottom": 2122.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1180,
+                      "y": 2045
+                    },
+                    {
+                      "x": 1211,
+                      "y": 2047
+                    },
+                    {
+                      "x": 1205,
+                      "y": 2122
+                    },
+                    {
+                      "x": 1174,
+                      "y": 2120
+                    }
+                  ],
+                  "confidence": 0.8046875,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "g",
+                  "boundingBox": {
+                    "left": 1200.0,
+                    "top": 2047.0,
+                    "right": 1257.0,
+                    "bottom": 2125.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1206,
+                      "y": 2047
+                    },
+                    {
+                      "x": 1257,
+                      "y": 2050
+                    },
+                    {
+                      "x": 1251,
+                      "y": 2125
+                    },
+                    {
+                      "x": 1200,
+                      "y": 2122
+                    }
+                  ],
+                  "confidence": 0.7734375,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 1300.0,
+                    "top": 2054.0,
+                    "right": 1353.0,
+                    "bottom": 2132.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1306,
+                      "y": 2054
+                    },
+                    {
+                      "x": 1353,
+                      "y": 2057
+                    },
+                    {
+                      "x": 1347,
+                      "y": 2132
+                    },
+                    {
+                      "x": 1300,
+                      "y": 2129
+                    }
+                  ],
+                  "confidence": 0.6015625,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 1349.0,
+                    "top": 2058.0,
+                    "right": 1378.0,
+                    "bottom": 2134.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1355,
+                      "y": 2058
+                    },
+                    {
+                      "x": 1378,
+                      "y": 2059
+                    },
+                    {
+                      "x": 1372,
+                      "y": 2134
+                    },
+                    {
+                      "x": 1349,
+                      "y": 2133
+                    }
+                  ],
+                  "confidence": 0.6171875,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "1",
+                  "boundingBox": {
+                    "left": 1386.0,
+                    "top": 2060.0,
+                    "right": 1415.0,
+                    "bottom": 2136.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1392,
+                      "y": 2060
+                    },
+                    {
+                      "x": 1415,
+                      "y": 2061
+                    },
+                    {
+                      "x": 1409,
+                      "y": 2136
+                    },
+                    {
+                      "x": 1386,
+                      "y": 2135
+                    }
+                  ],
+                  "confidence": 0.84765625,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 1414.0,
+                    "top": 2063.0,
+                    "right": 1433.0,
+                    "bottom": 2139.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1420,
+                      "y": 2063
+                    },
+                    {
+                      "x": 1433,
+                      "y": 2064
+                    },
+                    {
+                      "x": 1427,
+                      "y": 2139
+                    },
+                    {
+                      "x": 1414,
+                      "y": 2138
+                    }
+                  ],
+                  "confidence": 0.51171875,
+                  "angle": 4.170843601226807
+                },
+                {
+                  "text": ")",
+                  "boundingBox": {
+                    "left": 1428.0,
+                    "top": 2064.0,
+                    "right": 1445.0,
+                    "bottom": 2139.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1434,
+                      "y": 2064
+                    },
+                    {
+                      "x": 1445,
+                      "y": 2064
+                    },
+                    {
+                      "x": 1439,
+                      "y": 2139
+                    },
+                    {
+                      "x": 1428,
+                      "y": 2139
+                    }
+                  ],
+                  "confidence": 0.48828125,
+                  "angle": 4.170843601226807
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "N",
+      "boundingBox": {
+        "left": 1478.0,
+        "top": 452.0,
+        "right": 1539.0,
+        "bottom": 520.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1489,
+          "y": 452
+        },
+        {
+          "x": 1539,
+          "y": 460
+        },
+        {
+          "x": 1528,
+          "y": 520
+        },
+        {
+          "x": 1478,
+          "y": 512
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "N",
+          "boundingBox": {
+            "left": 1478.0,
+            "top": 452.0,
+            "right": 1539.0,
+            "bottom": 520.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1489,
+              "y": 452
+            },
+            {
+              "x": 1539,
+              "y": 460
+            },
+            {
+              "x": 1528,
+              "y": 520
+            },
+            {
+              "x": 1478,
+              "y": 512
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.609375,
+          "angle": 9.462321281433105,
+          "elements": [
+            {
+              "text": "N",
+              "boundingBox": {
+                "left": 1478.0,
+                "top": 452.0,
+                "right": 1539.0,
+                "bottom": 520.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1489,
+                  "y": 452
+                },
+                {
+                  "x": 1539,
+                  "y": 460
+                },
+                {
+                  "x": 1528,
+                  "y": 520
+                },
+                {
+                  "x": 1478,
+                  "y": 512
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.609375,
+              "angle": 9.462321281433105,
+              "symbols": [
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 1478.0,
+                    "top": 452.0,
+                    "right": 1539.0,
+                    "bottom": 520.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1489,
+                      "y": 452
+                    },
+                    {
+                      "x": 1539,
+                      "y": 460
+                    },
+                    {
+                      "x": 1528,
+                      "y": 520
+                    },
+                    {
+                      "x": 1478,
+                      "y": 512
+                    }
+                  ],
+                  "confidence": 0.609375,
+                  "angle": 9.462321281433105
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Bay",
+      "boundingBox": {
+        "left": 1261.0,
+        "top": 2504.0,
+        "right": 1358.0,
+        "bottom": 2579.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1273,
+          "y": 2504
+        },
+        {
+          "x": 1358,
+          "y": 2520
+        },
+        {
+          "x": 1346,
+          "y": 2579
+        },
+        {
+          "x": 1261,
+          "y": 2563
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "Bay",
+          "boundingBox": {
+            "left": 1261.0,
+            "top": 2504.0,
+            "right": 1358.0,
+            "bottom": 2579.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1273,
+              "y": 2504
+            },
+            {
+              "x": 1358,
+              "y": 2520
+            },
+            {
+              "x": 1346,
+              "y": 2579
+            },
+            {
+              "x": 1261,
+              "y": 2563
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.3515625,
+          "angle": 10.694085121154785,
+          "elements": [
+            {
+              "text": "Bay",
+              "boundingBox": {
+                "left": 1261.0,
+                "top": 2504.0,
+                "right": 1358.0,
+                "bottom": 2579.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1273,
+                  "y": 2504
+                },
+                {
+                  "x": 1358,
+                  "y": 2520
+                },
+                {
+                  "x": 1346,
+                  "y": 2579
+                },
+                {
+                  "x": 1261,
+                  "y": 2563
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.3515625,
+              "angle": 10.694085121154785,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 1261.0,
+                    "top": 2505.0,
+                    "right": 1328.0,
+                    "bottom": 2573.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1273,
+                      "y": 2505
+                    },
+                    {
+                      "x": 1328,
+                      "y": 2515
+                    },
+                    {
+                      "x": 1316,
+                      "y": 2573
+                    },
+                    {
+                      "x": 1261,
+                      "y": 2563
+                    }
+                  ],
+                  "confidence": 0.3984375,
+                  "angle": 10.694085121154785
+                },
+                {
+                  "text": "a",
+                  "boundingBox": {
+                    "left": 1319.0,
+                    "top": 2515.0,
+                    "right": 1347.0,
+                    "bottom": 2576.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1331,
+                      "y": 2515
+                    },
+                    {
+                      "x": 1347,
+                      "y": 2518
+                    },
+                    {
+                      "x": 1335,
+                      "y": 2576
+                    },
+                    {
+                      "x": 1319,
+                      "y": 2573
+                    }
+                  ],
+                  "confidence": 0.3515625,
+                  "angle": 10.694085121154785
+                },
+                {
+                  "text": "y",
+                  "boundingBox": {
+                    "left": 1340.0,
+                    "top": 2519.0,
+                    "right": 1358.0,
+                    "bottom": 2578.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1352,
+                      "y": 2519
+                    },
+                    {
+                      "x": 1358,
+                      "y": 2520
+                    },
+                    {
+                      "x": 1346,
+                      "y": 2578
+                    },
+                    {
+                      "x": 1340,
+                      "y": 2577
+                    }
+                  ],
+                  "confidence": 0.3046875,
+                  "angle": 10.694085121154785
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "M",
+      "boundingBox": {
+        "left": 1892.0,
+        "top": 507.0,
+        "right": 1965.0,
+        "bottom": 574.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1900,
+          "y": 507
+        },
+        {
+          "x": 1965,
+          "y": 514
+        },
+        {
+          "x": 1957,
+          "y": 574
+        },
+        {
+          "x": 1892,
+          "y": 567
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "M",
+          "boundingBox": {
+            "left": 1892.0,
+            "top": 507.0,
+            "right": 1965.0,
+            "bottom": 574.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1900,
+              "y": 507
+            },
+            {
+              "x": 1965,
+              "y": 514
+            },
+            {
+              "x": 1957,
+              "y": 574
+            },
+            {
+              "x": 1892,
+              "y": 567
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.84765625,
+          "angle": 6.928008556365967,
+          "elements": [
+            {
+              "text": "M",
+              "boundingBox": {
+                "left": 1892.0,
+                "top": 507.0,
+                "right": 1965.0,
+                "bottom": 574.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1900,
+                  "y": 507
+                },
+                {
+                  "x": 1965,
+                  "y": 514
+                },
+                {
+                  "x": 1957,
+                  "y": 574
+                },
+                {
+                  "x": 1892,
+                  "y": 567
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.84765625,
+              "angle": 6.928008556365967,
+              "symbols": [
+                {
+                  "text": "M",
+                  "boundingBox": {
+                    "left": 1892.0,
+                    "top": 507.0,
+                    "right": 1965.0,
+                    "bottom": 574.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1900,
+                      "y": 507
+                    },
+                    {
+                      "x": 1965,
+                      "y": 514
+                    },
+                    {
+                      "x": 1957,
+                      "y": 574
+                    },
+                    {
+                      "x": 1892,
+                      "y": 567
+                    }
+                  ],
+                  "confidence": 0.84765625,
+                  "angle": 6.928008556365967
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "K",
+      "boundingBox": {
+        "left": 2169.0,
+        "top": 124.0,
+        "right": 2224.0,
+        "bottom": 190.0
+      },
+      "cornerPoints": [
+        {
+          "x": 2175,
+          "y": 124
+        },
+        {
+          "x": 2224,
+          "y": 128
+        },
+        {
+          "x": 2218,
+          "y": 190
+        },
+        {
+          "x": 2169,
+          "y": 186
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "K",
+          "boundingBox": {
+            "left": 2169.0,
+            "top": 124.0,
+            "right": 2224.0,
+            "bottom": 190.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2175,
+              "y": 124
+            },
+            {
+              "x": 2224,
+              "y": 128
+            },
+            {
+              "x": 2218,
+              "y": 190
+            },
+            {
+              "x": 2169,
+              "y": 186
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.7578125,
+          "angle": 4.731160640716553,
+          "elements": [
+            {
+              "text": "K",
+              "boundingBox": {
+                "left": 2169.0,
+                "top": 124.0,
+                "right": 2224.0,
+                "bottom": 190.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2175,
+                  "y": 124
+                },
+                {
+                  "x": 2224,
+                  "y": 128
+                },
+                {
+                  "x": 2218,
+                  "y": 190
+                },
+                {
+                  "x": 2169,
+                  "y": 186
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.7578125,
+              "angle": 4.731160640716553,
+              "symbols": [
+                {
+                  "text": "K",
+                  "boundingBox": {
+                    "left": 2169.0,
+                    "top": 124.0,
+                    "right": 2224.0,
+                    "bottom": 190.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2175,
+                      "y": 124
+                    },
+                    {
+                      "x": 2224,
+                      "y": 128
+                    },
+                    {
+                      "x": 2218,
+                      "y": 190
+                    },
+                    {
+                      "x": 2169,
+                      "y": 186
+                    }
+                  ],
+                  "confidence": 0.7578125,
+                  "angle": 4.731160640716553
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "C871723",
+      "boundingBox": {
+        "left": 1763.0,
+        "top": 2069.0,
+        "right": 2377.0,
+        "bottom": 2187.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1763,
+          "y": 2069
+        },
+        {
+          "x": 2377,
+          "y": 2069
+        },
+        {
+          "x": 2377,
+          "y": 2187
+        },
+        {
+          "x": 1763,
+          "y": 2187
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "C871723",
+          "boundingBox": {
+            "left": 1763.0,
+            "top": 2069.0,
+            "right": 2377.0,
+            "bottom": 2187.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1763,
+              "y": 2069
+            },
+            {
+              "x": 2377,
+              "y": 2069
+            },
+            {
+              "x": 2377,
+              "y": 2187
+            },
+            {
+              "x": 1763,
+              "y": 2187
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.7405133843421936,
+          "angle": 0.0,
+          "elements": [
+            {
+              "text": "C871723",
+              "boundingBox": {
+                "left": 1763.0,
+                "top": 2069.0,
+                "right": 2377.0,
+                "bottom": 2187.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1763,
+                  "y": 2069
+                },
+                {
+                  "x": 2377,
+                  "y": 2069
+                },
+                {
+                  "x": 2377,
+                  "y": 2187
+                },
+                {
+                  "x": 1763,
+                  "y": 2187
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.7405133843421936,
+              "angle": 0.0,
+              "symbols": [
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 1763.0,
+                    "top": 2069.0,
+                    "right": 1863.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1763,
+                      "y": 2069
+                    },
+                    {
+                      "x": 1863,
+                      "y": 2069
+                    },
+                    {
+                      "x": 1863,
+                      "y": 2187
+                    },
+                    {
+                      "x": 1763,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.46875,
+                  "angle": 0.0
+                },
+                {
+                  "text": "8",
+                  "boundingBox": {
+                    "left": 1894.0,
+                    "top": 2069.0,
+                    "right": 1967.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1894,
+                      "y": 2069
+                    },
+                    {
+                      "x": 1967,
+                      "y": 2069
+                    },
+                    {
+                      "x": 1967,
+                      "y": 2187
+                    },
+                    {
+                      "x": 1894,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.83984375,
+                  "angle": 0.0
+                },
+                {
+                  "text": "7",
+                  "boundingBox": {
+                    "left": 1996.0,
+                    "top": 2069.0,
+                    "right": 2059.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1996,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2059,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2059,
+                      "y": 2187
+                    },
+                    {
+                      "x": 1996,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.9140625,
+                  "angle": 0.0
+                },
+                {
+                  "text": "1",
+                  "boundingBox": {
+                    "left": 2073.0,
+                    "top": 2069.0,
+                    "right": 2138.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2073,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2138,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2138,
+                      "y": 2187
+                    },
+                    {
+                      "x": 2073,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.88671875,
+                  "angle": 0.0
+                },
+                {
+                  "text": "7",
+                  "boundingBox": {
+                    "left": 2166.0,
+                    "top": 2069.0,
+                    "right": 2238.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2166,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2238,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2238,
+                      "y": 2187
+                    },
+                    {
+                      "x": 2166,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.81640625,
+                  "angle": 0.0
+                },
+                {
+                  "text": "2",
+                  "boundingBox": {
+                    "left": 2268.0,
+                    "top": 2069.0,
+                    "right": 2331.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2268,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2331,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2331,
+                      "y": 2187
+                    },
+                    {
+                      "x": 2268,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.4296875,
+                  "angle": 0.0
+                },
+                {
+                  "text": "3",
+                  "boundingBox": {
+                    "left": 2353.0,
+                    "top": 2069.0,
+                    "right": 2377.0,
+                    "bottom": 2187.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2353,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2377,
+                      "y": 2069
+                    },
+                    {
+                      "x": 2377,
+                      "y": 2187
+                    },
+                    {
+                      "x": 2353,
+                      "y": 2187
+                    }
+                  ],
+                  "confidence": 0.828125,
+                  "angle": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "ZAN",
+      "boundingBox": {
+        "left": 1858.0,
+        "top": 2322.0,
+        "right": 2016.0,
+        "bottom": 2441.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1868,
+          "y": 2322
+        },
+        {
+          "x": 2016,
+          "y": 2334
+        },
+        {
+          "x": 2006,
+          "y": 2441
+        },
+        {
+          "x": 1858,
+          "y": 2429
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "ZAN",
+          "boundingBox": {
+            "left": 1858.0,
+            "top": 2322.0,
+            "right": 2016.0,
+            "bottom": 2441.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1868,
+              "y": 2322
+            },
+            {
+              "x": 2016,
+              "y": 2334
+            },
+            {
+              "x": 2006,
+              "y": 2441
+            },
+            {
+              "x": 1858,
+              "y": 2429
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.37109375,
+          "angle": 4.847481727600098,
+          "elements": [
+            {
+              "text": "ZAN",
+              "boundingBox": {
+                "left": 1858.0,
+                "top": 2322.0,
+                "right": 2016.0,
+                "bottom": 2441.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1868,
+                  "y": 2322
+                },
+                {
+                  "x": 2016,
+                  "y": 2334
+                },
+                {
+                  "x": 2006,
+                  "y": 2441
+                },
+                {
+                  "x": 1858,
+                  "y": 2429
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.37109375,
+              "angle": 4.847481727600098,
+              "symbols": [
+                {
+                  "text": "Z",
+                  "boundingBox": {
+                    "left": 1858.0,
+                    "top": 2323.0,
+                    "right": 1924.0,
+                    "bottom": 2433.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1868,
+                      "y": 2323
+                    },
+                    {
+                      "x": 1924,
+                      "y": 2327
+                    },
+                    {
+                      "x": 1914,
+                      "y": 2433
+                    },
+                    {
+                      "x": 1858,
+                      "y": 2429
+                    }
+                  ],
+                  "confidence": 0.57421875,
+                  "angle": 4.847482204437256
+                },
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 1904.0,
+                    "top": 2326.0,
+                    "right": 1951.0,
+                    "bottom": 2435.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1914,
+                      "y": 2326
+                    },
+                    {
+                      "x": 1951,
+                      "y": 2329
+                    },
+                    {
+                      "x": 1941,
+                      "y": 2435
+                    },
+                    {
+                      "x": 1904,
+                      "y": 2432
+                    }
+                  ],
+                  "confidence": 0.40625,
+                  "angle": 4.847482204437256
+                },
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 1967.0,
+                    "top": 2332.0,
+                    "right": 2016.0,
+                    "bottom": 2441.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1977,
+                      "y": 2332
+                    },
+                    {
+                      "x": 2016,
+                      "y": 2335
+                    },
+                    {
+                      "x": 2006,
+                      "y": 2441
+                    },
+                    {
+                      "x": 1967,
+                      "y": 2438
+                    }
+                  ],
+                  "confidence": 0.1328125,
+                  "angle": 4.847482204437256
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "DONGD\nFal",
+      "boundingBox": {
+        "left": 1859.0,
+        "top": 2407.0,
+        "right": 2160.0,
+        "bottom": 2587.0
+      },
+      "cornerPoints": [
+        {
+          "x": 1864,
+          "y": 2407
+        },
+        {
+          "x": 2160,
+          "y": 2414
+        },
+        {
+          "x": 2155,
+          "y": 2587
+        },
+        {
+          "x": 1859,
+          "y": 2580
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "DONGD",
+          "boundingBox": {
+            "left": 1864.0,
+            "top": 2413.0,
+            "right": 2124.0,
+            "bottom": 2483.0
+          },
+          "cornerPoints": [
+            {
+              "x": 1864,
+              "y": 2421
+            },
+            {
+              "x": 2123,
+              "y": 2413
+            },
+            {
+              "x": 2124,
+              "y": 2475
+            },
+            {
+              "x": 1865,
+              "y": 2483
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.47734373807907104,
+          "angle": -1.5460855960845947,
+          "elements": [
+            {
+              "text": "DONGD",
+              "boundingBox": {
+                "left": 1864.0,
+                "top": 2413.0,
+                "right": 2124.0,
+                "bottom": 2483.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 1864,
+                  "y": 2421
+                },
+                {
+                  "x": 2123,
+                  "y": 2413
+                },
+                {
+                  "x": 2124,
+                  "y": 2475
+                },
+                {
+                  "x": 1865,
+                  "y": 2483
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.47734373807907104,
+              "angle": -1.5460855960845947,
+              "symbols": [
+                {
+                  "text": "D",
+                  "boundingBox": {
+                    "left": 1864.0,
+                    "top": 2420.0,
+                    "right": 1927.0,
+                    "bottom": 2483.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1864,
+                      "y": 2422
+                    },
+                    {
+                      "x": 1926,
+                      "y": 2420
+                    },
+                    {
+                      "x": 1927,
+                      "y": 2481
+                    },
+                    {
+                      "x": 1865,
+                      "y": 2483
+                    }
+                  ],
+                  "confidence": 0.4140625,
+                  "angle": -1.5460855960845947
+                },
+                {
+                  "text": "O",
+                  "boundingBox": {
+                    "left": 1931.0,
+                    "top": 2419.0,
+                    "right": 1954.0,
+                    "bottom": 2481.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1931,
+                      "y": 2420
+                    },
+                    {
+                      "x": 1953,
+                      "y": 2419
+                    },
+                    {
+                      "x": 1954,
+                      "y": 2480
+                    },
+                    {
+                      "x": 1932,
+                      "y": 2481
+                    }
+                  ],
+                  "confidence": 0.55078125,
+                  "angle": -1.5460855960845947
+                },
+                {
+                  "text": "N",
+                  "boundingBox": {
+                    "left": 1959.0,
+                    "top": 2418.0,
+                    "right": 1987.0,
+                    "bottom": 2480.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1959,
+                      "y": 2419
+                    },
+                    {
+                      "x": 1986,
+                      "y": 2418
+                    },
+                    {
+                      "x": 1987,
+                      "y": 2479
+                    },
+                    {
+                      "x": 1960,
+                      "y": 2480
+                    }
+                  ],
+                  "confidence": 0.59765625,
+                  "angle": -1.5460855960845947
+                },
+                {
+                  "text": "G",
+                  "boundingBox": {
+                    "left": 1988.0,
+                    "top": 2416.0,
+                    "right": 2039.0,
+                    "bottom": 2479.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 1988,
+                      "y": 2418
+                    },
+                    {
+                      "x": 2038,
+                      "y": 2416
+                    },
+                    {
+                      "x": 2039,
+                      "y": 2477
+                    },
+                    {
+                      "x": 1989,
+                      "y": 2479
+                    }
+                  ],
+                  "confidence": 0.734375,
+                  "angle": -1.5460855960845947
+                },
+                {
+                  "text": "D",
+                  "boundingBox": {
+                    "left": 2076.0,
+                    "top": 2414.0,
+                    "right": 2124.0,
+                    "bottom": 2477.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2076,
+                      "y": 2416
+                    },
+                    {
+                      "x": 2123,
+                      "y": 2414
+                    },
+                    {
+                      "x": 2124,
+                      "y": 2475
+                    },
+                    {
+                      "x": 2077,
+                      "y": 2477
+                    }
+                  ],
+                  "confidence": 0.08984375,
+                  "angle": -1.5460855960845947
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Fal",
+          "boundingBox": {
+            "left": 2074.0,
+            "top": 2526.0,
+            "right": 2157.0,
+            "bottom": 2588.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2079,
+              "y": 2526
+            },
+            {
+              "x": 2157,
+              "y": 2532
+            },
+            {
+              "x": 2152,
+              "y": 2588
+            },
+            {
+              "x": 2074,
+              "y": 2582
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.3684895932674408,
+          "angle": 4.527948379516602,
+          "elements": [
+            {
+              "text": "Fal",
+              "boundingBox": {
+                "left": 2074.0,
+                "top": 2526.0,
+                "right": 2157.0,
+                "bottom": 2588.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2079,
+                  "y": 2526
+                },
+                {
+                  "x": 2157,
+                  "y": 2532
+                },
+                {
+                  "x": 2152,
+                  "y": 2588
+                },
+                {
+                  "x": 2074,
+                  "y": 2582
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.3684895932674408,
+              "angle": 4.527948379516602,
+              "symbols": [
+                {
+                  "text": "F",
+                  "boundingBox": {
+                    "left": 2074.0,
+                    "top": 2526.0,
+                    "right": 2120.0,
+                    "bottom": 2585.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2079,
+                      "y": 2526
+                    },
+                    {
+                      "x": 2120,
+                      "y": 2529
+                    },
+                    {
+                      "x": 2115,
+                      "y": 2585
+                    },
+                    {
+                      "x": 2074,
+                      "y": 2582
+                    }
+                  ],
+                  "confidence": 0.15625,
+                  "angle": 4.527948379516602
+                },
+                {
+                  "text": "a",
+                  "boundingBox": {
+                    "left": 2128.0,
+                    "top": 2530.0,
+                    "right": 2149.0,
+                    "bottom": 2587.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2133,
+                      "y": 2530
+                    },
+                    {
+                      "x": 2149,
+                      "y": 2531
+                    },
+                    {
+                      "x": 2144,
+                      "y": 2587
+                    },
+                    {
+                      "x": 2128,
+                      "y": 2586
+                    }
+                  ],
+                  "confidence": 0.4765625,
+                  "angle": 4.527948379516602
+                },
+                {
+                  "text": "l",
+                  "boundingBox": {
+                    "left": 2142.0,
+                    "top": 2531.0,
+                    "right": 2157.0,
+                    "bottom": 2587.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2147,
+                      "y": 2531
+                    },
+                    {
+                      "x": 2157,
+                      "y": 2531
+                    },
+                    {
+                      "x": 2152,
+                      "y": 2587
+                    },
+                    {
+                      "x": 2142,
+                      "y": 2587
+                    }
+                  ],
+                  "confidence": 0.47265625,
+                  "angle": 4.527948379516602
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "T10-K3",
+      "boundingBox": {
+        "left": 2307.0,
+        "top": 2283.0,
+        "right": 2379.0,
+        "bottom": 2460.0
+      },
+      "cornerPoints": [
+        {
+          "x": 2307,
+          "y": 2460
+        },
+        {
+          "x": 2307,
+          "y": 2283
+        },
+        {
+          "x": 2379,
+          "y": 2283
+        },
+        {
+          "x": 2379,
+          "y": 2460
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "T10-K3",
+          "boundingBox": {
+            "left": 2307.0,
+            "top": 2283.0,
+            "right": 2379.0,
+            "bottom": 2460.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2307,
+              "y": 2460
+            },
+            {
+              "x": 2307,
+              "y": 2283
+            },
+            {
+              "x": 2379,
+              "y": 2283
+            },
+            {
+              "x": 2379,
+              "y": 2460
+            }
+          ],
+          "recognizedLanguages": [
+            "en"
+          ],
+          "confidence": 0.8033854365348816,
+          "angle": -90.0,
+          "elements": [
+            {
+              "text": "T10-K3",
+              "boundingBox": {
+                "left": 2307.0,
+                "top": 2283.0,
+                "right": 2379.0,
+                "bottom": 2460.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2307,
+                  "y": 2460
+                },
+                {
+                  "x": 2307,
+                  "y": 2283
+                },
+                {
+                  "x": 2379,
+                  "y": 2283
+                },
+                {
+                  "x": 2379,
+                  "y": 2460
+                }
+              ],
+              "recognizedLanguages": [
+                "en"
+              ],
+              "confidence": 0.8033854365348816,
+              "angle": -90.0,
+              "symbols": [
+                {
+                  "text": "T",
+                  "boundingBox": {
+                    "left": 2308.0,
+                    "top": 2439.0,
+                    "right": 2379.0,
+                    "bottom": 2460.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2308,
+                      "y": 2460
+                    },
+                    {
+                      "x": 2308,
+                      "y": 2439
+                    },
+                    {
+                      "x": 2379,
+                      "y": 2439
+                    },
+                    {
+                      "x": 2379,
+                      "y": 2460
+                    }
+                  ],
+                  "confidence": 0.73828125,
+                  "angle": -90.0
+                },
+                {
+                  "text": "1",
+                  "boundingBox": {
+                    "left": 2307.0,
+                    "top": 2413.0,
+                    "right": 2378.0,
+                    "bottom": 2437.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2307,
+                      "y": 2437
+                    },
+                    {
+                      "x": 2307,
+                      "y": 2413
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2413
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2437
+                    }
+                  ],
+                  "confidence": 0.8046875,
+                  "angle": -90.0
+                },
+                {
+                  "text": "0",
+                  "boundingBox": {
+                    "left": 2307.0,
+                    "top": 2379.0,
+                    "right": 2378.0,
+                    "bottom": 2402.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2307,
+                      "y": 2402
+                    },
+                    {
+                      "x": 2307,
+                      "y": 2379
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2379
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2402
+                    }
+                  ],
+                  "confidence": 0.83203125,
+                  "angle": -90.0
+                },
+                {
+                  "text": "-",
+                  "boundingBox": {
+                    "left": 2307.0,
+                    "top": 2354.0,
+                    "right": 2378.0,
+                    "bottom": 2378.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2307,
+                      "y": 2378
+                    },
+                    {
+                      "x": 2307,
+                      "y": 2354
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2354
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2378
+                    }
+                  ],
+                  "confidence": 0.7265625,
+                  "angle": -90.0
+                },
+                {
+                  "text": "K",
+                  "boundingBox": {
+                    "left": 2307.0,
+                    "top": 2317.0,
+                    "right": 2378.0,
+                    "bottom": 2345.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2307,
+                      "y": 2345
+                    },
+                    {
+                      "x": 2307,
+                      "y": 2317
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2317
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2345
+                    }
+                  ],
+                  "confidence": 0.796875,
+                  "angle": -90.0
+                },
+                {
+                  "text": "3",
+                  "boundingBox": {
+                    "left": 2307.0,
+                    "top": 2283.0,
+                    "right": 2378.0,
+                    "bottom": 2307.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2307,
+                      "y": 2307
+                    },
+                    {
+                      "x": 2307,
+                      "y": 2283
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2283
+                    },
+                    {
+                      "x": 2378,
+                      "y": 2307
+                    }
+                  ],
+                  "confidence": 0.921875,
+                  "angle": -90.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "L",
+      "boundingBox": {
+        "left": 2621.0,
+        "top": 173.0,
+        "right": 2660.0,
+        "bottom": 239.0
+      },
+      "cornerPoints": [
+        {
+          "x": 2621,
+          "y": 173
+        },
+        {
+          "x": 2660,
+          "y": 173
+        },
+        {
+          "x": 2660,
+          "y": 239
+        },
+        {
+          "x": 2621,
+          "y": 239
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "L",
+          "boundingBox": {
+            "left": 2621.0,
+            "top": 173.0,
+            "right": 2660.0,
+            "bottom": 239.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2621,
+              "y": 173
+            },
+            {
+              "x": 2660,
+              "y": 173
+            },
+            {
+              "x": 2660,
+              "y": 239
+            },
+            {
+              "x": 2621,
+              "y": 239
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.5390625,
+          "angle": 0.0,
+          "elements": [
+            {
+              "text": "L",
+              "boundingBox": {
+                "left": 2621.0,
+                "top": 173.0,
+                "right": 2660.0,
+                "bottom": 239.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2621,
+                  "y": 173
+                },
+                {
+                  "x": 2660,
+                  "y": 173
+                },
+                {
+                  "x": 2660,
+                  "y": 239
+                },
+                {
+                  "x": 2621,
+                  "y": 239
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.5390625,
+              "angle": 0.0,
+              "symbols": [
+                {
+                  "text": "L",
+                  "boundingBox": {
+                    "left": 2621.0,
+                    "top": 173.0,
+                    "right": 2660.0,
+                    "bottom": 239.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2621,
+                      "y": 173
+                    },
+                    {
+                      "x": 2660,
+                      "y": 173
+                    },
+                    {
+                      "x": 2660,
+                      "y": 239
+                    },
+                    {
+                      "x": 2621,
+                      "y": 239
+                    }
+                  ],
+                  "confidence": 0.5390625,
+                  "angle": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "alt",
+      "boundingBox": {
+        "left": 2566.0,
+        "top": 1037.0,
+        "right": 2661.0,
+        "bottom": 1095.0
+      },
+      "cornerPoints": [
+        {
+          "x": 2566,
+          "y": 1037
+        },
+        {
+          "x": 2661,
+          "y": 1037
+        },
+        {
+          "x": 2661,
+          "y": 1095
+        },
+        {
+          "x": 2566,
+          "y": 1095
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "alt",
+          "boundingBox": {
+            "left": 2566.0,
+            "top": 1037.0,
+            "right": 2661.0,
+            "bottom": 1095.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2566,
+              "y": 1037
+            },
+            {
+              "x": 2661,
+              "y": 1037
+            },
+            {
+              "x": 2661,
+              "y": 1095
+            },
+            {
+              "x": 2566,
+              "y": 1095
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.7252604365348816,
+          "angle": 0.0,
+          "elements": [
+            {
+              "text": "alt",
+              "boundingBox": {
+                "left": 2566.0,
+                "top": 1037.0,
+                "right": 2661.0,
+                "bottom": 1095.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2566,
+                  "y": 1037
+                },
+                {
+                  "x": 2661,
+                  "y": 1037
+                },
+                {
+                  "x": 2661,
+                  "y": 1095
+                },
+                {
+                  "x": 2566,
+                  "y": 1095
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.7252604365348816,
+              "angle": 0.0,
+              "symbols": [
+                {
+                  "text": "a",
+                  "boundingBox": {
+                    "left": 2566.0,
+                    "top": 1037.0,
+                    "right": 2611.0,
+                    "bottom": 1095.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2566,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2611,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2611,
+                      "y": 1095
+                    },
+                    {
+                      "x": 2566,
+                      "y": 1095
+                    }
+                  ],
+                  "confidence": 0.66796875,
+                  "angle": 0.0
+                },
+                {
+                  "text": "l",
+                  "boundingBox": {
+                    "left": 2618.0,
+                    "top": 1037.0,
+                    "right": 2632.0,
+                    "bottom": 1095.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2618,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2632,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2632,
+                      "y": 1095
+                    },
+                    {
+                      "x": 2618,
+                      "y": 1095
+                    }
+                  ],
+                  "confidence": 0.8359375,
+                  "angle": 0.0
+                },
+                {
+                  "text": "t",
+                  "boundingBox": {
+                    "left": 2638.0,
+                    "top": 1037.0,
+                    "right": 2661.0,
+                    "bottom": 1095.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2638,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2661,
+                      "y": 1037
+                    },
+                    {
+                      "x": 2661,
+                      "y": 1095
+                    },
+                    {
+                      "x": 2638,
+                      "y": 1095
+                    }
+                  ],
+                  "confidence": 0.671875,
+                  "angle": 0.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "BAC",
+      "boundingBox": {
+        "left": 2540.0,
+        "top": 2387.0,
+        "right": 2601.0,
+        "bottom": 2434.0
+      },
+      "cornerPoints": [
+        {
+          "x": 2540,
+          "y": 2398
+        },
+        {
+          "x": 2594,
+          "y": 2387
+        },
+        {
+          "x": 2601,
+          "y": 2423
+        },
+        {
+          "x": 2547,
+          "y": 2434
+        }
+      ],
+      "recognizedLanguages": [
+        "und"
+      ],
+      "lines": [
+        {
+          "text": "BAC",
+          "boundingBox": {
+            "left": 2540.0,
+            "top": 2387.0,
+            "right": 2601.0,
+            "bottom": 2434.0
+          },
+          "cornerPoints": [
+            {
+              "x": 2540,
+              "y": 2398
+            },
+            {
+              "x": 2594,
+              "y": 2387
+            },
+            {
+              "x": 2601,
+              "y": 2423
+            },
+            {
+              "x": 2547,
+              "y": 2434
+            }
+          ],
+          "recognizedLanguages": [
+            "und-Latn"
+          ],
+          "confidence": 0.4231770932674408,
+          "angle": -11.309931755065918,
+          "elements": [
+            {
+              "text": "BAC",
+              "boundingBox": {
+                "left": 2540.0,
+                "top": 2387.0,
+                "right": 2601.0,
+                "bottom": 2434.0
+              },
+              "cornerPoints": [
+                {
+                  "x": 2540,
+                  "y": 2398
+                },
+                {
+                  "x": 2594,
+                  "y": 2387
+                },
+                {
+                  "x": 2601,
+                  "y": 2423
+                },
+                {
+                  "x": 2547,
+                  "y": 2434
+                }
+              ],
+              "recognizedLanguages": [
+                "und-Latn"
+              ],
+              "confidence": 0.4231770932674408,
+              "angle": -11.309931755065918,
+              "symbols": [
+                {
+                  "text": "B",
+                  "boundingBox": {
+                    "left": 2540.0,
+                    "top": 2395.0,
+                    "right": 2566.0,
+                    "bottom": 2434.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2540,
+                      "y": 2399
+                    },
+                    {
+                      "x": 2559,
+                      "y": 2395
+                    },
+                    {
+                      "x": 2566,
+                      "y": 2430
+                    },
+                    {
+                      "x": 2547,
+                      "y": 2434
+                    }
+                  ],
+                  "confidence": 0.6484375,
+                  "angle": -11.309931755065918
+                },
+                {
+                  "text": "A",
+                  "boundingBox": {
+                    "left": 2566.0,
+                    "top": 2390.0,
+                    "right": 2586.0,
+                    "bottom": 2428.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2566,
+                      "y": 2393
+                    },
+                    {
+                      "x": 2579,
+                      "y": 2390
+                    },
+                    {
+                      "x": 2586,
+                      "y": 2425
+                    },
+                    {
+                      "x": 2573,
+                      "y": 2428
+                    }
+                  ],
+                  "confidence": 0.375,
+                  "angle": -11.309931755065918
+                },
+                {
+                  "text": "C",
+                  "boundingBox": {
+                    "left": 2584.0,
+                    "top": 2387.0,
+                    "right": 2601.0,
+                    "bottom": 2425.0
+                  },
+                  "cornerPoints": [
+                    {
+                      "x": 2584,
+                      "y": 2390
+                    },
+                    {
+                      "x": 2594,
+                      "y": 2387
+                    },
+                    {
+                      "x": 2601,
+                      "y": 2422
+                    },
+                    {
+                      "x": 2591,
+                      "y": 2425
+                    }
+                  ],
+                  "confidence": 0.24609375,
+                  "angle": -11.309931755065918
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
