@@ -4,10 +4,11 @@ import 'package:test/test.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_screen.dart';
 
-// Integration tests for ticket #10, on the Pixel_10 emulator. They run on the
-// Mac, because only the Mac can read the kept photo, compare it with the screen,
-// turn the emulator's camera and put two fingers on the screen. They talk to the
-// real app started from camera_app.dart. Run them from app/:
+// Integration tests for ticket #10, changed by ticket #18, on the Pixel_10
+// emulator. They run on the Mac, because only the Mac can read the kept photo,
+// compare it with the screen, turn the emulator's camera and put two fingers on
+// the screen. They talk to the real app started from camera_app.dart. Run them
+// from app/:
 //
 //   export ANDROID_SERIAL=emulator-5554
 //   fvm flutter drive -d "$ANDROID_SERIAL" \
@@ -62,17 +63,13 @@ void main() {
       await expectScreenShows(photo);
     }, timeout: testTimeout);
 
-    test(
-      'Given the photo screen is open, then it has no text and no buttons',
-      () async {
-        await givenPhotoScreenOpen();
+    // The text ticket #18 adds is tested in ticket_text_driver.dart.
+    test('Given the photo screen is open, then it has no buttons', () async {
+      await givenPhotoScreenOpen();
 
-        final screen = await appScreen();
-        expect(screen.texts, isEmpty, reason: 'there must be no text');
-        expect(screen.buttons, isEmpty, reason: 'there must be no buttons');
-      },
-      timeout: testTimeout,
-    );
+      final screen = await appScreen();
+      expect(screen.buttons, isEmpty, reason: 'there must be no buttons');
+    }, timeout: testTimeout);
 
     test('Given the photo screen is open, when the person pinches outwards, '
         'then the photo stays the same size', () {

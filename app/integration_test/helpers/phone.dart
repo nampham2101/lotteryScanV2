@@ -256,6 +256,13 @@ class Phone {
     '${screenWidth * 6 ~/ 10} ${screenHeight ~/ 2} 300',
   );
 
+  /// One finger swiping up the screen at [x], in phone pixels.
+  Future<void> swipeUp({
+    required int x,
+    required int fromY,
+    required int toY,
+  }) => _shell('input swipe $x $fromY $x $toY 300');
+
   /// Real fingers on the emulator's touch screen, through the same path a
   /// person's fingers take. `adb shell input` can't do this: it has one finger.
   Future<void> _touch(List<String> events) =>

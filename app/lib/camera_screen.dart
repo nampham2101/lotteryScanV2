@@ -61,10 +61,12 @@ class _CameraScreenState extends State<CameraScreen> {
     if (_isLeaving || !mounted) return deleteTicketPhotoFile(staged.path);
     // Nothing waits between keeping the photo and opening its screen, so the
     // person can't leave in between.
-    keepStagedTicketPhoto(staged);
+    final kept = keepStagedTicketPhoto(staged);
     _isLeaving = true;
     await Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(builder: (_) => PhotoScreen(photoBytes: bytes)),
+      MaterialPageRoute<void>(
+        builder: (_) => PhotoScreen(photoBytes: bytes, photo: kept),
+      ),
     );
   }
 

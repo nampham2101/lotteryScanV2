@@ -6,10 +6,13 @@ import 'driven_app.dart';
 import 'phone.dart';
 import 'shown_photo.dart';
 
-// Shared by the tests for ticket #10: what the photo screen is, how a photo gets
-// there, and what a person's fingers do to it. The ticket leaves open how that
-// screen is built, so it's recognised the way a person recognises it: no words,
-// no buttons, and the photo that was just taken.
+// Shared by the tests for tickets #10 and #18: what the photo screen is, how a
+// photo gets there, and what a person's fingers do to it. The tickets leave open
+// how that screen is built, so it's recognised the way a person recognises it:
+// words about the reading, no buttons, and the photo that was just taken.
+
+const readingText = 'Đang đọc vé...';
+const couldNotReadText = 'Không đọc được vé';
 
 /// How long to wait between screen checks while watching for a brief change.
 const _watchStep = Duration(milliseconds: 40);
@@ -21,8 +24,12 @@ const _picturesStillTheSame = 20;
 /// Time for a zoom animation to finish.
 const _gestureSettleTime = Duration(seconds: 1);
 
+/// Words show on it the whole time: the reading, what was read, or the failure.
 bool _looksLikePhotoScreen(AppScreen screen) =>
-    screen.texts.isEmpty && screen.buttons.isEmpty;
+    screen.texts.isNotEmpty &&
+    screen.buttons.isEmpty &&
+    !_looksLikeHomeScreen(screen) &&
+    !screen.shows(cameraHint);
 
 bool _looksLikeHomeScreen(AppScreen screen) =>
     screen.shows(homeTitle) || screen.shows(scanButtonLabel);
@@ -53,24 +60,30 @@ Future<void> expectPhotoScreenOpensWithoutHome() async {
     await Future<void>.delayed(_watchStep);
   }
   fail(
-    'the photo screen did not open and stay after the shutter. '
-    'On screen: ${(await appScreen()).items}',
+    'the photo screen did not open and stay after the shutter: it must show '
+    'text and no buttons. On screen: ${(await appScreen()).items}',
   );
+}
+
+/// The contents of the newest photo inside the app.
+Future<List<int>> newestPhotoFile() async {
+  final photos = await phone.photosInsideApp();
+  photos.sort((a, b) => a.modifiedAt.compareTo(b.modifiedAt));
+  return phone.fileInsideApp(photos.last.path);
 }
 
 /// The newest photo inside the app, written after [tappedAt].
 Future<img.Image> keptPhotoSince(double tappedAt) async {
   await expectPhotoKeptSince(tappedAt);
-  final photos = await phone.photosInsideApp();
-  photos.sort((a, b) => a.modifiedAt.compareTo(b.modifiedAt));
-  return uprightPhoto(await phone.fileInsideApp(photos.last.path));
+  return uprightPhoto(await newestPhotoFile());
 }
 
 Future<double> _differenceNow(img.Image photo) async =>
-    differenceFromScreen(photo, await phone.screenshot(), await appScreen());
+    findPhoto(photo, await phone.screenshot(), await appScreen())?.difference ??
+    double.infinity;
 
-/// Then: the screen shows [photo] whole and upright. Decoding a photo takes a
-/// moment, so this waits for it.
+/// Then: the screen shows [photo] whole and upright, above any text. Decoding a
+/// photo takes a moment, so this waits for it.
 Future<void> expectScreenShows(img.Image photo) async {
   var difference = double.infinity;
   await waitUntil(() async {
@@ -81,8 +94,8 @@ Future<void> expectScreenShows(img.Image photo) async {
     difference,
     lessThanOrEqualTo(samePictureLimit),
     reason:
-        'the screen is not showing the kept photo whole and upright, fitted '
-        'to the screen',
+        'the screen is not showing the kept photo whole and upright, above '
+        'the text',
   );
 }
 
@@ -95,13 +108,26 @@ Future<void> expectScreenDoesNotShow(img.Image photo) async {
   );
 }
 
-/// Given: a photo was just taken, so the photo screen is open. Returns it.
-Future<img.Image> givenPhotoScreenOpen() async {
+/// Given: a photo was just taken, so the photo screen is open, and its read may
+/// still be going on. Returns the photo.
+Future<img.Image> givenPhotoTaken() async {
   await givenCameraScreenOpen();
   final tappedAt = await tapShutter();
   await expectPhotoScreenOpensWithoutHome();
   final photo = await keptPhotoSince(tappedAt);
   await expectScreenShows(photo);
+  return photo;
+}
+
+/// Given: a photo was just taken and has been read, so nothing on the screen
+/// changes by itself any more. Returns the photo.
+Future<img.Image> givenPhotoScreenOpen() async {
+  final photo = await givenPhotoTaken();
+  expect(
+    await waitUntil(() async => !(await appScreen()).shows(readingText)),
+    isTrue,
+    reason: '"$readingText" did not go away',
+  );
   return photo;
 }
 
@@ -114,9 +140,7 @@ Future<img.Image> givenPhotoTakenEarlier() async {
 }
 
 /// Then: the home screen shows and stays, and [earlierPhoto] never appears on
-/// a screen of its own, on the way there or just after. The picture is checked
-/// too, because the list of what's on screen is empty for a moment as the camera
-/// screen closes.
+/// a screen of its own, on the way there or just after.
 Future<void> expectHomeScreenShowsWithNoPhotoScreen(
   img.Image earlierPhoto,
 ) async {
