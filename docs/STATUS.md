@@ -31,6 +31,7 @@ flowchart LR
     D2["Ticket photos ✅<br/>four from three provinces<br/>in docs/photos/"]
     D5["Reading rule ✅<br/>ticket #14, PR #15"]
     D6["ML Kit test ✅<br/>ticket #16, PR #17"]
+    D7["Text under the photo ✅<br/>ticket #18, PR #19"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -47,6 +48,8 @@ flowchart LR
 
 ## Latest session (2026-11-05)
 
+- #18 merged (PR #19): after the shutter, the temporary screen shows the photo at once with "Đang đọc vé..." below it, then ML Kit's `text` value exactly as given, in a part that scrolls on its own. No text or a failed read shows "Không đọc được vé". On a real Cần Thơ ticket on the Pixel 7 the words reached the screen: the number showed as `049443 M`, and the date as `0411-2026`, with one dash missing. The ticket saves no text, so the proof of this read is `docs/evidence/18/real-ticket-pixel7.png`. All of #18's tests passed on `Pixel_10`. Because the ticket changed the camera screen and a shared helper, #10's, #5's and #9's tests passed on `Pixel_10` and #8's 12 tests on the Pixel 7. The reviewer found no app problems and two test problems, a real-read test that passed when ML Kit failed and pasted helpers. Both were fixed in one round, and the second review was clean. Backlog items 57–66 added, and items 32 and 55 extended.
+- Correction: `/work` told the test writer to save its fix-round runs in `docs/evidence/18/`, which the workflow doesn't allow it. The runs are kept, because the checklist asks for every run, and backlog item 66 decides the rule. Two first-run tries that stopped in setup weren't saved, so the checklist box is ticked with that known gap, noted in `first-run.txt` and the pull request (backlog item 32).
 - Decision: items 6 and 7 swap, so item 7 comes before the rest of item 6. #16 only read the saved high-resolution pictures, and Nam wants to compare those results with what ML Kit reads on a photo taken in the app. Item 7 is being refined.
 - Decision: the app's camera keeps its current size, about 1280×720, for this comparison. ML Kit's guide sets no overall photo size, only a target of at least 16×16 pixels per character, and whether a ticket's print meets that at 1280×720 hasn't been measured. Revisit if the comparison shows the print is too small to read.
 - Backlog item 7 refined as one ticket and posted unassigned as #18. The temporary screen shows the photo at once with "Đang đọc vé..." below it, then ML Kit's `text` value exactly as given, in a part that scrolls on its own. No text or a failed read shows "Không đọc được vé". Nothing else is saved, and Nam compares the text with #16 afterwards. A release-build read (backlog item 48) is left out.
@@ -85,7 +88,7 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Refine item 7, then the rest of item 6 from #16's results in `docs/evidence/16/summary.md` and the comparison with photos taken in the app, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
+4. Refine the rest of item 6 from #16's results in `docs/evidence/16/summary.md` and Nam's comparison with photos taken in the app, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
 
 ## Open questions
 
@@ -94,4 +97,4 @@ flowchart LR
 
 ## Waiting on Nam
 
-Nothing right now.
+- Compare what ML Kit reads on photos taken in the app with #16's results.
