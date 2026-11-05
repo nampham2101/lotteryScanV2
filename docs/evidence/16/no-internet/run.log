@@ -1,0 +1,20 @@
+device: emulator-5554
+sdk_gphone16k_arm64
+Pixel_10
+17
+Running Gradle task 'assembleDebug'...                              4.2s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Performing Streamed Install
+Success
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5902.jpg: 1 file pushed, 0 skipped. 9.2 MB/s (3073540 bytes in 0.318s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5903.jpg: 1 file pushed, 0 skipped. 20.9 MB/s (4563309 bytes in 0.208s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5904.jpg: 1 file pushed, 0 skipped. 30.6 MB/s (2836807 bytes in 0.088s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5905.jpg: 1 file pushed, 0 skipped. 14.7 MB/s (4681685 bytes in 0.305s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/dalat.jpg: 1 file pushed, 0 skipped. 116.6 MB/s (158573 bytes in 0.001s)
+5 files pushed, 0 skipped. 8.3 MB/s (15313914 bytes in 1.751s)
+Starting: Intent { cmp=com.nampham.lotteryscan/.MainActivity }
+pulled IMG_5902.json
+pulled IMG_5903.json
+pulled IMG_5904.json
+pulled IMG_5905.json
+pulled dalat.json

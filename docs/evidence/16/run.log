@@ -1,0 +1,23 @@
+device: emulator-5554
+sdk_gphone16k_arm64
+Pixel_10
+17
+Running Gradle task 'assembleDebug'...                          
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                             56.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Performing Streamed Install
+Success
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5902.jpg: 1 file pushed, 0 skipped. 145.3 MB/s (3073540 bytes in 0.020s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5903.jpg: 1 file pushed, 0 skipped. 98.3 MB/s (4563309 bytes in 0.044s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5904.jpg: 1 file pushed, 0 skipped. 329.3 MB/s (2836807 bytes in 0.008s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/IMG_5905.jpg: 1 file pushed, 0 skipped. 365.8 MB/s (4681685 bytes in 0.012s)
+/Users/nampham/Code/claude-code/lotteryScanV2/docs/photos/dalat.jpg: 1 file pushed, 0 skipped. 154.6 MB/s (158573 bytes in 0.001s)
+5 files pushed, 0 skipped. 151.6 MB/s (15313914 bytes in 0.096s)
+Starting: Intent { cmp=com.nampham.lotteryscan/.MainActivity }
+pulled IMG_5902.json
+pulled IMG_5903.json
+pulled IMG_5904.json
+pulled IMG_5905.json
+pulled dalat.json
+exit 0

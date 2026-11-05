@@ -1,0 +1,226 @@
+device: Pixel_10 (emulator-5554)
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  code_assets 1.2.1 (2.1.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+15 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              7.0s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        2,235ms
+I/ham.lotteryscan(15074): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Choreographer(15074): Skipped 130 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(15074): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@fc2a33a, of which baseContext=android.app.ContextImpl@116e2de
+D/ProfileInstaller(15074): Installing profile for com.nampham.lotteryscan
+I/HWUI    (15074): Using FreeType backend (prop=Auto)
+D/FlutterJNI(15074): Sending viewport metrics to the engine.
+00:00 [32m+0[0m: (setUpAll)[0m
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:52642/W7XtXqLCjY4=/
+VMServiceFlutterDriver: Isolate found with number: 1292562863378899
+VMServiceFlutterDriver: Isolate 1292562863378899 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/Choreographer(15074): Skipped 95 frames!  The application may be doing too much work on its main thread.
+VMServiceFlutterDriver: Connected to Flutter application.
+00:05 [32m+0[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn[0m
+
+W/ham.lotteryscan(15074): Verification of void androidx.core.view.WindowInsetsControllerCompat.controlWindowInsetsAnimation(int, long, android.view.animation.Interpolator, android.os.CancellationSignal, androidx.core.view.WindowInsetsAnimationControlListenerCompat) took 167.583ms (65.64 bytecodes/s) (0B arena alloc)
+D/FlutterJNI(15074): Sending viewport metrics to the engine.
+I/ham.lotteryscan(15074): Background concurrent mark compact GC freed 2743KB AllocSpace bytes, 4(160KB) LOS objects, 49% free, 3326KB/6652KB, paused 4.917ms,4.685ms total 596.071ms
+I/HWUI    (15074): Davey! duration=825ms; Flags=1, FrameTimelineVsyncId=36547, IntendedVsync=14199080314504, Vsync=14199446981156, InputEventId=0, HandleInputStart=14199476403643, AnimationStart=14199476405768, PerformTraversalsStart=14199476406227, DrawStart=14199798350519, FrameDeadline=14199096981170, FrameStartTime=14199459172643, FrameInterval=16666666, WorkloadTarget=16666666, AnimationTime=14199446981156, SyncQueued=14199808810519, SyncStart=14199814335394, IssueDrawCommandsStart=14199814951602, SwapBuffers=14199839875269, FrameCompleted=14199911465977, DequeueBufferDuration=50949708, QueueBufferDuration=2673292, GpuCompleted=14199904736144, SwapBuffersCompleted=14199911465977, DisplayPresentTime=0, CommandSubmissionCompleted=14199839875269, 
+00:09 [32m+0[0m[31m -1[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  SETUP: the app is not open: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 46:3    holdUprightWithAppOpen
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 115:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:09 [32m+0[0m[31m -1[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn[0m
+
+00:12 [32m+0[0m[31m -2[0m: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  SETUP: the app is not open: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 46:3    holdUprightWithAppOpen
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 115:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:12 [32m+0[0m[31m -2[0m: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:15 [32m+0[0m[31m -3[0m: 3. Turning back is normal after turning the phone sideways to the left with the app open, turning it back upright leaves the screen upright with nothing changed [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  SETUP: the app is not open: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 46:3    holdUprightWithAppOpen
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 132:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:15 [32m+0[0m[31m -3[0m: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed[0m
+
+00:18 [32m+0[0m[31m -4[0m: 3. Turning back is normal after turning the phone sideways to the right with the app open, turning it back upright leaves the screen upright with nothing changed [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  SETUP: the app is not open: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 46:3    holdUprightWithAppOpen
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 132:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:18 [32m+0[0m[31m -4[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI(15252): Beginning load of flutter...
+D/FlutterJNI(15252): flutter (null) was loaded normally!
+I/flutter (15252): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (15252): The Dart VM service is listening on http://127.0.0.1:46871/lCvrMKgDScU=/
+D/FlutterRenderer(15252): Width is zero. 0,0
+D/FlutterRenderer(15252): Width is zero. 0,0
+D/FlutterJNI(15252): Sending viewport metrics to the engine.
+D/FlutterJNI(15252): Sending viewport metrics to the engine.
+D/FlutterJNI(15252): Sending viewport metrics to the engine.
+00:39 [32m+0[0m[31m -5[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  the app is no longer in front: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 61:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 178:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:39 [32m+0[0m[31m -5[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright[0m
+
+D/FlutterJNI(15335): Beginning load of flutter...
+D/FlutterJNI(15335): flutter (null) was loaded normally!
+I/flutter (15335): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+I/flutter (15335): The Dart VM service is listening on http://127.0.0.1:42109/kFl19NAcsKc=/
+D/FlutterRenderer(15335): Width is zero. 0,0
+D/FlutterRenderer(15335): Width is zero. 0,0
+D/FlutterJNI(15335): Sending viewport metrics to the engine.
+D/FlutterJNI(15335): Sending viewport metrics to the engine.
+D/FlutterJNI(15335): Sending viewport metrics to the engine.
+01:04 [32m+0[0m[31m -6[0m: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright [1m[31m[E][0m[0m
+
+  Expected: true
+    Actual: <false>
+  the app is no longer in front: Window{d080109 u0 Application Not Responding: com.nampham.lotteryscan}
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/portrait_lock_driver.dart 61:3    expectScreenStayedUpright
+  ===== asynchronous gap ===========================
+  integration_test/portrait_lock_driver.dart 178:9   main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:04 [32m+0[0m[31m -6[0m: (tearDownAll)[0m
+
+01:07 [32m+0[0m[31m -6[0m: [31mSome tests failed.[0m
+
+
+
+[31mFailing tests:[0m
+
+  .: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the left keeps the screen upright and it does not turn
+
+  .: 1. Stays upright when turned sideways with the app open, turning the phone sideways to the right keeps the screen upright and it does not turn
+
+  .: 2. Opens upright when the phone is already sideways with the phone held sideways to the left and the app closed, opening Dò Vé Số opens it upright
+
+  .: 2. Opens upright when the phone is already sideways with the phone held sideways to the right and the app closed, opening Dò Vé Số opens it upright
+
+  ... and 2 more
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
+exit 1

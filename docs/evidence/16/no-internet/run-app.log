@@ -1,0 +1,28 @@
+--------- beginning of main
+11-05 09:30:43.968 13662 13725 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-05 09:30:44.307 13662 13731 I flutter : Could not start Dart VM service HTTP server:
+11-05 09:30:44.307 13662 13731 I flutter : SocketException: Failed to create server socket (OS Error: Operation not permitted, errno = 1), address = 127.0.0.1, port = 0
+11-05 09:30:44.307 13662 13731 I flutter : #0      _NativeSocket.bind (dart:io-patch/socket_patch.dart:1248:7)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #1      _RawServerSocket.bind.<anonymous closure> (dart:io-patch/socket_patch.dart:2195:12)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #2      _ServerSocket.bind.<anonymous closure> (dart:io-patch/socket_patch.dart:2515:12)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #3      _HttpServer.bind.<anonymous closure> (dart:_http/http_impl.dart:3479:24)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #4      Server.startup.startServer (dart:vmservice_io/vmservice_server.dart:324:23)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #5      Server.startup (dart:vmservice_io/vmservice_server.dart:346:11)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #6      _toggleWebServer (dart:vmservice_io:229:5)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:44.307 13662 13731 I flutter : #7      main.<anonymous closure> (dart:vmservice_io:302:37)
+11-05 09:30:44.307 13662 13731 I flutter : <asynchronous suspension>
+11-05 09:30:53.349 13662 13662 I flutter : MLKIT device: {"model":"sdk_gphone16k_arm64","product":"sdk_gphone16k_arm64","manufacturer":"Google","androidRelease":"17","apiLevel":"37","cpuAbi":"arm64-v8a","qemu":"1","avdName":"Pixel_10","fingerprint":"google/sdk_gphone16k_arm64/emu64a16k:17/CE2A.260420.051.A2/16418371:user/dev-keys"}
+11-05 09:30:53.830 13662 13662 I flutter : MLKIT found 5 pictures in /data/user/0/com.nampham.lotteryscan/files/photos
+11-05 09:30:58.165 13662 13662 I flutter : MLKIT IMG_5902: 3024x4032, 19 blocks, 3139 ms
+11-05 09:30:59.217 13662 13662 I flutter : MLKIT IMG_5903: 4284x5712, 25 blocks, 996 ms
+11-05 09:30:59.837 13662 13662 I flutter : MLKIT IMG_5904: 3024x4032, 12 blocks, 576 ms
+11-05 09:31:00.939 13662 13662 I flutter : MLKIT IMG_5905: 4284x5712, 19 blocks, 1063 ms
+11-05 09:31:01.320 13662 13662 I flutter : MLKIT dalat: 520x252, 19 blocks, 359 ms
+11-05 09:31:01.322 13662 13662 I flutter : MLKIT DONE

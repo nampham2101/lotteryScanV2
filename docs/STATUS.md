@@ -28,8 +28,9 @@ flowchart LR
     direction TB
     D1["Check Mac tools ✅"]
     D4["Install Flutter + Android tools ✅"]
-    D2["Ticket photos 🔄<br/>four from three provinces<br/>one needs a clean copy"]
+    D2["Ticket photos ✅<br/>four from three provinces<br/>in docs/photos/"]
     D5["Reading rule ✅<br/>ticket #14, PR #15"]
+    D6["ML Kit test ✅<br/>ticket #16, PR #17"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -44,8 +45,16 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-04)
+## Latest session (2026-11-05)
 
+- #16 merged (PR #17): ML Kit is in the app and ran on all five pictures on `Pixel_10`, and everything it read is saved with positions in `docs/evidence/16/`. The big ticket number along the bottom wasn't read as digits on any picture. The number was found as one word in small print on three of the five, the date on four and the province on four, and accents came through only partly. Nam looked at the results and is satisfied with them. The release APK grew from 46.7 MB to 78.2 MB. Backlog items 45–56 added.
+- #16 used all 3 fix rounds, and the fourth review still found two mistakes in the results summary: a missing Đà Lạt misread and a wrong position for `C871723`. `/work` stopped. Decision: Nam accepted both without a fix and told `/work` to go on, so the ticket's "Any misread is written down" box is ticked with one known gap. Both are in backlog item 45, to use when refining item 6.
+- Decision: the release app has no internet permission. ML Kit's libraries added it, the README promises reading works offline, and ML Kit read all five pictures identically without it. `/work` decided this and told Nam afterwards. Revisit if the app needs the internet, for example for winning results.
+- Finding: a stuck "isn't responding" pop-up on `Pixel_10` failed four `flutter drive` runs in #16's checks. It also appeared on 3 November, before ML Kit was added, and a reboot cleared it, so all four passed. Backlog item 55. #8's camera tests didn't run in this ticket, because they need the Pixel 7 held by hand.
+- Backlog item 6 refined and split. The first ticket, posted unassigned as #16, is an ML Kit test: add ML Kit, run it on five pictures on `Pixel_10`, and save everything it reads with positions, with no reading rule and no screen change. The rest of item 6 gets refined after its results.
+- Decisions for the rest of item 6: the saved-photo half of the gate is report only, and Nam decides go or no-go from the results. The real-ticket half waits for item 7. A photo with any unreadable field gives "couldn't read" plus the failed field names, with no field values. The province is matched against a fixed list of Nam's 21 miền Nam names, ignoring accents. The check runs on `Pixel_10` from saved JPGs, and the photos are kept in the project, visible to the public.
+- Decision: ML Kit stays for now. It can't read a ticket the way Claude does, and only an AI model can, but an AI service would break "read on the phone" and "no cost each time". Revisit if ML Kit fails the gate.
+- Finding: a 2019 Đà Lạt ticket breaks the "one rule for every province" in `docs/TICKET-READING.md`. Its top line isn't "XỔ SỐ KIẾN THIẾT", "ĐÀ LẠT" sits about 40% down, and its date has a weekday in front. ML Kit also reports text, not the ticket's edges, so how the app finds the fields waits for the ML Kit test. The Đà Lạt picture joins that test as an extra look, not as part of the four-photo gate.
 - #14 merged (PR #15): `docs/TICKET-READING.md` now holds the reading rule, the area sizes and the four correct answers, and the README's gate says four photos from three provinces. The top area is 20% and the bottom band 35% of the ticket's height, checked on all four photos by eye. Nam gave all permissions for this run, so `/work` ran without stopping. Nobody had said where the photos were, so `/work` looked and found them in Downloads as `IMG_5902` to `IMG_5905`. The reviewer found two problems in its first review, wrong band notes and wrong figures. Both were fixed in one round, and the second review was clean. Analyze and the 6 widget tests passed. Backlog items 40–44 added.
 - Decision: the rule also ignores the sideways copies on the ticket's left and right edges, which the ticket didn't ask for. All four tickets have large sideways print on the right edge, inside the bottom band, and a right-to-left search reaches it first, so the ticket's rule fails without this. Item 6 should be refined with this exception (backlog item 40). Accepted risk: the 20% and 35% margins are about the same size as the by-eye measuring. Revisit when more tickets are checked (backlog item 42).
 - Backlog item 5 refined as one ticket and posted unassigned as #14. It delivers a written reading rule only, in a new `docs/TICKET-READING.md`, with no test cases needed. Decision: one rule for every province, measured from the ticket's edges. The province comes from the title strip on top, the date is the first date found going left to right along the bottom, and the ticket number is the first six digits found going right to left along the bottom. Boxes per province aren't needed, because no fixed line separates the date from the number on all three layouts. Finding the ticket and these areas in a photo moves to item 6. Accepted risk: Bạc Liêu's faint doubled digits may read as 12 digits. Item 6 tests this.
@@ -73,14 +82,13 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Refine item 6 (finding and reading the three fields, then the go / no-go gate), using `docs/TICKET-READING.md` and backlog items 40–42.
+4. Refine the rest of item 6 from #16's results in `docs/evidence/16/summary.md`, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
 
 ## Open questions
 
 - Where the winning results come from, for free.
-- Whether the ML Kit reader handles Vietnamese accents in province names.
+- Whether Vietnamese accents in province names matter: in #16 they came through only partly, so item 6 needs to decide.
 
 ## Waiting on Nam
 
-- A clean, full-size copy of the Vĩnh Long photo (`IMG_5904`), needed for item 6. The copy in Downloads now has a green box on it.
-- Where the four photos will live for item 6. #14 used the copies in Downloads, and they aren't in the project.
+Nothing right now.

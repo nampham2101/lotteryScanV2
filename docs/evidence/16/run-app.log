@@ -1,0 +1,11 @@
+--------- beginning of main
+11-05 09:10:48.264 11985 12049 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-05 09:10:48.349 11985 12055 I flutter : The Dart VM service is listening on http://127.0.0.1:33351/U6qxYJq6eHQ=/
+11-05 09:10:49.146 11985 11985 I flutter : MLKIT device: {"model":"sdk_gphone16k_arm64","product":"sdk_gphone16k_arm64","manufacturer":"Google","androidRelease":"17","apiLevel":"37","cpuAbi":"arm64-v8a","qemu":"1","avdName":"Pixel_10","fingerprint":"google/sdk_gphone16k_arm64/emu64a16k:17/CE2A.260420.051.A2/16418371:user/dev-keys"}
+11-05 09:10:49.150 11985 11985 I flutter : MLKIT found 5 pictures in /data/user/0/com.nampham.lotteryscan/files/photos
+11-05 09:10:49.822 11985 11985 I flutter : MLKIT IMG_5902: 3024x4032, 19 blocks, 607 ms
+11-05 09:10:50.134 11985 11985 I flutter : MLKIT IMG_5903: 4284x5712, 25 blocks, 287 ms
+11-05 09:10:50.249 11985 11985 I flutter : MLKIT IMG_5904: 3024x4032, 12 blocks, 109 ms
+11-05 09:10:50.384 11985 11985 I flutter : MLKIT IMG_5905: 4284x5712, 19 blocks, 129 ms
+11-05 09:10:50.426 11985 11985 I flutter : MLKIT dalat: 520x252, 19 blocks, 38 ms
+11-05 09:10:50.427 11985 11985 I flutter : MLKIT DONE

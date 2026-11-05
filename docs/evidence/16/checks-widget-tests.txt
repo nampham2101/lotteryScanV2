@@ -1,0 +1,10 @@
+device: Mac (no device)
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart
+00:00 +0: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +1: 2. Shows what is in sketch 1 shows the title "Dò vé số"
+00:00 +2: 2. Shows what is in sketch 1 shows the line "Chụp vé để biết trúng hay không" under the title
+00:00 +3: 2. Shows what is in sketch 1 shows a "Quét vé" button under the line
+00:00 +4: 2. Shows what is in sketch 1 every Vietnamese accent is spelled correctly
+00:00 +5: 2. Shows what is in sketch 1 no text is cut off
+00:00 +6: All tests passed!
+exit 0
