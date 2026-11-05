@@ -1,0 +1,4 @@
+Analyze, no device. commit: 825c315
+Analyzing app...                                                
+No issues found! (ran in 5.7s)
+exit code: 0
