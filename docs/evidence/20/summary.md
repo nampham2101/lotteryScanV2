@@ -19,5 +19,14 @@ R8 removed the no-argument constructor of ML Kit's component registrars (`Common
 
 ## After the fix
 
-- In the implementer's run on the Pixel 7, the photo screen showed the text ML Kit read. The before-fix and after-fix photo-screen screenshots were removed from the branch because they showed a person. The after-fix proof is Nam's own real-paper read on the Pixel 7, to be added here.
-- The log of the fixed run had no `ComponentDiscovery`, `google_mlkit_text_recognizer` or `AndroidRuntime` lines. Its one `NullPointerException` is in the phone's launcher (`AppTaskStateSource`), not the app.
+- In the implementer's run on the Pixel 7, the photo screen showed the text ML Kit read. The before-fix and after-fix photo-screen screenshots were removed from the branch because they showed a person. The implementer's after-fix log wasn't saved; the saved proof is Nam's read below.
+- The log of the implementer's fixed run had no `ComponentDiscovery`, `google_mlkit_text_recognizer` or `AndroidRuntime` lines. Its one `NullPointerException` is in the phone's launcher (`AppTaskStateSource`), not the app.
+
+## Nam's real-paper read (the ticket's proof)
+
+Run by `/work` on 2026-11-09, on Nam's Pixel 7. The app was uninstalled, then the release APK built from `ticket-20-release-read` was installed fresh (it lists no INTERNET permission). The phone's log was cleared, then recorded while Nam opened the app, tapped "Quét vé" and photographed a real Bạc Liêu paper ticket by hand. The screenshot was taken over adb once the text was on screen.
+
+- `real-ticket-release-pixel7.png`: the photo screen shows the text ML Kit read (for example `871723`, `LOẠI T10-K3 C`, `MỞ NGÀY THỨ BA`, `20-10-2026O`), not "Không đọc được vé". **Edited:** the part of the photo below the ticket is blacked out because it showed a person. The ticket and all of the text under the photo are untouched.
+- `real-ticket-release-pixel7-log.txt`: the app's own log lines from that read (other apps' lines left out for privacy). No `ComponentDiscovery`, `AndroidRuntime`, `FATAL` or `google_mlkit` error lines; ML Kit's text models load at 20:20:33 and the read completes. The `E/` lines are the camera closing its buffers after the shutter. The full log also had one `NullPointerException` in another process (pid 3025, the phone's launcher), not the app.
+- The internet permission was not put back, so the airplane-mode read doesn't apply.
+- `analyze.txt`, `widget-tests.txt`: `fvm flutter analyze` (no issues) and the 6 widget tests (all passed), run on the Mac. No integration tests: the ticket has none, and the change only affects release builds.
