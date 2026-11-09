@@ -46,8 +46,10 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-05)
+## Latest session (2026-11-09)
 
+- Bug found by Nam on `main`: the release build can't read any ticket. On the Pixel 7, ML Kit crashes as soon as it gets the photo, while a debug build reads fine (backlog item 67).
+- Backlog item 67 refined as one ticket and posted unassigned as #20. It finds the cause, fixes it and proves it once with the release build on the Pixel 7 and a real paper ticket. No lasting release-build test is added, and test cases aren't needed. Decision: if the missing internet permission is the cause, the fix may put it back, which reverses #16's decision. A read must then also work in airplane mode. #20 closes backlog item 48, and item 49 stays separate.
 - #18 merged (PR #19): after the shutter, the temporary screen shows the photo at once with "Đang đọc vé..." below it, then ML Kit's `text` value exactly as given, in a part that scrolls on its own. No text or a failed read shows "Không đọc được vé". On a real Cần Thơ ticket on the Pixel 7 the words reached the screen: the number showed as `049443 M`, and the date as `0411-2026`, with one dash missing. The ticket saves no text, so the proof of this read is `docs/evidence/18/real-ticket-pixel7.png`. All of #18's tests passed on `Pixel_10`. Because the ticket changed the camera screen and a shared helper, #10's, #5's and #9's tests passed on `Pixel_10` and #8's 12 tests on the Pixel 7. The reviewer found no app problems and two test problems, a real-read test that passed when ML Kit failed and pasted helpers. Both were fixed in one round, and the second review was clean. Backlog items 57–66 added, and items 32 and 55 extended.
 - Correction: `/work` told the test writer to save its fix-round runs in `docs/evidence/18/`, which the workflow doesn't allow it. The runs are kept, because the checklist asks for every run, and backlog item 66 decides the rule. Two first-run tries that stopped in setup weren't saved, so the checklist box is ticked with that known gap, noted in `first-run.txt` and the pull request (backlog item 32).
 - Decision: items 6 and 7 swap, so item 7 comes before the rest of item 6. #16 only read the saved high-resolution pictures, and Nam wants to compare those results with what ML Kit reads on a photo taken in the app. Item 7 is being refined.
