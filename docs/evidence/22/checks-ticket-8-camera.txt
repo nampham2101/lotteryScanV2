@@ -1,0 +1,333 @@
+Ticket #8's camera tests: run because camera_screen.dart and shared/ticket_photo.dart changed
+device: Pixel 7, held in the hand by Nam
+commit: ce29272
+$ fvm flutter drive -d "$ANDROID_SERIAL" --driver=integration_test/camera_driver.dart --target=integration_test/camera_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.0s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...           7.4s
+I/HWUI    (12393): Using FreeType backend (prop=Auto)
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:57966/uEhLWqz82JY=/
+VMServiceFlutterDriver: Isolate found with number: 2504778471568351
+VMServiceFlutterDriver: Isolate 2504778471568351 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/Choreographer(12393): Skipped 37 frames!  The application may be doing too much work on its main thread.
+VMServiceFlutterDriver: Connected to Flutter application.
+D/FlutterJNI(12393): Sending viewport metrics to the engine.
+00:00 +0: First time, allowing access Given the app has never asked for camera access, when the person taps "Quét vé", then Android asks for camera access
+
+D/InsetsController(12393): hide(ime())
+I/ImeTracker(12393): com.nampham.lotteryscan:ef96f478: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/VRI[MainActivity](12393): visibilityChanged oldVisibility=true newVisibility=false
+D/WindowOnBackDispatcher(12393): setTopOnBackInvokedCallback (unwrapped): null
+D/WindowOnBackDispatcher(12393): setOnBackInvokedCallbackInfo: null
+D/ViewRootImpl(12393): Skipping stats log for color mode
+D/ProfileInstaller(12393): Installing profile for com.nampham.lotteryscan
+00:07 +0 -1: First time, allowing access Given the app has never asked for camera access, when the person taps "Quét vé", then Android asks for camera access [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 75:7           main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:07 +0 -1: First time, allowing access Given Android is asking, when the person allows it, then the camera screen opens
+
+00:10 +0 -2: First time, allowing access Given Android is asking, when the person allows it, then the camera screen opens [E]
+
+  Expected: not null
+    Actual: <null>
+  Android is not asking for camera access, so there is nothing to allow. In front: null
+
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  package:matcher/src/expect/expect.dart 182:3       _expect
+  package:matcher/src/expect/expect.dart 65:3        expect
+  integration_test/camera_driver.dart 97:7           main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:10 +0 -2: Camera screen Given access is already allowed, when the person taps "Quét vé", then the camera screen opens with no question
+
+00:16 +0 -3: Camera screen Given access is already allowed, when the person taps "Quét vé", then the camera screen opens with no question [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 128:7          main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:16 +0 -3: Camera screen Given the camera screen is open, then it matches sketch 2 it shows "Đặt vé vào khung" at the top
+
+00:23 +0 -4: Camera screen Given the camera screen is open, then it matches sketch 2 it shows "Đặt vé vào khung" at the top [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 150:9          main.<fn>.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:23 +0 -4: Camera screen Given the camera screen is open, then it matches sketch 2 it shows one round shutter button at the bottom middle and no added buttons
+
+00:29 +0 -5: Camera screen Given the camera screen is open, then it matches sketch 2 it shows one round shutter button at the bottom middle and no added buttons [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 162:9          main.<fn>.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:29 +0 -5: Camera screen Given the camera screen is open, then it matches sketch 2 it has a dark background
+
+00:36 +0 -6: Camera screen Given the camera screen is open, then it matches sketch 2 it has a dark background [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 184:9          main.<fn>.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:36 +0 -6: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture
+
+00:42 +0 -7: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 215:9          main.<fn>.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:42 +0 -7: Taking the photo Given the camera screen is open, when the person taps the shutter, then the photo is kept inside the app
+
+00:49 +0 -8: Taking the photo Given the camera screen is open, when the person taps the shutter, then the photo is kept inside the app [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 236:7          main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:49 +0 -8: Taking the photo Given a photo is already kept, when the person takes another, then only the new photo is kept
+
+00:55 +0 -9: Taking the photo Given a photo is already kept, when the person takes another, then only the new photo is kept [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 51:3           takePhoto
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 245:7          main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:55 +0 -9: Taking the photo Given a photo was taken, then nothing new appears in the phone's gallery
+
+01:03 +0 -10: Taking the photo Given a photo was taken, then nothing new appears in the phone's gallery [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 51:3           takePhoto
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 266:7          main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:03 +0 -10: Leaving without a photo Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo is taken
+
+01:10 +0 -11: Leaving without a photo Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no photo is taken [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 276:7          main.<fn>.expectLeftWithoutPhoto
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:10 +0 -11: Leaving without a photo Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo is taken
+
+01:17 +0 -12: Leaving without a photo Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no photo is taken [E]
+
+  SETUP: the home screen is not showing: null
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 42:3           givenMovingPictureOnCamera
+  ===== asynchronous gap ===========================
+  integration_test/camera_driver.dart 276:7          main.<fn>.expectLeftWithoutPhoto
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+01:17 +0 -12: (tearDownAll)
+
+01:17 +0 -12: Some tests failed.
+
+
+
+Failing tests:
+
+  .: Camera screen Given access is already allowed, when the person taps "Quét vé", then the camera screen opens with no question
+
+  .: Camera screen Given the camera screen is open, then it matches sketch 2 it has a dark background
+
+  .: Camera screen Given the camera screen is open, then it matches sketch 2 it shows "Đặt vé vào khung" at the top
+
+  .: Camera screen Given the camera screen is open, then it matches sketch 2 it shows a live camera picture
+
+  ... and 8 more
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
