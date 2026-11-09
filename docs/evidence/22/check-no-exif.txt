@@ -1,0 +1,4 @@
+Check run by a throwaway script (deleted afterwards): a JPEG with an Exif segment (orientation, make, thumbnail tag) goes through cropToMiddleSquare; the output bytes are searched for an APP1/Exif segment (FF E1 ... "Ex").
+Running build hooks...Running build hooks...source has Exif segment: true
+output has Exif segment: false
+output size 300x300, has exif: false

@@ -32,6 +32,7 @@ flowchart LR
     D5["Reading rule ✅<br/>ticket #14, PR #15"]
     D6["ML Kit test ✅<br/>ticket #16, PR #17"]
     D7["Text under the photo ✅<br/>ticket #18, PR #19"]
+    D8["Crop to the frame ✅<br/>ticket #22, PR #23"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -48,6 +49,13 @@ flowchart LR
 
 ## Latest session (2026-11-09)
 
+- #22 merged (PR #23): after the shutter, the photo is cropped to the middle square the dashed frame shows. ML Kit reads it, the temporary screen shows it, and it's the only photo kept. The camera's own copy is always deleted, and the crop strips the camera's metadata (EXIF), which can hold a small copy of the whole picture. A failed crop keeps the camera screen and shows "Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác" for about 3 seconds. #22's 7 tests passed on `Pixel_10`. Because the ticket changed camera and photo code, #5's, #9's, #10's and #18's tests passed on `Pixel_10`, and #8's 12 on the Pixel 7. On a real Bạc Liêu ticket on the Pixel 7, the photo matched the frame, a pen just above the frame didn't show, and the ticket's words showed below. Three reviews: the first found the EXIF thumbnail and a half-saved photo on a failed save, and the second found #16's ML Kit runner deleted by mistake. All were fixed. Backlog items 74–89 added.
+- Decision: Nam allowed `/work` two rounds over the 3-round limit, both for run problems with no code fix. Round 3 went on #8's camera tests, which all failed in setup because Android Studio was mirroring the Pixel 7 (backlog item 80). Rounds 4 and 5 went on the real-ticket step, where the shutter was tapped before the "before" screenshot twice. What worked: Nam framed the shot, and `/work` took the screenshot and tapped the shutter over adb (backlog item 81). Revisit with backlog item 87, whether run problems should count as fix rounds.
+- Correction: the reviewer's second review claimed #22's first-run record used a looser match limit than the committed tests. It was wrong, as the test writer showed: 12.8 is the square check's allowance. Nothing was changed (backlog item 83).
+- The Pixel 7 now has a debug build of `main` plus #22 installed, in place of the release build from #20.
+- Backlog item 73 refined as one ticket and posted unassigned as #22. After the shutter, the photo is cropped to exactly what the dashed frame showed, the middle square of the camera picture. ML Kit reads the cropped photo, the temporary screen shows it, and the uncropped photo is dropped, including the camera's own copy. Test cases are needed. Changing the frame's shape or size is left out.
+- Decision: item 73 comes before the rest of item 6, so item 6 is refined and built against cropped photos. Item 6 still has to find the ticket's edges, because the square frame leaves background above and below a ticket.
+- Decision: a failed crop keeps the person on the camera screen with a short note that fades, "Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác", and the shutter retakes. No photo is kept from that try. The note has no sketch; Nam agreed it in `/refine`.
 - #20 merged (PR #21): the release build reads tickets again. The cause was R8, not the internet permission. R8 removed the constructors of ML Kit's component registrars, so ML Kit started empty and crashed on the first read. Fix: one keep rule in `proguard-rules.pro`. The internet permission was not put back, so #16's decision stands and the airplane-mode check didn't apply. Nam's real-paper read of a Bạc Liêu ticket in the release build on the Pixel 7 showed ML Kit's text, and the app's log had no ML Kit crash. Analyze and the 6 widget tests passed. The cause and the runs are in `docs/evidence/20/summary.md`. 3 reviews, 2 fix rounds. Backlog items 48 and 67 done, items 68–72 added.
 - Finding: the implementer took its repro photos by tapping the Pixel 7's camera and shutter over adb, and its two committed screenshots showed Nam's feet. Decision: Nam had them dropped. They were removed from the unpushed commit and never reached GitHub. Nam's own read still caught a hand and leg, and Nam chose to black out the photo below the ticket rather than retake it, so `real-ticket-release-pixel7.png` is an edited image. Revisit with backlog item 68, a privacy rule for camera screenshots.
 - Bug found by Nam on `main`: the release build can't read any ticket. On the Pixel 7, ML Kit crashes as soon as it gets the photo, while a debug build reads fine (backlog item 67).
@@ -102,3 +110,4 @@ flowchart LR
 ## Waiting on Nam
 
 - Compare what ML Kit reads on photos taken in the app with #16's results.
+- Confirm the crop-failure note's look, which has no sketch (backlog item 74).
