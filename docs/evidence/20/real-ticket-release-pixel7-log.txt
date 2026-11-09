@@ -1,0 +1,425 @@
+# Pixel 7, release build of ticket-20-release-read, Nam's real-paper read, 2026-11-09.
+# Log cleared right after install; recorded with: adb -s <Pixel 7> logcat -v time
+# Only the app's own process (pid 8908) is kept below; other apps' lines are left out for privacy.
+# Crash search over the WHOLE log (ComponentDiscovery|AndroidRuntime|FATAL|google_mlkit) in the app's process:
+#   matches: 0
+
+11-09 20:20:24.357 I/libprocessgroup( 8908): Created cgroup /sys/fs/cgroup/apps/uid_10414
+11-09 20:20:24.358 I/libprocessgroup( 8908): Created cgroup /sys/fs/cgroup/apps/uid_10414/pid_8908
+11-09 20:20:24.370 I/Zygote  ( 8908): Process 8908 created for com.nampham.lotteryscan
+11-09 20:20:24.370 I/ham.lotteryscan( 8908): Using generational CollectorTypeCMC GC.
+11-09 20:20:24.375 D/nativeloader( 8908): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+11-09 20:20:24.385 D/ApplicationLoaders( 8908): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+11-09 20:20:24.385 D/ApplicationLoaders( 8908): Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+11-09 20:20:24.387 D/nativeloader( 8908): Configuring clns-9 for other apk /data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/lib/arm64:/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.nampham.lotteryscan
+11-09 20:20:24.390 D/ActivityThread( 8908): Set OS env TMPDIR to /data/user/0/com.nampham.lotteryscan/cache
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908): Currently set values for:
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908):   angle_gl_driver_selection_pkgs=[com.android.angle]
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908):   angle_gl_driver_selection_values=[angle]
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908): com.nampham.lotteryscan is not listed in per-application setting
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908): No special selections for ANGLE, returning default driver choice
+11-09 20:20:24.390 V/GraphicsEnvironment( 8908): Neither updatable production driver nor prerelease driver is supported.
+11-09 20:20:24.401 I/DisplayManager( 8908): Choreographer implicitly registered for the refresh rate.
+11-09 20:20:24.402 D/vulkan  ( 8908): searching for layers in '/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/lib/arm64'
+11-09 20:20:24.402 D/vulkan  ( 8908): searching for layers in '/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk!/lib/arm64-v8a'
+11-09 20:20:24.412 D/nativeloader( 8908): Load /data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk): ok
+11-09 20:20:24.421 W/ham.lotteryscan( 8908): type=1400 audit(0.0:3896): avc:  denied  { read } for  name="max_map_count" dev="proc" ino=4361705 scontext=u:r:untrusted_app_34:s0:c158,c257,c512,c768 tcontext=u:object_r:proc_max_map_count:s0 tclass=file permissive=0 app=com.nampham.lotteryscan
+11-09 20:20:24.439 I/flutter ( 8908): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+11-09 20:20:24.442 D/nativeloader( 8908): Load /data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk!/lib/arm64-v8a/libdartjni.so using class loader ns clns-9 (caller=/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk): ok
+11-09 20:20:24.459 D/CompatChangeReporter( 8908): Compat change id reported: 377864165; UID 10414; state: ENABLED
+11-09 20:20:24.475 D/WindowOnBackDispatcher( 8908): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@bc38670
+11-09 20:20:24.475 D/WindowOnBackDispatcher( 8908): setOnBackInvokedCallbackInfo: android.app.Activity$$ExternalSyntheticLambda0@bc38670
+11-09 20:20:24.476 I/WindowExtensionsImpl( 8908): Initializing Window Extensions, vendor API level=10, activity embedding enabled=true
+11-09 20:20:24.479 W/UiContextUtils( 8908): Requested context is a non-UI Context. Creating a UI-Context with display: 0. Context: Context=android.app.Application@a001029, of which baseContext=android.app.ContextImpl@8fc5e64
+11-09 20:20:24.482 D/VRI[MainActivity]( 8908): WindowInsets changed: 1080x2400 statusBars:[0,136,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,168,0,84] 
+11-09 20:20:24.486 I/Surface ( 8908): Creating surface for consumer unnamed-8908-0 with slotExpansion=1 for 64 slots
+11-09 20:20:24.486 I/Surface ( 8908): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+11-09 20:20:24.488 I/Surface ( 8908): Creating surface for consumer unnamed-8908-1 with slotExpansion=1 for 64 slots
+11-09 20:20:24.488 I/Surface ( 8908): Creating surface for consumer d9ae7ce SurfaceView[com.nampham.lotteryscan/com.nampham.lotteryscan.MainActivity]#1(BLAST Consumer)1 with slotExpansion=1 for 64 slots
+11-09 20:20:24.540 D/WindowLayoutComponentImpl( 8908): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@43315fc, of which baseContext=android.app.ContextImpl@19995e8
+11-09 20:20:24.635 D/InsetsController( 8908): hide(ime())
+11-09 20:20:24.635 I/ImeTracker( 8908): com.nampham.lotteryscan:54229ecf: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+11-09 20:20:24.976 I/HWUI    ( 8908): Using FreeType backend (prop=Auto)
+11-09 20:20:27.124 D/QuirkSettingsLoader( 8908): QuirkSettings$MetadataHolderService is not found.
+11-09 20:20:27.124 D/CameraX ( 8908): QuirkSettings from app metadata: null
+11-09 20:20:27.124 D/CameraX ( 8908): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+11-09 20:20:27.132 D/DeviceQuirks( 8908): camera2 DeviceQuirks = ExtraSupportedSurfaceCombinationsQuirk
+11-09 20:20:27.132 D/CXCP    ( 8908): Created UseCaseConfigurationMap
+11-09 20:20:27.133 D/CXCP    ( 8908): Created CameraPipe in 1.095 ms
+11-09 20:20:27.135 D/CXCP    ( 8908): Camera2DeviceCache: Expected minimum camera count = 2
+11-09 20:20:27.140 D/CXCP    ( 8908): Created CameraFactoryAdapter in 0.039 ms
+11-09 20:20:27.140 I/CameraManagerGlobal( 8908): Connecting to camera service
+11-09 20:20:27.143 I/CXCP    ( 8908): Loaded CameraIdList [CameraId-0, CameraId-1]
+11-09 20:20:27.144 D/CXCP    ( 8908): Updated available camera list: [] -> [0, 1]
+11-09 20:20:27.144 D/CXCP    ( 8908): Creating new surface combinations for: [0, 1]
+11-09 20:20:27.144 D/CXCP    ( 8908): Loading metadata for CameraId-0
+11-09 20:20:27.150 I/CXCP    ( 8908): Loaded metadata for CameraId-0 in 5.873 ms (redacted)
+11-09 20:20:27.153 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+11-09 20:20:27.154 D/CXCP    ( 8908): Loading metadata for CameraId-1
+11-09 20:20:27.155 I/CXCP    ( 8908): Loaded metadata for CameraId-1 in 0.961 ms (redacted)
+11-09 20:20:27.156 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk | TorchFlashRequiredFor3aUpdateQuirk
+11-09 20:20:27.156 D/CXCP    ( 8908): Committed new surface combination map. Total cameras: 2
+11-09 20:20:27.156 D/CameraRepository( 8908): Added camera: 0
+11-09 20:20:27.157 D/CXCP    ( 8908): Loading metadata for CameraId-0
+11-09 20:20:27.158 I/CXCP    ( 8908): Loaded metadata for CameraId-0 in 1.114 ms (redacted)
+11-09 20:20:27.159 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+11-09 20:20:27.162 I/CXCP    ( 8908): Device Level: INFO_SUPPORTED_HARDWARE_LEVEL_FULL
+11-09 20:20:27.162 D/CXCP    ( 8908): Created CameraInternalAdapter<CameraId-0(1)> for CameraId-0
+11-09 20:20:27.162 D/CameraRepository( 8908): Added camera: 1
+11-09 20:20:27.162 D/CXCP    ( 8908): Loading metadata for CameraId-1
+11-09 20:20:27.163 I/CXCP    ( 8908): Loaded metadata for CameraId-1 in 1.053 ms (redacted)
+11-09 20:20:27.164 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk | TorchFlashRequiredFor3aUpdateQuirk
+11-09 20:20:27.165 I/CXCP    ( 8908): Device Level: INFO_SUPPORTED_HARDWARE_LEVEL_FULL
+11-09 20:20:27.165 D/CXCP    ( 8908): Created CameraInternalAdapter<CameraId-1(2)> for CameraId-1
+11-09 20:20:27.165 D/CXCP    ( 8908): Loaded ConcurrentCameraIdsSet {{0, 1}}
+11-09 20:20:27.165 D/CXCP    ( 8908): Loading metadata for CameraId-0
+11-09 20:20:27.166 I/CXCP    ( 8908): Loaded metadata for CameraId-0 in 0.758 ms (redacted)
+11-09 20:20:27.166 D/CXCP    ( 8908): Loading metadata for CameraId-1
+11-09 20:20:27.167 I/CXCP    ( 8908): Loaded metadata for CameraId-1 in 0.805 ms (redacted)
+11-09 20:20:27.167 I/CameraPresencePrvdr( 8908): Starting CameraPresenceProvider monitoring.
+11-09 20:20:27.167 I/CameraPresenceSrc( 8908): First observer added. Starting monitoring.
+11-09 20:20:27.167 I/PipePresenceSrc( 8908): Starting to collect camera ID flow.
+11-09 20:20:27.167 D/CameraValidator( 8908): Verifying camera lens facing on panther
+11-09 20:20:27.168 D/CameraPresencePrvdr( 8908): Registered state observer for camera: 0
+11-09 20:20:27.168 D/CameraPresencePrvdr( 8908): Registered state observer for camera: 1
+11-09 20:20:27.170 D/CXCP    ( 8908): Emitting camera ID list: [CameraId-0, CameraId-1]
+11-09 20:20:27.170 D/CXCP    ( 8908): Emitting camera ID list: [CameraId-0, CameraId-1]
+11-09 20:20:27.170 D/CXCP    ( 8908): Emitting camera ID list: [CameraId-0, CameraId-1]
+11-09 20:20:27.170 D/PipePresenceSrc( 8908): Flow emitted new camera set: CameraIdentifier{cameraIds=0}, CameraIdentifier{cameraIds=1}
+11-09 20:20:27.170 I/PipePresenceSrc( 8908): Handling first camera set, triggering fresh query.
+11-09 20:20:27.170 D/PipePresenceSrc( 8908): [FetchData] Refreshed camera list from hardware: [CameraIdentifier{cameraIds=0}, CameraIdentifier{cameraIds=1}]
+11-09 20:20:28.358 D/Recorder( 8908): mRequiredFreeStorageBytes = 50 MB
+11-09 20:20:28.362 D/DeviceQuirks( 8908): core DeviceQuirks = SurfaceOrderQuirk
+11-09 20:20:28.363 W/CXCP    ( 8908): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>> (Ignored)
+11-09 20:20:28.364 D/ResolvedFeatureGroup( 8908): resolveFeatureGroup: sessionConfig = SessionConfig@b66847b {useCases=[Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260, ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca, ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+11-09 20:20:28.364 D/CameraUseCaseAdapter( 8908): addUseCases: appUseCasesToAdd = [Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260, ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca, ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360], featureGroup = null
+11-09 20:20:28.364 D/CXCP    ( 8908): Creating config for PREVIEW
+11-09 20:20:28.365 D/CXCP    ( 8908): Creating config for IMAGE_CAPTURE
+11-09 20:20:28.365 D/CXCP    ( 8908): Creating config for IMAGE_ANALYSIS
+11-09 20:20:28.365 D/CXCP    ( 8908): Creating config for PREVIEW
+11-09 20:20:28.365 D/CXCP    ( 8908): Creating config for IMAGE_CAPTURE
+11-09 20:20:28.366 D/CXCP    ( 8908): Creating config for IMAGE_ANALYSIS
+11-09 20:20:28.366 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260
+11-09 20:20:28.367 D/SupportedOutputSizesCollector( 8908): useCaseConfig = mm0@9261298, candidateSizes = [4080x3072, 4032x3024, 4000x3000, 4032x2268, 3840x2160, 4000x2000, 3264x2448, 3264x1836, 2560x1920, 2688x1512, 1920x1920, 2560x1280, 2048x1536, 1920x1440, 1920x1080, 1600x1200, 1920x960, 1792x1008, 1440x1080, 1344x1008, 1280x960, 1080x1080, 1280x720, 1024x768, 1024x576, 800x600, 720x480, 640x480, 640x360, 352x288, 320x240, 176x144]
+11-09 20:20:28.367 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca
+11-09 20:20:28.368 D/SupportedOutputSizesCollector( 8908): useCaseConfig = b80@8706af1, candidateSizes = [4080x3072, 4032x3024, 4000x3000, 4032x2268, 3840x2160, 4000x2000, 3264x2448, 3264x1836, 2560x1920, 2688x1512, 1920x1920, 2560x1280, 2048x1536, 1920x1440, 1920x1080]
+11-09 20:20:28.368 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360
+11-09 20:20:28.368 D/SupportedOutputSizesCollector( 8908): useCaseConfig = t70@fd926d6, candidateSizes = [4080x3072, 4032x3024, 4000x3000, 4032x2268, 3840x2160, 4000x2000, 3264x2448, 3264x1836, 2560x1920, 2688x1512, 1920x1920, 2560x1280, 2048x1536, 1920x1440, 1920x1080, 1600x1200, 1920x960, 1792x1008, 1440x1080, 1344x1008, 1280x960, 1080x1080, 1280x720, 1024x768, 1024x576, 800x600, 720x480, 640x480, 640x360, 352x288, 320x240, 176x144]
+11-09 20:20:28.369 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260
+11-09 20:20:28.369 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca
+11-09 20:20:28.369 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360
+11-09 20:20:28.369 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260
+11-09 20:20:28.369 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca
+11-09 20:20:28.370 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360
+11-09 20:20:28.370 D/CXCP    ( 8908): DynamicRangeResolver: Resolved dynamic range for use case lm0-ee308cbf-9933-4aab-b199-47132393a260 to no compatible HDR dynamic ranges.
+11-09 20:20:28.370 D/CXCP    ( 8908): DynamicRange@8ceed57{encoding=UNSPECIFIED, bitDepth=0}
+11-09 20:20:28.370 D/CXCP    ( 8908): ->
+11-09 20:20:28.370 D/CXCP    ( 8908): DynamicRange@4b5c044{encoding=SDR, bitDepth=8}
+11-09 20:20:28.370 D/CXCP    ( 8908): resolvedDynamicRanges = {b80@8706af1=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, t70@fd926d6=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, mm0@9261298=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}}
+11-09 20:20:28.370 D/CXCP    ( 8908): getSuggestedStreamSpecifications: isPreviewStabilizationSupported = true, isFeatureComboInvocation = false
+11-09 20:20:28.370 D/CXCP    ( 8908): resolveSpecsByCheckingMethod: checkingMethod = WITHOUT_FEATURE_COMBO
+11-09 20:20:28.370 D/CXCP    ( 8908): resolveSpecsBySettings: featureSettings = FeatureSettings(cameraMode=0, requiredMaxBitDepth=8, hasVideoCapture=false, videoStabilization=UNSPECIFIED, isUltraHdrOn=false, isHighSpeedOn=false, isFeatureComboInvocation=false, requiresFeatureComboQuery=false, targetFpsRange=[0, 0], isStrictFpsRequired=false)
+11-09 20:20:28.375 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+11-09 20:20:28.375 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+11-09 20:20:28.375 D/CameraQuirks( 8908): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+11-09 20:20:28.375 D/CXCP    ( 8908): orderedSurfaceConfigListForStreamUseCase = [SurfaceConfig(configType=JPEG, configSize=MAXIMUM, streamUseCase=STILL_CAPTURE), SurfaceConfig(configType=PRIV, configSize=PREVIEW, streamUseCase=PREVIEW), SurfaceConfig(configType=YUV, configSize=PREVIEW, streamUseCase=PREVIEW)]
+11-09 20:20:28.375 D/CXCP    ( 8908): resolveSpecsBySettings: bestSizesAndFps = BestSizesAndMaxFpsForConfigs(bestSizes=[1920x1080, 1280x720, 1280x720], bestSizesForStreamUseCase=[1920x1080, 1280x720, 1280x720], maxFpsForBestSizes=60, maxFpsForStreamUseCase=60, maxFpsForAllSizes=2147483647)
+11-09 20:20:28.376 W/CXCP    ( 8908): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>> (Ignored)
+11-09 20:20:28.376 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260
+11-09 20:20:28.376 D/Preview ( 8908): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=qc@1416ce5, zslDisabled=false}, secondaryStreamSpec null
+11-09 20:20:28.376 D/DeferrableSurface( 8908): Surface created[total_surfaces=1, used_surfaces=0](az0@62753ba}
+11-09 20:20:28.377 D/DeferrableSurface( 8908): Surface created[total_surfaces=2, used_surfaces=0](z80@3e6f186}
+11-09 20:20:28.377 D/DeferrableSurface( 8908): New surface in use[total_surfaces=2, used_surfaces=1](z80@3e6f186}
+11-09 20:20:28.377 D/DeferrableSurface( 8908): use count+1, useCount=1 z80@3e6f186
+11-09 20:20:28.378 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca
+11-09 20:20:28.378 D/ImageCapture( 8908): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1920x1080, originalConfiguredResolution=1920x1080, dynamicRange=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=qc@6e5d3e3, zslDisabled=false}, secondaryStreamSpec null
+11-09 20:20:28.378 D/ImageCapture( 8908): createPipeline(cameraId: 0, streamSpec: StreamSpec{resolution=1920x1080, originalConfiguredResolution=1920x1080, dynamicRange=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=qc@6e5d3e3, zslDisabled=false})
+11-09 20:20:28.378 I/Surface ( 8908): Creating surface for consumer unnamed-8908-2 with slotExpansion=1 for 64 slots
+11-09 20:20:28.379 I/Surface ( 8908): Creating surface for consumer ImageReader-1920x1080f21m4-8908-0 with slotExpansion=1 for 64 slots
+11-09 20:20:28.379 D/DeferrableSurface( 8908): Surface created[total_surfaces=3, used_surfaces=1](z80@afc91e0}
+11-09 20:20:28.379 D/UseCase ( 8908): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360
+11-09 20:20:28.380 D/ImageAnalysis( 8908): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@4b5c044{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=qc@4f4ab5e, zslDisabled=false}, secondaryStreamSpec null
+11-09 20:20:28.380 I/Surface ( 8908): Creating surface for consumer unnamed-8908-3 with slotExpansion=1 for 64 slots
+11-09 20:20:28.380 I/Surface ( 8908): Creating surface for consumer ImageReader-1280x720f23m4-8908-1 with slotExpansion=1 for 64 slots
+11-09 20:20:28.380 I/Surface ( 8908): Creating surface for consumer unnamed-8908-4 with slotExpansion=1 for 64 slots
+11-09 20:20:28.380 I/Surface ( 8908): Creating surface for consumer ImageReader-1280x720f23m4-8908-2 with slotExpansion=1 for 64 slots
+11-09 20:20:28.380 D/DeferrableSurface( 8908): Surface created[total_surfaces=4, used_surfaces=1](z80@2c05955}
+11-09 20:20:28.381 D/CXCP    ( 8908): Attaching [Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260, ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca, ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>>
+11-09 20:20:28.381 D/CXCP    ( 8908): Prepared UseCaseGraphContext (Deferred)
+11-09 20:20:28.381 D/CXCP    ( 8908): Configured UseCaseCamera-1
+11-09 20:20:28.382 D/CXCP    ( 8908): setFlashAsync: flashMode = 2, requestControl = js@f7a35d1
+11-09 20:20:28.382 D/CXCP    ( 8908): populateSurfaceToStreamUseCaseMapping() - streamUseCaseMap = {z80@3e6f186=1, z80@afc91e0=2, z80@2c05955=1}
+11-09 20:20:28.382 D/CXCP    ( 8908): Notifying [] camera control ready
+11-09 20:20:28.382 D/ImageCapture( 8908): onCameraControlReady
+11-09 20:20:28.382 D/CXCP    ( 8908): setFlashAsync: flashMode = 2, requestControl = js@f7a35d1
+11-09 20:20:28.383 D/CXCP    ( 8908): Loading metadata for CameraId-0
+11-09 20:20:28.385 I/Surface ( 8908): Creating surface for consumer unnamed-8908-5 with slotExpansion=1 for 64 slots
+11-09 20:20:28.385 I/Surface ( 8908): Creating surface for consumer ImageReader-1280x720f22m7-8908-3 with slotExpansion=1 for 64 slots
+11-09 20:20:28.387 I/CXCP    ( 8908): Loaded metadata for CameraId-0 in 4.007 ms
+11-09 20:20:28.390 D/InsetsController( 8908): hide(ime())
+11-09 20:20:28.390 D/CXCP    ( 8908): Camera 0 has become available
+11-09 20:20:28.390 I/ImeTracker( 8908): com.nampham.lotteryscan:154a2eba: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+11-09 20:20:28.391 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1) (CameraId-0) camera status changed: CameraAvailable(camera=CameraId-0)
+11-09 20:20:28.391 I/CXCP    ( 8908): CameraGraph-1 (Camera 0)
+11-09 20:20:28.391 I/CXCP    ( 8908):   Facing:    Back (Logical, Full)
+11-09 20:20:28.391 I/CXCP    ( 8908):   Mode:      Normal
+11-09 20:20:28.391 I/CXCP    ( 8908): Outputs:
+11-09 20:20:28.391 I/CXCP    ( 8908):   Stream-1    Output-1    1280x720    PRIVATE          [DynamicRangeProfile(value=1)] [StreamUseCase(value=1)] [StreamUseHint(value=0)]
+11-09 20:20:28.391 I/CXCP    ( 8908):   Stream-3    Output-3    1280x720    YUV_420_888      [DynamicRangeProfile(value=1)] [StreamUseCase(value=1)] [StreamUseHint(value=0)]
+11-09 20:20:28.391 I/CXCP    ( 8908):   Stream-2    Output-2    1920x1080   JPEG             [DynamicRangeProfile(value=1)] [StreamUseCase(value=2)] [StreamUseHint(value=0)]
+11-09 20:20:28.391 I/CXCP    ( 8908): Session Template: TEMPLATE_PREVIEW
+11-09 20:20:28.391 I/CXCP    ( 8908): Session Parameters: (None)
+11-09 20:20:28.391 I/CXCP    ( 8908): Default Template: TEMPLATE_PREVIEW
+11-09 20:20:28.391 I/CXCP    ( 8908): Default Parameters
+11-09 20:20:28.391 I/CXCP    ( 8908):   Metadata.Key(androidx.camera.camera2.pipe.captureRequestTag) android.hardware.camera2.CaptureRequest.setTag.CX
+11-09 20:20:28.391 I/CXCP    ( 8908): Required Parameters: (None)
+11-09 20:20:28.391 D/CXCP    ( 8908): Camera graph updated from null to CameraGraph-1
+11-09 20:20:28.391 I/CXCP    ( 8908): Starting CameraGraph-1
+11-09 20:20:28.391 D/CXCP    ( 8908): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStarting
+11-09 20:20:28.391 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1): Not restarting. Controller state = ee@b5d4917, last camera error = null, camera availability = CameraAvailable(camera=CameraId-0), last camera priorities changed = null, current timestamp = TimestampNs(value=438322376276572).
+11-09 20:20:28.391 D/CXCP    ( 8908): CameraGraph-1 state updated to GRAPH_STARTING
+11-09 20:20:28.391 D/CXCP    ( 8908): Updated current camera internal state to CombinedCameraState(state=OPENING, error=null)
+11-09 20:20:28.392 D/CXCP    ( 8908): Started Camera2CameraController(CameraGraph-1)
+11-09 20:20:28.392 D/CXCP    ( 8908): Setting up Surfaces with UseCaseSurfaceManager
+11-09 20:20:28.392 D/CXCP    ( 8908): PruningProcessingQueue: Pruning [RequestOpen(virtualCamera=VirtualCamera-1, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-1), isPrewarm=false, isForegroundObserver=kb@7635fb3)]
+11-09 20:20:28.392 D/DeferrableSurface( 8908): use count+1, useCount=2 z80@3e6f186
+11-09 20:20:28.392 D/DeferrableSurface( 8908): New surface in use[total_surfaces=4, used_surfaces=2](z80@afc91e0}
+11-09 20:20:28.392 D/DeferrableSurface( 8908): use count+1, useCount=1 z80@afc91e0
+11-09 20:20:28.392 D/DeferrableSurface( 8908): New surface in use[total_surfaces=4, used_surfaces=3](z80@2c05955}
+11-09 20:20:28.392 D/DeferrableSurface( 8908): use count+1, useCount=1 z80@2c05955
+11-09 20:20:28.392 D/CXCP    ( 8908): PruningProcessingQueue: Processing RequestOpen(virtualCamera=VirtualCamera-1, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-1), isPrewarm=false, isForegroundObserver=kb@7635fb3)
+11-09 20:20:28.392 D/CXCP    ( 8908): Configured f41@3ea7970
+11-09 20:20:28.392 I/CXCP    ( 8908): PruningCamera2DeviceManager#processRequestOpen(CameraId-0)
+11-09 20:20:28.393 D/CXCP    ( 8908): Opening CameraId-0 with retries...
+11-09 20:20:28.393 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#removeParametersAsync: [DEFAULT] keys = [CaptureRequest.Key(android.control.zoomRatio), CaptureRequest.Key(android.control.settingsOverride)]
+11-09 20:20:28.393 I/CXCP    ( 8908): Opening CameraId-0
+11-09 20:20:28.393 D/CXCP    ( 8908): Configured Surface(name=null mNativeObject=-5476376611150515312)/@0xe7daae6 for Stream-1
+11-09 20:20:28.393 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+11-09 20:20:28.393 I/CXCP    ( 8908): Configured Stream-1 with Surface(name=null mNativeObject=-5476376611150515312)/@0xe7daae6
+11-09 20:20:28.393 D/CXCP    ( 8908): SurfaceActive z80@3e6f186 in y41@3d00688
+11-09 20:20:28.393 D/DeferrableSurface( 8908): use count+1, useCount=3 z80@3e6f186
+11-09 20:20:28.393 D/CXCP    ( 8908): Configured Surface(name=null mNativeObject=-5476376611150543328)/@0xcb44a7a for Stream-2
+11-09 20:20:28.393 I/CXCP    ( 8908): Configured Stream-2 with Surface(name=null mNativeObject=-5476376611150543328)/@0xcb44a7a
+11-09 20:20:28.393 D/CXCP    ( 8908): SurfaceActive z80@afc91e0 in y41@3d00688
+11-09 20:20:28.393 D/DeferrableSurface( 8908): use count+1, useCount=2 z80@afc91e0
+11-09 20:20:28.393 D/CXCP    ( 8908): Configured Surface(name=null mNativeObject=-5476376611150470816)/@0xbd1122b for Stream-3
+11-09 20:20:28.393 I/CXCP    ( 8908): Configured Stream-3 with Surface(name=null mNativeObject=-5476376611150470816)/@0xbd1122b
+11-09 20:20:28.393 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, optionPriority = OPTIONAL
+11-09 20:20:28.394 D/CXCP    ( 8908): SurfaceActive z80@2c05955 in y41@3d00688
+11-09 20:20:28.394 D/DeferrableSurface( 8908): use count+1, useCount=2 z80@2c05955
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+11-09 20:20:28.394 I/CXCP    ( 8908): Surface setup complete
+11-09 20:20:28.394 D/DeferrableSurface( 8908): use count-1,  useCount=2 closed=false z80@3e6f186
+11-09 20:20:28.394 D/DeferrableSurface( 8908): use count-1,  useCount=1 closed=false z80@afc91e0
+11-09 20:20:28.394 D/DeferrableSurface( 8908): use count-1,  useCount=1 closed=false z80@2c05955
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl: Building SessionConfig...
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl: SessionConfig built. Updating state...
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl: State update processing.
+11-09 20:20:28.394 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = [Stream-1], template = RequestTemplate(value=1)
+11-09 20:20:28.394 D/CXCP    ( 8908): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@1a30334
+11-09 20:20:28.395 D/CXCP    ( 8908): State3AControl.getFinalPreferredAeMode: preferAeMode = 1
+11-09 20:20:28.395 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=4, CaptureRequest.Key(android.control.awbMode)=1}, optionPriority = OPTIONAL
+11-09 20:20:28.395 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=4, CaptureRequest.Key(android.control.awbMode)=1}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+11-09 20:20:28.395 D/CXCP    ( 8908): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@b9a655d
+11-09 20:20:28.395 D/CXCP    ( 8908): UseCaseCameraState: Updating 3A modes: AE(AeMode(value=1), changed=true), AF(AfMode(value=4), changed=true), AWB(AwbMode(value=1), changed=true)
+11-09 20:20:28.396 D/CXCP    ( 8908): Controller3A#update3A: cancelling previous request null
+11-09 20:20:28.396 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+11-09 20:20:28.396 D/CXCP    ( 8908): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=4, CaptureRequest.Key(android.control.awbMode)=1}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+11-09 20:20:28.396 D/CXCP    ( 8908): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@e8daed2
+11-09 20:20:28.397 D/CXCP    ( 8908): CameraId-0 has become available! Notifying listeners...
+11-09 20:20:28.399 D/WindowOnBackDispatcher( 8908): setTopOnBackInvokedCallback (unwrapped): f00@c73e61e
+11-09 20:20:28.399 D/WindowOnBackDispatcher( 8908): setOnBackInvokedCallbackInfo: f00@c73e61e
+11-09 20:20:28.402 I/CXCP    ( 8908): Unavailable camera 0 detected
+11-09 20:20:28.402 I/CXCP    ( 8908): Loaded CameraIdList [CameraId-0, CameraId-1]
+11-09 20:20:28.402 D/CXCP    ( 8908): Emitting camera ID list: [CameraId-0, CameraId-1]
+11-09 20:20:28.402 D/CXCP    ( 8908): Camera 0 has become unavailable
+11-09 20:20:28.402 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1) (CameraId-0) camera status changed: CameraUnavailable(camera=CameraId-0)
+11-09 20:20:28.402 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1): Not restarting. Controller state = ee@e99e315, last camera error = null, camera availability = CameraUnavailable(camera=CameraId-0), last camera priorities changed = null, current timestamp = TimestampNs(value=438322387393963).
+11-09 20:20:28.422 D/CXCP    ( 8908): tryOpenCamera: openCamera() for CameraId-0 returned
+11-09 20:20:28.422 I/CXCP    ( 8908): Opened CameraId-0 in 29.549 ms
+11-09 20:20:28.423 D/CXCP    ( 8908): tryOpenCamera: CameraId-0 opened
+11-09 20:20:28.423 I/CXCP    ( 8908): Camera open completed: OpenCameraResult(cameraState=CameraState-1, errorCode=null)
+11-09 20:20:28.425 I/CXCP    ( 8908): PruningCameraDeviceManager: CameraId-0 opened successfully
+11-09 20:20:28.426 I/CXCP    ( 8908): Creating CameraCaptureSession from CameraId-0 using CaptureSessionState-1 with {Stream-1=Surface(name=null mNativeObject=-5476376611150515312)/@0xe7daae6, Stream-3=Surface(name=null mNativeObject=-5476376611150470816)/@0xbd1122b, Stream-2=Surface(name=null mNativeObject=-5476376611150543328)/@0xcb44a7a}
+11-09 20:20:28.491 D/CXCP    ( 8908): CXCP#createCaptureSession-0 - 64.886 ms
+11-09 20:20:28.491 D/CXCP    ( 8908): CaptureSessionState-1 Configured
+11-09 20:20:28.492 I/CXCP    ( 8908): Configured CaptureSessionState-1 in 65.715 ms
+11-09 20:20:28.492 D/CXCP    ( 8908): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStarted
+11-09 20:20:28.492 D/CXCP    ( 8908): CameraGraph-1 state updated to GRAPH_STARTED
+11-09 20:20:28.492 D/CXCP    ( 8908): Updated current camera internal state to CombinedCameraState(state=OPEN, error=null)
+11-09 20:20:28.492 D/CXCP    ( 8908): Building CaptureRequest for Request(streams=[Stream-1], template=RequestTemplate(value=1))@e8daed2
+11-09 20:20:28.492 D/CXCP    ( 8908): CXCP#createCaptureRequest-0 - 0.241 ms
+11-09 20:20:28.493 D/CXCP    ( 8908): GraphRequestProcessor-1 submitting Camera2CaptureSequence-1
+11-09 20:20:28.493 D/CXCP    ( 8908): CaptureSessionState-1 Ready
+11-09 20:20:28.494 D/CXCP    ( 8908): CXCP#setRepeatingRequest-0 - 1.055 ms
+11-09 20:20:28.494 D/CXCP    ( 8908): GraphRequestProcessor-1 submitted Camera2CaptureSequence-1
+11-09 20:20:28.494 D/CXCP    ( 8908): CaptureSessionState-1 Active
+11-09 20:20:28.632 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:28.698 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:28.732 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:28.799 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:28.833 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:29.581 I/ham.lotteryscan( 8908): Use dataspace 142671872as it is
+11-09 20:20:30.444 D/ProfileInstaller( 8908): Installing profile for com.nampham.lotteryscan
+11-09 20:20:33.706 D/ImageCapture( 8908): takePictureInternal
+11-09 20:20:33.706 D/TakePictureManagerImpl( 8908): Issue the next TakePictureRequest.
+11-09 20:20:33.707 D/ProcessingRequest( 8908): ProcessingRequest: mRequestId = 0, mTagBundleKey = 250793005
+11-09 20:20:33.707 D/CXCP    ( 8908): StillCaptureRequestControl: submitting CaptureRequest(captureConfigs=[jj@8988fb0], captureMode=1, flashType=0, result=un{Active}@6dcfe29) at js@f7a35d1
+11-09 20:20:33.707 D/CXCP    ( 8908): FlashControl: Waiting for any ongoing update to be completed
+11-09 20:20:33.708 D/CXCP    ( 8908): awaitFlashModeUpdate: initialFlashMode = 2
+11-09 20:20:33.708 D/CXCP    ( 8908): StillCaptureRequestControl: Issuing single capture
+11-09 20:20:33.708 D/CXCP    ( 8908): UseCaseCameraRequestControlImpl#issueSingleCaptureAsync
+11-09 20:20:33.708 D/CXCP    ( 8908): UseCaseCameraRequestControl: Submitting still captures to capture pipeline
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#invokeCaptureTasks: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE], captureMode = 1, flashMode = 2, flashType = 0
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#defaultNoFlashCapture
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE]
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: starting PRE_CAPTURE
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: PRE_CAPTURE completed
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: starting MAIN_CAPTURE
+11-09 20:20:33.708 D/CXCP    ( 8908): CapturePipeline#submitRequestInternal; Submitting [jj@8988fb0] with CameraPipe
+11-09 20:20:33.710 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: MAIN_CAPTURE completed
+11-09 20:20:33.710 D/CXCP    ( 8908): CapturePipeline#submitRequestInternal: Acquiring session for submitting requests
+11-09 20:20:33.710 D/CXCP    ( 8908): CapturePipeline#submitRequestInternal: Submitting [Request(streams=[Stream-2], template=RequestTemplate(value=2))@d56ff4f]
+11-09 20:20:33.710 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal
+11-09 20:20:33.710 D/CXCP    ( 8908): Building CaptureRequest for Request(streams=[Stream-2], template=RequestTemplate(value=2))@d56ff4f
+11-09 20:20:33.710 D/CXCP    ( 8908): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[jj@8988fb0], captureMode=1, flashType=0, result=un{Active}@6dcfe29)
+11-09 20:20:33.711 D/CXCP    ( 8908): CXCP#createCaptureRequest-0 - 0.616 ms
+11-09 20:20:33.711 D/CXCP    ( 8908): GraphRequestProcessor-1 submitting Camera2CaptureSequence-2
+11-09 20:20:33.713 D/CXCP    ( 8908): CXCP#capture-0 - 1.877 ms
+11-09 20:20:33.713 D/CXCP    ( 8908): GraphRequestProcessor-1 submitted Camera2CaptureSequence-2
+11-09 20:20:33.734 D/CXCP    ( 8908): CaptureSessionState-1 CaptureQueueEmpty
+11-09 20:20:33.751 D/ProcessingRequest( 8908): onCaptureStarted: request ID = 0
+11-09 20:20:33.752 D/CXCP    ( 8908): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[jj@8988fb0], captureMode=1, flashType=0, result=un{Active}@6dcfe29) done
+11-09 20:20:33.752 D/CXCP    ( 8908): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal done
+11-09 20:20:33.753 D/CaptureNode( 8908): OnImageAvailableListener: mCurrentRequest ID = 0, image.isNull = false
+11-09 20:20:33.754 I/ProcessingRequest( 8908): onImageCaptured: request ID = 0
+11-09 20:20:33.754 D/TakePictureManagerImpl( 8908): Issue the next TakePictureRequest.
+11-09 20:20:33.754 D/TakePictureManagerImpl( 8908): No new request.
+11-09 20:20:33.754 D/ProcessingNode( 8908): processOnDiskCapture: request ID = 0
+11-09 20:20:33.772 I/ProcessingRequest( 8908): onFinalResult(OutputFileResults): request ID = 0
+11-09 20:20:33.856 D/DecoupledTextDelegate( 8908): Start loading thick OCR module.
+11-09 20:20:33.857 I/DynamiteModule( 8908): Considering local module com.google.mlkit.dynamite.text.latin:10000 and remote module com.google.mlkit.dynamite.text.latin:0
+11-09 20:20:33.857 I/DynamiteModule( 8908): Selected local version of com.google.mlkit.dynamite.text.latin
+11-09 20:20:33.877 D/TransportRuntime.SQLiteEventStore( 8908): Storing event with priority=VERY_LOW, name=FIREBASE_ML_SDK for destination cct
+11-09 20:20:33.879 D/TransportRuntime.JobInfoScheduler( 8908): Scheduling upload for context TransportContext(cct, VERY_LOW, MSRodHRwczovL2ZpcmViYXNlbG9nZ2luZy5nb29nbGVhcGlzLmNvbS92MGNjL2xvZy9iYXRjaD9mb3JtYXQ9anNvbl9wcm90bzNc) with jobId=-552196452 in 86400000ms(Backend next call timestamp 0). Attempt 1
+11-09 20:20:33.889 D/nativeloader( 8908): Load /data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk!/lib/arm64-v8a/libmlkit_google_ocr_pipeline.so using class loader ns clns-9 (caller=/data/app/~~Q9vYzcXQMO7sja6kFNi1rw==/com.nampham.lotteryscan-y23jk_rd0cN6Xu5d9rKUAA==/base.apk): ok
+11-09 20:20:33.890 I/native  ( 8908): I0000 00:00:1794230433.889893    9100 asset_manager_util.cc:61] Created global reference to asset manager.
+11-09 20:20:33.890 D/TransportRuntime.SQLiteEventStore( 8908): Storing event with priority=DEFAULT, name=FIREBASE_ML_SDK for destination cct
+11-09 20:20:33.891 D/TransportRuntime.JobInfoScheduler( 8908): Scheduling upload for context TransportContext(cct, DEFAULT, MSRodHRwczovL2ZpcmViYXNlbG9nZ2luZy5nb29nbGVhcGlzLmNvbS92MGNjL2xvZy9iYXRjaD9mb3JtYXQ9anNvbl9wcm90bzNc) with jobId=-557177189 in 30000ms(Backend next call timestamp 0). Attempt 1
+11-09 20:20:33.895 D/TransportRuntime.SQLiteEventStore( 8908): Storing event with priority=VERY_LOW, name=FIREBASE_ML_SDK for destination cct
+11-09 20:20:33.895 D/TransportRuntime.JobInfoScheduler( 8908): Upload for context TransportContext(cct, VERY_LOW, MSRodHRwczovL2ZpcmViYXNlbG9nZ2luZy5nb29nbGVhcGlzLmNvbS92MGNjL2xvZy9iYXRjaD9mb3JtYXQ9anNvbl9wcm90bzNc) is already scheduled. Returning...
+11-09 20:20:33.897 I/Manager ( 8908): DeviceManager::DeviceManager
+11-09 20:20:33.897 W/ServerFlag( 8908): Failed to parse result of GetServerConfigurableFlag, errno=34
+11-09 20:20:33.897 I/Manager ( 8908): findAvailableDevices
+11-09 20:20:33.900 I/Manager ( 8908): Found interface google-edgetpu (version = 2.0)
+11-09 20:20:33.906 W/libc    ( 8908): Access denied finding property "ro.mediatek.platform"
+11-09 20:20:33.906 W/libc    ( 8908): Access denied finding property "ro.chipname"
+11-09 20:20:33.906 W/libc    ( 8908): Access denied finding property "ro.hardware.chipname"
+11-09 20:20:33.907 I/native  ( 8908): I0000 00:00:1794230433.906995    9105 resource_manager.cc:23] Number of optimal threads: 8
+11-09 20:20:33.907 I/native  ( 8908): I0000 00:00:1794230433.907344    9104 text_classifier.cc:32] Creating classifier TfliteTextClassifier
+11-09 20:20:33.907 I/native  ( 8908): I0000 00:00:1794230433.907335    9105 text_detector_thread_pool_context.cc:38] Compute manager max in flight region detector overwrite: 1
+11-09 20:20:33.907 I/native  ( 8908): I0000 00:00:1794230433.907805    9105 common_util.h:41] Resizing Thread Pool: ocr_det_0 to 3
+11-09 20:20:33.907 I/native  ( 8908): I0000 00:00:1794230433.907921    9104 common_util.h:41] Resizing Thread Pool: ocr_segm to 3
+11-09 20:20:33.908 I/native  ( 8908): I0000 00:00:1794230433.908455    9105 tflite_detector_client_with_shape_cache.cc:76] Interpreter threads: 8
+11-09 20:20:33.908 I/tflite  ( 8908): Initialized TensorFlow Lite runtime.
+11-09 20:20:33.910 I/native  ( 8908): I0000 00:00:1794230433.909948    9104 tflite_lstm_client_base.cc:371] Resizing interpreter pool to 4
+11-09 20:20:33.911 I/tflite  ( 8908): Created TensorFlow Lite XNNPACK delegate for CPU.
+11-09 20:20:33.911 I/native  ( 8908): I0000 00:00:1794230433.911904    9104 multi_pass_line_recognition_mutator.cc:342] Preloading recognizers.
+11-09 20:20:33.912 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:33.914 I/native  ( 8908): I0000 00:00:1794230433.914715    9128 tflite_model_pooled_runner.cc:625] Loading mlkit-google-ocr-models/gocr/gocr_models/line_recognition_legacy_mobile/Latn_ctc/optical/conv_model.fb
+11-09 20:20:33.915 I/native  ( 8908): I0000 00:00:1794230433.915220    9128 tflite_model_pooled_runner.cc:636] Loading mlkit-google-ocr-models/gocr/gocr_models/line_recognition_legacy_mobile/Latn_ctc/optical/lstm_model.fb
+11-09 20:20:33.916 I/native  ( 8908): I0000 00:00:1794230433.916609    9105 tflite_detector_client_with_shape_cache.cc:105] Caching size: 10
+11-09 20:20:33.920 I/native  ( 8908): I0000 00:00:1794230433.920779    9105 tflite_model_pooled_runner.cc:625] Loading mlkit-google-ocr-models/gocr/layout/line_splitting_custom_ops/model.tflite
+11-09 20:20:33.921 I/native  ( 8908): I0000 00:00:1794230433.921814    9105 tflite_model_pooled_runner.cc:836] Resizing interpreter pool to 1
+11-09 20:20:33.922 I/native  ( 8908): I0000 00:00:1794230433.922146    9128 tflite_model_pooled_runner.cc:836] Resizing interpreter pool to 4
+11-09 20:20:33.922 I/native  ( 8908): I0000 00:00:1794230433.922457    9105 tflite_model_pooled_runner.cc:625] Loading mlkit-google-ocr-models/gocr/layout/line_clustering_custom_ops/model.tflite
+11-09 20:20:33.922 I/native  ( 8908): I0000 00:00:1794230433.922729    9105 tflite_model_pooled_runner.cc:836] Resizing interpreter pool to 1
+11-09 20:20:33.927 I/native  ( 8908): I0000 00:00:1794230433.927637    9128 mobile_langid_v2.cc:58] MobileLangID V2 initialized.
+11-09 20:20:33.927 I/native  ( 8908): I0000 00:00:1794230433.927808    9128 multi_pass_line_recognition_mutator.cc:364] Finished preloading a recognizer for "Latn"
+11-09 20:20:33.927 I/native  ( 8908): I0000 00:00:1794230433.927894    9104 multi_pass_line_recognition_mutator.cc:398] Finished preloading recognizers.
+11-09 20:20:33.929 D/PipelineManager( 8908): Start process bitmap
+11-09 20:20:33.929 I/native  ( 8908): I0000 00:00:1794230433.929903    9100 scheduler.cc:693] ImageMetadata: 1080x1920
+11-09 20:20:33.942 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:33.965 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:33.995 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:34.035 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:34.046 I/tflite  ( 8908): Replacing 44 out of 46 node(s) with delegate (TfLiteXNNPackDelegate) node, yielding 3 partitions for the whole graph.
+11-09 20:20:34.156 D/PipelineManager( 8908): OCR process succeeded via visionkit pipeline.
+11-09 20:20:34.161 D/TransportRuntime.SQLiteEventStore( 8908): Storing event with priority=VERY_LOW, name=FIREBASE_ML_SDK for destination cct
+11-09 20:20:34.162 D/TransportRuntime.JobInfoScheduler( 8908): Upload for context TransportContext(cct, VERY_LOW, MSRodHRwczovL2ZpcmViYXNlbG9nZ2luZy5nb29nbGVhcGlzLmNvbS92MGNjL2xvZy9iYXRjaD9mb3JtYXQ9anNvbl9wcm90bzNc) is already scheduled. Returning...
+11-09 20:20:34.164 D/TransportRuntime.SQLiteEventStore( 8908): Storing event with priority=VERY_LOW, name=FIREBASE_ML_SDK for destination cct
+11-09 20:20:34.165 D/TransportRuntime.JobInfoScheduler( 8908): Upload for context TransportContext(cct, VERY_LOW, MSRodHRwczovL2ZpcmViYXNlbG9nZ2luZy5nb29nbGVhcGlzLmNvbS92MGNjL2xvZy9iYXRjaD9mb3JtYXQ9anNvbl9wcm90bzNc) is already scheduled. Returning...
+11-09 20:20:34.236 E/ConsumerBase( 8908): [ImageReader-1280x720f22m7-8908-3] abandonLocked: ConsumerBase is abandoned!
+11-09 20:20:34.237 D/DeferrableSurface( 8908): surface closed,  useCount=2 closed=true z80@3e6f186
+11-09 20:20:34.237 D/DeferrableSurface( 8908): surface closed,  useCount=0 closed=true az0@62753ba
+11-09 20:20:34.237 D/DeferrableSurface( 8908): Surface terminated[total_surfaces=3, used_surfaces=3](az0@62753ba}
+11-09 20:20:34.237 D/DeferrableSurface( 8908): use count-1,  useCount=1 closed=true z80@3e6f186
+11-09 20:20:34.237 W/ScreenFlashWrapper( 8908): completePendingScreenFlashClear: none pending!
+11-09 20:20:34.237 D/ImageCapture( 8908): clearPipeline
+11-09 20:20:34.237 D/DeferrableSurface( 8908): surface closed,  useCount=1 closed=true z80@afc91e0
+11-09 20:20:34.237 D/DeferrableSurface( 8908): surface closed,  useCount=1 closed=true z80@2c05955
+11-09 20:20:34.237 D/CXCP    ( 8908): Detaching [Preview:lm0-ee308cbf-9933-4aab-b199-47132393a260, ImageCapture:a80-1fbf66f5-cad8-4044-aaa2-d2ce6a9048ca, ImageAnalysis:p70-80c4414f-adda-4f3d-9401-c982f0255360] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>>
+11-09 20:20:34.237 W/ScreenFlashWrapper( 8908): completePendingScreenFlashClear: none pending!
+11-09 20:20:34.238 D/CXCP    ( 8908): setFlashAsync: flashMode = 2, requestControl = null
+11-09 20:20:34.238 D/CXCP    ( 8908): UseCaseCameraRequestControl: closed
+11-09 20:20:34.238 D/CXCP    ( 8908): setFlashAsync: flashMode = 2, requestControl = null
+11-09 20:20:34.238 D/CXCP    ( 8908): Closing UseCaseCamera-1
+11-09 20:20:34.238 I/CXCP    ( 8908): Closing CameraGraph-1
+11-09 20:20:34.238 D/CXCP    ( 8908): reset: videoUsage = 0
+11-09 20:20:34.238 D/CXCP    ( 8908): Closing GraphRequestProcessor-1
+11-09 20:20:34.238 D/CXCP    ( 8908): Closed Camera2CameraController(CameraGraph-1)
+11-09 20:20:34.238 D/CXCP    ( 8908): LowLightBoostControl#setLowLightBoostAsync: lowLightBoost = false
+11-09 20:20:34.238 D/CXCP    ( 8908): Closing GraphRequestProcessor-1
+11-09 20:20:34.238 W/CXCP    ( 8908): Attach [] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>> (Ignored)
+11-09 20:20:34.238 W/CXCP    ( 8908): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-0>> (Ignored)
+11-09 20:20:34.239 D/CXCP    ( 8908): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStopping
+11-09 20:20:34.239 D/CXCP    ( 8908): CameraGraph-1 state updated to GRAPH_STOPPING
+11-09 20:20:34.239 D/CXCP    ( 8908): Updated current camera internal state to CombinedCameraState(state=CLOSING, error=null)
+11-09 20:20:34.239 D/CXCP    ( 8908): CaptureSessionState-1 Shutdown
+11-09 20:20:34.239 D/CXCP    ( 8908): Camera2CaptureSequenceProcessor-1#stopRepeating
+11-09 20:20:34.240 D/CXCP    ( 8908): CXCP#stopRepeating-0 - 0.442 ms
+11-09 20:20:34.240 D/CXCP    ( 8908): Camera2CaptureSequenceProcessor-1#abortCaptures
+11-09 20:20:34.249 E/BufferQueueProducer( 8908): [ImageReader-1280x720f22m7-8908-3](id:22cc00000005,api:4,p:1684,c:8908) cancelBuffer: BufferQueue has been abandoned
+11-09 20:20:34.250 D/CXCP    ( 8908): CXCP#abortCaptures-0 - 10.046 ms
+11-09 20:20:34.252 D/CXCP    ( 8908): Closing capture session for CaptureSessionState-1
+11-09 20:20:34.253 D/CXCP    ( 8908): CaptureSessionState-1 Ready
+11-09 20:20:34.253 D/CXCP    ( 8908): CaptureSessionState-1 Closed
+11-09 20:20:34.253 D/CXCP    ( 8908): CaptureSessionState-1 session finalizing
+11-09 20:20:34.253 D/CXCP    ( 8908): Finalizing CaptureSessionState-1
+11-09 20:20:34.253 D/CXCP    ( 8908): SurfaceInactive z80@3e6f186 in y41@3d00688
+11-09 20:20:34.253 D/DeferrableSurface( 8908): use count-1,  useCount=0 closed=true z80@3e6f186
+11-09 20:20:34.253 D/DeferrableSurface( 8908): Surface no longer in use[total_surfaces=3, used_surfaces=2](z80@3e6f186}
+11-09 20:20:34.253 D/DeferrableSurface( 8908): Surface terminated[total_surfaces=2, used_surfaces=2](z80@3e6f186}
+11-09 20:20:34.254 D/CXCP    ( 8908): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStopped
+11-09 20:20:34.254 D/CXCP    ( 8908): CameraGraph-1 state updated to GRAPH_STOPPED
+11-09 20:20:34.254 D/CXCP    ( 8908): SurfaceInactive z80@2c05955 in y41@3d00688
+11-09 20:20:34.254 D/CXCP    ( 8908): Updated current camera internal state to CombinedCameraState(state=CLOSED, error=null)
+11-09 20:20:34.254 D/DeferrableSurface( 8908): use count-1,  useCount=0 closed=true z80@2c05955
+11-09 20:20:34.254 D/DeferrableSurface( 8908): Surface no longer in use[total_surfaces=2, used_surfaces=1](z80@2c05955}
+11-09 20:20:34.254 I/CXCP    ( 8908): Disconnecting VirtualCamera-1
+11-09 20:20:34.254 D/DeferrableSurface( 8908): Surface terminated[total_surfaces=1, used_surfaces=1](z80@2c05955}
+11-09 20:20:34.254 D/CXCP    ( 8908): SurfaceInactive z80@afc91e0 in y41@3d00688
+11-09 20:20:34.254 D/DeferrableSurface( 8908): use count-1,  useCount=0 closed=true z80@afc91e0
+11-09 20:20:34.254 D/DeferrableSurface( 8908): Surface no longer in use[total_surfaces=1, used_surfaces=0](z80@afc91e0}
+11-09 20:20:34.254 D/DeferrableSurface( 8908): Surface terminated[total_surfaces=0, used_surfaces=0](z80@afc91e0}
+11-09 20:20:34.254 D/CXCP    ( 8908): y41@3d00688 remove surface listener
+11-09 20:20:34.254 E/ConsumerBase( 8908): [ImageReader-1280x720f23m4-8908-1] abandonLocked: ConsumerBase is abandoned!
+11-09 20:20:34.254 E/ConsumerBase( 8908): [ImageReader-1280x720f23m4-8908-2] abandonLocked: ConsumerBase is abandoned!
+11-09 20:20:34.254 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1) is closed
+11-09 20:20:34.254 E/ConsumerBase( 8908): [ImageReader-1920x1080f21m4-8908-0] abandonLocked: ConsumerBase is abandoned!
+11-09 20:20:34.254 D/CXCP    ( 8908): Camera2CameraController(CameraGraph-1) finalized
+11-09 20:20:34.383 I/libbinder.BpBinder( 8908): onLastStrongRef automatically unlinking death recipients for binder (0xb400007d0c1fa780) with descriptor: '(not cached)'
+11-09 20:20:35.255 D/CXCP    ( 8908): PruningProcessingQueue: Pruning [RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-0)@ec29b91)]
+11-09 20:20:35.255 D/CXCP    ( 8908): PruningProcessingQueue: Processing RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-0)@ec29b91)
+11-09 20:20:35.255 I/CXCP    ( 8908): PruningCamera2DeviceManager#processRequestClose(CameraId-0)
+11-09 20:20:35.255 D/CXCP    ( 8908): handleQuirksBeforeClosing(android.hardware.camera2.impl.CameraDeviceImpl@33f2113)
+11-09 20:20:35.255 D/CXCP    ( 8908): CaptureSessionState-1 session disconnecting
+11-09 20:20:35.255 D/CXCP    ( 8908): closeCameraDevice(0)
+11-09 20:20:35.256 I/CXCP    ( 8908): Closing Camera 0
+11-09 20:20:35.262 I/libbinder.BpBinder( 8908): onLastStrongRef automatically unlinking death recipients for binder (0xb400007d0c1effc0) with descriptor: '(not cached)'
+11-09 20:20:35.306 D/CXCP    ( 8908): CXCP#CameraDevice-0#close - 50.561 ms
+11-09 20:20:35.307 D/CXCP    ( 8908): Emitting camera ID list: [CameraId-0, CameraId-1]
+11-09 20:20:35.307 D/CXCP    ( 8908): CameraId-0: onClosed
+11-09 20:20:35.307 D/CXCP    ( 8908): CameraState-1: onFinalized

@@ -1,0 +1,16 @@
+Failed to handle method call
+java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Class java.lang.Object.getClass()' on a null object reference
+	at com.google.android.gms.internal.mlkit_vision_common.zzmj.<init>(com.google.mlkit:vision-common@@17.3.0:8)
+	at com.google.android.gms.internal.mlkit_vision_common.zzmr.create(com.google.mlkit:vision-common@@17.3.0:8)
+	at com.google.mlkit.common.sdkinternal.LazyInstanceMap.get(LazyInstanceMap.java:3)
+	at com.google.android.gms.internal.mlkit_vision_common.zzms.zza(com.google.mlkit:vision-common@@17.3.0:2)
+	at com.google.android.gms.internal.mlkit_vision_common.zzms.zzb(com.google.mlkit:vision-common@@17.3.0:3)
+	at com.google.mlkit.vision.common.InputImage.zzc(com.google.mlkit:vision-common@@17.3.0:1)
+	at com.google.mlkit.vision.common.InputImage.fromFilePath(com.google.mlkit:vision-common@@17.3.0:9)
+	at com.google_mlkit_commons.InputImageConverter.handleFileImage(InputImageConverter.java:52)
+	at com.google_mlkit_commons.InputImageConverter.getInputImageFromData(InputImageConverter.java:31)
+	at com.google_mlkit_text_recognition.TextRecognizer.handleDetection(TextRecognizer.kt:61)
+	at com.google_mlkit_text_recognition.TextRecognizer.onMethodCall(TextRecognizer.kt:32)
+	at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+	at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+	at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0(DartMessenger.java:313)
