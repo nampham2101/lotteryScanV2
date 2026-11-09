@@ -1,13 +1,14 @@
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
-import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
+
+import 'square_crop.dart';
 
 const _ticketPhotoName = 'ticket_photo.jpg';
 const _stagedName = 'ticket_photo_staged.jpg';
+const _writingName = 'ticket_photo_writing.tmp';
 
 /// Cuts the camera's photo down to what the dashed frame showed, the middle
 /// square, and saves it in the app's own private folder under a temporary
@@ -19,30 +20,24 @@ Future<File> cropAndStageTicketPhoto(XFile photo) async {
     final folder = await getApplicationDocumentsDirectory();
     final bytes = await File(photo.path).readAsBytes();
     // Decoding a full camera picture is slow, so it runs off the main thread.
-    final square = await compute(_cropToMiddleSquare, bytes);
-    return await File('${folder.path}/$_stagedName')
-        .writeAsBytes(square, flush: true);
+    final square = await compute(cropToMiddleSquare, bytes);
+    return await _saveWhole(square, folder);
   } finally {
     await deleteTicketPhotoFile(photo.path);
   }
 }
 
-/// The middle square of the picture, turned upright and saved as a JPEG.
-/// Throws when the bytes are not a picture.
-Uint8List _cropToMiddleSquare(Uint8List bytes) {
-  final decoded = img.decodeImage(bytes);
-  if (decoded == null) throw const FormatException('Not a picture');
-  // The camera may note the turn in the file instead of turning the pixels.
-  final upright = img.bakeOrientation(decoded);
-  final side = math.min(upright.width, upright.height);
-  final square = img.copyCrop(
-    upright,
-    x: (upright.width - side) ~/ 2,
-    y: (upright.height - side) ~/ 2,
-    width: side,
-    height: side,
-  );
-  return img.encodeJpg(square, quality: 95);
+/// Writes under a working name and renames only when the write is whole, so a
+/// failed save (storage full, say) leaves no half photo behind.
+Future<File> _saveWhole(Uint8List square, Directory folder) async {
+  final writing = File('${folder.path}/$_writingName');
+  try {
+    await writing.writeAsBytes(square, flush: true);
+    return await writing.rename('${folder.path}/$_stagedName');
+  } on Object {
+    await deleteTicketPhotoFile(writing.path);
+    rethrow;
+  }
 }
 
 /// Makes a staged photo the kept one, replacing the old one in a single step.
