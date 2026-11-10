@@ -10,8 +10,8 @@ import 'shared/ticket_reader.dart';
 const _readingLabel = 'Đang đọc vé...';
 const _textStyle = TextStyle(fontSize: 16, color: Colors.white);
 
-/// Temporary screen with no sketch: the newest photo on top, whole, and what
-/// the ticket's number, province and date below it, read from ML Kit's text.
+/// Temporary screen with no sketch: the newest photo on top, whole, and below
+/// it the ticket's number, province and date, read from ML Kit's text.
 /// When a field is missing or the read fails, it is replaced by screen 4d. The
 /// phone's back closes it, which shows the home screen.
 class PhotoScreen extends StatefulWidget {

@@ -45,19 +45,29 @@ const _provinces = <(String, String)>[
 final _number = RegExp(r'\d{6}');
 final _date = RegExp(r'\d{2}-\d{2}-\d{4}');
 
-const _withAccents = {
-  'a': 'àáảãạăằắẳẵặâầấẩẫậ',
-  'e': 'èéẻẽẹêềếểễệ',
-  'i': 'ìíỉĩị',
-  'o': 'òóỏõọôồốổỗộơờớởỡợ',
-  'u': 'ùúủũụưừứửữự',
-  'y': 'ỳýỷỹỵ',
-  'd': 'đ',
-};
+// Every lower-case Latin letter that Unicode builds from a plain letter and
+// marks (Latin-1, Latin Extended-A and B, Latin Extended Additional), next to
+// the plain letter it becomes. Dart has no built-in way to take marks off.
+const _lettersWithMarks =
+    'àáâãäåçèéêëìíîïñòóôõöùúûüýÿāăąćĉċčďēĕėęěĝğġģĥĩīĭįĵķĺļľńņňōŏő'
+    'ŕŗřśŝşšţťũūŭůűųŵŷźżžơưǎǐǒǔǖǘǚǜǟǡǧǩǫǭǰǵǹǻȁȃȅȇȉȋȍȏȑȓȕȗșțȟȧȩȫȭȯ'
+    'ȱȳḁḃḅḇḉḋḍḏḑḓḕḗḙḛḝḟḡḣḥḧḩḫḭḯḱḳḵḷḹḻḽḿṁṃṅṇṉṋṍṏṑṓṕṗṙṛṝṟṡṣṥṧṩṫṭṯṱṳ'
+    'ṵṷṹṻṽṿẁẃẅẇẉẋẍẏẑẓẕẖẗẘẙạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừử'
+    'ữựỳỵỷỹ';
+const _plainLetters =
+    'aaaaaaceeeeiiiinooooouuuuyyaaaccccdeeeeegggghiiiijklllnnnooo'
+    'rrrssssttuuuuuuwyzzzouaiouuuuuaagkoojgnaaaeeiioorruusthaeooo'
+    'oyabbbcdddddeeeeefghhhhhiikkkllllmmmnnnnoooopprrrrsssssttttu'
+    'uuuuvvwwwwwxxyzzzhtwyaaaaaaaaaaaaeeeeeeeeiioooooooooooouuuuu'
+    'uuyyyy';
 
 final _plainLetter = <String, String>{
-  for (final entry in _withAccents.entries)
-    for (final letter in entry.value.split('')) letter: entry.key,
+  for (var i = 0; i < _lettersWithMarks.length; i++)
+    _lettersWithMarks[i]: _plainLetters[i],
+  // Not built from a plain letter and a mark, but read as D: Vietnamese Đ and
+  // the Icelandic Ð, which looks the same.
+  'đ': 'd',
+  'ð': 'd',
 };
 
 // Accents written as separate marks after the letter.
@@ -79,7 +89,7 @@ TicketFields? readTicketFields(String text) {
   return TicketFields(number: number, province: province, date: date);
 }
 
-/// Lower case, no accents, Đ as D.
+/// Lower case, no accents or marks on any Latin letter, Đ and Ð as D.
 String _plain(String line) {
   final lower = line.toLowerCase().replaceAll(_separateMarks, '');
   return lower.split('').map((c) => _plainLetter[c] ?? c).join();

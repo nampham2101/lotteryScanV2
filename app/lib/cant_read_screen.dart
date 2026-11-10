@@ -1,8 +1,6 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import 'camera_screen.dart';
-import 'shared/ticket_camera.dart';
+import 'shared/open_camera.dart';
 
 const _titleColor = Color(0xFF222222);
 const _hintColor = Color(0xFF555555);
@@ -11,7 +9,8 @@ const _buttonBlue = Color(0xFF1A5FA6);
 
 /// Sketch 4d: the ticket could not be read. "Thử lại" and the phone's back
 /// both replace this screen with the camera screen, so back from there shows
-/// the home screen.
+/// the home screen. If the camera won't start, they show the home screen with
+/// the reason.
 class CantReadScreen extends StatefulWidget {
   const CantReadScreen({super.key});
 
@@ -20,33 +19,9 @@ class CantReadScreen extends StatefulWidget {
 }
 
 class _CantReadScreenState extends State<CantReadScreen> {
-  bool _isOpening = false;
-
-  Future<void> _openCamera() async {
-    if (_isOpening) return;
-    _isOpening = true;
-    final CameraController? started;
-    try {
-      started = await startTicketCamera();
-    } on CameraAccessRefusedException {
-      _isOpening = false;
-      return;
-    }
-    if (started == null) {
-      _isOpening = false;
-      return;
-    }
-    final controller = started;
-    if (!mounted) {
-      await controller.dispose();
-      return;
-    }
-    await Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(
-        builder: (_) => CameraScreen(controller: controller),
-      ),
-    );
-  }
+  // Replaces this screen with the camera screen. If the camera won't start,
+  // it goes back to the home screen, which tells the person why.
+  void _openCamera() => openTicketCamera(context, replaceScreen: true);
 
   @override
   Widget build(BuildContext context) {
