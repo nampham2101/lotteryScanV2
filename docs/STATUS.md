@@ -24,7 +24,7 @@ flowchart LR
     C7["Shared dev setup ✅<br/>Flutter 3.47.9 pinned, setup.sh"]
   end
   C --> D
-  subgraph D["Reading test — the gate ⏳"]
+  subgraph D["Reading test — the gate ✅ GO"]
     direction TB
     D1["Check Mac tools ✅"]
     D4["Install Flutter + Android tools ✅"]
@@ -34,6 +34,7 @@ flowchart LR
     D7["Text under the photo ✅<br/>ticket #18, PR #19"]
     D8["Crop to the frame ✅<br/>ticket #22, PR #23"]
     D9["Read the three fields ✅<br/>ticket #24, PR #26"]
+    D10["Gate call ✅ GO<br/>Nam's own scans, #25 closed"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -50,6 +51,8 @@ flowchart LR
 
 ## Latest session (2026-11-10)
 
+- Decision: the reading gate is **GO**. Nam scanned six real paper tickets on the Pixel 7 with the current `main` debug build, the four test tickets and two new ones, and ML Kit read all three fields correctly on every one. Nam made the call from those scans, not from a report.
+- #25, the gate report, closed as not planned, without the report. `/work 25` had scanned two of the four test tickets on the Pixel 7 before Nam's call. Bạc Liêu 871723 (IMG_5902) showed all three fields right. Bạc Liêu 747421 (IMG_5905) showed 4d on that one shot, though it read correctly in Nam's own scans. A Long An shot left the result screen before it could be captured. The four saved photos on `Pixel_10` and the table weren't done. The Pixel 7 now has the `main` debug build with #24 installed.
 - Decision: a ticket tests only what it adds or changes, replacing "older tests run if the ticket touched their code". Nam raised it after #24, which ran all seven older features' tests, including #5's rotation tests, and saved 40 device runs. When a ticket changes an older feature on purpose, the test writer updates those older tests and only the updated ones run, not their whole file. After a fix, only the tests related to it rerun, the implementer picks them, and there's no final run of all the ticket's tests before the merge. The implementer now compares before-and-after screenshots of every screen it changes and fixes side effects itself, instead of tests that check positions, because #24's off-centre home screen came from adding a note and no ticket could have listed it. The rules start now, before the regression run exists. Accepted risks: a broken older feature, or a later fix breaking one of the ticket's own tests, is found only when Nam uses the app until the regression run exists, and the implementer judges which tests its own fix touches. Revisit if either happens, or if a side effect on a screen reaches `main`. Changed in the test writer, the implementer, `/work` and `docs/WORKFLOW.md`. Not yet run live.
 - #24 merged (PR #26): after the shutter, the temporary screen shows `Số vé`, `Tỉnh` and `Ngày`, read from ML Kit's text by regex, in place of the raw text. A missing field, no text or a failed read shows screen 4d as sketched, and "Thử lại" and back open the camera. If the camera won't start, they go home with the "Cần dùng camera" pop-up when access is refused, or with a fading note "Lỗi camera, thử lại" for any other failure, and "Quét vé" shows the same note. `docs/TICKET-READING.md` is rewritten for the rule, and backlog items 40, 41, 42 and 45 are closed. All final runs passed on the last code: #24's 27 tests and #4, #5, #9, #10, #18 and #22 on `Pixel_10`, and #8's 12 on the Pixel 7 held by Nam. 4d matches sketch 4d. Five reviews and four fix rounds: the 4d trap, copied camera code, lookalike letters, a phone with no camera, the home screen going off-centre (found by `/work` on a screenshot), and back during a read removing home. Backlog items 91–103 added.
 - Decision (in `/refine` during #24): spaces are removed within each line of ML Kit's text before searching, for all three fields, and line breaks stay. `D051 669` reads as `051669`, and a space no longer stops a date. The three lines are checked in the order `Số vé`, `Tỉnh`, `Ngày`. Accepted risk: the number can take digits from the date on the same line, so `20-10-2026 871723` gives `202687` (backlog item 93). Revisit if #25's report shows it.
@@ -116,7 +119,6 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Build #25, the gate report, with `/work`.
 
 ## Open questions
 
