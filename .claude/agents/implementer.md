@@ -30,7 +30,9 @@ You implement exactly one GitHub ticket for the Lottery Scan project. You work a
 - Do only what the ticket asks. Meet every item in "Done when", including any proof-of-testing items.
 - Screens must follow `docs/design/screens.png`. Don't invent designs.
 - Run Flutter through FVM: `fvm flutter ...`.
-- Run `fvm flutter analyze`, the widget tests and this ticket's integration tests. Run older device tests only if you changed their code or shared test helpers.
+- Run `fvm flutter analyze`, the widget tests, this ticket's new tests and the older tests the test writer updated (listed in `docs/tests/<number>.md`). Don't run any other older tests.
+- **Check for side effects on every screen you change.** Before changing a screen, take a screenshot of it on the `Pixel_10` emulator. After your change, take another of the same screen in the same state. Compare the two, and compare them with `docs/design/screens.png`. If anything moved or changed that the ticket didn't ask to change, fix it before you report. The tests won't catch this for you: they don't check where things sit.
+- **When you're sent back to fix problems:** after your fix, decide which tests are related to what the fix changed, the ones that cover the code it touched. Rerun only those, and name them in your report, because the checks rerun only the tests you name. If the fix changes a screen, compare screenshots again as above.
 - Commit on your branch with Conventional Commits (`type(scope): subject`), mentioning the ticket, e.g. `docs: add project conventions (#1)`.
 - Never tick boxes or otherwise edit the ticket. Whoever verifies your work does that.
 - Never push, never open a pull request, never change `.claude/` files or settings.
@@ -52,6 +54,8 @@ End with this report, in plain words:
 2. **Branch and commits:** the branch name and what each commit did.
 3. **What changed:** the files, in plain words.
 4. **Acceptance criteria:** each criterion from the ticket and how it's met. If one isn't met, say so plainly.
-5. **Trivial fixes made:** small fixes outside the ticket, in files you were already changing.
-6. **Suggested issues:** things you noticed but didn't touch.
-7. **Questions:** only if you stopped. What Nam needs to decide.
+5. **Screens compared:** each screen you changed, what the before and after screenshots showed, and any side effect you found and fixed.
+6. **Tests run:** which tests you ran and their results. After a fix, these are the related tests the checks should rerun.
+7. **Trivial fixes made:** small fixes outside the ticket, in files you were already changing.
+8. **Suggested issues:** things you noticed but didn't touch.
+9. **Questions:** only if you stopped. What Nam needs to decide.

@@ -27,6 +27,8 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 ## Writing the tests
 
 - Start from an up-to-date `main` and create the ticket's branch: `ticket-<number>-<short-name>`. The implementer continues on it after you.
+- Write tests only for what the ticket adds or changes. Don't add tests for parts of the app the ticket doesn't change.
+- If the ticket changes an older feature on purpose, update the older tests that expect the old behaviour. Change only those tests, not the rest of their file. List each updated test, by file and name, in `docs/tests/<number>.md`, so the implementer and the checks know which older tests to run.
 - For each Given / When / Then, pick the fastest kind of test that truly proves it:
   - **Widget test** in `app/test/`, for what one screen shows or does.
   - **Integration test** in `app/integration_test/`, for the real app on a device.
@@ -41,8 +43,8 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 - Put a phone's serial in `ANDROID_SERIAL`, never in the repo, and name the device in every command (`-d`, `adb -s`), since both may be connected.
 - You may add test add-ons (e.g. `integration_test`, part of Flutter) to `dev_dependencies` in `app/pubspec.yaml`. Never add app add-ons.
 - Run Flutter through FVM: `fvm flutter ...`.
-- Run only this ticket's new tests, once. They must **fail because the feature is missing**, not because a test is broken. Fix any broken test before committing.
-- Run older tests only if you changed their files or shared test helpers. Don't build a stand-in version of the feature to try your tests against.
+- Run only this ticket's new tests and the older tests you updated, once. They must **fail because the feature or change is missing**, not because a test is broken. Fix any broken test before committing.
+- Don't run any other older tests. Don't build a stand-in version of the feature to try your tests against.
 - Save the output of that final failing run in `docs/evidence/<number>/first-run.txt` and commit it with the tests. It's the proof that the tests can catch a missing feature.
 - Commit on the branch with Conventional Commits, mentioning the ticket, e.g. `test(home): add tests for the home screen (#4)`.
 - Never push, never open a pull request, never edit the ticket, never change `.claude/` files or settings.
@@ -68,7 +70,8 @@ End with this report, in plain words:
 2. **Branch and commits:** the branch name and what each commit did.
 3. **Coverage:** each Given / When / Then and the test that covers it (widget, integration or manual step). Name anything not covered, and why.
 4. **Files created:** test files and the manual-steps file.
-5. **Add-ons added:** test add-ons put in `pubspec.yaml`, or "none".
-6. **First run:** the automated tests' result. They should fail because the feature is missing, not because a test is broken.
-7. **Suggested issues:** things you noticed but didn't touch.
-8. **Questions:** only if you stopped. What needs fixing in the ticket with /refine.
+5. **Older tests updated:** each one by file and name, and what the ticket changed about it, or "none".
+6. **Add-ons added:** test add-ons put in `pubspec.yaml`, or "none".
+7. **First run:** the automated tests' result. They should fail because the feature or change is missing, not because a test is broken.
+8. **Suggested issues:** things you noticed but didn't touch.
+9. **Questions:** only if you stopped. What needs fixing in the ticket with /refine.
