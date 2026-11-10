@@ -1,0 +1,196 @@
+# device: emulator-5554 (Pixel_10 emulator)
+# command: fvm flutter drive -d emulator-5554 --driver=integration_test/camera_start_driver.dart --target=integration_test/camera_start_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              7.1s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        1,205ms
+I/ham.lotteryscan(26048): Compiler allocated 5303KB to compile void android.view.ViewRootImpl.performTraversals(long)
+I/Choreographer(26048): Skipped 98 frames!  The application may be doing too much work on its main thread.
+D/WindowLayoutComponentImpl(26048): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@e7e7858, of which baseContext=android.app.ContextImpl@237fa70
+D/FlutterJNI(26048): Sending viewport metrics to the engine.
+I/HWUI    (26048): Using FreeType backend (prop=Auto)
+I/ham.lotteryscan(26048): Background concurrent mark compact GC freed 3239KB AllocSpace bytes, 4(160KB) LOS objects, 49% free, 2845KB/5691KB, paused 633us,5.009ms total 36.571ms
+00:00 [32m+0[0m: (setUpAll)[0m
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:57043/ZRuCvxVkirc=/
+VMServiceFlutterDriver: Isolate found with number: 8078913916296235
+VMServiceFlutterDriver: Isolate 8078913916296235 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/Choreographer(26048): Skipped 121 frames!  The application may be doing too much work on its main thread.
+VMServiceFlutterDriver: Connected to Flutter application.
+00:02 [32m+0[0m: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up[0m
+
+D/FlutterJNI(26048): Sending viewport metrics to the engine.
+D/ProfileInstaller(26048): Installing profile for com.nampham.lotteryscan
+00:10 [32m+0[0m[31m -1[0m: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up [1m[31m[E][0m[0m
+
+  SETUP: the home screen is not showing: Window{5d01569 u0 Application Not Responding: com.nampham.lotteryscan}
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 117:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 164:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17   given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 40:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:10 [32m+0[0m[31m -1[0m: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up[0m
+
+00:17 [32m+0[0m[31m -2[0m: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up [1m[31m[E][0m[0m
+
+  SETUP: the home screen is not showing: Window{5d01569 u0 Application Not Responding: com.nampham.lotteryscan}
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 117:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 164:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17   given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 51:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:17 [32m+0[0m[31m -2[0m: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds[0m
+
+00:24 [32m+0[0m[31m -3[0m: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds [1m[31m[E][0m[0m
+
+  SETUP: the home screen is not showing: Window{5d01569 u0 Application Not Responding: com.nampham.lotteryscan}
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 117:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 164:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17   given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 63:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:24 [32m+0[0m[31m -3[0m: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds[0m
+
+00:30 [32m+0[0m[31m -4[0m: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds [1m[31m[E][0m[0m
+
+  SETUP: the home screen is not showing: Window{5d01569 u0 Application Not Responding: com.nampham.lotteryscan}
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/driven_app.dart 132:3     givenCameraScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 117:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 164:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17   given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 75:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:30 [32m+0[0m[31m -4[0m: Camera won't start Given the home screen shows and the camera fails to start for a reason other than refused access, when "Quét vé" is tapped, then the home screen stays and shows the note "Lỗi camera, thử lại", which fades after about 3 seconds[0m
+
+00:37 [32m+0[0m[31m -5[0m: Camera won't start Given the home screen shows and the camera fails to start for a reason other than refused access, when "Quét vé" is tapped, then the home screen stays and shows the note "Lỗi camera, thử lại", which fades after about 3 seconds [1m[31m[E][0m[0m
+
+  SETUP: the home screen is not showing: Window{5d01569 u0 Application Not Responding: com.nampham.lotteryscan}
+
+  package:matcher/src/expect/expect.dart 187:31      fail
+  integration_test/helpers/driven_app.dart 118:3     givenHomeScreen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 68:3    givenHomeScreenWithCameraAllowed
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 87:7     main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 253:15  Declarer.test.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/declarer.dart 250:11  Declarer.test.<fn>
+  ===== asynchronous gap ===========================
+  package:test_api/src/backend/invoker.dart 318:9    Invoker._waitForOutstandingCallbacks.<fn>
+
+
+00:37 [32m+0[0m[31m -5[0m: (tearDownAll)[0m
+
+00:37 [32m+0[0m[31m -5[0m: [31mSome tests failed.[0m
+
+
+
+[31mFailing tests:[0m
+
+  .: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up
+
+  .: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up
+
+  .: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+
+  .: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+
+  .: Camera won't start Given the home screen shows and the camera fails to start for a reason other than refused access, when "Quét vé" is tapped, then the home screen stays and shows the note "Lỗi camera, thử lại", which fades after about 3 seconds
+
+
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+
+Unhandled exception:
+Dummy exception to set exit code.
+# exit: 1

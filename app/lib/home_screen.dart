@@ -6,7 +6,7 @@ import 'shared/open_camera.dart';
 const _scanButtonBlue = Color(0xFF1A5FA6);
 const _scanButtonSize = 230.0;
 
-// The note sits in the bottom quarter, as it does on the camera screen.
+// The note sits a quarter of the screen up from the bottom, as it does on the camera screen.
 const _noteBottom = 0.25;
 
 /// Sketch 1: the title, the line under it and the round "Quét vé" button. When
@@ -77,14 +77,17 @@ class _HomeScreenState extends State<HomeScreen> {
             width: double.infinity,
             child: Stack(
               children: [
-                const Column(
-                  children: [
-                    Spacer(flex: 5),
-                    _HomeHeading(),
-                    Spacer(flex: 4),
-                    ScanButton(),
-                    Spacer(flex: 6),
-                  ],
+                // Fill the whole screen so the column is full width and centred.
+                const Positioned.fill(
+                  child: Column(
+                    children: [
+                      Spacer(flex: 5),
+                      _HomeHeading(),
+                      Spacer(flex: 4),
+                      ScanButton(),
+                      Spacer(flex: 6),
+                    ],
+                  ),
                 ),
                 if (_noteCount > 0)
                   Positioned(
