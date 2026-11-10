@@ -3,17 +3,20 @@ import 'package:test/test.dart';
 
 import 'helpers/driven_app.dart';
 import 'helpers/photo_screen.dart';
+import 'helpers/ticket_text.dart';
 
-// Integration tests for ticket #10, changed by ticket #18, on the Pixel_10
-// emulator. They run on the Mac, because only the Mac can read the kept photo,
-// compare it with the screen, turn the emulator's camera and put two fingers on
-// the screen. They talk to the real app started from camera_app.dart. Run them
-// from app/:
+// Integration tests for ticket #10, changed by tickets #18 and #24, on the
+// Pixel_10 emulator. They run on the Mac, because only the Mac can read the kept
+// photo, compare it with the screen, turn the emulator's camera and put two
+// fingers on the screen. They talk to the real app started from
+// ticket_text_app.dart, where the tests decide what ML Kit reads: since ticket
+// #24, a photo of the emulator's room would open screen 4d, which has no photo.
+// Run them from app/:
 //
 //   export ANDROID_SERIAL=emulator-5554
 //   fvm flutter drive -d "$ANDROID_SERIAL" \
 //     --driver=integration_test/photo_screen_driver.dart \
-//     --target=integration_test/camera_app.dart
+//     --target=integration_test/ticket_text_app.dart
 //
 // Each test starts from the home screen, so they can run one at a time. Don't
 // touch the emulator during a run.
@@ -26,6 +29,8 @@ void main() {
   tearDownAll(() async {
     await driver.close();
   });
+
+  setUp(holdReads);
 
   group('Taking the photo', () {
     test('Given the camera screen is open, when the person taps the shutter, '
@@ -63,7 +68,8 @@ void main() {
       await expectScreenShows(photo);
     }, timeout: testTimeout);
 
-    // The text ticket #18 adds is tested in ticket_text_driver.dart.
+    // The lines ticket #24 shows below the photo are tested in
+    // ticket_fields_driver.dart.
     test('Given the photo screen is open, then it has no buttons', () async {
       await givenPhotoScreenOpen();
 

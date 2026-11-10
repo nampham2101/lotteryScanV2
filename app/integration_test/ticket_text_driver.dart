@@ -1,11 +1,14 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
+import 'helpers/app_screen.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_screen.dart';
+import 'helpers/ticket_fields.dart';
 import 'helpers/ticket_text.dart';
 
-// Integration tests for ticket #18, on the Pixel_10 emulator. They run on the
+// Integration tests for ticket #18, changed by ticket #24, on the Pixel_10
+// emulator. They run on the
 // Mac, because only the Mac can read the kept photo, compare it with the screen,
 // turn the emulator's camera and swipe on the screen. They talk to the real app
 // started from ticket_text_app.dart, where the tests decide what ML Kit answers
@@ -18,23 +21,24 @@ import 'helpers/ticket_text.dart';
 //
 // Each test starts from the home screen, so they can run one at a time. Don't
 // touch the emulator during a run.
+//
+// Since ticket #24 the screen shows three lines read from ML Kit's text in
+// place of the text itself, and 4d when a field is missing or the read fails.
+// The tests that expected ML Kit's own text, its scrolling, or "Không đọc được
+// vé" below the photo are replaced by ticket_fields_driver.dart.
 
-/// Accents, a repeated line, two spaces, and an order no sorting would give, so
-/// a tidied-up text doesn't match.
-const _ticketText =
-    'XỔ SỐ KIẾN THIẾT\n'
-    'BẾN TRE\n'
-    '05-11-2026  LOẠI VÉ 10.000Đ\n'
-    '123456\n'
-    'BẾN TRE';
-
-const _earlierText = 'ĐÀ LẠT\n654321';
-const _newText = 'BẠC LIÊU\n111222';
-
-/// More lines than any phone can show below the photo.
-final _longText = [
-  for (var line = 1; line <= 150; line++) 'Dòng thứ $line của vé',
-].join('\n');
+const _earlierText = 'ĐÀ LẠT\n654321\n24-11-2019';
+final _earlierLines = fieldLines(
+  number: '654321',
+  province: 'Đà Lạt',
+  date: '24-11-2019',
+);
+const _newText = 'BẠC LIÊU\n111222\n20-10-2026';
+final _newLines = fieldLines(
+  number: '111222',
+  province: 'Bạc Liêu',
+  date: '20-10-2026',
+);
 
 void main() {
   setUpAll(() async {
@@ -63,23 +67,12 @@ void main() {
       expect((await readerReport()).reads.single.isFinished, isFalse);
     }, timeout: testTimeout);
 
-    test('Given "Đang đọc vé..." is showing, when ML Kit finishes and has '
-        'found text, then "Đang đọc vé..." goes away and ML Kit\'s text value '
-        'shows below the photo, exactly as ML Kit gives it, with the same line '
-        'breaks and order', () async {
-      final photo = await givenReadingShows();
-
-      await finishRead(0, _ticketText);
-
-      await expectOnlyTextIs(_ticketText);
-      await expectScreenShows(photo);
-      await expectReadWasOfKeptPhoto(0);
-      await expectNoAppErrors();
-    }, timeout: testTimeout);
-
+    // Changed by ticket #24: what shows after the read is the three lines or
+    // screen 4d. The test doesn't decide what the room reads, so it accepts
+    // either, but an empty text must give 4d.
     test('Given a photo taken in the app, when real ML Kit reads it, then the '
-        'read works and the screen shows exactly what ML Kit gave, or "Không '
-        'đọc được vé" if the text it gave is empty', () async {
+        'read works and the screen shows the three lines below the photo, or '
+        'screen 4d, and 4d if the text it gave is empty', () async {
       await useRealReader();
       await givenCameraScreenOpen();
 
@@ -91,56 +84,26 @@ void main() {
         isNotNull,
         reason: 'real ML Kit did not give an answer: ${read.failure}',
       );
-      final text = read.text!;
-      await expectOnlyTextIs(text.isEmpty ? couldNotReadText : text);
-      await expectScreenShows(await keptPhotoSince(tappedAt));
+      final photo = await keptPhotoSince(tappedAt);
       await expectReadWasOfKeptPhoto(0);
-      await expectNoAppErrors();
-    }, timeout: testTimeout);
-  });
+      var screen = await appScreen();
+      bool showsLines(AppScreen screen) {
+        final lines = shownLines(screen);
+        return lines.length == 3 &&
+            lines[0].startsWith(numberLabel) &&
+            lines[1].startsWith(provinceLabel) &&
+            lines[2].startsWith(dateLabel);
+      }
 
-  group('Long text', () {
-    test('Given the text is longer than the space below the photo, when the '
-        'person swipes on the text, then the text scrolls to its last line and '
-        'the photo stays in place', () async {
-      final photo = await givenReadingShows();
-      await finishRead(0, _longText);
-      final start = await scrollingTextArea();
-      expect(start.isAtEnd, isFalse, reason: 'the text must start at its top');
-      final place = await photoPlaceNow(photo);
-
-      final end = await swipeToEndOfText();
-
-      expect(end.position, greaterThan(start.position));
-      expect(end.isAtEnd, isTrue, reason: 'the text did not reach its end');
-      expect((await appScreen()).shows('Dòng thứ 150 của vé'), isTrue);
-      await expectPhotoStaysAt(photo, place);
-      await expectNoAppErrors();
-    }, timeout: testTimeout);
-  });
-
-  group('Failure cases', () {
-    test('Given a photo with no readable text, when ML Kit finishes, then '
-        '"Không đọc được vé" shows below the photo and "Đang đọc vé..." is '
-        'gone', () async {
-      final photo = await givenReadingShows();
-
-      await finishRead(0, '');
-
-      await expectOnlyTextIs(couldNotReadText);
-      await expectScreenShows(photo);
-      await expectNoAppErrors();
-    }, timeout: testTimeout);
-
-    test('Given ML Kit\'s read fails, when the failure comes back, then '
-        '"Không đọc được vé" shows below the photo and "Đang đọc vé..." is '
-        'gone', () async {
-      final photo = await givenReadingShows();
-
-      await failRead(0);
-
-      await expectOnlyTextIs(couldNotReadText);
-      await expectScreenShows(photo);
+      await waitUntil(() async {
+        screen = await appScreen();
+        return showsLines(screen) || is4d(screen);
+      });
+      if (read.text!.isEmpty || !showsLines(screen)) {
+        await expect4dShows(photo);
+      } else {
+        await expectScreenShows(photo);
+      }
       await expectNoAppErrors();
     }, timeout: testTimeout);
   });
@@ -166,7 +129,7 @@ void main() {
         'finishes afterwards', () {
       return expectLeavingWhileReadingGoesHome(
         goBack: phone.pressBackButton,
-        endRead: () => finishRead(0, _ticketText),
+        endRead: () => finishRead(0, fullTicketText),
       );
     }, timeout: testTimeout);
 
@@ -175,7 +138,7 @@ void main() {
         'afterwards', () {
       return expectLeavingWhileReadingGoesHome(
         goBack: useBackGesture,
-        endRead: () => finishRead(0, _ticketText),
+        endRead: () => finishRead(0, fullTicketText),
       );
     }, timeout: testTimeout);
 
@@ -191,8 +154,8 @@ void main() {
     test('Given the text is showing, when the person presses back and taps '
         '"Quét vé", then the camera opens as normal', () async {
       await givenReadingShows();
-      await finishRead(0, _ticketText);
-      await expectOnlyTextIs(_ticketText);
+      await finishRead(0, fullTicketText);
+      await expectOnlyLinesAre(fullTicketLines);
 
       await phone.pressBackButton();
       await expectHomeScreenShows();
@@ -209,13 +172,13 @@ void main() {
       addTearDown(phone.turnCameraBack);
       final earlierPhoto = await givenReadingShows();
       await finishRead(0, _earlierText);
-      await expectOnlyTextIs(_earlierText);
+      await expectOnlyLinesAre(_earlierLines);
 
       final newPhoto = await leaveAndTakeNewPhoto();
 
       await expectScreenDoesNotShow(earlierPhoto);
       await finishRead(1, _newText);
-      await expectOnlyTextIs(_newText);
+      await expectOnlyLinesAre(_newLines);
       await expectScreenShows(newPhoto);
       await expectScreenDoesNotShow(earlierPhoto);
       await expectReadWasOfKeptPhoto(1);
@@ -234,7 +197,7 @@ void main() {
       await expectOnlyTextStays(readingText);
       await expectScreenShows(newPhoto);
       await finishRead(1, _newText);
-      await expectOnlyTextIs(_newText);
+      await expectOnlyLinesAre(_newLines);
       await expectScreenShows(newPhoto);
       await expectScreenDoesNotShow(earlierPhoto);
       await expectNoAppErrors();
@@ -248,10 +211,10 @@ void main() {
 
       final newPhoto = await leaveAndTakeNewPhoto();
       await finishRead(1, _newText);
-      await expectOnlyTextIs(_newText);
+      await expectOnlyLinesAre(_newLines);
       await finishRead(0, _earlierText);
 
-      await expectOnlyTextStays(_newText);
+      await expectOnlyLinesStay(_newLines);
       await expectScreenShows(newPhoto);
       await expectScreenDoesNotShow(earlierPhoto);
       await expectNoAppErrors();
@@ -268,7 +231,7 @@ void main() {
 
       await expectOnlyTextStays(readingText);
       await finishRead(1, _newText);
-      await expectOnlyTextIs(_newText);
+      await expectOnlyLinesAre(_newLines);
       await expectScreenShows(newPhoto);
       await expectNoAppErrors();
     }, timeout: testTimeout);
