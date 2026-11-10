@@ -17,7 +17,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 | 4 | Show the taken photo on screen | — | done (#10, PR #13) |
 | 5 | Mark where each field sits on the ticket (ticket number, date, province), per province if layouts differ | The four ticket photos, and which area holds which field | done (#14, PR #15) |
 | 7 | Show the taken photo and the text ML Kit reads from it on a temporary screen | — | done (#18, PR #19) |
-| 6 | After item 7: read the three fields from those areas; check against the four saved photos. Split: the first part, seeing what ML Kit reads on the photos, is #16; the rest gets refined from its results and from comparing them with photos taken in the app (item 7) | The correct values for the four photos | not refined (first part done: #16, PR #17) |
+| 6 | After item 7: read the three fields from those areas; check against the four saved photos. Split: the first part, seeing what ML Kit reads on the photos, is #16; the rest gets refined from its results and from comparing them with photos taken in the app (item 7) | The correct values for the four photos | first part done (#16, PR #17); rest posted (#24 read the three fields, #25 gate report) |
 
 **Go / no-go:** all three fields read correctly on the four saved photos **and** when scanning real tickets through the app. If no-go, stop and rethink (another library, native app, or another option).
 
