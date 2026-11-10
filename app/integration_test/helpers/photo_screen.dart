@@ -5,11 +5,14 @@ import 'app_screen.dart';
 import 'driven_app.dart';
 import 'phone.dart';
 import 'shown_photo.dart';
+import 'ticket_fields.dart';
+import 'ticket_text.dart';
 
-// Shared by the tests for tickets #10 and #18: what the photo screen is, how a
-// photo gets there, and what a person's fingers do to it. The tickets leave open
-// how that screen is built, so it's recognised the way a person recognises it:
-// words about the reading, no buttons, and the photo that was just taken.
+// Shared by the tests for tickets #10, #18 and #24: what the photo screen is,
+// how a photo gets there, and what a person's fingers do to it. The tickets
+// leave open how that screen is built, so it's recognised the way a person
+// recognises it: words about the reading, no buttons, and the photo that was
+// just taken.
 
 const readingText = 'Đang đọc vé...';
 const couldNotReadText = 'Không đọc được vé';
@@ -24,7 +27,7 @@ const _picturesStillTheSame = 20;
 /// Time for a zoom animation to finish.
 const _gestureSettleTime = Duration(seconds: 1);
 
-/// Words show on it the whole time: the reading, what was read, or the failure.
+/// Words show on it the whole time: the reading, then the ticket's three lines.
 bool _looksLikePhotoScreen(AppScreen screen) =>
     screen.texts.isNotEmpty &&
     screen.buttons.isEmpty &&
@@ -121,13 +124,17 @@ Future<img.Image> givenPhotoTaken() async {
 
 /// Given: a photo was just taken and has been read, so nothing on the screen
 /// changes by itself any more. Returns the photo.
+///
+/// Since ticket #24 a read with no ticket in it opens screen 4d, which has no
+/// photo, so the test chooses a read that finds all three fields: the photo
+/// screen stays, with the three lines below the photo. This needs the app
+/// started from ticket_text_app.dart, with the reads held.
 Future<img.Image> givenPhotoScreenOpen() async {
   final photo = await givenPhotoTaken();
-  expect(
-    await waitUntil(() async => !(await appScreen()).shows(readingText)),
-    isTrue,
-    reason: '"$readingText" did not go away',
-  );
+  await expectReadAsked(0);
+  final latestRead = (await readerReport()).reads.length - 1;
+  await finishRead(latestRead, fullTicketText);
+  await expectOnlyLinesAre(fullTicketLines);
   return photo;
 }
 

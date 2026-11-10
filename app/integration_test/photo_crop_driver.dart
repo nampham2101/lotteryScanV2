@@ -4,9 +4,11 @@ import 'package:test/test.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_crop.dart';
 import 'helpers/photo_screen.dart';
+import 'helpers/ticket_fields.dart';
 import 'helpers/ticket_text.dart';
 
-// Integration tests for ticket #22, on the Pixel_10 emulator. They run on the
+// Integration tests for ticket #22, changed by ticket #24, on the Pixel_10
+// emulator. They run on the
 // Mac, because only the Mac can take screenshots of the camera screen, read the
 // kept photo, look through the app's folders and the gallery, and turn the
 // emulator's camera. They talk to the real app started from photo_crop_app.dart,
@@ -21,15 +23,16 @@ import 'helpers/ticket_text.dart';
 // Each test starts from the home screen, so they can run one at a time. Don't
 // touch the emulator during a run.
 
-/// Accents, a repeated line and two spaces, so a tidied-up text doesn't match.
-const _ticketText =
-    'XỔ SỐ KIẾN THIẾT\n'
-    'BẾN TRE\n'
-    '05-11-2026  LOẠI VÉ 10.000Đ\n'
-    '123456\n'
-    'BẾN TRE';
+// Since ticket #24 the screen shows three lines read from ML Kit's text in
+// place of the text itself, so the reads below give texts with all three
+// fields and the tests expect those lines.
 
-const _newText = 'BẠC LIÊU\n111222';
+const _newText = 'BẠC LIÊU\n111222\n20-10-2026';
+final _newLines = fieldLines(
+  number: '111222',
+  province: 'Bạc Liêu',
+  date: '20-10-2026',
+);
 
 void main() {
   setUpAll(() async {
@@ -63,9 +66,11 @@ void main() {
       expect((await readerReport()).reads.single.isFinished, isFalse);
     }, timeout: testTimeout);
 
-    test('Given "Đang đọc vé..." is showing, when ML Kit finishes, then the '
-        'text it read from the cropped photo shows below it, exactly as ML '
-        'Kit gives it', () async {
+    // Changed by ticket #24: the three lines read from ML Kit's text show in
+    // place of the text itself.
+    test('Given "Đang đọc vé..." is showing, when ML Kit finishes, then what '
+        'it read from the cropped photo shows below it, as the three lines of '
+        'ticket #24', () async {
       final seen = await givenCameraScreenWithFrame();
       final tappedAt = await tapShutter();
       await expectPhotoScreenOpensWithoutHome();
@@ -73,9 +78,9 @@ void main() {
       final photo = await croppedPhotoKeptSince(tappedAt, seen);
       await expectReadAsked(0);
 
-      await finishRead(0, _ticketText);
+      await finishRead(0, fullTicketText);
 
-      await expectOnlyTextIs(_ticketText);
+      await expectOnlyLinesAre(fullTicketLines);
       await expectReadWasOfKeptPhoto(0);
       await expectScreenShows(photo);
       await expectNoAppErrors();
@@ -141,8 +146,8 @@ void main() {
       // the latest one.
       await expectReadAsked(0);
       final read = (await readerReport()).reads.length - 1;
-      await finishRead(read, _ticketText);
-      await expectOnlyTextIs(_ticketText);
+      await finishRead(read, fullTicketText);
+      await expectOnlyLinesAre(fullTicketLines);
       await expectReadWasOfKeptPhoto(read);
       await expectNoAppErrors();
     }, timeout: testTimeout);
@@ -178,7 +183,7 @@ void main() {
       await expectScreenDoesNotShow(earlierPhoto);
       await expectReadAsked(1);
       await finishRead(1, _newText);
-      await expectOnlyTextIs(_newText);
+      await expectOnlyLinesAre(_newLines);
       await expectScreenShows(newPhoto);
       await expectScreenDoesNotShow(earlierPhoto);
       await expectReadWasOfKeptPhoto(1);

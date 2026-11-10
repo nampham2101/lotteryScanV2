@@ -1,10 +1,10 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 import 'photo_screen.dart';
+import 'shared/fading_note.dart';
 import 'shared/ticket_photo.dart';
 
 const _screenBackground = Color(0xFF222222);
@@ -21,8 +21,6 @@ const _shutterCenterFromBottom = 0.13;
 
 // The error note sits in the bottom third, above the shutter.
 const _noteBottom = 0.25;
-const _noteShownFor = Duration(seconds: 3);
-const _noteFade = Duration(milliseconds: 600);
 
 /// Sketch 2: the live camera picture inside a dashed frame, with a round
 /// shutter button. It takes a camera that is already running, so it only opens
@@ -123,7 +121,10 @@ class _CameraScreenState extends State<CameraScreen> {
                     bottom: screen.maxHeight * _noteBottom,
                     left: 24,
                     right: 24,
-                    child: _CropFailedNote(key: ValueKey(_noteCount)),
+                    child: FadingNote(
+                      key: ValueKey(_noteCount),
+                      text: 'Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác',
+                    ),
                   ),
                 Positioned(
                   bottom:
@@ -219,64 +220,6 @@ class _ShutterButton extends StatelessWidget {
             color: const Color(0xFF8A8A82),
             border: Border.all(color: const Color(0xFFF0EDE6), width: 5),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-/// The short note after a failed crop. It fades in, stays a few seconds, then
-/// fades out and leaves the tree. A new note gets a new key, so it starts over.
-class _CropFailedNote extends StatefulWidget {
-  const _CropFailedNote({super.key});
-
-  @override
-  State<_CropFailedNote> createState() => _CropFailedNoteState();
-}
-
-class _CropFailedNoteState extends State<_CropFailedNote> {
-  bool _isVisible = false;
-  bool _isGone = false;
-  Timer? _fadeOutTimer;
-
-  @override
-  void initState() {
-    super.initState();
-    // One frame later, so the fade in has something to start from.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      setState(() => _isVisible = true);
-      _fadeOutTimer = Timer(_noteShownFor, () {
-        if (mounted) setState(() => _isVisible = false);
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _fadeOutTimer?.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_isGone) return const SizedBox.shrink();
-    return AnimatedOpacity(
-      opacity: _isVisible ? 1 : 0,
-      duration: _noteFade,
-      onEnd: () {
-        if (!_isVisible) setState(() => _isGone = true);
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          color: const Color(0xFF444444),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: const Text(
-          'Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16, color: Colors.white),
         ),
       ),
     );

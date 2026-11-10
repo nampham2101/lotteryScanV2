@@ -3,15 +3,17 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
+import 'cant_read_screen.dart';
+import 'shared/ticket_fields.dart';
 import 'shared/ticket_reader.dart';
 
 const _readingLabel = 'Đang đọc vé...';
-const _couldNotReadLabel = 'Không đọc được vé';
 const _textStyle = TextStyle(fontSize: 16, color: Colors.white);
 
-/// Temporary screen with no sketch: the newest photo on top, whole, and what
-/// ML Kit reads from it below. The phone's back closes it, which shows the
-/// home screen.
+/// Temporary screen with no sketch: the newest photo on top, whole, and below
+/// it the ticket's number, province and date, read from ML Kit's text.
+/// When a field is missing or the read fails, it is replaced by screen 4d. The
+/// phone's back closes it, which shows the home screen.
 class PhotoScreen extends StatefulWidget {
   const PhotoScreen({required this.photoBytes, required this.photo, super.key});
 
@@ -25,8 +27,8 @@ class PhotoScreen extends StatefulWidget {
 }
 
 class _PhotoScreenState extends State<PhotoScreen> {
-  // Null while reading. Empty when nothing was read or the read failed.
-  String? _text;
+  // Null while reading.
+  TicketFields? _fields;
 
   @override
   void initState() {
@@ -35,20 +37,29 @@ class _PhotoScreenState extends State<PhotoScreen> {
   }
 
   Future<void> _read() async {
-    String text;
+    TicketFields? fields;
     try {
-      text = await readTicketText(widget.photo);
+      fields = readTicketFields(await readTicketText(widget.photo));
     } on Object {
-      text = '';
+      fields = null;
     }
     // The person may have left, or taken a new photo with its own screen.
-    if (!mounted) return;
-    setState(() => _text = text);
+    // After back, this screen stays mounted while it closes, but it is no
+    // longer the current route, and replacing "the top screen" would replace
+    // the home screen instead.
+    if (!mounted || ModalRoute.of(context)?.isCurrent != true) return;
+    if (fields == null) {
+      await Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(builder: (_) => const CantReadScreen()),
+      );
+      return;
+    }
+    setState(() => _fields = fields);
   }
 
   @override
   Widget build(BuildContext context) {
-    final text = _text;
+    final fields = _fields;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -73,11 +84,11 @@ class _PhotoScreenState extends State<PhotoScreen> {
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(16),
                   child: Text(
-                    text == null
+                    fields == null
                         ? _readingLabel
-                        : text.isEmpty
-                        ? _couldNotReadLabel
-                        : text,
+                        : 'Số vé: ${fields.number}\n'
+                              'Tỉnh: ${fields.province}\n'
+                              'Ngày: ${fields.date}',
                     style: _textStyle,
                   ),
                 ),

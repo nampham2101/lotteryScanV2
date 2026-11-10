@@ -33,6 +33,7 @@ flowchart LR
     D6["ML Kit test ✅<br/>ticket #16, PR #17"]
     D7["Text under the photo ✅<br/>ticket #18, PR #19"]
     D8["Crop to the frame ✅<br/>ticket #22, PR #23"]
+    D9["Read the three fields ✅<br/>ticket #24, PR #26"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -49,15 +50,19 @@ flowchart LR
 
 ## Latest session (2026-11-10)
 
-- The rest of backlog item 6 was refined and split into two tickets, not posted yet. Ticket 1 reads the three fields from ML Kit's text and shows them, or shows sketch 4d, and test cases are needed. Ticket 2 is the gate report on the four saved photos (`Pixel_10`) and the same four paper tickets scanned through the app (Pixel 7). It's report only, comes after ticket 1, and needs no test cases. Neither covers the retake option, result screens 4a–4c, winning results, the camera frame or matching `Lam Dong`.
+- #24 merged (PR #26): after the shutter, the temporary screen shows `Số vé`, `Tỉnh` and `Ngày`, read from ML Kit's text by regex, in place of the raw text. A missing field, no text or a failed read shows screen 4d as sketched, and "Thử lại" and back open the camera. If the camera won't start, they go home with the "Cần dùng camera" pop-up when access is refused, or with a fading note "Lỗi camera, thử lại" for any other failure, and "Quét vé" shows the same note. `docs/TICKET-READING.md` is rewritten for the rule, and backlog items 40, 41, 42 and 45 are closed. All final runs passed on the last code: #24's 27 tests and #4, #5, #9, #10, #18 and #22 on `Pixel_10`, and #8's 12 on the Pixel 7 held by Nam. 4d matches sketch 4d. Five reviews and four fix rounds: the 4d trap, copied camera code, lookalike letters, a phone with no camera, the home screen going off-centre (found by `/work` on a screenshot), and back during a read removing home. Backlog items 91–103 added.
+- Decision (in `/refine` during #24): spaces are removed within each line of ML Kit's text before searching, for all three fields, and line breaks stay. `D051 669` reads as `051669`, and a space no longer stops a date. The three lines are checked in the order `Số vé`, `Tỉnh`, `Ngày`. Accepted risk: the number can take digits from the date on the same line, so `20-10-2026 871723` gives `202687` (backlog item 93). Revisit if #25's report shows it.
+- Decision (in `/refine` during #24): when the camera won't start from 4d, "Thử lại" and back go home. Refused access shows the "Cần dùng camera" pop-up, and any other failure shows "Lỗi camera, thử lại" as a note that fades after about 3 seconds, like the crop note. "Quét vé" on home shows the same note. The note has no sketch; Nam agreed it in `/refine`.
+- Decision: Nam allowed #24 a fourth fix round, one past the limit, for back during a read removing home. Nam accepted two gaps without a fix: round 1 overwrote the first build's test logs (backlog item 101), and the home note probably covers the bottom of the "Quét vé" button, with an out-of-date code comment (backlog items 91 and 92). Revisit item 91 with item 74, the note's look.
+- The rest of backlog item 6 was refined and split into two tickets, both posted unassigned: #24 and #25. #24 reads the three fields from ML Kit's text and shows them, or shows sketch 4d, and test cases are needed. #25 is the gate report on the four saved photos (`Pixel_10`) and the same four paper tickets scanned through the app (Pixel 7). It's report only, comes after #24, and needs no test cases. Neither covers the retake option, result screens 4a–4c, winning results, the camera frame or matching `Lam Dong`.
 - Nam's in-app comparison is done. On the Bạc Liêu ticket 871723, ML Kit read the province, the date and a correct number, but the number came from the small copy at the top left. The big number came through only as `8`, and the right-hand small copy read `C871733`.
-- Decision: the fields come from ML Kit's text alone, not from where they sit on the ticket. The area rule and finding the ticket's edges are dropped. Ticket 1 rewrites `docs/TICKET-READING.md` and closes backlog items 40, 41, 42 and 45.
+- Decision: the fields come from ML Kit's text alone, not from where they sit on the ticket. The area rule and finding the ticket's edges are dropped. #24 rewrites `docs/TICKET-READING.md` and closes backlog items 40, 41, 42 and 45.
 - Decision: the reading rule, all by regex.
   - **Number:** the first six digits in a row, ignoring letters around them. A longer run gives its first six.
   - **Province:** the first of Nam's 21 names found in the text, with accents removed, case ignored and Đ read as D, even when glued to other text. Đà Lạt matches `Da Lat` and TP. Hồ Chí Minh matches `Ho Chi Minh`. The screen shows the name with its accents.
   - **Date:** the first exact `DD-MM-YYYY`. Spaces or a missing dash mean no match.
 - Decision: the temporary screen shows `Số vé: …`, then `Tỉnh: …`, then `Ngày: …` in place of ML Kit's text. If any field is missing, or the read fails, sketch 4d shows exactly as sketched. Both "Thử lại" and the phone's back button go to the camera screen. This replaces the earlier "couldn't read plus the failed field names".
-- Accepted risk: when ML Kit reads a wrong copy first, the app shows a wrong value. On #16's reads, IMG_5904 is expected to read as Cần Thơ, because the printer's line "…CẦN THƠ" comes before `VINH LONG`. Nam's answer for a wrong number is a retake option, as its own ticket (backlog item 90). Revisit if ticket 2's report shows wrong values.
+- Accepted risk: when ML Kit reads a wrong copy first, the app shows a wrong value. On #16's reads, IMG_5904 is expected to read as Cần Thơ, because the printer's line "…CẦN THƠ" comes before `VINH LONG`. Nam's answer for a wrong number is a retake option, as its own ticket (backlog item 90). Revisit if #25's report shows wrong values.
 
 - #22 merged (PR #23): after the shutter, the photo is cropped to the middle square the dashed frame shows. ML Kit reads it, the temporary screen shows it, and it's the only photo kept. The camera's own copy is always deleted, and the crop strips the camera's metadata (EXIF), which can hold a small copy of the whole picture. A failed crop keeps the camera screen and shows "Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác" for about 3 seconds. #22's 7 tests passed on `Pixel_10`. Because the ticket changed camera and photo code, #5's, #9's, #10's and #18's tests passed on `Pixel_10`, and #8's 12 on the Pixel 7. On a real Bạc Liêu ticket on the Pixel 7, the photo matched the frame, a pen just above the frame didn't show, and the ticket's words showed below. Three reviews: the first found the EXIF thumbnail and a half-saved photo on a failed save, and the second found #16's ML Kit runner deleted by mistake. All were fixed. Backlog items 74–89 added.
 - Decision: Nam allowed `/work` two rounds over the 3-round limit, both for run problems with no code fix. Round 3 went on #8's camera tests, which all failed in setup because Android Studio was mirroring the Pixel 7 (backlog item 80). Rounds 4 and 5 went on the real-ticket step, where the shutter was tapped before the "before" screenshot twice. What worked: Nam framed the shot, and `/work` took the screenshot and tapped the shutter over adb (backlog item 81). Revisit with backlog item 87, whether run problems should count as fix rounds.
@@ -110,7 +115,7 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Draft and post item 6's two refined tickets with `/ticket`.
+4. Build #25, the gate report, with `/work`.
 
 ## Open questions
 
@@ -118,4 +123,4 @@ flowchart LR
 
 ## Waiting on Nam
 
-- Confirm the crop-failure note's look, which has no sketch (backlog item 74).
+- Confirm the crop-failure note's look, which has no sketch (backlog item 74), and where the "Lỗi camera, thử lại" note sits on home (backlog item 91).

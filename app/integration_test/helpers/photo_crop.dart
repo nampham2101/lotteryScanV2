@@ -10,6 +10,7 @@ import 'phone.dart';
 import 'photo_hash.dart';
 import 'photo_screen.dart';
 import 'shown_photo.dart';
+import 'ticket_fields.dart';
 import 'ticket_text.dart';
 
 // Shared by the tests for ticket #22, which run on the Mac: how they give orders
@@ -18,8 +19,14 @@ import 'ticket_text.dart';
 
 const cropFailedNote = 'Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác';
 
-/// The text read from a photo kept before the one a test is about.
-const earlierText = 'ĐÀ LẠT\n654321';
+/// The text read from a photo kept before the one a test is about. It has all
+/// three fields, so since ticket #24 the photo screen shows them, not 4d.
+const earlierText = 'ĐÀ LẠT\n654321\n24-11-2019';
+final _earlierLines = fieldLines(
+  number: '654321',
+  province: 'Đà Lạt',
+  date: '24-11-2019',
+);
 
 /// "Fades after a few seconds": the note stays long enough to read, then goes
 /// away by itself. Watching takes a moment between looks, so the shortest
@@ -169,7 +176,7 @@ Future<img.Image> croppedPhotoKeptSince(double tappedAt, FrameSeen seen) async {
 Future<img.Image> givenPhotoKeptEarlier() async {
   final photo = await givenReadingShows();
   await finishRead(0, earlierText);
-  await expectOnlyTextIs(earlierText);
+  await expectOnlyLinesAre(_earlierLines);
   await phone.pressBackButton();
   await expectHomeScreenShows();
   return photo;

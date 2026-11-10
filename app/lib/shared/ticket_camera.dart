@@ -14,13 +14,15 @@ const _refusedCodes = {
 };
 
 /// Starts the back camera. This is where Android asks for camera access the
-/// first time. Returns null when the camera can't start, and throws
+/// first time. Returns null when the camera can't start for any other reason
+/// (including a phone with no camera), and throws
 /// [CameraAccessRefusedException] when access is refused, so the caller can
 /// tell the person.
 Future<CameraController?> startTicketCamera() async {
   CameraController? controller;
   try {
     final cameras = await availableCameras();
+    if (cameras.isEmpty) return null;
     final back = cameras.firstWhere(
       (camera) => camera.lensDirection == CameraLensDirection.back,
       orElse: () => cameras.first,
@@ -34,9 +36,15 @@ Future<CameraController?> startTicketCamera() async {
     );
     await controller.initialize();
     return controller;
-  } on CameraException catch (error) {
-    await controller?.dispose();
-    if (_refusedCodes.contains(error.code)) {
+  } catch (error) {
+    // Whatever went wrong, let the camera go. A phone with no camera at all
+    // lands here too (a StateError from the empty list).
+    try {
+      await controller?.dispose();
+    } catch (_) {
+      // Already gone: nothing more to let go of.
+    }
+    if (error is CameraException && _refusedCodes.contains(error.code)) {
       throw const CameraAccessRefusedException();
     }
     return null;
