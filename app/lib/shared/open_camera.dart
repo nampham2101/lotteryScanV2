@@ -44,7 +44,10 @@ Future<void> openTicketCamera(
       problem = CameraStartProblem.refused;
     }
     // The screen is gone, so there is no one to open the camera for or to tell.
-    if (!context.mounted) {
+    // A screen that is closing is still mounted but no longer current, and
+    // replacing or closing "the top screen" would hit the home screen.
+    if (!context.mounted ||
+        (replaceScreen && ModalRoute.of(context)?.isCurrent != true)) {
       await started?.dispose();
       return;
     }

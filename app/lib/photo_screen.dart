@@ -44,7 +44,10 @@ class _PhotoScreenState extends State<PhotoScreen> {
       fields = null;
     }
     // The person may have left, or taken a new photo with its own screen.
-    if (!mounted) return;
+    // After back, this screen stays mounted while it closes, but it is no
+    // longer the current route, and replacing "the top screen" would replace
+    // the home screen instead.
+    if (!mounted || ModalRoute.of(context)?.isCurrent != true) return;
     if (fields == null) {
       await Navigator.of(context).pushReplacement(
         MaterialPageRoute<void>(builder: (_) => const CantReadScreen()),
