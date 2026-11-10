@@ -33,6 +33,7 @@ flowchart LR
     D6["ML Kit test ✅<br/>ticket #16, PR #17"]
     D7["Text under the photo ✅<br/>ticket #18, PR #19"]
     D8["Crop to the frame ✅<br/>ticket #22, PR #23"]
+    D9["Read the three fields 🔄<br/>ticket #24, built, in review"]
     D3["Reading self-check script ⏳"]
   end
   D --> E
@@ -49,6 +50,7 @@ flowchart LR
 
 ## Latest session (2026-11-10)
 
+- Ticket #24 is built on its branch and waiting for review: the temporary screen shows `Số vé`, `Tỉnh` and `Ngày` from ML Kit's text, or screen 4d with "Thử lại" and back both opening the camera. `docs/TICKET-READING.md` is rewritten for the regex rule, and backlog items 40, 41, 42 and 45 are marked closed.
 - The rest of backlog item 6 was refined and split into two tickets, both posted unassigned: #24 and #25. #24 reads the three fields from ML Kit's text and shows them, or shows sketch 4d, and test cases are needed. #25 is the gate report on the four saved photos (`Pixel_10`) and the same four paper tickets scanned through the app (Pixel 7). It's report only, comes after #24, and needs no test cases. Neither covers the retake option, result screens 4a–4c, winning results, the camera frame or matching `Lam Dong`.
 - Nam's in-app comparison is done. On the Bạc Liêu ticket 871723, ML Kit read the province, the date and a correct number, but the number came from the small copy at the top left. The big number came through only as `8`, and the right-hand small copy read `C871733`.
 - Decision: the fields come from ML Kit's text alone, not from where they sit on the ticket. The area rule and finding the ticket's edges are dropped. #24 rewrites `docs/TICKET-READING.md` and closes backlog items 40, 41, 42 and 45.
