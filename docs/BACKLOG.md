@@ -114,6 +114,7 @@ Items noticed during other work. They go through `/refine` like everything else.
 | 87 | Fix rounds count run problems too. In #22 the third round went on Android Studio's mirroring (item 80), and Nam allowed a fourth and fifth for the manual step's timing (item 81), with no code fix in any of them. Decide whether run problems should share the 3-round limit with code fixes (found in #22) | Whether run problems count | not refined |
 | 88 | Some runs in #22 have no saved output: the test writer's measuring script that set the frame limit at 10, and the implementer's first fix-round rerun, which didn't start because the emulator had died (noted at the top of `fix-round-1-run-photo-crop.txt`). Same gap as item 32 (found in #22) | — | not refined |
 | 89 | The crop saves the photo again as a JPEG at quality 95, which may cost ML Kit a little on real tickets. #22's real Bạc Liêu read looked like #18's, but nobody compared them (found in #22) | — | not refined |
+| 90 | Let the person retake the picture when a read field is wrong. Item 6 takes the first six-digit number, the first province name and the first date in ML Kit's text, so a wrong copy read first gives a wrong value: on Nam's in-app read the right-hand small copy came through as `C871733`, and on #16's IMG_5904 the printer's "CẦN THƠ" comes before Vĩnh Long. No sketch has this option, so where it goes needs Nam (Nam's request, 10 November, in item 6's refinement) | Where the option goes and its wording | not refined |
 
 ## Built along the way
 

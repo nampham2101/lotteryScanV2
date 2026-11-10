@@ -47,7 +47,17 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-09)
+## Latest session (2026-11-10)
+
+- The rest of backlog item 6 was refined and split into two tickets, not posted yet. Ticket 1 reads the three fields from ML Kit's text and shows them, or shows sketch 4d, and test cases are needed. Ticket 2 is the gate report on the four saved photos (`Pixel_10`) and the same four paper tickets scanned through the app (Pixel 7). It's report only, comes after ticket 1, and needs no test cases. Neither covers the retake option, result screens 4a–4c, winning results, the camera frame or matching `Lam Dong`.
+- Nam's in-app comparison is done. On the Bạc Liêu ticket 871723, ML Kit read the province, the date and a correct number, but the number came from the small copy at the top left. The big number came through only as `8`, and the right-hand small copy read `C871733`.
+- Decision: the fields come from ML Kit's text alone, not from where they sit on the ticket. The area rule and finding the ticket's edges are dropped. Ticket 1 rewrites `docs/TICKET-READING.md` and closes backlog items 40, 41, 42 and 45.
+- Decision: the reading rule, all by regex.
+  - **Number:** the first six digits in a row, ignoring letters around them. A longer run gives its first six.
+  - **Province:** the first of Nam's 21 names found in the text, with accents removed, case ignored and Đ read as D, even when glued to other text. Đà Lạt matches `Da Lat` and TP. Hồ Chí Minh matches `Ho Chi Minh`. The screen shows the name with its accents.
+  - **Date:** the first exact `DD-MM-YYYY`. Spaces or a missing dash mean no match.
+- Decision: the temporary screen shows `Số vé: …`, then `Tỉnh: …`, then `Ngày: …` in place of ML Kit's text. If any field is missing, or the read fails, sketch 4d shows exactly as sketched. Both "Thử lại" and the phone's back button go to the camera screen. This replaces the earlier "couldn't read plus the failed field names".
+- Accepted risk: when ML Kit reads a wrong copy first, the app shows a wrong value. On #16's reads, IMG_5904 is expected to read as Cần Thơ, because the printer's line "…CẦN THƠ" comes before `VINH LONG`. Nam's answer for a wrong number is a retake option, as its own ticket (backlog item 90). Revisit if ticket 2's report shows wrong values.
 
 - #22 merged (PR #23): after the shutter, the photo is cropped to the middle square the dashed frame shows. ML Kit reads it, the temporary screen shows it, and it's the only photo kept. The camera's own copy is always deleted, and the crop strips the camera's metadata (EXIF), which can hold a small copy of the whole picture. A failed crop keeps the camera screen and shows "Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác" for about 3 seconds. #22's 7 tests passed on `Pixel_10`. Because the ticket changed camera and photo code, #5's, #9's, #10's and #18's tests passed on `Pixel_10`, and #8's 12 on the Pixel 7. On a real Bạc Liêu ticket on the Pixel 7, the photo matched the frame, a pen just above the frame didn't show, and the ticket's words showed below. Three reviews: the first found the EXIF thumbnail and a half-saved photo on a failed save, and the second found #16's ML Kit runner deleted by mistake. All were fixed. Backlog items 74–89 added.
 - Decision: Nam allowed `/work` two rounds over the 3-round limit, both for run problems with no code fix. Round 3 went on #8's camera tests, which all failed in setup because Android Studio was mirroring the Pixel 7 (backlog item 80). Rounds 4 and 5 went on the real-ticket step, where the shutter was tapped before the "before" screenshot twice. What worked: Nam framed the shot, and `/work` took the screenshot and tapped the shutter over adb (backlog item 81). Revisit with backlog item 87, whether run problems should count as fix rounds.
@@ -100,14 +110,12 @@ flowchart LR
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
-4. Refine the rest of item 6 from #16's results in `docs/evidence/16/summary.md` and Nam's comparison with photos taken in the app, using `docs/TICKET-READING.md` and backlog items 40–42 and 45.
+4. Draft and post item 6's two refined tickets with `/ticket`.
 
 ## Open questions
 
 - Where the winning results come from, for free.
-- Whether Vietnamese accents in province names matter: in #16 they came through only partly, so item 6 needs to decide.
 
 ## Waiting on Nam
 
-- Compare what ML Kit reads on photos taken in the app with #16's results.
 - Confirm the crop-failure note's look, which has no sketch (backlog item 74).
