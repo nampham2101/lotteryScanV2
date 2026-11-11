@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 import 'cant_read_screen.dart';
+import 'shared/results_feed.dart';
+import 'shared/ticket_answer.dart';
 import 'shared/ticket_fields.dart';
 import 'shared/ticket_reader.dart';
 
@@ -11,9 +13,11 @@ const _readingLabel = 'Đang đọc vé...';
 const _textStyle = TextStyle(fontSize: 16, color: Colors.white);
 
 /// Temporary screen with no sketch: the newest photo on top, whole, and below
-/// it the ticket's number, province and date, read from ML Kit's text.
-/// When a field is missing or the read fails, it is replaced by screen 4d. The
-/// phone's back closes it, which shows the home screen.
+/// it the ticket's number, province and date, read from ML Kit's text, then
+/// the answer from the winning results (ticket #28). "Đang đọc vé..." stays
+/// until the answer is there. When a field is missing, the read fails or the
+/// ticket's province isn't listed on its date, it is replaced by screen 4d.
+/// The phone's back closes it, which shows the home screen.
 class PhotoScreen extends StatefulWidget {
   const PhotoScreen({required this.photoBytes, required this.photo, super.key});
 
@@ -29,6 +33,7 @@ class PhotoScreen extends StatefulWidget {
 class _PhotoScreenState extends State<PhotoScreen> {
   // Null while reading.
   TicketFields? _fields;
+  List<String> _answer = const [];
 
   @override
   void initState() {
@@ -43,19 +48,37 @@ class _PhotoScreenState extends State<PhotoScreen> {
     } on Object {
       fields = null;
     }
-    // The person may have left, or taken a new photo with its own screen.
-    // After back, this screen stays mounted while it closes, but it is no
-    // longer the current route, and replacing "the top screen" would replace
-    // the home screen instead.
-    if (!mounted || ModalRoute.of(context)?.isCurrent != true) return;
+    if (!_isCurrent) return;
     if (fields == null) {
-      await Navigator.of(context).pushReplacement(
-        MaterialPageRoute<void>(builder: (_) => const CantReadScreen()),
-      );
+      await _showCantRead();
       return;
     }
-    setState(() => _fields = fields);
+    List<String>? answer;
+    try {
+      answer = answerFor(fields, await fetchResults());
+    } on Object {
+      answer = const [couldNotLoadLine];
+    }
+    if (!_isCurrent) return;
+    if (answer == null) {
+      await _showCantRead();
+      return;
+    }
+    setState(() {
+      _fields = fields;
+      _answer = answer!;
+    });
   }
+
+  // The person may have left, or taken a new photo with its own screen.
+  // After back, this screen stays mounted while it closes, but it is no
+  // longer the current route, and replacing "the top screen" would replace
+  // the home screen instead.
+  bool get _isCurrent => mounted && ModalRoute.of(context)?.isCurrent == true;
+
+  Future<void> _showCantRead() => Navigator.of(context).pushReplacement(
+    MaterialPageRoute<void>(builder: (_) => const CantReadScreen()),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +111,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                         ? _readingLabel
                         : 'Số vé: ${fields.number}\n'
                               'Tỉnh: ${fields.province}\n'
-                              'Ngày: ${fields.date}',
+                              'Ngày: ${fields.date}\n'
+                              '${_answer.join('\n')}',
                     style: _textStyle,
                   ),
                 ),

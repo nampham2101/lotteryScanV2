@@ -39,7 +39,7 @@ Before anything else, the MVP has to prove it can read a ticket from a photo.
 - **A downloaded app, not a web app.** Leaves room to grow and add features that need the phone (full camera control, the phone's built-in text reader, notifications).
 - **Built with Flutter.** One app for Android and iOS. Chosen because it has fewer moving parts, and its checkup command (`flutter doctor`) says plainly what's missing or broken.
   - *Revisit if:* we plan to hire JavaScript developers, or want a website that shares code with the app.
-- **The ticket is read on the phone**, with Google's free ML Kit text reader (Flutter add-on `google_mlkit_text_recognition`), not by an AI service. Faster, works offline, and has no fees.
+- **The ticket is read on the phone**, with Google's free ML Kit text reader (Flutter add-on `google_mlkit_text_recognition`), not by an AI service. Faster, works offline, and has no fees. Checking the ticket afterwards needs the internet, to fetch the winning results.
 - **No cost each time someone uses the app.** Scanning a ticket and checking the result must be free. The app is free for users. App store fees are fine.
 - **Android only for now, tested on an emulator, and on a real phone where an emulator can't prove something.** Most users are expected to have Android phones.
   - iOS can be added later with one command (`flutter create --platforms=ios .`) without breaking the app. No extra cost until it's published on the App Store ($99/year Apple developer membership).
