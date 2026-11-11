@@ -1,0 +1,48 @@
+Checks run by /work on the Mac (no device), branch ticket-27-prize-check at 0be53db, 2026-11-11 14:19
+Command: fvm flutter test (all widget and unit tests in app/test, including this ticket's prize_check_test.dart)
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart
+00:00 +0: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Bạc Liêu 10/11, when ticket 267832 is checked, then the result is Giải Đặc biệt, 2.000.000.000đ, and nothing else (no may mắn, no khuyến khích)
+00:00 +1: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Bạc Liêu 10/11, when ticket 206065 is checked, then the result is Giải Nhất, 30.000.000đ
+00:00 +2: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Bạc Liêu 10/11, when ticket 167832 is checked (last 5 digits match ĐB), then the result is Giải may mắn, 50.000.000đ, and not khuyến khích as well
+00:00 +3: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Bạc Liêu 10/11, when ticket 267833 is checked (one digit wrong), then the result is Giải khuyến khích, 6.000.000đ
+00:00 +4: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Hồ Chí Minh 09/11, when ticket 921443 is checked, then the result lists both Giải khuyến khích, 6.000.000đ, and Giải Tám, 100.000đ
+00:00 +5: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given Bạc Liêu 10/11, when ticket 111111 is checked, then the result is no prize
+00:00 +6: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Nhì: ticket 931415 matches the last 5 digits of 31415, Giải Nhì, 15.000.000đ
+00:00 +7: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Ba: ticket 516180 matches the last 5 digits of the second Ba number, 16180, Giải Ba, 10.000.000đ
+00:00 +8: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Tư: ticket 756565 matches the last 5 digits of the seventh Tư number, 56565, Giải Tư, 3.000.000đ
+00:00 +9: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Năm: ticket 407788 matches the last 4 digits of 7788, Giải Năm, 1.000.000đ
+00:00 +10: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Sáu: ticket 624466 matches the last 4 digits of the third Sáu number, 4466, Giải Sáu, 400.000đ
+00:00 +11: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Bảy: ticket 880505 matches the last 3 digits of 505, Giải Bảy, 200.000đ
+00:00 +12: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: Given a made-up set of results, when a ticket matching each tier from Nhì down to Tám is checked, then each gives its correct prize and the amount from the table Tám: ticket 990037 matches the last 2 digits of 37, Giải Tám, 100.000đ
+00:00 +13: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +14: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows the title "Dò vé số"
+00:00 +15: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows the line "Chụp vé để biết trúng hay không" under the title
+00:00 +16: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows a "Quét vé" button under the line
+00:00 +17: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 every Vietnamese accent is spelled correctly
+00:00 +18: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 no text is cut off
+00:00 +19: All tests passed!
+exit: 0
