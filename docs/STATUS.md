@@ -46,11 +46,14 @@ flowchart LR
     E4["Take the photo ✅<br/>ticket #8, PR #11"]
     E5["Camera refused pop-up ✅<br/>ticket #9, PR #12"]
     E6["Photo screen ✅<br/>ticket #10, PR #13"]
+    E7["Prize check ✅<br/>ticket #27, PR #29"]
+    E8["Fetch results + show answer ⏳<br/>ticket #28"]
   end
 ```
 
 ## Latest session (2026-11-11)
 
+- #27 merged (PR #29): `prizesWon` in `app/lib/shared/prize_check.dart` works out every prize a ticket number wins against one province's 18 winning numbers, with amounts, and `docs/PRIZES.md` holds the table and the may mắn and khuyến khích rules, naming the Vĩnh Long ticket. Nothing on screen changed and there's still no internet permission. All 13 tests passed on the Mac with no device, since there's no screen, and analyze and every test in `app/test` passed. The reviewer found no problems on the first review, so no fix rounds were used. Backlog items 104–107 added. Item 106 needs Nam: a ticket matching two numbers in the same prize (say two Tư numbers) gets that prize listed twice, which the implementer chose because the ticket doesn't say. The branch also carried the unpushed `/refine` commit for #27 and #28.
 - Backlog item 9 refined and split into two tickets, both posted unassigned, and both need test cases. #27 works out the prizes a ticket number wins, with amounts, from one province's winning numbers, with nothing on screen and no internet. #28 fetches the xskt.com.vn feed, adds the internet permission and shows the answer as text below the three fields on the temporary screen. It builds on #27. Neither covers result screens 4a–4c (item 10), the draw time on 4c, results older than the feed's 5 draw days, or the retake option (item 90).
 - Decision: the prize rules and amounts come from the table printed on the back of a Vĩnh Long ticket (Nam's photo IMG_5947), and that one table applies to all 21 provinces. Đặc biệt 2 tỷ, Nhất 30 triệu, Nhì 15 triệu, Ba 10 triệu, Tư 3 triệu, Năm 1 triệu, Sáu 400.000đ, Bảy 200.000đ, Tám 100.000đ. Giải may mắn (the last 5 digits of Đặc biệt) is 50 triệu, and khuyến khích (wrong by one digit in any position) is 6 triệu. The feed has no amounts and no may mắn or khuyến khích, so the app keeps the table itself and works those two out from Đặc biệt. This corrected Claude's memory, which had called may mắn "Phụ đặc biệt" and left the first digit out of khuyến khích.
 - Decision: a ticket that wins more than one prize shows every prize, except that may mắn and khuyến khích never go together and the Đặc biệt ticket doesn't also win may mắn. The wording follows sketches 4a–4c: "Chúc mừng! Bạn trúng" with one line per prize, "Chưa trúng lần này" and "Chưa có kết quả".
@@ -131,5 +134,6 @@ flowchart LR
 
 ## Waiting on Nam
 
+- Whether a ticket matching two numbers in the same prize pays that prize twice (backlog item 106). The code lists it twice for now.
 - Confirm the crop-failure note's look, which has no sketch (backlog item 74), and where the "Lỗi camera, thử lại" note sits on home (backlog item 91).
 - Whether the implementer's before-and-after screenshots are saved as proof. For now they're only described in its report.
