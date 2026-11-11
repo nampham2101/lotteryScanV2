@@ -25,7 +25,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 
 | # | Ticket | Needs from Nam | Status |
 |---|---|---|---|
-| 8 | Find a free source for the official miền Nam winning results | — | not refined |
+| 8 | Find a free source for the official miền Nam winning results. Source: xskt.com.vn's miền Nam RSS feed, `https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss`. Decided by Nam, 11 November | — | done |
 | 9 | Check a read ticket against the results (won, lost, or not drawn yet) | — | not refined |
 | 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | not refined |
 

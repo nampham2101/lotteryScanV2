@@ -49,8 +49,9 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-10)
+## Latest session (2026-11-11)
 
+- Decision: winning results come from xskt.com.vn's free miền Nam RSS feed (`https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss`), which has the full prize lists of every southern province, as plain text. Backlog item 8 is done. The feed can't be searched by date, and keeps only the last 5 draw days. The site also has a page for each date, going back at least a year, but those are left out for now. Accepted risks: a ticket drawn more than 5 days ago can't be checked; the site is unofficial and can change or drop the feed; the 7th and 8th prizes are glued together in the text (`7: 8078: 82` means `807` and `82`); item titles have no year; and the site's terms of use weren't read. The app will need the internet permission, which reverses #16's decision. Revisit if people scan older tickets, or if the feed changes.
 - Decision: the reading gate is **GO**. Nam scanned six real paper tickets on the Pixel 7 with the current `main` debug build, the four test tickets and two new ones, and ML Kit read all three fields correctly on every one. Nam made the call from those scans, not from a report.
 - #25, the gate report, closed as not planned, without the report. `/work 25` had scanned two of the four test tickets on the Pixel 7 before Nam's call. Bạc Liêu 871723 (IMG_5902) showed all three fields right. Bạc Liêu 747421 (IMG_5905) showed 4d on that one shot, though it read correctly in Nam's own scans. A Long An shot left the result screen before it could be captured. The four saved photos on `Pixel_10` and the table weren't done. The Pixel 7 now has the `main` debug build with #24 installed.
 - Decision: a ticket tests only what it adds or changes, replacing "older tests run if the ticket touched their code". Nam raised it after #24, which ran all seven older features' tests, including #5's rotation tests, and saved 40 device runs. When a ticket changes an older feature on purpose, the test writer updates those older tests and only the updated ones run, not their whole file. After a fix, only the tests related to it rerun, the implementer picks them, and there's no final run of all the ticket's tests before the merge. The implementer now compares before-and-after screenshots of every screen it changes and fixes side effects itself, instead of tests that check positions, because #24's off-centre home screen came from adding a note and no ticket could have listed it. The rules start now, before the regression run exists. Accepted risks: a broken older feature, or a later fix breaking one of the ticket's own tests, is found only when Nam uses the app until the regression run exists, and the implementer judges which tests its own fix touches. Revisit if either happens, or if a side effect on a screen reaches `main`. Changed in the test writer, the implementer, `/work` and `docs/WORKFLOW.md`. Not yet run live.
@@ -122,7 +123,7 @@ flowchart LR
 
 ## Open questions
 
-- Where the winning results come from, for free.
+- None right now.
 
 ## Waiting on Nam
 
