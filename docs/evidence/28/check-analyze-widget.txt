@@ -1,0 +1,28 @@
+Device: none (Mac). Wed Nov 11 19:12:00 +07 2026
+$ fvm flutter analyze
+Analyzing app...                                                
+No issues found! (ran in 5.8s)
+exit 0
+$ fvm flutter test
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart
+00:00 +0: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +1: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +2: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +3: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +4: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +5: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +6: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +7: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +8: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +9: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +10: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +11: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +12: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +13: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +14: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows the title "Dò vé số"
+00:00 +15: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows the line "Chụp vé để biết trúng hay không" under the title
+00:00 +16: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 shows a "Quét vé" button under the line
+00:00 +17: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 every Vietnamese accent is spelled correctly
+00:00 +18: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 2. Shows what is in sketch 1 no text is cut off
+00:00 +19: All tests passed!
+exit 0
