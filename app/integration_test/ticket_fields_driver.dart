@@ -2,6 +2,7 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
+import 'helpers/answers.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_screen.dart';
 import 'helpers/ticket_fields.dart';
@@ -47,9 +48,10 @@ void main() {
   group('Normal case', () {
     test('Given the photo\'s ML Kit text has 871723, "BẠC LIEUOL0T010b" and '
         '20-10-2026, when the read finishes, then the temporary screen shows '
-        'the photo with exactly three lines below it, in this order from top '
-        'to bottom, "Số vé: 871723", "Tỉnh: Bạc Liêu" and "Ngày: 20-10-2026", '
-        'and none of ML Kit\'s own text', () async {
+        'the photo with three lines below it, in this order from top to '
+        'bottom, "Số vé: 871723", "Tỉnh: Bạc Liêu" and "Ngày: 20-10-2026", '
+        'then only the answer of ticket #28, and none of ML Kit\'s own '
+        'text', () async {
       final photo = await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\n'
         'BẠC LIEUOL0T010b\n'
@@ -58,9 +60,16 @@ void main() {
         '871723',
       );
 
-      await expectOnlyLinesAre(
-        fieldLines(number: '871723', province: 'Bạc Liêu', date: '20-10-2026'),
-      );
+      // Changed by ticket #28: the answer shows below the three lines. The
+      // date is before the oldest day of the saved feed the site answers with.
+      await expectOnlyLinesAre([
+        ...fieldLines(
+          number: '871723',
+          province: 'Bạc Liêu',
+          date: '20-10-2026',
+        ),
+        tooOldText,
+      ]);
       await expectScreenShows(photo);
       await expectReadWasOfKeptPhoto(0);
       await expectNoAppErrors();

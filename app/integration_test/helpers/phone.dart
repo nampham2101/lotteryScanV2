@@ -197,6 +197,18 @@ class Phone {
   /// The phone's clock, in seconds, to ask what happened after this moment.
   Future<double> clock() async => double.parse((await _shell('date +%s.%N')));
 
+  /// Turns airplane mode on or off, which cuts or brings back the phone's
+  /// internet. The tests keep talking to the phone over adb either way.
+  Future<void> setAirplaneMode({required bool isOn}) =>
+      _shell('cmd connectivity airplane-mode ${isOn ? 'enable' : 'disable'}');
+
+  /// Whether Android has a network to send the app's requests through.
+  Future<bool> hasNetwork() async {
+    final dump = await _shell('dumpsys connectivity');
+    final active = RegExp(r'Active default network: (\S+)').firstMatch(dump);
+    return active != null && active[1] != 'none';
+  }
+
   /// When the screen turned since [since]: Android logs a configuration
   /// change with the orientation flag each time the screen turns.
   Future<List<double>> screenTurnsSince(double since) async {

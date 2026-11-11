@@ -10,11 +10,13 @@ import 'package:flutter_test/flutter_test.dart' show TestDefaultBinaryMessenger;
 
 import 'camera_app.dart' as camera_app;
 import 'helpers/photo_hash.dart';
+import 'results_site.dart';
 
 // The real app for the tests of ticket #18: the same start as camera_app.dart,
-// with the real camera and the real screens. Only ML Kit's answers are in the
-// tests' hands, because a test has to choose what a photo "reads", and has to
-// keep a read unfinished for as long as it needs.
+// with the real camera and the real screens. Only ML Kit's answers and, since
+// ticket #28, the results site's answers are in the tests' hands, because a
+// test has to choose what a photo "reads", and has to keep a read unfinished
+// for as long as it needs. The results site is in results_site.dart.
 //
 // ML Kit is reached through its add-on's message channel. Everything the add-on
 // does goes through it, so the tests don't depend on how the app calls ML Kit.
@@ -31,6 +33,7 @@ var _isUsingRealReader = false;
 void main() {
   developer.registerExtension('ext.lotteryscan.reader', _obey);
   camera_app.main();
+  standInForResultsSite();
   _watchForErrors();
   _messenger.setMockMethodCallHandler(_readerChannel, _answerReader);
 }

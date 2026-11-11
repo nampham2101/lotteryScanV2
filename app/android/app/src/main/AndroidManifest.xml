@@ -1,16 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- Checking a ticket fetches the winning results from xskt.com.vn
+         (ticket #28), so the app needs the internet. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- The camera add-on asks for these too. The app takes photos only (no
          sound) and keeps them in its own folder, so it needs neither the
-         microphone nor the phone's shared storage. ML Kit's libraries
-         (Google's transport-backend-cct) also add INTERNET to release builds. Reading
-         a ticket works offline, so it is removed there. Debug and profile builds get it
-         from their own manifests, because Flutter's tools need it. -->
+         microphone nor the phone's shared storage. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
-    <uses-permission android:name="android.permission.INTERNET" tools:node="remove"/>
     <application
         android:label="Dò Vé Số"
         android:name="${applicationName}"

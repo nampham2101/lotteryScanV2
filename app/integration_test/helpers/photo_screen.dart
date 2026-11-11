@@ -27,7 +27,8 @@ const _picturesStillTheSame = 20;
 /// Time for a zoom animation to finish.
 const _gestureSettleTime = Duration(seconds: 1);
 
-/// Words show on it the whole time: the reading, then the ticket's three lines.
+/// Words show on it the whole time: the reading, then the ticket's three lines
+/// and, since ticket #28, the answer below them.
 bool _looksLikePhotoScreen(AppScreen screen) =>
     screen.texts.isNotEmpty &&
     screen.buttons.isEmpty &&
@@ -127,8 +128,9 @@ Future<img.Image> givenPhotoTaken() async {
 ///
 /// Since ticket #24 a read with no ticket in it opens screen 4d, which has no
 /// photo, so the test chooses a read that finds all three fields: the photo
-/// screen stays, with the three lines below the photo. This needs the app
-/// started from ticket_text_app.dart, with the reads held.
+/// screen stays, with the three lines below the photo. Since ticket #28 it
+/// also waits for the answer below them, from the saved feed. This needs the
+/// app started from ticket_text_app.dart, with the reads held.
 Future<img.Image> givenPhotoScreenOpen() async {
   final photo = await givenPhotoTaken();
   await expectReadAsked(0);

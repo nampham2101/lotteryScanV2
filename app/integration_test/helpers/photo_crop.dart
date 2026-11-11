@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
+import 'answers.dart';
 import 'app_screen.dart';
 import 'dashed_frame.dart';
 import 'driven_app.dart';
@@ -21,12 +22,13 @@ const cropFailedNote = 'Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác
 
 /// The text read from a photo kept before the one a test is about. It has all
 /// three fields, so since ticket #24 the photo screen shows them, not 4d.
+/// Since ticket #28 the answer shows below them: 2019 is before the saved
+/// feed's oldest day.
 const earlierText = 'ĐÀ LẠT\n654321\n24-11-2019';
-final _earlierLines = fieldLines(
-  number: '654321',
-  province: 'Đà Lạt',
-  date: '24-11-2019',
-);
+final _earlierLines = [
+  ...fieldLines(number: '654321', province: 'Đà Lạt', date: '24-11-2019'),
+  tooOldText,
+];
 
 /// "Fades after a few seconds": the note stays long enough to read, then goes
 /// away by itself. Watching takes a moment between looks, so the shortest
