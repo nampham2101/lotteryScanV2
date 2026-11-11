@@ -26,7 +26,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 | # | Ticket | Needs from Nam | Status |
 |---|---|---|---|
 | 8 | Find a free source for the official miền Nam winning results. Source: xskt.com.vn's miền Nam RSS feed, `https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss`. Decided by Nam, 11 November | — | done |
-| 9 | Check a read ticket against the results (won, lost, or not drawn yet) | — | not refined |
+| 9 | Check a read ticket against the results (won, lost, or not drawn yet) | The prize table (given: Vĩnh Long ticket photo IMG_5947) | #27 prize check done (PR #29); #28 fetch and show the answer posted (builds on #27) |
 | 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | not refined |
 
 ## Found along the way
@@ -128,6 +128,10 @@ Items noticed during other work. They go through `/refine` like everything else.
 | 101 | Evidence was lost in #24. In the first fix round, the implementer saved its runs under the first build's file names, so the first build's #10, #18, #22 and #24 logs and its analyze output are gone after the squash merge (Nam accepted the gap). It also deleted the log of #8's Pixel 7 tests that it ran on the emulator by mistake. Round 4's logs don't say which device they ran on. Consider telling the agents to give every run a new file name, never to overwrite or delete a log, and to write the device at the top. Same kind of gap as item 32 (found in #24) | — | not refined |
 | 102 | The home screen went off-centre in #24's first fix round, and two reviews and #4's tests didn't catch it; `/work` found it on a screenshot. No test checks that home's title and button are centred (found in #24) | — | not refined |
 | 103 | `docs/evidence/24/` adds about 113,000 lines, mostly camera logging. Extends item 37 (found in #24) | — | not refined |
+| 104 | The prize check trusts its input. An empty list of winning numbers, or a number shorter than its prize needs (say a 1-digit Tám), crashes it, and a ticket number that isn't six digits gives a wrong answer with no error: a 5-digit `67832` counts as may mắn against `267832`. Matters most for #28, where a wrongly split 7th/8th prize would give a wrong result quietly (found in #27) | — | not refined |
+| 105 | No test checks where one prize ends and the next begins in the 18 numbers. The first Tư and first Sáu numbers are never tested, so giving Ba 3 numbers instead of 2, or Năm 2 instead of 1, would pass every test and tell someone a wrong amount. The code is right today (found in #27) | — | not refined |
+| 106 | Prize behaviour written in `docs/PRIZES.md` but not in #27's "Done when" or tests: a ticket matching two numbers in the same prize (say two Tư numbers) gets that prize listed twice; the Đặc biệt ticket can also win lower prizes; and a ticket number starting with 0 is untested. The implementer chose "listed twice" because the ticket doesn't say (found in #27) | Whether two matches in one prize pay twice | not refined |
+| 107 | #27's "Done when" gave only some of each province's 18 numbers (Bạc Liêu: ĐB, Nhất, Bảy, Tám; Hồ Chí Minh: ĐB, Tám), so the test writer made up the rest so no tested ticket matches them. The tests prove the rules, but not against a full real draw (found in #27) | — | not refined |
 
 ## Built along the way
 
