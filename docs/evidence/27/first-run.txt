@@ -1,0 +1,56 @@
+First run of the tests for ticket #27, before the feature exists, on the Mac
+(fvm flutter test, no device), with no code for the ticket written yet.
+
+Base: commit fc61be5, branch ticket-27-prize-check, tests not yet committed.
+Command, from app/: fvm flutter test test/prize_check_test.dart
+
+Result: all 13 tests fail to load, because the feature is missing: the file
+lib/shared/prize_check.dart and its prizesWon function don't exist yet, so the
+test file can't compile. No other error is reported, so nothing in the tests
+themselves is broken.
+
+Full output:
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart
+test/prize_check_test.dart:2:8: Error: Error when reading 'lib/shared/prize_check.dart': No such file or directory
+import 'package:lotteryscan/shared/prize_check.dart';
+       ^
+test/prize_check_test.dart:68:23: Error: Method not found: 'prizesWon'.
+  for (final prize in prizesWon(ticketNumber, results))
+                      ^^^^^^^^^
+00:00 +0 -1: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart [E]
+  Failed to load "/Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart":
+  Compilation failed for testPath=/Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: test/prize_check_test.dart:2:8: Error: Error when reading 'lib/shared/prize_check.dart': No such file or directory
+  import 'package:lotteryscan/shared/prize_check.dart';
+         ^
+  test/prize_check_test.dart:68:23: Error: Method not found: 'prizesWon'.
+    for (final prize in prizesWon(ticketNumber, results))
+                        ^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/prize_check_test.dart
