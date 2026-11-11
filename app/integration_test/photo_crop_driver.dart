@@ -1,6 +1,7 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
+import 'helpers/answers.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_crop.dart';
 import 'helpers/photo_screen.dart';
@@ -27,12 +28,13 @@ import 'helpers/ticket_text.dart';
 // place of the text itself, so the reads below give texts with all three
 // fields and the tests expect those lines.
 
+// Since ticket #28 the answer from the saved feed shows below the three lines:
+// these dates are before its oldest day.
 const _newText = 'BẠC LIÊU\n111222\n20-10-2026';
-final _newLines = fieldLines(
-  number: '111222',
-  province: 'Bạc Liêu',
-  date: '20-10-2026',
-);
+final _newLines = [
+  ...fieldLines(number: '111222', province: 'Bạc Liêu', date: '20-10-2026'),
+  tooOldText,
+];
 
 void main() {
   setUpAll(() async {
@@ -67,10 +69,11 @@ void main() {
     }, timeout: testTimeout);
 
     // Changed by ticket #24: the three lines read from ML Kit's text show in
-    // place of the text itself.
+    // place of the text itself. Changed by ticket #28: the answer shows below
+    // them.
     test('Given "Đang đọc vé..." is showing, when ML Kit finishes, then what '
         'it read from the cropped photo shows below it, as the three lines of '
-        'ticket #24', () async {
+        'ticket #24 with the answer of ticket #28 below them', () async {
       final seen = await givenCameraScreenWithFrame();
       final tappedAt = await tapShutter();
       await expectPhotoScreenOpensWithoutHome();

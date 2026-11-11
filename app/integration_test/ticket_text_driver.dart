@@ -1,6 +1,7 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
+import 'helpers/answers.dart';
 import 'helpers/app_screen.dart';
 import 'helpers/driven_app.dart';
 import 'helpers/photo_screen.dart';
@@ -27,18 +28,18 @@ import 'helpers/ticket_text.dart';
 // The tests that expected ML Kit's own text, its scrolling, or "Không đọc được
 // vé" below the photo are replaced by ticket_fields_driver.dart.
 
+// Since ticket #28 the answer from the saved feed shows below the three lines:
+// these dates are before its oldest day.
 const _earlierText = 'ĐÀ LẠT\n654321\n24-11-2019';
-final _earlierLines = fieldLines(
-  number: '654321',
-  province: 'Đà Lạt',
-  date: '24-11-2019',
-);
+final _earlierLines = [
+  ...fieldLines(number: '654321', province: 'Đà Lạt', date: '24-11-2019'),
+  tooOldText,
+];
 const _newText = 'BẠC LIÊU\n111222\n20-10-2026';
-final _newLines = fieldLines(
-  number: '111222',
-  province: 'Bạc Liêu',
-  date: '20-10-2026',
-);
+final _newLines = [
+  ...fieldLines(number: '111222', province: 'Bạc Liêu', date: '20-10-2026'),
+  tooOldText,
+];
 
 void main() {
   setUpAll(() async {
@@ -69,10 +70,13 @@ void main() {
 
     // Changed by ticket #24: what shows after the read is the three lines or
     // screen 4d. The test doesn't decide what the room reads, so it accepts
-    // either, but an empty text must give 4d.
+    // either, but an empty text must give 4d. Changed by ticket #28: an
+    // answer shows below the three lines, and which one depends on what the
+    // room reads, so any answer is accepted.
     test('Given a photo taken in the app, when real ML Kit reads it, then the '
-        'read works and the screen shows the three lines below the photo, or '
-        'screen 4d, and 4d if the text it gave is empty', () async {
+        'read works and the screen shows the three lines below the photo with '
+        'an answer below them, or screen 4d, and 4d if the text it gave is '
+        'empty', () async {
       await useRealReader();
       await givenCameraScreenOpen();
 
@@ -89,10 +93,11 @@ void main() {
       var screen = await appScreen();
       bool showsLines(AppScreen screen) {
         final lines = shownLines(screen);
-        return lines.length == 3 &&
+        return lines.length >= 4 &&
             lines[0].startsWith(numberLabel) &&
             lines[1].startsWith(provinceLabel) &&
-            lines[2].startsWith(dateLabel);
+            lines[2].startsWith(dateLabel) &&
+            answerFirstLines.contains(lines[3]);
       }
 
       await waitUntil(() async {

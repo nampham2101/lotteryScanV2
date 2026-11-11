@@ -1,6 +1,7 @@
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
+import 'answers.dart';
 import 'app_screen.dart';
 import 'driven_app.dart';
 import 'photo_screen.dart';
@@ -21,13 +22,20 @@ const tryAgainLabel = 'Thử lại';
 
 /// A ticket's ML Kit text with all three fields, and the lines the screen
 /// shows for it. For tests that need the read to work but aren't about the
-/// rule itself.
+/// rule itself. Since ticket #28 the screen also shows the answer below the
+/// three lines: 05-11-2026 is before the oldest day of the saved feed the
+/// results site answers with, so it's "Vé quá cũ, không dò được".
 const fullTicketText =
     'XỔ SỐ KIẾN THIẾT\n'
     'BẾN TRE\n'
     '05-11-2026  LOẠI VÉ 10.000Đ\n'
     '123456';
-const fullTicketLines = ['Số vé: 123456', 'Tỉnh: Bến Tre', 'Ngày: 05-11-2026'];
+const fullTicketLines = [
+  'Số vé: 123456',
+  'Tỉnh: Bến Tre',
+  'Ngày: 05-11-2026',
+  tooOldText,
+];
 
 /// The three lines, in their order on screen.
 List<String> fieldLines({
