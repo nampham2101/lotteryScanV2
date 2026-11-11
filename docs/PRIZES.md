@@ -29,6 +29,8 @@ The feed gives 18 numbers per province: Đặc biệt (6 digits), Nhất, Nhì, 
 
 ## More than one prize
 
-A ticket gets every prize it won, except what the rules above exclude. Example: 921443 against Hồ Chí Minh 09/11/2026 (ĐB 921440, Tám 43) wins Giải khuyến khích and Giải Tám. If a ticket matches several numbers in the same prize, each match is listed.
+A ticket gets every prize it won, except what the rules above exclude. Example: 921443 against Hồ Chí Minh 09/11/2026 (ĐB 921440, Tám 43) wins Giải khuyến khích and Giải Tám.
+
+The check goes backward from the ticket's last digit: if the ticket's last digits match one of a prize's numbers, the ticket wins that prize. A ticket matching two numbers in the same prize isn't a real case.
 
 The code is `app/lib/shared/prize_check.dart`.
