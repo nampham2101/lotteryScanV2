@@ -47,12 +47,13 @@ flowchart LR
     E5["Camera refused pop-up ✅<br/>ticket #9, PR #12"]
     E6["Photo screen ✅<br/>ticket #10, PR #13"]
     E7["Prize check ✅<br/>ticket #27, PR #29"]
-    E8["Fetch results + show answer ⏳<br/>ticket #28"]
+    E8["Fetch results + show answer ✅<br/>ticket #28, PR #30"]
   end
 ```
 
 ## Latest session (2026-11-11)
 
+- #28 merged (PR #30): after the three fields are read, the app fetches xskt.com.vn's miền Nam feed on every scan and shows the answer below them on the temporary screen: a win with one line per prize, "Chưa trúng lần này", "Chưa có kết quả", "Vé quá cũ, không dò được", 4d when the province isn't drawn that day, or "Không tải được kết quả, thử lại sau". The app has the internet permission again, reversing #16's decision, and the README says checking a ticket needs the internet. Analyze, the 19 widget tests, #28's 11 new tests and the 25 updated tests of #10, #18, #22 and #24 passed on `Pixel_10`. On the Pixel 7 release build against the live feed, Nam's Bình Phước ticket 628918 of 07-11-2026 read correctly and showed "Chưa trúng lần này", which a hand check confirmed. The reviewer found no problems on the first review, so no fix rounds were used. Backlog items 108–116 added. Waiting on Nam: the Đà Lạt → "Lâm Đồng" mapping the implementer chose (item 108), and whether to turn off ML Kit's usage logging now that the app has the internet (item 109).
 - Decision: a ticket matching two numbers in the same prize isn't a real case. The check goes backward from the ticket's last digit, and if those digits match a prize's number, the ticket wins that prize. The code already works this way. `docs/PRIZES.md` and backlog item 106 updated.
 - #27 merged (PR #29): `prizesWon` in `app/lib/shared/prize_check.dart` works out every prize a ticket number wins against one province's 18 winning numbers, with amounts, and `docs/PRIZES.md` holds the table and the may mắn and khuyến khích rules, naming the Vĩnh Long ticket. Nothing on screen changed and there's still no internet permission. All 13 tests passed on the Mac with no device, since there's no screen, and analyze and every test in `app/test` passed. The reviewer found no problems on the first review, so no fix rounds were used. Backlog items 104–107 added. The branch also carried the unpushed `/refine` commit for #27 and #28.
 - Backlog item 9 refined and split into two tickets, both posted unassigned, and both need test cases. #27 works out the prizes a ticket number wins, with amounts, from one province's winning numbers, with nothing on screen and no internet. #28 fetches the xskt.com.vn feed, adds the internet permission and shows the answer as text below the three fields on the temporary screen. It builds on #27. Neither covers result screens 4a–4c (item 10), the draw time on 4c, results older than the feed's 5 draw days, or the retake option (item 90).
@@ -135,5 +136,6 @@ flowchart LR
 
 ## Waiting on Nam
 
+- Confirm that a ticket read as Đà Lạt matches the feed's "Lâm Đồng" (backlog item 108), and whether to turn off ML Kit's usage logging now that the app has the internet (backlog item 109).
 - Confirm the crop-failure note's look, which has no sketch (backlog item 74), and where the "Lỗi camera, thử lại" note sits on home (backlog item 91).
 - Whether the implementer's before-and-after screenshots are saved as proof. For now they're only described in its report.
