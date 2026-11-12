@@ -51,7 +51,9 @@ flowchart LR
   end
 ```
 
-## Latest session (2026-11-11)
+## Latest session (2026-11-12)
+
+- Decision: when a ticket removes a feature on purpose, the test writer deletes the older tests that check only that feature and lists each, with the reason, under "Removed" in `docs/tests/<number>.md`. It never deletes a test because it fails or is in the way, and an older test whose behaviour stays is still updated. Nam raised it after #31's test writer deleted 15 tests of the temporary screen, which its instructions didn't allow. Changed in the test writer and `docs/WORKFLOW.md`. Revisit if a deleted test turns out to have checked something still in the app.
 
 - Backlog item 10 refined and split into two tickets, both posted unassigned, and both need test cases. #31 replaces the temporary screen with sketch 3, then one full answer screen: 4a, 4b, 4c, "too old", "couldn't load" or 4d, with no movement. #32 adds the movement to 4a and 4b, and builds on #31. Not included: any change to reading or checking, results older than 5 draw days, the retake option (item 90), the Lâm Đồng test (item 108), ML Kit's logging (item 109), changes to 4d, the home button text (item 11), sound or vibration, and a scan history.
 - Decision (in `/refine` for item 10): the temporary screen is dropped completely, and the screens follow the sketches. 4a's movement is a pop-in of the icon, "Chúc mừng!" and each amount, plus a confetti burst of about 2 seconds, played once. 4b's is one wink of the smiley. Nam picked both from moving previews. A ticket that wins several prizes shows one block per prize, highest first, each with its amount in large type and no total, and the screen scrolls if they don't fit. 4c's draw time is a fixed 16:15 for all 21 provinces, with the date added when the draw isn't today. The ticket card writes the date with slashes, as in the sketch. On 4a–4c, "Quét vé khác" opens the camera and back goes home. If the camera won't start, it follows 4d's rule.
