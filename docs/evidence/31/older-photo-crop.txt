@@ -1,0 +1,159 @@
+Device: Pixel_10 emulator (emulator-5554)
+Command: fvm flutter drive -d emulator-5554 --driver=integration_test/photo_crop_driver.dart --target=integration_test/photo_crop_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              7.7s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          325ms
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:62947/jVYI_2edNuc=/
+VMServiceFlutterDriver: Isolate found with number: 3865830482990659
+VMServiceFlutterDriver: Isolate 3865830482990659 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given the camera screen is open, when the person taps the shutter, then sketch 3 opens straight away, and the photo kept is a square of exactly what was inside the dashed frame
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-3] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-3](id:4f0700000005,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-2] abandonLocked: ConsumerBase is abandoned!
+00:08 +1: Normal case Given "Đang đọc vé..." is showing, when ML Kit finishes, then the answer screen for what it read from the cropped photo shows, with its ticket card
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-7] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-7](id:4f0700000009,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-6] abandonLocked: ConsumerBase is abandoned!
+00:18 +2: Only the cropped photo is kept Given the person has taken a photo, when sketch 3 opens, then the app holds only one photo, the cropped one, and no full-size copy is left anywhere, including the camera's own copy
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-11] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-11](id:4f070000000d,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-11](id:4f070000000d,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-11](id:4f070000000d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-11](id:4f070000000d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-11](id:4f070000000d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-8] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-10] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-15] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-15](id:4f0700000011,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-12] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-13] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-14] abandonLocked: ConsumerBase is abandoned!
+00:34 +3: Crop fails Given the camera screen is open, when the person taps the shutter and the crop fails, then the camera screen stays open, the note shows near the bottom and fades after a few seconds, no photo is kept from this try, and any photo kept before stays unchanged
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-19] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-19](id:4f0700000015,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-16] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-17] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-18] abandonLocked: ConsumerBase is abandoned!
+00:53 +4: Crop fails Given the note is showing, when the person taps the shutter again, then a new photo is taken and, if the crop works, sketch 3 opens as normal, then the answer
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-23] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-23](id:4f0700000019,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-23](id:4f0700000019,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-23](id:4f0700000019,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-23](id:4f0700000019,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-20] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-21] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-22] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-27] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-27](id:4f070000001d,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-27](id:4f070000001d,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-27](id:4f070000001d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-27](id:4f070000001d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-27](id:4f070000001d,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-24] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-25] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-26] abandonLocked: ConsumerBase is abandoned!
+01:04 +5: Leaving the screen Given the person taps the shutter, when they press back before sketch 3 opens, then home shows and no photo is kept
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-31] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-31](id:4f0700000021,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-31](id:4f0700000021,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-31](id:4f0700000021,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-31](id:4f0700000021,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-31](id:4f0700000021,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-28] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-29] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-30] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-35] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-35](id:4f0700000025,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-32] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-33] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-34] abandonLocked: ConsumerBase is abandoned!
+01:18 +6: Leaving the screen Given the person left a photo, when they take a new one, then the app keeps only the new cropped photo, and only its own answer shows
+
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-39] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-39](id:4f0700000029,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-36] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-37] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-38] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f22m7-20231-43] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-43](id:4f070000002d,api:4,p:530,c:20231) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-43](id:4f070000002d,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-43](id:4f070000002d,api:4,p:530,c:20231) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-43](id:4f070000002d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(20231): [ImageReader-1280x720f22m7-20231-43](id:4f070000002d,api:4,p:530,c:20231) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(20231): [ImageReader-1280x720f21m4-20231-40] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-41] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(20231): [ImageReader-1280x720f23m4-20231-42] abandonLocked: ConsumerBase is abandoned!
+01:42 +7: (tearDownAll)
+
+01:42 +7: All tests passed!
+
+exit=0

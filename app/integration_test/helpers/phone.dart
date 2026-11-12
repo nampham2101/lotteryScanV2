@@ -197,6 +197,17 @@ class Phone {
   /// The phone's clock, in seconds, to ask what happened after this moment.
   Future<double> clock() async => double.parse((await _shell('date +%s.%N')));
 
+  /// Today's date on the phone's own calendar, in its own time zone, at
+  /// midnight UTC so that days add up without time-zone surprises.
+  Future<DateTime> today() async {
+    final parts = (await _shell('date +%Y-%m-%d')).trim().split('-');
+    return DateTime.utc(
+      int.parse(parts[0]),
+      int.parse(parts[1]),
+      int.parse(parts[2]),
+    );
+  }
+
   /// Turns airplane mode on or off, which cuts or brings back the phone's
   /// internet. The tests keep talking to the phone over adb either way.
   Future<void> setAirplaneMode({required bool isOn}) =>
@@ -268,12 +279,15 @@ class Phone {
     '${screenWidth * 6 ~/ 10} ${screenHeight ~/ 2} 300',
   );
 
-  /// One finger swiping up the screen at [x], in phone pixels.
+  /// One finger swiping up the screen at [x], in phone pixels. A longer
+  /// [milliseconds] is a slower swipe, which glides on less after the finger
+  /// lifts.
   Future<void> swipeUp({
     required int x,
     required int fromY,
     required int toY,
-  }) => _shell('input swipe $x $fromY $x $toY 300');
+    int milliseconds = 300,
+  }) => _shell('input swipe $x $fromY $x $toY $milliseconds');
 
   /// Real fingers on the emulator's touch screen, through the same path a
   /// person's fingers take. `adb shell input` can't do this: it has one finger.
@@ -573,5 +587,20 @@ class Phone {
       throw StateError('screencap failed: ${result.stderr}');
     }
     return ScreenPixels(result.stdout as List<int>);
+  }
+
+  /// Saves what the screen shows now as a PNG file at [path], on the Mac.
+  Future<void> saveScreenshot(String path) async {
+    final result = await Process.run(_adb, [
+      '-s',
+      _serial,
+      'exec-out',
+      'screencap',
+      '-p',
+    ], stdoutEncoding: null);
+    if (result.exitCode != 0) {
+      throw StateError('screencap failed: ${result.stderr}');
+    }
+    await File(path).writeAsBytes(result.stdout as List<int>);
   }
 }

@@ -1,17 +1,18 @@
 import 'package:test/test.dart';
 
 import 'answers.dart';
-import 'app_screen.dart';
 import 'driven_app.dart';
 import 'photo_screen.dart';
+import 'saved_feed.dart';
 import 'ticket_fields.dart';
 import 'ticket_text.dart';
 
 export 'answers.dart';
 
-// Shared by the tests for ticket #28, which run on the Mac: how they give
-// orders to the results site's stand-in in results_site.dart, and what the
-// answer below the three fields must be.
+// Shared by the tests for tickets #28 and #31, which run on the Mac: how they
+// give orders to the results site's stand-in in results_site.dart, and the
+// feeds it can answer with. What the answer screens must show is in
+// answer_screens.dart.
 
 /// The feed the ticket names.
 final feedAddress = Uri.parse('https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss');
@@ -22,17 +23,15 @@ const notAFeed =
     '<!DOCTYPE html><html><head><title>Bảo trì</title></head><body>'
     '<p>Trang đang bảo trì, vui lòng quay lại sau.</p></body></html>';
 
-/// Words that only show once the answer is there.
-const _answerWords = [...answerFirstLines, 'Giải ', couldNotReadText];
-
 /// How long the app waits for the site before giving up, as the ticket says,
 /// and how far off the tests let it be. Watching takes a moment between
 /// looks, so the upper end leaves room for that.
 const _earliestGiveUp = Duration(seconds: 9);
 const _latestGiveUp = Duration(milliseconds: 12500);
 
-/// How long the "still loading" test watches, and the longest it lets a
-/// request wait, so the app's own 10 seconds never run out while it watches.
+/// How long the tests watch sketch 3 while the feed loads, and the longest
+/// they let a request wait, so the app's own 10 seconds never run out while
+/// they watch.
 const _loadingWatch = Duration(seconds: 3);
 const _longestHold = Duration(seconds: 8);
 
@@ -82,6 +81,10 @@ Future<void> resetSite() => _orderSite({'do': 'start'});
 /// Given: the site answers with the saved copy of the feed, "the feed above",
 /// including any request it's holding.
 Future<void> givenSiteServesSavedFeed() => _orderSite({'do': 'serve'});
+
+/// Given: the site answers with [feed], including any request it's holding.
+Future<void> givenSiteServes(String feed) =>
+    _orderSite({'do': 'serve', 'body': feed});
 
 /// Given: the site answers with a page that isn't the feed.
 Future<void> givenSiteServesNotAFeed() => _orderSite({
@@ -150,55 +153,11 @@ Future<Request> expectFeedFetched() async {
   return requests.firstWhere((request) => request.isFeed);
 }
 
-bool _isAnswer(
-  List<String> shown,
-  List<String> fields,
-  List<String> answer,
-  Set<String> inAnyOrder,
-) {
-  final firstLines = [...fields, ...answer];
-  if (shown.length != firstLines.length + inAnyOrder.length) return false;
-  for (var i = 0; i < firstLines.length; i++) {
-    if (shown[i] != firstLines[i]) return false;
-  }
-  final rest = shown.sublist(firstLines.length);
-  return rest.toSet().length == rest.length &&
-      rest.toSet().containsAll(inAnyOrder);
-}
-
-/// Then: the temporary screen shows the photo taken at [tappedAt] with the
-/// three [fields] lines below it, then the [answer] lines below them, then the
-/// [inAnyOrder] lines in any order, top to bottom, and nothing else written.
-Future<void> expectAnswerShows(
-  double tappedAt, {
-  required List<String> fields,
-  required List<String> answer,
-  Set<String> inAnyOrder = const {},
-}) async {
-  var shown = <String>[];
-  final isShowing = await waitUntil(() async {
-    shown = shownLines(await appScreen());
-    return _isAnswer(shown, fields, answer, inAnyOrder);
-  });
-  expect(
-    isShowing,
-    isTrue,
-    reason:
-        'the words on screen, top to bottom, must be $fields, then $answer'
-        '${inAnyOrder.isEmpty ? '' : ', then $inAnyOrder in any order'}, '
-        'and nothing else. On screen: $shown',
-  );
-  await expectScreenShows(await keptPhotoSince(tappedAt));
-}
-
-bool _showsAnAnswer(AppScreen screen) => _answerWords.any(
-  (words) => screen.texts.any((t) => t.label.contains(words)),
-);
-
-/// Then: while the site is holding [request], "Đang đọc vé..." stays on screen
-/// and no answer shows. Watches for a few seconds, and stops before the
-/// request has waited long enough for the app to give up on it.
-Future<void> expectStillLoadingWhileHeld(Request request) async {
+/// Then: while the site is holding [request], sketch 3 stays on screen, with
+/// only its own words: no answer, no field lines and no 4d. Watches for a few
+/// seconds, and stops before the request has waited long enough for the app
+/// to give up on it.
+Future<void> expectReadingStaysWhileHeld(Request request) async {
   final stopAt = DateTime.now().add(_loadingWatch);
   final lastSafeLook = request.askedAt.add(_longestHold);
   var looks = 0;
@@ -206,17 +165,10 @@ Future<void> expectStillLoadingWhileHeld(Request request) async {
     final screen = await appScreen();
     looks++;
     expect(
-      shownLines(screen),
-      contains(readingText),
+      isReadingScreen(screen),
+      isTrue,
       reason:
-          '"$readingText" did not stay while the feed was loading. On screen: '
-          '${shownLines(screen)}',
-    );
-    expect(
-      _showsAnAnswer(screen),
-      isFalse,
-      reason:
-          'an answer showed while the feed was still loading. On screen: '
+          'sketch 3 did not stay while the feed was loading. On screen: '
           '${shownLines(screen)}',
     );
     await Future<void>.delayed(_watchStep);
@@ -225,17 +177,17 @@ Future<void> expectStillLoadingWhileHeld(Request request) async {
   expect(looks, greaterThan(1), reason: 'SETUP: no time left to watch');
 }
 
-/// Then: "Không tải được kết quả, thử lại sau" shows about 10 seconds after
-/// [request], which the site never answered: not before 9 seconds, and by 12.5.
+/// Then: "Không tải được kết quả" shows about 10 seconds after [request], which
+/// the site never answered: not before 9 seconds, and by 12.5.
 Future<void> expectCouldNotLoadAboutTenSecondsAfter(Request request) async {
   Duration waited() => DateTime.now().difference(request.askedAt);
   while (waited() <= _latestGiveUp) {
-    if ((await appScreen()).shows(couldNotLoadText)) {
+    if ((await appScreen()).shows(couldNotLoadTitle)) {
       expect(
         waited(),
         greaterThanOrEqualTo(_earliestGiveUp),
         reason:
-            '"$couldNotLoadText" showed ${waited().inMilliseconds} ms after '
+            '"$couldNotLoadTitle" showed ${waited().inMilliseconds} ms after '
             'the request, before the site had 10 seconds to answer',
       );
       return;
@@ -243,8 +195,39 @@ Future<void> expectCouldNotLoadAboutTenSecondsAfter(Request request) async {
     await Future<void>.delayed(_watchStep);
   }
   fail(
-    '"$couldNotLoadText" did not show within ${_latestGiveUp.inMilliseconds} '
+    '"$couldNotLoadTitle" did not show within ${_latestGiveUp.inMilliseconds} '
     'ms of a request the site never answered. On screen: '
     '${shownLines(await appScreen())}',
   );
 }
+
+/// The saved feed with its year changed from 2026 to 2015, everywhere a year
+/// is written: each day's link and date, and the feed's own dates. 2015 has
+/// the same calendar as 2026, so every weekday stays right. Every ticket in
+/// the tests is dated after its newest day, 10/11/2015, so it isn't drawn yet,
+/// and 4c shows its ticket card.
+final feedFrom2015 = savedFeed
+    .replaceAllMapped(
+      RegExp(r'(/ngay-\d{1,2}-\d{1,2}-)2026<'),
+      (match) => '${match[1]}2015<',
+    )
+    .replaceAll('/2026</pubDate>', '/2015</pubDate>')
+    .replaceAll(' Nov 2026 ', ' Nov 2015 ');
+
+/// The saved feed with Bạc Liêu's numbers on 10/11/2026 changed so that
+/// ticket 123456 wins eight prizes, one of each from Giải Nhất to Giải Tám:
+/// 23456 is Nhất, Nhì, one of Ba and one of Tư, 3456 is Năm and one of Sáu,
+/// and `7: 4568: 56` is Bảy 456 and Tám 56. Đặc biệt stays 267832, so no may
+/// mắn or khuyến khích. Nothing else in the feed changes.
+final feedWithEightPrizes = savedFeed.replaceFirst(
+  RegExp(r'\[Bạc Liêu\][^\[]*'),
+  '[Bạc Liêu]     \n'
+  'ĐB: 267832\n'
+  '1: 23456\n'
+  '2: 23456\n'
+  '3: 23456 - 17545\n'
+  '4: 23456 - 33034 - 16748 - 10888 - 86497 - 16510 - 41069\n'
+  '5: 3456\n'
+  '6: 3456 - 5373 - 9768\n'
+  '7: 4568: 56\n',
+);

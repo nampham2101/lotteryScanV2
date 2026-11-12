@@ -1,0 +1,101 @@
+Device: Pixel_10 emulator (emulator-5554)
+Command: fvm flutter drive -d emulator-5554 --driver=integration_test/results_driver.dart --target=integration_test/ticket_text_app.dart --test-arguments=test --test-arguments=--reporter=expanded --test-arguments=--name=^Won |^Lost |^Outside
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              5.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          330ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/results_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:49455/yGBsQMNoiVs=/
+VMServiceFlutterDriver: Isolate found with number: 8301680701437627
+VMServiceFlutterDriver: Isolate 8301680701437627 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Won Given the feed above, when ticket 267832 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Đặc biệt" and "2.000.000.000đ"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-3] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-3](id:65e800000005,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-3](id:65e800000005,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-3](id:65e800000005,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-3](id:65e800000005,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-2] abandonLocked: ConsumerBase is abandoned!
+00:04 +1: Won Given the feed holds Hồ Chí Minh 09/11/2026 (ĐB 921440 · Tám 43), when ticket 921443 · Hồ Chí Minh · 09-11-2026 is scanned, then 4a shows both "Bạn trúng Giải khuyến khích" with "6.000.000đ" and "Bạn trúng Giải Tám" with "100.000đ"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-7] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-7](id:65e800000009,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-7](id:65e800000009,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-7](id:65e800000009,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-7](id:65e800000009,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-7](id:65e800000009,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-6] abandonLocked: ConsumerBase is abandoned!
+00:09 +2: Won Given the feed above, when ticket 123482 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Tám" and "100.000đ", read from "7: 8078: 82"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-11] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-11](id:65e80000000d,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-8] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-10] abandonLocked: ConsumerBase is abandoned!
+00:14 +3: Lost Given the feed above, when ticket 111111 · Bạc Liêu · 10-11-2026 is scanned, then 4b shows "Chưa trúng lần này"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-15] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-15](id:65e800000011,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-12] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-13] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-14] abandonLocked: ConsumerBase is abandoned!
+00:18 +4: Outside the feed's days Given the feed above, when a ticket dated after the newest draw day in the feed is scanned (Cần Thơ · 11-11-2026), then 4c shows "Chưa có kết quả"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-19] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-19](id:65e800000015,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-19](id:65e800000015,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-19](id:65e800000015,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-19](id:65e800000015,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-19](id:65e800000015,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-16] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-17] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-18] abandonLocked: ConsumerBase is abandoned!
+00:23 +5: Outside the feed's days Given the feed above, when a ticket dated before the oldest draw day in the feed is scanned (An Giang · 05-11-2026), then the "too old" screen shows "Vé quá cũ"
+E/ConsumerBase(26088): [ImageReader-1280x720f22m7-26088-23] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(26088): [ImageReader-1280x720f22m7-26088-23](id:65e800000019,api:4,p:530,c:26088) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(26088): [ImageReader-1280x720f21m4-26088-20] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-21] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(26088): [ImageReader-1280x720f23m4-26088-22] abandonLocked: ConsumerBase is abandoned!
+00:28 +6: (tearDownAll)
+00:28 +6: All tests passed!
+exit=0

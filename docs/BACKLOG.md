@@ -27,7 +27,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 |---|---|---|---|
 | 8 | Find a free source for the official miền Nam winning results. Source: xskt.com.vn's miền Nam RSS feed, `https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss`. Decided by Nam, 11 November | — | done |
 | 9 | Check a read ticket against the results (won, lost, or not drawn yet) | The prize table (given: Vĩnh Long ticket photo IMG_5947) | done: #27 prize check (PR #29), #28 fetch and show the answer (PR #30) |
-| 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | posted: #31 result screens; #32 movement on 4a and 4b |
+| 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | posted: #31 result screens (done, PR #33); #32 movement on 4a and 4b |
 
 ## Found along the way
 
@@ -141,6 +141,14 @@ Items noticed during other work. They go through `/refine` like everything else.
 | 114 | Reading the feed and choosing the answer have no fast Mac-only tests like #27's, only emulator runs. A site answering with an error code (404, 500) isn't tested, because no criterion says which message it gets (found in #28) | — | not refined |
 | 115 | Out-of-date test docs and comments after #28: `docs/tests/10.md`, `18.md`, `22.md` and `24.md` still describe three lines only (extends item 99); comments in `photo_crop_app.dart` and `camera_start_app.dart` say `ticket_text_app.dart` "stays as it is"; running only some of an older file's tests by name (`--test-arguments=--name=...`) is written down only in `docs/tests/28.md` and could go in `docs/WORKFLOW.md` (found in #28) | — | not refined |
 | 116 | The implementer took no "before" screenshot from `main` and no emulator screenshot of any answer state, because the emulator's camera reads as 4d. Only the Pixel 7 screenshot shows an answer on screen. Relates to whether before-and-after screenshots are saved as proof (found in #28) | — | not refined |
+| 117 | **Check first.** After "Quét vé khác" then back, the camera add-on throws "releaseFlutterSurfaceTexture() cannot be called…". #31's tests let this error through, but every answer screen now has that button, so real people will take this path. In #31's screenshots Android's green "camera in use" mark also stays on for a few seconds on most answer screens. Check on the Pixel 7 whether the camera is released properly (found in #31) | — | not refined |
+| 118 | `README.md` line 54 still says the shutter shows the photo "on a temporary photo screen", which #31 removed (found in #31) | — | not refined |
+| 119 | 4a's "highest first" order: no test would fail if the sort were removed, because the tested prizes already come out in amount order. The order only differs when khuyến khích (6 triệu) is won together with Nhất, Nhì or Ba. Where may mắn and khuyến khích sit was never decided; the code sorts by amount (found in #31) | Whether "highest" means the biggest amount | not refined |
+| 120 | Small cleanups after #31: `app/lib/shared/result_layout.dart` is a copy of 4d's layout in `cant_read_screen.dart` (4d was off limits), `reading_screen.dart` writes three colours by hand that `result_layout.dart` already has, and `WonScreen` rebuilds the ticket card just to make it white (found in #31) | — | not refined |
+| 121 | Only 4a scrolls. On a small phone or with large system text, 4b, 4c, "too old" and "couldn't load" could be cut off, as 4d already can (found in #31) | — | not refined |
+| 122 | A ticket dated before today but after the feed's newest day (the feed hasn't updated yet) shows 4c's "mở thưởng lúc 16:15 ngày <a past date>. Quay lại sau nhé.", which reads wrongly. #31 only defined today and later days (found in #31) | What it should say | not refined |
+| 123 | Out-of-date notes after #31: `docs/tests/10.md`, `18.md`, `22.md`, `24.md` and `28.md` still describe the temporary screen (extends items 99 and 115); `app/integration_test/helpers/ticket_text.dart` keeps scrolling helpers nothing uses; item 113 names `photo_screen.dart`, which #31 deleted, so it needs rechecking against `reading_screen.dart` (found in #31) | — | not refined |
+| 124 | Sketch 3 and #31's ticket write "Đang đọc vé…" with one "…" character; the app shows three dots. The tests accept both (found in #31) | Which one to use | not refined |
 
 ## Built along the way
 

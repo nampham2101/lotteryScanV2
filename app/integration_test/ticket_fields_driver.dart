@@ -2,9 +2,9 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
-import 'helpers/answers.dart';
+import 'helpers/answer_screens.dart';
 import 'helpers/driven_app.dart';
-import 'helpers/photo_screen.dart';
+import 'helpers/results.dart';
 import 'helpers/ticket_fields.dart';
 import 'helpers/ticket_text.dart';
 
@@ -25,6 +25,12 @@ import 'helpers/ticket_text.dart';
 // ML Kit's answer gives its blocks in the opposite order to its text, so a
 // rule that searched the blocks instead of the text would find the wrong
 // "first" match.
+//
+// Changed by ticket #31: the temporary screen and its three lines are gone,
+// and the fields read show on the answer screens' ticket card,
+// `Vé <số> · <tỉnh> · <DD/MM/YYYY>`. The results site answers with the saved
+// feed moved back to 2015, so every ticket here is dated after its newest
+// day: it isn't drawn yet, and 4c shows its card.
 
 /// Given: a photo was just taken, and ML Kit's read of it finishes with
 /// [text]. Returns the photo.
@@ -43,16 +49,18 @@ void main() {
     await driver.close();
   });
 
-  setUp(holdReads);
+  setUp(() async {
+    await holdReads();
+    await resetSite();
+    await givenSiteServes(feedFrom2015);
+  });
 
   group('Normal case', () {
     test('Given the photo\'s ML Kit text has 871723, "BẠC LIEUOL0T010b" and '
-        '20-10-2026, when the read finishes, then the temporary screen shows '
-        'the photo with three lines below it, in this order from top to '
-        'bottom, "Số vé: 871723", "Tỉnh: Bạc Liêu" and "Ngày: 20-10-2026", '
-        'then only the answer of ticket #28, and none of ML Kit\'s own '
-        'text', () async {
-      final photo = await whenReadFinishesWith(
+        '20-10-2026, when the read finishes, then the answer screen\'s ticket '
+        'card reads "Vé 871723 · Bạc Liêu · 20/10/2026", and none of ML Kit\'s '
+        'own text shows', () async {
+      await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\n'
         'BẠC LIEUOL0T010b\n'
         'LOẠI VÉ 10.000Đ\n'
@@ -60,108 +68,103 @@ void main() {
         '871723',
       );
 
-      // Changed by ticket #28: the answer shows below the three lines. The
-      // date is before the oldest day of the saved feed the site answers with.
-      await expectOnlyLinesAre([
-        ...fieldLines(
-          number: '871723',
-          province: 'Bạc Liêu',
-          date: '20-10-2026',
-        ),
-        tooOldText,
-      ]);
-      await expectScreenShows(photo);
+      // Changed by ticket #31: the three lines are gone; the card shows the
+      // fields.
+      await expectCardShows(
+        number: '871723',
+        province: 'Bạc Liêu',
+        date: '20/10/2026',
+      );
+      final lines = shownLines(await appScreen());
+      for (final text in ['XỔ SỐ', 'LIEUOL0T010b', 'LOẠI VÉ', '20-10-2026']) {
+        expect(
+          lines.where((line) => line.contains(text)),
+          isEmpty,
+          reason: 'ML Kit\'s own text "$text" shows. On screen: $lines',
+        );
+      }
       await expectReadWasOfKeptPhoto(0);
       await expectNoAppErrors();
     }, timeout: testTimeout);
 
-    test('Given the shutter was just tapped, when the read hasn\'t finished, '
-        'then the screen shows the photo and "Đang đọc vé..." as it does '
-        'today', () async {
-      await givenCameraScreenOpen();
-
-      final tappedAt = await tapShutter();
-
-      await expectPhotoScreenOpensWithoutHome();
-      await expectOnlyTextIs(readingText);
-      await expectScreenShows(await keptPhotoSince(tappedAt));
-      await expectReadAsked(0);
-      expect((await readerReport()).reads.single.isFinished, isFalse);
-    }, timeout: testTimeout);
+    // Ticket #31 replaced the test that the photo and "Đang đọc vé..." show
+    // while the read hasn't finished: sketch 3 shows instead, tested in
+    // answer_screens_driver.dart.
   });
 
   group('Number', () {
     test('Given the only six digits sit in "C871723", when the read finishes, '
-        'then the screen shows "Số vé: 871723"', () async {
+        'then the ticket card shows the number 871723', () async {
       await whenReadFinishesWith('BẠC LIÊU\nC871723\n20-10-2026');
 
-      await expectFieldShows(numberLabel, '871723');
+      await expectCardShows(number: '871723');
     }, timeout: testTimeout);
 
     test('Given 9999999999 comes before any other digits, when the read '
-        'finishes, then the screen shows "Số vé: 999999"', () async {
+        'finishes, then the ticket card shows the number 999999', () async {
       await whenReadFinishesWith('BẠC LIÊU\n9999999999\n871723\n20-10-2026');
 
-      await expectFieldShows(numberLabel, '999999');
+      await expectCardShows(number: '999999');
     }, timeout: testTimeout);
 
     test('Given 871723 comes before "C871733", when the read finishes, then '
-        'the screen shows "Số vé: 871723"', () async {
+        'the ticket card shows the number 871723', () async {
       await whenReadFinishesWith('BẠC LIÊU\n871723\nC871733\n20-10-2026');
 
-      await expectFieldShows(numberLabel, '871723');
+      await expectCardShows(number: '871723');
     }, timeout: testTimeout);
 
     test('Given the text has a province and a valid date, and the only other '
         'digits are "D051 669", split by a space, when the read finishes, then '
-        'the screen shows "Số vé: 051669"', () async {
+        'the ticket card shows the number 051669', () async {
       await whenReadFinishesWith('CẦN THƠ\n04-11-2026\nD051 669');
 
-      await expectFieldShows(numberLabel, '051669');
+      await expectCardShows(number: '051669');
     }, timeout: testTimeout);
 
     test('Given one line is "12" and the next line is "871723", when the read '
-        'finishes, then the screen shows "Số vé: 871723"', () async {
+        'finishes, then the ticket card shows the number 871723', () async {
       await whenReadFinishesWith('BẠC LIÊU\n12\n871723\n20-10-2026');
 
-      await expectFieldShows(numberLabel, '871723');
+      await expectCardShows(number: '871723');
     }, timeout: testTimeout);
   });
 
   group('Province', () {
     test('Given the text has "VINH LONG", with no accents and in upper case, '
-        'when the read finishes, then the screen shows "Tỉnh: Vĩnh '
-        'Long"', () async {
+        'when the read finishes, then the ticket card shows the province '
+        '"Vĩnh Long"', () async {
       await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\nVINH LONG\n123456\n30-10-2026',
       );
 
-      await expectFieldShows(provinceLabel, 'Vĩnh Long');
+      await expectCardShows(province: 'Vĩnh Long');
     }, timeout: testTimeout);
 
     test('Given "CẢN THƠ" comes before "VINH LONG", when the read finishes, '
-        'then the screen shows "Tỉnh: Cần Thơ"', () async {
+        'then the ticket card shows the province "Cần Thơ"', () async {
       await whenReadFinishesWith('CẢN THƠ\nVINH LONG\n123456\n30-10-2026');
 
-      await expectFieldShows(provinceLabel, 'Cần Thơ');
+      await expectCardShows(province: 'Cần Thơ');
     }, timeout: testTimeout);
 
     test('Given the text has "DONG NAI", when the read finishes, then the '
-        'screen shows "Tỉnh: Đồng Nai", so Đ counts as D', () async {
+        'ticket card shows the province "Đồng Nai", so Đ counts as '
+        'D', () async {
       await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\nDONG NAI\n123456\n30-10-2026',
       );
 
-      await expectFieldShows(provinceLabel, 'Đồng Nai');
+      await expectCardShows(province: 'Đồng Nai');
     }, timeout: testTimeout);
 
     test('Given the text has "DA LAT", when the read finishes, then the '
-        'screen shows "Tỉnh: Đà Lạt"', () async {
+        'ticket card shows the province "Đà Lạt"', () async {
       await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\nDA LAT\n123456\n24-11-2019',
       );
 
-      await expectFieldShows(provinceLabel, 'Đà Lạt');
+      await expectCardShows(province: 'Đà Lạt');
     }, timeout: testTimeout);
 
     test('Given the text has "LAM DONG" but not "DA LAT", when the read '
@@ -175,12 +178,12 @@ void main() {
     }, timeout: testTimeout);
 
     test('Given the text has "HO CHI MINH", when the read finishes, then the '
-        'screen shows "Tỉnh: TP. Hồ Chí Minh"', () async {
+        'ticket card shows the province "TP. Hồ Chí Minh"', () async {
       await whenReadFinishesWith(
         'XỔ SỐ KIẾN THIẾT\nHO CHI MINH\n123456\n30-10-2026',
       );
 
-      await expectFieldShows(provinceLabel, 'TP. Hồ Chí Minh');
+      await expectCardShows(province: 'TP. Hồ Chí Minh');
     }, timeout: testTimeout);
 
     test('Given no name from the 21 is in the text, when the read finishes, '
@@ -196,17 +199,17 @@ void main() {
 
   group('Date', () {
     test('Given the only date-like text is "O30- 10- 2026", when the read '
-        'finishes, then the screen shows "Ngày: 30-10-2026"', () async {
+        'finishes, then the ticket card shows the date 30/10/2026', () async {
       await whenReadFinishesWith('BẠC LIÊU\nO30- 10- 2026\n871723');
 
-      await expectFieldShows(dateLabel, '30-10-2026');
+      await expectCardShows(date: '30/10/2026');
     }, timeout: testTimeout);
 
     test('Given the text has "CN-24-11-2019", when the read finishes, then '
-        'the screen shows "Ngày: 24-11-2019"', () async {
+        'the ticket card shows the date 24/11/2019', () async {
       await whenReadFinishesWith('ĐÀ LẠT\nCN-24-11-2019\n871723');
 
-      await expectFieldShows(dateLabel, '24-11-2019');
+      await expectCardShows(date: '24/11/2019');
     }, timeout: testTimeout);
 
     test('Given the only date-like text is "0311-2026", when the read '

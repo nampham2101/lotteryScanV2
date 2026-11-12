@@ -1,0 +1,334 @@
+Device: Pixel_10 emulator (emulator-5554)
+Command: fvm flutter drive -d emulator-5554 --driver=integration_test/ticket_fields_driver.dart --target=integration_test/ticket_text_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.1s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          352ms
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:63868/mAf8hgfthOM=/
+VMServiceFlutterDriver: Isolate found with number: 1372414529355955
+VMServiceFlutterDriver: Isolate 1372414529355955 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given the photo's ML Kit text has 871723, "BẠC LIEUOL0T010b" and 20-10-2026, when the read finishes, then the answer screen's ticket card reads "Vé 871723 · Bạc Liêu · 20/10/2026", and none of ML Kit's own text shows
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-3] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-3](id:563100000005,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-3](id:563100000005,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-3](id:563100000005,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-3](id:563100000005,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-3](id:563100000005,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-2] abandonLocked: ConsumerBase is abandoned!
+00:06 +1: Number Given the only six digits sit in "C871723", when the read finishes, then the ticket card shows the number 871723
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-7] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-7](id:563100000009,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-7](id:563100000009,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-7](id:563100000009,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-7](id:563100000009,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-7](id:563100000009,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-6] abandonLocked: ConsumerBase is abandoned!
+00:13 +2: Number Given 9999999999 comes before any other digits, when the read finishes, then the ticket card shows the number 999999
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-11] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-11](id:56310000000d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-11](id:56310000000d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-11](id:56310000000d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-11](id:56310000000d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-11](id:56310000000d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-8] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-10] abandonLocked: ConsumerBase is abandoned!
+00:20 +3: Number Given 871723 comes before "C871733", when the read finishes, then the ticket card shows the number 871723
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-15] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-15](id:563100000011,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-15](id:563100000011,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-15](id:563100000011,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-15](id:563100000011,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-15](id:563100000011,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-12] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-13] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-14] abandonLocked: ConsumerBase is abandoned!
+00:27 +4: Number Given the text has a province and a valid date, and the only other digits are "D051 669", split by a space, when the read finishes, then the ticket card shows the number 051669
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-19] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-19](id:563100000015,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-19](id:563100000015,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-19](id:563100000015,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-19](id:563100000015,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-17] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-18] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-16] abandonLocked: ConsumerBase is abandoned!
+00:34 +5: Number Given one line is "12" and the next line is "871723", when the read finishes, then the ticket card shows the number 871723
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-23] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-23](id:563100000019,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-23](id:563100000019,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-23](id:563100000019,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-23](id:563100000019,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-23](id:563100000019,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-20] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-21] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-22] abandonLocked: ConsumerBase is abandoned!
+00:41 +6: Province Given the text has "VINH LONG", with no accents and in upper case, when the read finishes, then the ticket card shows the province "Vĩnh Long"
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-27] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-27](id:56310000001d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-27](id:56310000001d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-27](id:56310000001d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-27](id:56310000001d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-24] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-25] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-26] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-27](id:56310000001d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+00:47 +7: Province Given "CẢN THƠ" comes before "VINH LONG", when the read finishes, then the ticket card shows the province "Cần Thơ"
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-31] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-31](id:563100000021,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-28] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-29] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-30] abandonLocked: ConsumerBase is abandoned!
+00:54 +8: Province Given the text has "DONG NAI", when the read finishes, then the ticket card shows the province "Đồng Nai", so Đ counts as D
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-35] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-35](id:563100000025,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-35](id:563100000025,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-35](id:563100000025,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-35](id:563100000025,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-35](id:563100000025,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-32] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-33] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-34] abandonLocked: ConsumerBase is abandoned!
+01:01 +9: Province Given the text has "DA LAT", when the read finishes, then the ticket card shows the province "Đà Lạt"
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-39] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-39](id:563100000029,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-39](id:563100000029,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-39](id:563100000029,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-39](id:563100000029,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-39](id:563100000029,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-36] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-37] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-38] abandonLocked: ConsumerBase is abandoned!
+01:08 +10: Province Given the text has "LAM DONG" but not "DA LAT", when the read finishes, then 4d shows
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-43] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-43](id:56310000002d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-43](id:56310000002d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-43](id:56310000002d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-43](id:56310000002d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-43](id:56310000002d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-40] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-41] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-42] abandonLocked: ConsumerBase is abandoned!
+01:16 +11: Province Given the text has "HO CHI MINH", when the read finishes, then the ticket card shows the province "TP. Hồ Chí Minh"
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-47] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-47](id:563100000031,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-47](id:563100000031,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-47](id:563100000031,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-47](id:563100000031,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-47](id:563100000031,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-44] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-45] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-46] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-51] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-51](id:563100000035,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-51](id:563100000035,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-51](id:563100000035,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-51](id:563100000035,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-48] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-49] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-50] abandonLocked: ConsumerBase is abandoned!
+01:25 +12: Province Given no name from the 21 is in the text, when the read finishes, then 4d shows
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-55] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-55](id:563100000039,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-55](id:563100000039,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-55](id:563100000039,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-55](id:563100000039,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-55](id:563100000039,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-52] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-53] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-54] abandonLocked: ConsumerBase is abandoned!
+01:32 +13: Date Given the only date-like text is "O30- 10- 2026", when the read finishes, then the ticket card shows the date 30/10/2026
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-59] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-59](id:56310000003d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-59](id:56310000003d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-59](id:56310000003d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-59](id:56310000003d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-56] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-57] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-58] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-63] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-63](id:563100000041,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-63](id:563100000041,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-63](id:563100000041,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-63](id:563100000041,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-60] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-61] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-62] abandonLocked: ConsumerBase is abandoned!
+01:41 +14: Date Given the text has "CN-24-11-2019", when the read finishes, then the ticket card shows the date 24/11/2019
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-67] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-67](id:563100000045,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-67](id:563100000045,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-67](id:563100000045,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-67](id:563100000045,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-67](id:563100000045,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-64] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-65] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-66] abandonLocked: ConsumerBase is abandoned!
+01:48 +15: Date Given the only date-like text is "0311-2026", when the read finishes, then 4d shows
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-71] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-71](id:563100000049,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-71](id:563100000049,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-71](id:563100000049,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-71](id:563100000049,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-71](id:563100000049,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-68] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-69] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-70] abandonLocked: ConsumerBase is abandoned!
+01:56 +16: Sketch 4d Given ML Kit returns no text, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-75] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-75](id:56310000004d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-75](id:56310000004d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-75](id:56310000004d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-75](id:56310000004d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-72] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-73] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-74] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-75](id:56310000004d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-79] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-79](id:563100000051,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-79](id:563100000051,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-79](id:563100000051,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-79](id:563100000051,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-79](id:563100000051,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-76] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-77] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-78] abandonLocked: ConsumerBase is abandoned!
+02:06 +17: Sketch 4d Given the read fails, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-83] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-83](id:563100000055,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-83](id:563100000055,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-83](id:563100000055,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-83](id:563100000055,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-83](id:563100000055,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-80] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-81] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-82] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-87] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-87](id:563100000059,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-87](id:563100000059,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-87](id:563100000059,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-87](id:563100000059,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-87](id:563100000059,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-84] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-85] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-86] abandonLocked: ConsumerBase is abandoned!
+02:16 +18: Sketch 4d Given 4d shows, then it has no photo, "Không đọc được vé", "Chụp lại ở nơi đủ sáng, giữ vé phẳng và rõ nét." and a "Thử lại" button, top to bottom
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-91] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-91](id:56310000005d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-91](id:56310000005d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-91](id:56310000005d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-91](id:56310000005d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-91](id:56310000005d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-88] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-89] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-90] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-95] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-95](id:563100000061,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-92] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-93] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-94] abandonLocked: ConsumerBase is abandoned!
+02:25 +19: Sketch 4d Given 4d shows, when "Thử lại" is tapped, then the camera screen opens
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-99] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-99](id:563100000065,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-99](id:563100000065,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-99](id:563100000065,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-99](id:563100000065,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-99](id:563100000065,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-96] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-97] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-98] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-103] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-103](id:563100000069,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-100] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-101] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-102] abandonLocked: ConsumerBase is abandoned!
+02:38 +20: Sketch 4d Given 4d shows, when the phone's back button is pressed, then the camera screen opens
+
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-107] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-107](id:56310000006d,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-107](id:56310000006d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-107](id:56310000006d,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-107](id:56310000006d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-107](id:56310000006d,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-104] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-105] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-106] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f22m7-22065-111] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-111](id:563100000071,api:4,p:530,c:22065) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-111](id:563100000071,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-111](id:563100000071,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-111](id:563100000071,api:4,p:530,c:22065) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(22065): [ImageReader-1280x720f22m7-22065-111](id:563100000071,api:4,p:530,c:22065) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(22065): [ImageReader-1280x720f21m4-22065-108] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-109] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(22065): [ImageReader-1280x720f23m4-22065-110] abandonLocked: ConsumerBase is abandoned!
+02:50 +21: (tearDownAll)
+
+02:50 +21: All tests passed!
+
+exit=0
