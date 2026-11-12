@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import 'photo_screen.dart';
+import 'reading_screen.dart';
 import 'shared/fading_note.dart';
 import 'shared/ticket_photo.dart';
 
@@ -25,7 +25,7 @@ const _noteBottom = 0.25;
 /// Sketch 2: the live camera picture inside a dashed frame, with a round
 /// shutter button. It takes a camera that is already running, so it only opens
 /// once access is allowed. After the photo is kept it replaces itself with the
-/// photo screen, so the phone's back from there shows the home screen.
+/// reading screen, so the phone's back from there shows the home screen.
 class CameraScreen extends StatefulWidget {
   const CameraScreen({required this.controller, super.key});
 
@@ -73,16 +73,13 @@ class _CameraScreenState extends State<CameraScreen> {
       return;
     }
     if (_isLeaving) return deleteTicketPhotoFile(staged.path);
-    final bytes = await staged.readAsBytes();
     if (_isLeaving || !mounted) return deleteTicketPhotoFile(staged.path);
     // Nothing waits between keeping the photo and opening its screen, so the
     // person can't leave in between.
     final kept = keepStagedTicketPhoto(staged);
     _isLeaving = true;
     await Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(
-        builder: (_) => PhotoScreen(photoBytes: bytes, photo: kept),
-      ),
+      MaterialPageRoute<void>(builder: (_) => ReadingScreen.read(photo: kept)),
     );
   }
 
