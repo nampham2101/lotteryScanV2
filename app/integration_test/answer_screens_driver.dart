@@ -29,7 +29,7 @@ import 'helpers/ticket_text.dart';
 //
 // "The saved feed" is helpers/saved_feed.dart, saved on 11 November 2026. Its
 // draw days run from 06/11/2026 to 10/11/2026. Bạc Liêu 10/11 has ĐB 267832
-// and `7: 8078: 82` (Tám 82). Hồ Chí Minh 09/11 has Sáu 0433 and Tám 43. Cà Mau
+// and `7: 8078: 82` (Tám 82). Bình Dương 06/11 has Sáu 7988 and Tám 88. Cà Mau
 // is on 09/11 but not on 10/11.
 
 const _lostText =
@@ -107,6 +107,33 @@ Future<void> _givenCouldNotLoadShows() async {
   await _givenShows(_lostText, couldNotLoadScreen);
 }
 
+/// The error the camera add-on raises when it lets go of a camera preview a
+/// second time (see camera_start_app.dart). The "Quét vé khác" tests end with
+/// a second camera open, and closing it on the way home raises this.
+const _secondReleaseError = 'releaseFlutterSurfaceTexture() cannot be called';
+
+/// Given: the home screen, reached from wherever the previous test ended,
+/// before this test's "no errors since it began" starts. Going home closes a
+/// camera the previous test left open, so the add-on's known second-release
+/// error is let through here. Any other error raised on the way home fails
+/// the test.
+Future<void> _givenHomeAfterPreviousTest() async {
+  if (await isHomeScreenShowing()) return;
+  final errorsBefore = (await readerReport()).errors.length;
+  await givenHomeScreen();
+  // The camera closes as the screen changes, so its error may come a moment
+  // after home shows.
+  await Future<void>.delayed(settleTime);
+  final raised = (await readerReport()).errors.skip(errorsBefore);
+  expect(
+    raised.where((error) => !error.contains(_secondReleaseError)),
+    isEmpty,
+    reason:
+        'SETUP: going home after the previous test raised an app error other '
+        'than the camera add-on\'s known second release',
+  );
+}
+
 /// The feed requests the app has made since the test began.
 Future<List<Request>> _feedRequests() async =>
     (await requestsSoFar()).where((request) => request.isFeed).toList();
@@ -122,6 +149,7 @@ void main() {
 
   setUp(() async {
     await letCameraStart();
+    await _givenHomeAfterPreviousTest();
     await holdReads();
     await resetSite();
   });
@@ -180,8 +208,8 @@ void main() {
       await expectNoAppErrors();
     }, timeout: testTimeout);
 
-    test('Given a ticket that wins several prizes (110433 · TP. Hồ Chí Minh · '
-        '09-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a '
+    test('Given a ticket that wins several prizes (117988 · Bình Dương · '
+        '06-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a '
         'shows one block per prize, "Bạn trúng <giải>" with its amount in '
         'large type, from the highest prize down, with no total', () async {
       const prizes = [
@@ -191,9 +219,9 @@ void main() {
 
       final photo = await _whenScanned(
         ticketText(
-          number: '110433',
-          province: 'TP. HỒ CHÍ MINH',
-          date: '09-11-2026',
+          number: '117988',
+          province: 'BÌNH DƯƠNG',
+          date: '06-11-2026',
         ),
       );
 
@@ -201,9 +229,9 @@ void main() {
         wonScreen(
           prizes,
           ticketCard(
-            number: '110433',
-            province: 'TP. Hồ Chí Minh',
-            date: '09/11/2026',
+            number: '117988',
+            province: 'Bình Dương',
+            date: '06/11/2026',
           ),
         ),
         photo: photo,

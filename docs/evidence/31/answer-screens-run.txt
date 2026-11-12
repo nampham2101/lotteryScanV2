@@ -1,0 +1,90 @@
+Run of all of ticket #31's tests (answer_screens_driver.dart on
+camera_start_app.dart) on Pixel_10 (emulator-5554), 12 November 2026, with the
+feature as committed in 75ef4d5, after two test fixes:
+
+- The several-prizes test now uses 117988 · Bình Dương · 06-11-2026, which
+  wins Giải Sáu (7988) and Giải Tám (88) in the saved feed. The earlier ticket,
+  110433, ends in 33 and doesn't win Giải Tám (43).
+- Each test's setup first goes home from wherever the previous test ended,
+  before the test's "no errors since it began" window. Closing the second
+  camera a "Quét vé khác" test leaves open raises the camera add-on's known
+  "releaseFlutterSurfaceTexture() cannot be called ..." error; only that
+  error is let through there.
+
+Result: all 27 tests passed (04:23 +27: All tests passed!). The known error
+shows in the log below 5 times, in the setups right after the "Quét vé khác"
+and camera tests, and failed none of them. Airplane mode was off after the
+run.
+
+Android log lines (logcat, lines like "D/CXCP (11913): ...") are left out
+except those naming the known error; everything the test runner printed is
+kept.
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                           2,597ms
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          355ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/answer_screens_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:50867/mW8KerqoyHI=/
+VMServiceFlutterDriver: Isolate found with number: 3558570937602419
+VMServiceFlutterDriver: Isolate 3558570937602419 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Reading Given the camera screen, when the shutter is tapped and the photo is kept, then sketch 3 shows "Đang đọc vé…" and "Chỉ mất vài giây", with no photo and no "Số vé / Tỉnh / Ngày" lines, and stays while the ticket is read
+00:10 +1: Reading Given sketch 3 shows and the ticket has been read, when the feed is still loading, then sketch 3 stays, with no "Số vé / Tỉnh / Ngày" lines, until the answer screen opens
+00:20 +2: Answers Given a ticket that wins one prize (123482 · Bạc Liêu · 10-11-2026, Giải Tám), when the answer is ready, then 4a shows "Chúc mừng!", "Bạn trúng Giải Tám", "100.000đ" in large type, the card "Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and nothing moves
+00:33 +3: Answers Given a ticket that wins several prizes (117988 · Bình Dương · 06-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a shows one block per prize, "Bạn trúng <giải>" with its amount in large type, from the highest prize down, with no total
+00:41 +4: Answers Given a ticket that wins more prizes than fit (123456 · Bạc Liêu · 10-11-2026 against a feed where it wins Giải Nhất to Giải Tám), when the answer is ready, then the screen scrolls to show every block, from the highest prize down, with no total, and "Quét vé khác"
+00:55 +5: Answers Given a ticket that wins nothing (111111 · Bạc Liêu · 10-11-2026), when the answer is ready, then 4b shows "Chưa trúng lần này", "Chúc bạn may mắn lần sau!", the ticket card and "Quét vé khác", and nothing moves
+01:07 +6: Answers Given a ticket dated today that isn't drawn yet, when the answer is ready, then 4c shows "Chưa có kết quả", "Xổ số <tỉnh> mở thưởng lúc 16:15. Quay lại sau nhé.", the ticket card and "Quét vé khác", with <tỉnh> as read from the ticket
+01:15 +7: Answers Given a ticket dated a later day that isn't drawn yet, when the answer is ready, then 4c shows "…mở thưởng lúc 16:15 ngày <DD/MM/YYYY>. Quay lại sau nhé."
+01:23 +8: Answers Given a ticket older than the feed's oldest draw day (An Giang · 05-11-2026), when the answer is ready, then the "too old" screen shows "Vé quá cũ", "Chỉ dò được vé trong 5 kỳ quay gần nhất." and "Quét vé khác"
+01:31 +9: Answers Couldn't load Given no internet, when the feed is fetched, then the "couldn't load" screen shows "Không tải được kết quả", "Kiểm tra kết nối mạng rồi thử lại sau." and "Thử lại"
+01:41 +10: Answers Couldn't load Given no answer within 10 seconds, when the feed is fetched, then the "couldn't load" screen shows
+01:59 +11: Answers Couldn't load Given a feed the app can't understand, when the feed is fetched, then the "couldn't load" screen shows
+02:06 +12: Answers 4d Given a failed read, when the answer is ready, then 4d shows, unchanged from #24
+02:17 +13: Answers 4d Given a missing field (no date), when the answer is ready, then 4d shows, unchanged from #24
+02:30 +14: Answers 4d Given a province not drawn on the ticket's date (Cà Mau · 10-11-2026), when the answer is ready, then 4d shows, unchanged from #24
+02:43 +15: Buttons and back Given 4a, when "Quét vé khác" is tapped, then the camera opens
+02:56 +16: Buttons and back Given 4b, when "Quét vé khác" is tapped, then the camera opens
+E/flutter ( 6491): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: PlatformException(IllegalStateException, java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized., Cause: null, Stacktrace: java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized.
+03:06 +17: Buttons and back Given 4c, when "Quét vé khác" is tapped, then the camera opens
+E/flutter ( 6491): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: PlatformException(IllegalStateException, java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized., Cause: null, Stacktrace: java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized.
+03:16 +18: Buttons and back Given "too old", when "Quét vé khác" is tapped, then the camera opens
+E/flutter ( 6491): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: PlatformException(IllegalStateException, java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized., Cause: null, Stacktrace: java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized.
+03:27 +19: Buttons and back Given "couldn't load", when "Thử lại" is tapped, then sketch 3 shows while the feed is fetched again for the same ticket, with no new photo, then the matching answer screen shows
+E/flutter ( 6491): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: PlatformException(IllegalStateException, java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized., Cause: null, Stacktrace: java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized.
+03:40 +20: Buttons and back Given 4a, when the phone's back button is pressed, then home shows
+03:50 +21: Buttons and back Given 4b, when the phone's back button is pressed, then home shows
+03:56 +22: Buttons and back Given 4c, when the phone's back button is pressed, then home shows
+04:01 +23: Buttons and back Given "too old", when the phone's back button is pressed, then home shows
+04:06 +24: Buttons and back Given "couldn't load", when the phone's back button is pressed, then home shows
+04:11 +25: Buttons and back Given "Quét vé khác" is tapped (on 4b), when camera access is refused, then home shows with the "Cần dùng camera" pop-up
+04:14 +26: Buttons and back Given "Quét vé khác" is tapped (on "too old"), when the camera fails for any other reason, then home shows with the fading note "Lỗi camera, thử lại"
+E/flutter ( 6491): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: PlatformException(IllegalStateException, java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized., Cause: null, Stacktrace: java.lang.IllegalStateException: releaseFlutterSurfaceTexture() cannot be called if the flutterSurfaceProducer for the camera preview has not yet been initialized.
+04:23 +27: (tearDownAll)
+04:23 +27: All tests passed!
