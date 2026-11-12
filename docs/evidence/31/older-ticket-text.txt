@@ -1,0 +1,190 @@
+Device: Pixel_10 emulator (emulator-5554)
+Command: fvm flutter drive -d emulator-5554 --driver=integration_test/ticket_text_driver.dart --target=integration_test/ticket_text_app.dart
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              4.1s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          351ms
+00:00 +0: (setUpAll)
+
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:62024/_OKmdKAJW04=/
+VMServiceFlutterDriver: Isolate found with number: 8773291040927135
+VMServiceFlutterDriver: Isolate 8773291040927135 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given a photo taken in the app, when real ML Kit reads it, then the read works and an answer screen shows, or screen 4d, and 4d if the text it gave is empty
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-3] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-3](id:473500000005,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-3](id:473500000005,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-3](id:473500000005,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-3](id:473500000005,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-3](id:473500000005,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-2] abandonLocked: ConsumerBase is abandoned!
+00:04 +1: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit finishes afterwards
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-7] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-7](id:473500000009,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-7](id:473500000009,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-7](id:473500000009,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-7](id:473500000009,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-7](id:473500000009,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-6] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-11] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-11](id:47350000000d,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-11](id:47350000000d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-11](id:47350000000d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-11](id:47350000000d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-8] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-10] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-11](id:47350000000d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+00:16 +2: Leaving the screen Given "Đang đọc vé..." is showing, when the person uses the phone's back gesture, then home shows, with no error when ML Kit finishes afterwards
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-15] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-15](id:473500000011,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-15](id:473500000011,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-15](id:473500000011,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-15](id:473500000011,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-15](id:473500000011,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-12] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-13] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-14] abandonLocked: ConsumerBase is abandoned!
+00:25 +3: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit fails afterwards
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-19] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-19](id:473500000015,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-19](id:473500000015,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-19](id:473500000015,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-19](id:473500000015,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-19](id:473500000015,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-16] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-17] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-18] abandonLocked: ConsumerBase is abandoned!
+00:34 +4: Leaving the screen Given an answer screen is showing, when the person presses back and taps "Quét vé", then the camera opens as normal
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-23] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-23](id:473500000019,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-23](id:473500000019,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-23](id:473500000019,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-23](id:473500000019,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-23](id:473500000019,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-20] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-21] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-22] abandonLocked: ConsumerBase is abandoned!
+00:40 +5: Leaving the screen Given the person left a photo, when they take a new one, then the screen shows only the new photo's own answer
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-27] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-27](id:47350000001d,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-27](id:47350000001d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-27](id:47350000001d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-27](id:47350000001d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-24] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-25] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-26] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-31] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-31](id:473500000021,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-31](id:473500000021,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-31](id:473500000021,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-28] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-29] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-30] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-35] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-35](id:473500000025,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-35](id:473500000025,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-35](id:473500000025,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-35](id:473500000025,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-35](id:473500000025,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-32] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-33] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-34] abandonLocked: ConsumerBase is abandoned!
+01:02 +6: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes first, then the screen shows only the new photo's own answer
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-39] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-39](id:473500000029,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-39](id:473500000029,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-39](id:473500000029,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-39](id:473500000029,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-39](id:473500000029,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-36] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-37] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-38] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-43] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-43](id:47350000002d,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-43](id:47350000002d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-43](id:47350000002d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-43](id:47350000002d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-40] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-41] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-42] abandonLocked: ConsumerBase is abandoned!
+01:26 +7: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes last, then the screen shows only the new photo's own answer
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-47] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-47](id:473500000031,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-47](id:473500000031,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-47](id:473500000031,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-47](id:473500000031,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-47](id:473500000031,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-44] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-45] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-46] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-51] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-51](id:473500000035,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-51](id:473500000035,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-51](id:473500000035,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-51](id:473500000035,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-51](id:473500000035,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-48] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-49] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-50] abandonLocked: ConsumerBase is abandoned!
+01:51 +8: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read fails, then the screen still waits for the new photo's own answer
+
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-55] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-55](id:473500000039,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-55](id:473500000039,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-55](id:473500000039,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-55](id:473500000039,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-55](id:473500000039,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-52] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-53] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-54] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f22m7-18229-59] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-59](id:47350000003d,api:4,p:530,c:18229) dequeueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-59](id:47350000003d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-59](id:47350000003d,api:4,p:530,c:18229) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-59](id:47350000003d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18229): [ImageReader-1280x720f22m7-18229-59](id:47350000003d,api:4,p:530,c:18229) cancelBuffer: BufferQueue has been abandoned
+E/ConsumerBase(18229): [ImageReader-1280x720f21m4-18229-56] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-57] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18229): [ImageReader-1280x720f23m4-18229-58] abandonLocked: ConsumerBase is abandoned!
+02:15 +9: (tearDownAll)
+
+02:15 +9: All tests passed!
+
+exit=0
