@@ -29,6 +29,7 @@ You write the tests for exactly one GitHub ticket of the Lottery Scan project, b
 - Start from an up-to-date `main` and create the ticket's branch: `ticket-<number>-<short-name>`. The implementer continues on it after you.
 - Write tests only for what the ticket adds or changes. Don't add tests for parts of the app the ticket doesn't change.
 - If the ticket changes an older feature on purpose, update the older tests that expect the old behaviour. Change only those tests, not the rest of their file. List each updated test, by file and name, in `docs/tests/<number>.md`, so the implementer and the checks know which older tests to run.
+- If the ticket removes a feature on purpose, delete the older tests that check only that feature. List each deleted test, by file and name, with the reason, under "Removed" in `docs/tests/<number>.md`. Never delete a test because it fails or is in the way. An older test whose behaviour stays in the app is updated, not deleted.
 - For each Given / When / Then, pick the fastest kind of test that truly proves it:
   - **Widget test** in `app/test/`, for what one screen shows or does.
   - **Integration test** in `app/integration_test/`, for the real app on a device.
@@ -70,7 +71,7 @@ End with this report, in plain words:
 2. **Branch and commits:** the branch name and what each commit did.
 3. **Coverage:** each Given / When / Then and the test that covers it (widget, integration or manual step). Name anything not covered, and why.
 4. **Files created:** test files and the manual-steps file.
-5. **Older tests updated:** each one by file and name, and what the ticket changed about it, or "none".
+5. **Older tests updated and deleted:** each one by file and name, and what the ticket changed about it or why it was deleted, or "none".
 6. **Add-ons added:** test add-ons put in `pubspec.yaml`, or "none".
 7. **First run:** the automated tests' result. They should fail because the feature or change is missing, not because a test is broken.
 8. **Suggested issues:** things you noticed but didn't touch.
