@@ -1,15 +1,15 @@
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
-import 'app_screen.dart';
+import 'answers.dart';
 import 'driven_app.dart';
 import 'photo_hash.dart';
 import 'photo_screen.dart';
-import 'shown_photo.dart';
+import 'ticket_fields.dart';
 
-// Shared by the tests for ticket #18, which run on the Mac: how they give orders
-// to ML Kit's stand-in in ticket_text_app.dart, and what the text under the
-// photo must be.
+// Shared by the tests for ticket #18, which run on the Mac, and the tickets
+// after it: how they give orders to ML Kit's stand-in in ticket_text_app.dart,
+// and, since ticket #31, that sketch 3 shows while it reads.
 
 /// A real read on the emulator can take longer than a screen change.
 const _realReadTimeout = Duration(seconds: 45);
@@ -130,27 +130,22 @@ Future<void> expectReadWasOfKeptPhoto(int read) async {
   );
 }
 
-/// All the words on screen, top to bottom, one text on each line. The app may
-/// show the text in one piece or one line at a time.
-String shownText(AppScreen screen) {
-  final texts = screen.texts.toList()..sort((a, b) => a.top.compareTo(b.top));
-  return texts.map((text) => text.label).join('\n');
-}
-
-/// Then: [text] is the only thing written on screen, exactly as it is here.
-Future<void> expectOnlyTextIs(String text) async {
-  var shown = '';
+/// Then: sketch 3 is showing, and still is a while later.
+Future<void> expectReadingScreenStays() async {
+  var screen = await appScreen();
   await waitUntil(() async {
-    shown = shownText(await appScreen());
-    return shown == text;
+    screen = await appScreen();
+    return isReadingScreen(screen);
   });
-  expect(shown, text);
-}
-
-/// Then: nothing changes for a while: only [text] stays written on screen.
-Future<void> expectOnlyTextStays(String text) async {
   await Future<void>.delayed(settleTime);
-  expect(shownText(await appScreen()), text);
+  screen = await appScreen();
+  expect(
+    isReadingScreen(screen),
+    isTrue,
+    reason:
+        'sketch 3 did not stay, with only "$readingTitle" and "$readingHint". '
+        'On screen: ${shownLines(screen)}',
+  );
 }
 
 /// Then: the app has had no error since this test began.
@@ -159,11 +154,15 @@ Future<void> expectNoAppErrors() async {
 }
 
 /// Given: a photo was just taken and ML Kit is still reading it, read number
-/// [read]. Returns the photo.
+/// [read], so sketch 3 shows. Returns the photo.
 Future<img.Image> givenReadingShows({int read = 0}) async {
   final photo = await givenPhotoTaken();
   await expectReadAsked(read);
-  await expectOnlyTextIs(readingText);
+  expect(
+    isReadingScreen(await appScreen()),
+    isTrue,
+    reason: 'sketch 3 did not stay while ML Kit was reading',
+  );
   return photo;
 }
 
@@ -175,29 +174,6 @@ Future<img.Image> leaveAndTakeNewPhoto({int read = 1}) async {
   await expectHomeScreenShows();
   await phone.turnCamera();
   return givenReadingShows(read: read);
-}
-
-/// Where [photo] is on screen now.
-Future<PhotoPlace> photoPlaceNow(img.Image photo) async {
-  await expectScreenShows(photo);
-  final place = findPhoto(photo, await phone.screenshot(), await appScreen());
-  expect(place, isNotNull, reason: 'the photo moved while it was being found');
-  return place!;
-}
-
-/// Then: the screen still shows [photo] at exactly [place].
-Future<void> expectPhotoStaysAt(img.Image photo, PhotoPlace place) async {
-  final difference = differenceAtPlace(
-    photo,
-    place,
-    await phone.screenshot(),
-    await appScreen(),
-  );
-  expect(
-    difference,
-    lessThanOrEqualTo(samePictureLimit),
-    reason: 'the photo moved',
-  );
 }
 
 /// The part of the screen that scrolls, once the text is showing. There must

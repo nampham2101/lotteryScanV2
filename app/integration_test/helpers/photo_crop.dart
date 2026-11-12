@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:image/image.dart' as img;
 import 'package:test/test.dart';
 
-import 'answers.dart';
+import 'answer_screens.dart';
 import 'app_screen.dart';
 import 'dashed_frame.dart';
 import 'driven_app.dart';
@@ -11,7 +11,6 @@ import 'phone.dart';
 import 'photo_hash.dart';
 import 'photo_screen.dart';
 import 'shown_photo.dart';
-import 'ticket_fields.dart';
 import 'ticket_text.dart';
 
 // Shared by the tests for ticket #22, which run on the Mac: how they give orders
@@ -21,14 +20,9 @@ import 'ticket_text.dart';
 const cropFailedNote = 'Lỗi xử lí ảnh. Vui lòng chụp lại ảnh khác';
 
 /// The text read from a photo kept before the one a test is about. It has all
-/// three fields, so since ticket #24 the photo screen shows them, not 4d.
-/// Since ticket #28 the answer shows below them: 2019 is before the saved
-/// feed's oldest day.
+/// three fields, so since ticket #24 it isn't 4d. 2019 is before the saved
+/// feed's oldest day, so since ticket #31 the "too old" screen shows.
 const earlierText = 'ĐÀ LẠT\n654321\n24-11-2019';
-final _earlierLines = [
-  ...fieldLines(number: '654321', province: 'Đà Lạt', date: '24-11-2019'),
-  tooOldText,
-];
 
 /// "Fades after a few seconds": the note stays long enough to read, then goes
 /// away by itself. Watching takes a moment between looks, so the shortest
@@ -178,7 +172,7 @@ Future<img.Image> croppedPhotoKeptSince(double tappedAt, FrameSeen seen) async {
 Future<img.Image> givenPhotoKeptEarlier() async {
   final photo = await givenReadingShows();
   await finishRead(0, earlierText);
-  await expectOnlyLinesAre(_earlierLines);
+  await expectAnswerScreen(tooOldScreen);
   await phone.pressBackButton();
   await expectHomeScreenShows();
   return photo;
@@ -285,7 +279,7 @@ void _expectStillCameraScreen(AppScreen screen) {
     screen.shows(cameraHint) &&
         !screen.shows(homeTitle) &&
         !screen.shows(scanButtonLabel) &&
-        !screen.shows(readingText),
+        !showsReading(screen),
     isTrue,
     reason: 'the camera screen did not stay open. On screen: ${screen.items}',
   );
@@ -377,8 +371,8 @@ Future<void> tapShutterThenBack() async {
   await releasePhoto();
 }
 
-/// Then: the home screen shows and stays, and no photo screen ever appears on
-/// the way. The reads are held, so a photo screen would show "Đang đọc vé...".
+/// Then: the home screen shows and stays, and sketch 3 never appears on the
+/// way. The reads are held, so sketch 3 would stay if it opened.
 /// The list of what's on screen is empty for a moment whenever a screen
 /// closes, so a moment doesn't count.
 Future<void> expectHomeWithNoPhotoScreen() async {
@@ -389,9 +383,9 @@ Future<void> expectHomeWithNoPhotoScreen() async {
     final isInFront = await phone.isAppInFront();
     final screen = await appScreen();
     expect(
-      screen.shows(readingText),
+      showsReading(screen),
       isFalse,
-      reason: 'the photo screen opened after the person pressed back',
+      reason: 'sketch 3 opened after the person pressed back',
     );
     final isHome =
         isInFront &&

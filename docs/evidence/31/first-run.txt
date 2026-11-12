@@ -1,0 +1,1384 @@
+First run of the tests for ticket #31, before the feature exists, on Pixel_10
+(emulator-5554), with no code for the ticket written yet.
+
+Base: commit 4597832, branch ticket-31-answer-screens, tests not yet
+committed. Seven runs, one after the other on 12 November 2026: the new tests
+of ticket #31, then only the older tests this ticket changed (see
+docs/tests/31.md, "Changes to older tests"). Each run is shown below with the
+Android log lines (logcat, lines like "D/CXCP (11913): ...") left out, since
+they are thousands of lines of camera and system chatter; everything the test
+runner printed is kept.
+
+Results:
+
+- Ticket #31 (answer_screens_driver.dart): all 27 fail because the feature is
+  missing.
+  - 5 fail because sketch 3 never shows after the shutter: the screen shows
+    only "Đang đọc vé...". These are the first reading test and the three 4d
+    tests ("sketch 3 did not open and stay after the shutter ... On screen:
+    [Đang đọc vé...]"), and the reading test that holds the feed ("sketch 3
+    did not stay while the feed was loading. On screen: [Đang đọc vé...]").
+  - 22 fail because the answer shows on the temporary screen, below the
+    three lines, in place of its own screen, e.g. "4b did not show ... On
+    screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần
+    này]. Buttons: []". That covers 4a (one, two and eight prizes), 4b, 4c
+    today and later, "too old", the three "couldn't load" causes, and every
+    "Quét vé khác", "Thử lại", back and camera-won't-start test, which can't
+    reach the screen they start from.
+  - In the eight-prize test, the swipes went through the temporary screen's
+    scrolling text and saw all eight prizes, in order, as "Giải Nhất:
+    30.000.000đ" down to "Giải Tám: 100.000đ", which shows the changed feed
+    gives the eight prizes; it fails on the words and the missing card and
+    button.
+  - In the "no internet" test, airplane mode went on and was off again
+    after the run.
+- Ticket #10 (photo_screen_driver.dart, 4 tests): all fail because sketch 3
+  doesn't show after the shutter.
+- Ticket #18 (ticket_text_driver.dart, 9 tests): 8 fail because sketch 3
+  doesn't show after the shutter. 1 passes: "Given a photo taken in the app,
+  when real ML Kit reads it, ...". The emulator's room reads as no ticket, so
+  the app shows 4d, which this ticket doesn't change and which that test
+  accepts.
+- Ticket #22 (photo_crop_driver.dart, 7 tests): all fail because sketch 3
+  doesn't show after the shutter.
+- Ticket #24 (ticket_fields_driver.dart, 21 tests): all fail because sketch 3
+  doesn't show after the shutter.
+- Ticket #24 (camera_start_driver.dart, the 4 tests that start from 4d): all
+  fail because sketch 3 doesn't show after the shutter.
+- Ticket #28 (results_driver.dart, the 6 updated tests): all fail because the
+  answer shows on the temporary screen, below the three lines, not on 4a, 4b,
+  4c or "too old".
+
+No test failed because of a broken test: every failure is the missing sketch
+3 or a missing answer screen.
+
+================================================================================
+Ticket #31, answer_screens_driver.dart on camera_start_app.dart
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                          
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                             25.7s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        2,454ms
+D/VRI[MainActivity](11913): WindowInsets changed: 1080x2340 statusBars:[0,146,0,0] navigationBars:[0,0,0,68] mandatorySystemGestures:[0,169,0,90] 
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/answer_screens_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:53796/9zEFng03BPM=/
+VMServiceFlutterDriver: Isolate found with number: 5702100296056519
+VMServiceFlutterDriver: Isolate 5702100296056519 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:04 +0: Reading Given the camera screen, when the shutter is tapped and the photo is kept, then sketch 3 shows "Đang đọc vé…" and "Chỉ mất vài giây", with no photo and no "Số vé / Tỉnh / Ngày" lines, and stays while the ticket is read
+00:30 +0 -1: Reading Given the camera screen, when the shutter is tapped and the photo is kept, then sketch 3 shows "Đang đọc vé…" and "Chỉ mất vài giây", with no photo and no "Số vé / Tỉnh / Ngày" lines, and stays while the ticket is read [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 139:7  main.<fn>.<fn>
+
+00:30 +0 -1: Reading Given sketch 3 shows and the ticket has been read, when the feed is still loading, then sketch 3 stays, with no "Số vé / Tỉnh / Ngày" lines, until the answer screen opens
+00:34 +0 -2: Reading Given sketch 3 shows and the ticket has been read, when the feed is still loading, then sketch 3 stays, with no "Số vé / Tỉnh / Ngày" lines, until the answer screen opens [E]
+  Expected: true
+    Actual: <false>
+  sketch 3 did not stay while the feed was loading. On screen: [Đang đọc vé...]
+
+  package:matcher                                    expect
+  integration_test/helpers/results.dart 167:5        expectReadingStaysWhileHeld
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 159:7  main.<fn>.<fn>
+
+00:34 +0 -2: Answers Given a ticket that wins one prize (123482 · Bạc Liêu · 10-11-2026, Giải Tám), when the answer is ready, then 4a shows "Chúc mừng!", "Bạn trúng Giải Tám", "100.000đ" in large type, the card "Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and nothing moves
+00:53 +0 -3: Answers Given a ticket that wins one prize (123482 · Bạc Liêu · 10-11-2026, Giải Tám), when the answer is ready, then 4a shows "Chúc mừng!", "Bạn trúng Giải Tám", "100.000đ" in large type, the card "Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and nothing moves [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Tám, 100.000đ, Vé 123482 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123482, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Tám: 100.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 175:7  main.<fn>.<fn>
+
+00:53 +0 -3: Answers Given a ticket that wins several prizes (110433 · TP. Hồ Chí Minh · 09-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a shows one block per prize, "Bạn trúng <giải>" with its amount in large type, from the highest prize down, with no total
+01:12 +0 -4: Answers Given a ticket that wins several prizes (110433 · TP. Hồ Chí Minh · 09-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a shows one block per prize, "Bạn trúng <giải>" with its amount in large type, from the highest prize down, with no total [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Sáu, 400.000đ, Bạn trúng Giải Tám, 100.000đ, Vé 110433 · TP. Hồ Chí Minh · 09/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 110433, Tỉnh: TP. Hồ Chí Minh, Ngày: 09-11-2026, Chúc mừng! Bạn trúng, Giải Sáu: 400.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 200:7  main.<fn>.<fn>
+
+01:12 +0 -4: Answers Given a ticket that wins more prizes than fit (123456 · Bạc Liêu · 10-11-2026 against a feed where it wins Giải Nhất to Giải Tám), when the answer is ready, then the screen scrolls to show every block, from the highest prize down, with no total, and "Quét vé khác"
+01:33 +0 -5: Answers Given a ticket that wins more prizes than fit (123456 · Bạc Liêu · 10-11-2026 against a feed where it wins Giải Nhất to Giải Tám), when the answer is ready, then the screen scrolls to show every block, from the highest prize down, with no total, and "Quét vé khác" [E]
+  Expected: 'Chúc mừng! Bạn trúng Giải Nhất 30.000.000đ Bạn trúng Giải Nhì 15.000.000đ Bạn trúng Giải Ba 10.000.000đ Bạn trúng Giải Tư 3.000.000đ Bạn trúng Giải Năm 1.000.000đ Bạn trúng Giải Sáu 400.000đ Bạn trúng Giải Bảy 200.000đ Bạn trúng Giải Tám 100.000đ Vé 123456 · Bạc Liêu · 10/11/2026 Quét vé khác'
+    Actual: 'Chúc mừng! Bạn trúng Giải Nhất: 30.000.000đ Giải Nhì: 15.000.000đ Giải Ba: 10.000.000đ Giải Tư: 3.000.000đ Giải Năm: 1.000.000đ Giải Sáu: 400.000đ Giải Bảy: 200.000đ Giải Tám: 100.000đ'
+     Which: is different.
+            Expected: ...  Giải Nhất 30.000.00 ...
+              Actual: ...  Giải Nhất: 30.000.0 ...
+                                    ^
+             Differ at offset 30
+  swiping from the top to the end of 4a, the lines that came into view, in order, must be exactly [Chúc mừng!, Bạn trúng Giải Nhất, 30.000.000đ, Bạn trúng Giải Nhì, 15.000.000đ, Bạn trúng Giải Ba, 10.000.000đ, Bạn trúng Giải Tư, 3.000.000đ, Bạn trúng Giải Năm, 1.000.000đ, Bạn trúng Giải Sáu, 400.000đ, Bạn trúng Giải Bảy, 200.000đ, Bạn trúng Giải Tám, 100.000đ, Vé 123456 · Bạc Liêu · 10/11/2026, Quét vé khác]. Seen: [Số vé: 123456, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Nhất: 30.000.000đ, Giải Nhì: 15.000.000đ, Giải Ba: 10.000.000đ, Giải Tư: 3.000.000đ, Giải Năm: 1.000.000đ, Giải Sáu: 400.000đ, Giải Bảy: 200.000đ, Giải Tám: 100.000đ]
+
+  package:matcher                                     expect
+  integration_test/helpers/answer_screens.dart 293:3  expectEverythingSeenByScrolling
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 238:7   main.<fn>.<fn>
+
+01:33 +0 -5: Answers Given a ticket that wins nothing (111111 · Bạc Liêu · 10-11-2026), when the answer is ready, then 4b shows "Chưa trúng lần này", "Chúc bạn may mắn lần sau!", the ticket card and "Quét vé khác", and nothing moves
+01:52 +0 -6: Answers Given a ticket that wins nothing (111111 · Bạc Liêu · 10-11-2026), when the answer is ready, then 4b shows "Chưa trúng lần này", "Chúc bạn may mắn lần sau!", the ticket card and "Quét vé khác", and nothing moves [E]
+  Expected: true
+    Actual: <false>
+  4b did not show: from "Chưa trúng lần này" down, the words must be exactly [Chưa trúng lần này, Chúc bạn may mắn lần sau!, Vé 111111 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần này]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 258:7  main.<fn>.<fn>
+
+01:52 +0 -6: Answers Given a ticket dated today that isn't drawn yet, when the answer is ready, then 4c shows "Chưa có kết quả", "Xổ số <tỉnh> mở thưởng lúc 16:15. Quay lại sau nhé.", the ticket card and "Quét vé khác", with <tỉnh> as read from the ticket
+02:11 +0 -7: Answers Given a ticket dated today that isn't drawn yet, when the answer is ready, then 4c shows "Chưa có kết quả", "Xổ số <tỉnh> mở thưởng lúc 16:15. Quay lại sau nhé.", the ticket card and "Quét vé khác", with <tỉnh> as read from the ticket [E]
+  Expected: true
+    Actual: <false>
+  4c did not show: from "Chưa có kết quả" down, the words must be exactly [Chưa có kết quả, Xổ số An Giang mở thưởng lúc 16:15. Quay lại sau nhé., Vé 123456 · An Giang · 12/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 12-11-2026, Chưa có kết quả]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 273:7  main.<fn>.<fn>
+
+02:11 +0 -7: Answers Given a ticket dated a later day that isn't drawn yet, when the answer is ready, then 4c shows "…mở thưởng lúc 16:15 ngày <DD/MM/YYYY>. Quay lại sau nhé."
+02:29 +0 -8: Answers Given a ticket dated a later day that isn't drawn yet, when the answer is ready, then 4c shows "…mở thưởng lúc 16:15 ngày <DD/MM/YYYY>. Quay lại sau nhé." [E]
+  Expected: true
+    Actual: <false>
+  4c did not show: from "Chưa có kết quả" down, the words must be exactly [Chưa có kết quả, Xổ số Long An mở thưởng lúc 16:15 ngày 14/11/2026. Quay lại sau nhé., Vé 123456 · Long An · 14/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: Long An, Ngày: 14-11-2026, Chưa có kết quả]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 286:7  main.<fn>.<fn>
+
+02:29 +0 -8: Answers Given a ticket older than the feed's oldest draw day (An Giang · 05-11-2026), when the answer is ready, then the "too old" screen shows "Vé quá cũ", "Chỉ dò được vé trong 5 kỳ quay gần nhất." and "Quét vé khác"
+02:48 +0 -9: Answers Given a ticket older than the feed's oldest draw day (An Giang · 05-11-2026), when the answer is ready, then the "too old" screen shows "Vé quá cũ", "Chỉ dò được vé trong 5 kỳ quay gần nhất." and "Quét vé khác" [E]
+  Expected: true
+    Actual: <false>
+  "too old" did not show: from "Vé quá cũ" down, the words must be exactly [Vé quá cũ, Chỉ dò được vé trong 5 kỳ quay gần nhất., Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 05-11-2026, Vé quá cũ, không dò được]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 298:7  main.<fn>.<fn>
+
+02:48 +0 -9: Answers Couldn't load Given no internet, when the feed is fetched, then the "couldn't load" screen shows "Không tải được kết quả", "Kiểm tra kết nối mạng rồi thử lại sau." and "Thử lại"
+03:07 +0 -10: Answers Couldn't load Given no internet, when the feed is fetched, then the "couldn't load" screen shows "Không tải được kết quả", "Kiểm tra kết nối mạng rồi thử lại sau." and "Thử lại" [E]
+  Expected: true
+    Actual: <false>
+  "couldn't load" did not show: from "Không tải được kết quả" down, the words must be exactly [Không tải được kết quả, Kiểm tra kết nối mạng rồi thử lại sau., Thử lại], and "Thử lại" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Không tải được kết quả, thử lại sau]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 312:9  main.<fn>.<fn>.<fn>
+
+03:09 +0 -10: Answers Couldn't load Given no answer within 10 seconds, when the feed is fetched, then the "couldn't load" screen shows
+03:37 +0 -11: Answers Couldn't load Given no answer within 10 seconds, when the feed is fetched, then the "couldn't load" screen shows [E]
+  Expected: true
+    Actual: <false>
+  "couldn't load" did not show: from "Không tải được kết quả" down, the words must be exactly [Không tải được kết quả, Kiểm tra kết nối mạng rồi thử lại sau., Thử lại], and "Thử lại" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Không tải được kết quả, thử lại sau]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 325:9  main.<fn>.<fn>.<fn>
+
+03:37 +0 -11: Answers Couldn't load Given a feed the app can't understand, when the feed is fetched, then the "couldn't load" screen shows
+03:56 +0 -12: Answers Couldn't load Given a feed the app can't understand, when the feed is fetched, then the "couldn't load" screen shows [E]
+  Expected: true
+    Actual: <false>
+  "couldn't load" did not show: from "Không tải được kết quả" down, the words must be exactly [Không tải được kết quả, Kiểm tra kết nối mạng rồi thử lại sau., Thử lại], and "Thử lại" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Không tải được kết quả, thử lại sau]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 338:9  main.<fn>.<fn>.<fn>
+
+03:56 +0 -12: Answers 4d Given a failed read, when the answer is ready, then 4d shows, unchanged from #24
+04:17 +0 -13: Answers 4d Given a failed read, when the answer is ready, then 4d shows, unchanged from #24 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                     fail
+  integration_test/helpers/photo_screen.dart 65:3     expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3    givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17    givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 347:23  main.<fn>.<fn>.<fn>
+
+04:17 +0 -13: Answers 4d Given a missing field (no date), when the answer is ready, then 4d shows, unchanged from #24
+04:38 +0 -14: Answers 4d Given a missing field (no date), when the answer is ready, then 4d shows, unchanged from #24 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                     fail
+  integration_test/helpers/photo_screen.dart 65:3     expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3    givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17    givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 357:23  main.<fn>.<fn>.<fn>
+
+04:38 +0 -14: Answers 4d Given a province not drawn on the ticket's date (Cà Mau · 10-11-2026), when the answer is ready, then 4d shows, unchanged from #24
+04:59 +0 -15: Answers 4d Given a province not drawn on the ticket's date (Cà Mau · 10-11-2026), when the answer is ready, then 4d shows, unchanged from #24 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                     fail
+  integration_test/helpers/photo_screen.dart 65:3     expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3    givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17    givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 368:23  main.<fn>.<fn>.<fn>
+
+04:59 +0 -15: Buttons and back Given 4a, when "Quét vé khác" is tapped, then the camera opens
+05:18 +0 -16: Buttons and back Given 4a, when "Quét vé khác" is tapped, then the camera opens [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Tám, 100.000đ, Vé 123482 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123482, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Tám: 100.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 393:9  main.<fn>.<fn>
+
+05:18 +0 -16: Buttons and back Given 4b, when "Quét vé khác" is tapped, then the camera opens
+05:36 +0 -17: Buttons and back Given 4b, when "Quét vé khác" is tapped, then the camera opens [E]
+  Expected: true
+    Actual: <false>
+  4b did not show: from "Chưa trúng lần này" down, the words must be exactly [Chưa trúng lần này, Chúc bạn may mắn lần sau!, Vé 111111 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần này]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 393:9  main.<fn>.<fn>
+
+05:36 +0 -17: Buttons and back Given 4c, when "Quét vé khác" is tapped, then the camera opens
+05:55 +0 -18: Buttons and back Given 4c, when "Quét vé khác" is tapped, then the camera opens [E]
+  Expected: true
+    Actual: <false>
+  4c did not show: from "Chưa có kết quả" down, the words must be exactly [Chưa có kết quả, Xổ số An Giang mở thưởng lúc 16:15. Quay lại sau nhé., Vé 123456 · An Giang · 12/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 12-11-2026, Chưa có kết quả]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 100:3  _given4cShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 393:9  main.<fn>.<fn>
+
+05:55 +0 -18: Buttons and back Given "too old", when "Quét vé khác" is tapped, then the camera opens
+06:14 +0 -19: Buttons and back Given "too old", when "Quét vé khác" is tapped, then the camera opens [E]
+  Expected: true
+    Actual: <false>
+  "too old" did not show: from "Vé quá cũ" down, the words must be exactly [Vé quá cũ, Chỉ dò được vé trong 5 kỳ quay gần nhất., Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 05-11-2026, Vé quá cũ, không dò được]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 393:9  main.<fn>.<fn>
+
+06:14 +0 -19: Buttons and back Given "couldn't load", when "Thử lại" is tapped, then sketch 3 shows while the feed is fetched again for the same ticket, with no new photo, then the matching answer screen shows
+06:33 +0 -20: Buttons and back Given "couldn't load", when "Thử lại" is tapped, then sketch 3 shows while the feed is fetched again for the same ticket, with no new photo, then the matching answer screen shows [E]
+  Expected: true
+    Actual: <false>
+  "couldn't load" did not show: from "Không tải được kết quả" down, the words must be exactly [Không tải được kết quả, Kiểm tra kết nối mạng rồi thử lại sau., Thử lại], and "Thử lại" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Không tải được kết quả, thử lại sau]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 107:3  _givenCouldNotLoadShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 405:7  main.<fn>.<fn>
+
+06:33 +0 -20: Buttons and back Given 4a, when the phone's back button is pressed, then home shows
+06:51 +0 -21: Buttons and back Given 4a, when the phone's back button is pressed, then home shows [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Tám, 100.000đ, Vé 123482 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123482, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Tám: 100.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 453:9  main.<fn>.<fn>
+
+06:51 +0 -21: Buttons and back Given 4b, when the phone's back button is pressed, then home shows
+07:10 +0 -22: Buttons and back Given 4b, when the phone's back button is pressed, then home shows [E]
+  Expected: true
+    Actual: <false>
+  4b did not show: from "Chưa trúng lần này" down, the words must be exactly [Chưa trúng lần này, Chúc bạn may mắn lần sau!, Vé 111111 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần này]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 453:9  main.<fn>.<fn>
+
+07:10 +0 -22: Buttons and back Given 4c, when the phone's back button is pressed, then home shows
+07:29 +0 -23: Buttons and back Given 4c, when the phone's back button is pressed, then home shows [E]
+  Expected: true
+    Actual: <false>
+  4c did not show: from "Chưa có kết quả" down, the words must be exactly [Chưa có kết quả, Xổ số An Giang mở thưởng lúc 16:15. Quay lại sau nhé., Vé 123456 · An Giang · 12/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 12-11-2026, Chưa có kết quả]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 100:3  _given4cShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 453:9  main.<fn>.<fn>
+
+07:29 +0 -23: Buttons and back Given "too old", when the phone's back button is pressed, then home shows
+07:47 +0 -24: Buttons and back Given "too old", when the phone's back button is pressed, then home shows [E]
+  Expected: true
+    Actual: <false>
+  "too old" did not show: from "Vé quá cũ" down, the words must be exactly [Vé quá cũ, Chỉ dò được vé trong 5 kỳ quay gần nhất., Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 05-11-2026, Vé quá cũ, không dò được]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 453:9  main.<fn>.<fn>
+
+07:47 +0 -24: Buttons and back Given "couldn't load", when the phone's back button is pressed, then home shows
+08:06 +0 -25: Buttons and back Given "couldn't load", when the phone's back button is pressed, then home shows [E]
+  Expected: true
+    Actual: <false>
+  "couldn't load" did not show: from "Không tải được kết quả" down, the words must be exactly [Không tải được kết quả, Kiểm tra kết nối mạng rồi thử lại sau., Thử lại], and "Thử lại" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Không tải được kết quả, thử lại sau]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 107:3  _givenCouldNotLoadShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 453:9  main.<fn>.<fn>
+
+08:06 +0 -25: Buttons and back Given "Quét vé khác" is tapped (on 4b), when camera access is refused, then home shows with the "Cần dùng camera" pop-up
+08:25 +0 -26: Buttons and back Given "Quét vé khác" is tapped (on 4b), when camera access is refused, then home shows with the "Cần dùng camera" pop-up [E]
+  Expected: true
+    Actual: <false>
+  4b did not show: from "Chưa trúng lần này" down, the words must be exactly [Chưa trúng lần này, Chúc bạn may mắn lần sau!, Vé 111111 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần này]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 464:7  main.<fn>.<fn>
+
+08:25 +0 -26: Buttons and back Given "Quét vé khác" is tapped (on "too old"), when the camera fails for any other reason, then home shows with the fading note "Lỗi camera, thử lại"
+08:45 +0 -27: Buttons and back Given "Quét vé khác" is tapped (on "too old"), when the camera fails for any other reason, then home shows with the fading note "Lỗi camera, thử lại" [E]
+  Expected: true
+    Actual: <false>
+  "too old" did not show: from "Vé quá cũ" down, the words must be exactly [Vé quá cũ, Chỉ dò được vé trong 5 kỳ quay gần nhất., Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 05-11-2026, Vé quá cũ, không dò được]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 90:3   _givenShows
+  ===== asynchronous gap ===========================
+  integration_test/answer_screens_driver.dart 475:7  main.<fn>.<fn>
+
+08:45 +0 -27: (tearDownAll)
+08:45 +0 -27: Some tests failed.
+
+Failing tests:
+  integration_test/answer_screens_driver.dart: Answers 4d Given a failed read, when the answer is ready, then 4d shows, unchanged from #24
+  integration_test/answer_screens_driver.dart: Answers 4d Given a missing field (no date), when the answer is ready, then 4d shows, unchanged from #24
+  integration_test/answer_screens_driver.dart: Answers 4d Given a province not drawn on the ticket's date (Cà Mau · 10-11-2026), when the answer is ready, then 4d shows, unchanged from #24
+  integration_test/answer_screens_driver.dart: Answers Couldn't load Given a feed the app can't understand, when the feed is fetched, then the "couldn't load" screen shows
+  ... and 23 more
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #10, photo_screen_driver.dart on ticket_text_app.dart
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              4.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          360ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/photo_screen_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:56213/tNIvr0Uk0mE=/
+VMServiceFlutterDriver: Isolate found with number: 2027233050019619
+VMServiceFlutterDriver: Isolate 2027233050019619 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Leaving Given the person left the answer screen with the back button, when they tap "Quét vé", then the camera screen opens
+00:20 +0 -1: Leaving Given the person left the answer screen with the back button, when they tap "Quét vé", then the camera screen opens [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 136:17  givenAnswerScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 47:7     main.<fn>.expectCameraOpensAfterLeaving
+
+00:20 +0 -1: Leaving Given the person left the answer screen with the back gesture, when they tap "Quét vé", then the camera screen opens
+00:41 +0 -2: Leaving Given the person left the answer screen with the back gesture, when they tap "Quét vé", then the camera screen opens [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 136:17  givenAnswerScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 47:7     main.<fn>.expectCameraOpensAfterLeaving
+
+00:41 +0 -2: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no screen of the earlier scan appears
+01:02 +0 -3: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no screen of the earlier scan appears [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 136:17  givenAnswerScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 146:17  givenPhotoTakenEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 72:7     main.<fn>.expectBackFromCameraGoesHome
+
+01:02 +0 -3: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no screen of the earlier scan appears
+01:23 +0 -4: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no screen of the earlier scan appears [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 136:17  givenAnswerScreenOpen
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 146:17  givenPhotoTakenEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_screen_driver.dart 72:7     main.<fn>.expectBackFromCameraGoesHome
+
+01:23 +0 -4: (tearDownAll)
+01:23 +0 -4: Some tests failed.
+
+Failing tests:
+  integration_test/photo_screen_driver.dart: Leaving Given the camera screen is open, when the person uses the phone's back button, then the home screen shows and no screen of the earlier scan appears
+  integration_test/photo_screen_driver.dart: Leaving Given the camera screen is open, when the person uses the phone's back gesture, then the home screen shows and no screen of the earlier scan appears
+  integration_test/photo_screen_driver.dart: Leaving Given the person left the answer screen with the back button, when they tap "Quét vé", then the camera screen opens
+  integration_test/photo_screen_driver.dart: Leaving Given the person left the answer screen with the back gesture, when they tap "Quét vé", then the camera screen opens
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #18, ticket_text_driver.dart on ticket_text_app.dart
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                           2,574ms
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          329ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/ticket_text_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:56497/FBrY7SQ3-Lo=/
+VMServiceFlutterDriver: Isolate found with number: 8267104566834283
+VMServiceFlutterDriver: Isolate 8267104566834283 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given a photo taken in the app, when real ML Kit reads it, then the read works and an answer screen shows, or screen 4d, and 4d if the text it gave is empty
+00:04 +1: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit finishes afterwards
+00:27 +1 -1: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit finishes afterwards [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 103:7    main.<fn>.expectLeavingWhileReadingGoesHome
+
+00:27 +1 -1: Leaving the screen Given "Đang đọc vé..." is showing, when the person uses the phone's back gesture, then home shows, with no error when ML Kit finishes afterwards
+00:48 +1 -2: Leaving the screen Given "Đang đọc vé..." is showing, when the person uses the phone's back gesture, then home shows, with no error when ML Kit finishes afterwards [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 103:7    main.<fn>.expectLeavingWhileReadingGoesHome
+
+00:48 +1 -2: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit fails afterwards
+01:09 +1 -3: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit fails afterwards [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 103:7    main.<fn>.expectLeavingWhileReadingGoesHome
+
+01:09 +1 -3: Leaving the screen Given an answer screen is showing, when the person presses back and taps "Quét vé", then the camera opens as normal
+01:30 +1 -4: Leaving the screen Given an answer screen is showing, when the person presses back and taps "Quét vé", then the camera opens as normal [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 143:7    main.<fn>.<fn>
+
+01:30 +1 -4: Leaving the screen Given the person left a photo, when they take a new one, then the screen shows only the new photo's own answer
+01:51 +1 -5: Leaving the screen Given the person left a photo, when they take a new one, then the screen shows only the new photo's own answer [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 160:7    main.<fn>.<fn>
+
+01:51 +1 -5: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes first, then the screen shows only the new photo's own answer
+02:12 +1 -6: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes first, then the screen shows only the new photo's own answer [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 176:7    main.<fn>.<fn>
+
+02:12 +1 -6: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes last, then the screen shows only the new photo's own answer
+02:33 +1 -7: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read finishes last, then the screen shows only the new photo's own answer [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 191:7    main.<fn>.<fn>
+
+02:33 +1 -7: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read fails, then the screen still waits for the new photo's own answer
+02:54 +1 -8: Leaving the screen Given the person left a photo with its read unfinished, when they take a new one and the earlier read fails, then the screen still waits for the new photo's own answer [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_text_driver.dart 207:7    main.<fn>.<fn>
+
+02:54 +1 -8: (tearDownAll)
+02:54 +1 -8: Some tests failed.
+
+Failing tests:
+  integration_test/ticket_text_driver.dart: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit fails afterwards
+  integration_test/ticket_text_driver.dart: Leaving the screen Given "Đang đọc vé..." is showing, when the person presses the phone's back button, then home shows, with no error when ML Kit finishes afterwards
+  integration_test/ticket_text_driver.dart: Leaving the screen Given "Đang đọc vé..." is showing, when the person uses the phone's back gesture, then home shows, with no error when ML Kit finishes afterwards
+  integration_test/ticket_text_driver.dart: Leaving the screen Given an answer screen is showing, when the person presses back and taps "Quét vé", then the camera opens as normal
+  ... and 4 more
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #22, photo_crop_driver.dart on photo_crop_app.dart
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              6.0s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          348ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/photo_crop_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:57082/MelcW47Sdsg=/
+VMServiceFlutterDriver: Isolate found with number: 7851497931236079
+VMServiceFlutterDriver: Isolate 7851497931236079 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given the camera screen is open, when the person taps the shutter, then sketch 3 opens straight away, and the photo kept is a square of exactly what was inside the dashed frame
+00:22 +0 -1: Normal case Given the camera screen is open, when the person taps the shutter, then sketch 3 opens straight away, and the photo kept is a square of exactly what was inside the dashed frame [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                  fail
+  integration_test/helpers/photo_screen.dart 65:3  expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 64:7     main.<fn>.<fn>
+
+00:22 +0 -1: Normal case Given "Đang đọc vé..." is showing, when ML Kit finishes, then the answer screen for what it read from the cropped photo shows, with its ticket card
+00:46 +0 -2: Normal case Given "Đang đọc vé..." is showing, when ML Kit finishes, then the answer screen for what it read from the cropped photo shows, with its ticket card [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                  fail
+  integration_test/helpers/photo_screen.dart 65:3  expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 79:7     main.<fn>.<fn>
+
+00:46 +0 -2: Only the cropped photo is kept Given the person has taken a photo, when sketch 3 opens, then the app holds only one photo, the cropped one, and no full-size copy is left anywhere, including the camera's own copy
+01:07 +0 -3: Only the cropped photo is kept Given the person has taken a photo, when sketch 3 opens, then the app holds only one photo, the cropped one, and no full-size copy is left anywhere, including the camera's own copy [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_crop.dart 173:17   givenPhotoKeptEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 95:7      main.<fn>.<fn>
+
+01:07 +0 -3: Crop fails Given the camera screen is open, when the person taps the shutter and the crop fails, then the camera screen stays open, the note shows near the bottom and fades after a few seconds, no photo is kept from this try, and any photo kept before stays unchanged
+01:28 +0 -4: Crop fails Given the camera screen is open, when the person taps the shutter and the crop fails, then the camera screen stays open, the note shows near the bottom and fades after a few seconds, no photo is kept from this try, and any photo kept before stays unchanged [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_crop.dart 173:17   givenPhotoKeptEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 111:7     main.<fn>.<fn>
+
+01:28 +0 -4: Crop fails Given the note is showing, when the person taps the shutter again, then a new photo is taken and, if the crop works, sketch 3 opens as normal, then the answer
+01:52 +0 -5: Crop fails Given the note is showing, when the person taps the shutter again, then a new photo is taken and, if the crop works, sketch 3 opens as normal, then the answer [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                  fail
+  integration_test/helpers/photo_screen.dart 65:3  expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 136:7    main.<fn>.<fn>
+
+01:52 +0 -5: Leaving the screen Given the person taps the shutter, when they press back before sketch 3 opens, then home shows and no photo is kept
+02:13 +0 -6: Leaving the screen Given the person taps the shutter, when they press back before sketch 3 opens, then home shows and no photo is kept [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_crop.dart 173:17   givenPhotoKeptEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 157:7     main.<fn>.<fn>
+
+02:13 +0 -6: Leaving the screen Given the person left a photo, when they take a new one, then the app keeps only the new cropped photo, and only its own answer shows
+02:35 +0 -7: Leaving the screen Given the person left a photo, when they take a new one, then the app keeps only the new cropped photo, and only its own answer shows [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_crop.dart 173:17   givenPhotoKeptEarlier
+  ===== asynchronous gap ===========================
+  integration_test/photo_crop_driver.dart 173:7     main.<fn>.<fn>
+
+02:35 +0 -7: (tearDownAll)
+02:35 +0 -7: Some tests failed.
+
+Failing tests:
+  integration_test/photo_crop_driver.dart: Crop fails Given the camera screen is open, when the person taps the shutter and the crop fails, then the camera screen stays open, the note shows near the bottom and fades after a few seconds, no photo is kept from this try, and any photo kept before stays unchanged
+  integration_test/photo_crop_driver.dart: Crop fails Given the note is showing, when the person taps the shutter again, then a new photo is taken and, if the crop works, sketch 3 opens as normal, then the answer
+  integration_test/photo_crop_driver.dart: Leaving the screen Given the person left a photo, when they take a new one, then the app keeps only the new cropped photo, and only its own answer shows
+  integration_test/photo_crop_driver.dart: Leaving the screen Given the person taps the shutter, when they press back before sketch 3 opens, then home shows and no photo is kept
+  ... and 3 more
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #24, ticket_fields_driver.dart on ticket_text_app.dart
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              5.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          312ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/ticket_fields_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:57562/zSbOo397E1w=/
+VMServiceFlutterDriver: Isolate found with number: 3870451276455979
+VMServiceFlutterDriver: Isolate 3870451276455979 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Normal case Given the photo's ML Kit text has 871723, "BẠC LIEUOL0T010b" and 20-10-2026, when the read finishes, then the answer screen's ticket card reads "Vé 871723 · Bạc Liêu · 20/10/2026", and none of ML Kit's own text shows
+00:19 +0 -1: Normal case Given the photo's ML Kit text has 871723, "BẠC LIEUOL0T010b" and 20-10-2026, when the read finishes, then the answer screen's ticket card reads "Vé 871723 · Bạc Liêu · 20/10/2026", and none of ML Kit's own text shows [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 63:7   main.<fn>.<fn>
+
+00:19 +0 -1: Number Given the only six digits sit in "C871723", when the read finishes, then the ticket card shows the number 871723
+00:41 +0 -2: Number Given the only six digits sit in "C871723", when the read finishes, then the ticket card shows the number 871723 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 98:7   main.<fn>.<fn>
+
+00:41 +0 -2: Number Given 9999999999 comes before any other digits, when the read finishes, then the ticket card shows the number 999999
+01:02 +0 -3: Number Given 9999999999 comes before any other digits, when the read finishes, then the ticket card shows the number 999999 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 105:7  main.<fn>.<fn>
+
+01:02 +0 -3: Number Given 871723 comes before "C871733", when the read finishes, then the ticket card shows the number 871723
+01:23 +0 -4: Number Given 871723 comes before "C871733", when the read finishes, then the ticket card shows the number 871723 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 112:7  main.<fn>.<fn>
+
+01:23 +0 -4: Number Given the text has a province and a valid date, and the only other digits are "D051 669", split by a space, when the read finishes, then the ticket card shows the number 051669
+01:44 +0 -5: Number Given the text has a province and a valid date, and the only other digits are "D051 669", split by a space, when the read finishes, then the ticket card shows the number 051669 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 120:7  main.<fn>.<fn>
+
+01:44 +0 -5: Number Given one line is "12" and the next line is "871723", when the read finishes, then the ticket card shows the number 871723
+02:05 +0 -6: Number Given one line is "12" and the next line is "871723", when the read finishes, then the ticket card shows the number 871723 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 127:7  main.<fn>.<fn>
+
+02:05 +0 -6: Province Given the text has "VINH LONG", with no accents and in upper case, when the read finishes, then the ticket card shows the province "Vĩnh Long"
+02:26 +0 -7: Province Given the text has "VINH LONG", with no accents and in upper case, when the read finishes, then the ticket card shows the province "Vĩnh Long" [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 137:7  main.<fn>.<fn>
+
+02:26 +0 -7: Province Given "CẢN THƠ" comes before "VINH LONG", when the read finishes, then the ticket card shows the province "Cần Thơ"
+02:47 +0 -8: Province Given "CẢN THƠ" comes before "VINH LONG", when the read finishes, then the ticket card shows the province "Cần Thơ" [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 146:7  main.<fn>.<fn>
+
+02:47 +0 -8: Province Given the text has "DONG NAI", when the read finishes, then the ticket card shows the province "Đồng Nai", so Đ counts as D
+03:08 +0 -9: Province Given the text has "DONG NAI", when the read finishes, then the ticket card shows the province "Đồng Nai", so Đ counts as D [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 154:7  main.<fn>.<fn>
+
+03:08 +0 -9: Province Given the text has "DA LAT", when the read finishes, then the ticket card shows the province "Đà Lạt"
+03:28 +0 -10: Province Given the text has "DA LAT", when the read finishes, then the ticket card shows the province "Đà Lạt" [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 163:7  main.<fn>.<fn>
+
+03:28 +0 -10: Province Given the text has "LAM DONG" but not "DA LAT", when the read finishes, then 4d shows
+03:50 +0 -11: Province Given the text has "LAM DONG" but not "DA LAT", when the read finishes, then 4d shows [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 172:21  main.<fn>.<fn>
+
+03:50 +0 -11: Province Given the text has "HO CHI MINH", when the read finishes, then the ticket card shows the province "TP. Hồ Chí Minh"
+04:11 +0 -12: Province Given the text has "HO CHI MINH", when the read finishes, then the ticket card shows the province "TP. Hồ Chí Minh" [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 182:7  main.<fn>.<fn>
+
+04:11 +0 -12: Province Given no name from the 21 is in the text, when the read finishes, then 4d shows
+04:32 +0 -13: Province Given no name from the 21 is in the text, when the read finishes, then 4d shows [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 191:21  main.<fn>.<fn>
+
+04:32 +0 -13: Date Given the only date-like text is "O30- 10- 2026", when the read finishes, then the ticket card shows the date 30/10/2026
+04:53 +0 -14: Date Given the only date-like text is "O30- 10- 2026", when the read finishes, then the ticket card shows the date 30/10/2026 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 203:7  main.<fn>.<fn>
+
+04:53 +0 -14: Date Given the text has "CN-24-11-2019", when the read finishes, then the ticket card shows the date 24/11/2019
+05:14 +0 -15: Date Given the text has "CN-24-11-2019", when the read finishes, then the ticket card shows the date 24/11/2019 [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17  whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 210:7  main.<fn>.<fn>
+
+05:14 +0 -15: Date Given the only date-like text is "0311-2026", when the read finishes, then 4d shows
+05:34 +0 -16: Date Given the only date-like text is "0311-2026", when the read finishes, then 4d shows [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 217:21  main.<fn>.<fn>
+
+05:34 +0 -16: Sketch 4d Given ML Kit returns no text, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone
+05:55 +0 -17: Sketch 4d Given ML Kit returns no text, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 228:21  main.<fn>.<fn>
+
+05:55 +0 -17: Sketch 4d Given the read fails, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone
+06:16 +0 -18: Sketch 4d Given the read fails, when the read finishes, then 4d shows, and the temporary screen's "Không đọc được vé" line is gone [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 236:21  main.<fn>.<fn>
+
+06:16 +0 -18: Sketch 4d Given 4d shows, then it has no photo, "Không đọc được vé", "Chụp lại ở nơi đủ sáng, giữ vé phẳng và rõ nét." and a "Thử lại" button, top to bottom
+06:37 +0 -19: Sketch 4d Given 4d shows, then it has no photo, "Không đọc được vé", "Chụp lại ở nơi đủ sáng, giữ vé phẳng và rõ nét." and a "Thử lại" button, top to bottom [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 249:21  main.<fn>.<fn>
+
+06:37 +0 -19: Sketch 4d Given 4d shows, when "Thử lại" is tapped, then the camera screen opens
+06:58 +0 -20: Sketch 4d Given 4d shows, when "Thử lại" is tapped, then the camera screen opens [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 256:21  main.<fn>.<fn>
+
+06:58 +0 -20: Sketch 4d Given 4d shows, when the phone's back button is pressed, then the camera screen opens
+07:19 +0 -21: Sketch 4d Given 4d shows, when the phone's back button is pressed, then the camera screen opens [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                    fail
+  integration_test/helpers/photo_screen.dart 65:3    expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3   givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17   givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 38:17   whenReadFinishesWith
+  ===== asynchronous gap ===========================
+  integration_test/ticket_fields_driver.dart 267:21  main.<fn>.<fn>
+
+07:19 +0 -21: (tearDownAll)
+07:19 +0 -21: Some tests failed.
+
+Failing tests:
+  integration_test/ticket_fields_driver.dart: Date Given the only date-like text is "0311-2026", when the read finishes, then 4d shows
+  integration_test/ticket_fields_driver.dart: Date Given the only date-like text is "O30- 10- 2026", when the read finishes, then the ticket card shows the date 30/10/2026
+  integration_test/ticket_fields_driver.dart: Date Given the text has "CN-24-11-2019", when the read finishes, then the ticket card shows the date 24/11/2019
+  integration_test/ticket_fields_driver.dart: Normal case Given the photo's ML Kit text has 871723, "BẠC LIEUOL0T010b" and 20-10-2026, when the read finishes, then the answer screen's ticket card reads "Vé 871723 · Bạc Liêu · 20/10/2026", and none of ML Kit's own text shows
+  ... and 17 more
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #24, camera_start_driver.dart on camera_start_app.dart, --name=Given 4d shows
+================================================================================
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              5.7s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          319ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/camera_start_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:58825/rfMcvNy-jmA=/
+VMServiceFlutterDriver: Isolate found with number: 2588961816588307
+VMServiceFlutterDriver: Isolate 2588961816588307 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up
+00:20 +0 -1: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17  given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 40:7    main.<fn>.<fn>
+
+00:20 +0 -1: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up
+00:41 +0 -2: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17  given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 51:7    main.<fn>.<fn>
+
+00:41 +0 -2: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+01:02 +0 -3: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17  given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 63:7    main.<fn>.<fn>
+
+01:02 +0 -3: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+01:23 +0 -4: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds [E]
+  sketch 3 did not open and stay after the shutter: it must show only "Đang đọc vé…" and "Chỉ mất vài giây", with no buttons. On screen: [Đang đọc vé...]
+  package:matcher                                   fail
+  integration_test/helpers/photo_screen.dart 65:3   expectReadingScreenOpensWithoutHome
+  ===== asynchronous gap ===========================
+  integration_test/helpers/photo_screen.dart 125:3  givenPhotoTaken
+  ===== asynchronous gap ===========================
+  integration_test/helpers/ticket_text.dart 159:17  givenReadingShows
+  ===== asynchronous gap ===========================
+  integration_test/helpers/camera_start.dart 61:17  given4dShows
+  ===== asynchronous gap ===========================
+  integration_test/camera_start_driver.dart 75:7    main.<fn>.<fn>
+
+01:23 +0 -4: (tearDownAll)
+01:23 +0 -4: Some tests failed.
+
+Failing tests:
+  integration_test/camera_start_driver.dart: Camera won't start Given 4d shows and camera access has been refused, when "Thử lại" is tapped, then the home screen shows with the "Cần dùng camera" pop-up
+  integration_test/camera_start_driver.dart: Camera won't start Given 4d shows and camera access has been refused, when the phone's back button is pressed, then the home screen shows with the "Cần dùng camera" pop-up
+  integration_test/camera_start_driver.dart: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when "Thử lại" is tapped, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+  integration_test/camera_start_driver.dart: Camera won't start Given 4d shows and the camera fails to start for a reason other than refused access, when the phone's back button is pressed, then the home screen shows with the note "Lỗi camera, thử lại", which fades after about 3 seconds
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
+================================================================================
+Ticket #28, results_driver.dart on ticket_text_app.dart, --name=^Won |^Lost |^Outside
+================================================================================
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.1 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.1 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.3 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                              5.8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          321ms
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/results_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:59114/-kCUteVKE2Q=/
+VMServiceFlutterDriver: Isolate found with number: 138074741610663
+VMServiceFlutterDriver: Isolate 138074741610663 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Won Given the feed above, when ticket 267832 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Đặc biệt" and "2.000.000.000đ"
+00:18 +0 -1: Won Given the feed above, when ticket 267832 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Đặc biệt" and "2.000.000.000đ" [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Đặc biệt, 2.000.000.000đ, Vé 267832 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 267832, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Đặc biệt: 2.000.000.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/results_driver.dart 60:7          main.<fn>.<fn>
+
+00:18 +0 -1: Won Given the feed holds Hồ Chí Minh 09/11/2026 (ĐB 921440 · Tám 43), when ticket 921443 · Hồ Chí Minh · 09-11-2026 is scanned, then 4a shows both "Bạn trúng Giải khuyến khích" with "6.000.000đ" and "Bạn trúng Giải Tám" with "100.000đ"
+00:36 +0 -2: Won Given the feed holds Hồ Chí Minh 09/11/2026 (ĐB 921440 · Tám 43), when ticket 921443 · Hồ Chí Minh · 09-11-2026 is scanned, then 4a shows both "Bạn trúng Giải khuyến khích" with "6.000.000đ" and "Bạn trúng Giải Tám" with "100.000đ" [E]
+  Expected: true
+    Actual: <false>
+  4a with the two prizes did not show: [4a ([Chúc mừng!, Bạn trúng Giải khuyến khích, 6.000.000đ, Bạn trúng Giải Tám, 100.000đ, Vé 921443 · TP. Hồ Chí Minh · 09/11/2026, Quét vé khác]), 4a ([Chúc mừng!, Bạn trúng Giải Tám, 100.000đ, Bạn trúng Giải khuyến khích, 6.000.000đ, Vé 921443 · TP. Hồ Chí Minh · 09/11/2026, Quét vé khác])]. On screen: [Số vé: 921443, Tỉnh: TP. Hồ Chí Minh, Ngày: 09-11-2026, Chúc mừng! Bạn trúng, Giải khuyến khích: 6.000.000đ, Giải Tám: 100.000đ]
+
+  package:matcher                             expect
+  integration_test/results_driver.dart 108:7  main.<fn>.<fn>
+
+00:36 +0 -2: Won Given the feed above, when ticket 123482 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Tám" and "100.000đ", read from "7: 8078: 82"
+00:55 +0 -3: Won Given the feed above, when ticket 123482 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Tám" and "100.000đ", read from "7: 8078: 82" [E]
+  Expected: true
+    Actual: <false>
+  4a did not show: from "Chúc mừng!" down, the words must be exactly [Chúc mừng!, Bạn trúng Giải Tám, 100.000đ, Vé 123482 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123482, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chúc mừng! Bạn trúng, Giải Tám: 100.000đ]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/results_driver.dart 129:7         main.<fn>.<fn>
+
+00:55 +0 -3: Lost Given the feed above, when ticket 111111 · Bạc Liêu · 10-11-2026 is scanned, then 4b shows "Chưa trúng lần này"
+01:14 +0 -4: Lost Given the feed above, when ticket 111111 · Bạc Liêu · 10-11-2026 is scanned, then 4b shows "Chưa trúng lần này" [E]
+  Expected: true
+    Actual: <false>
+  4b did not show: from "Chưa trúng lần này" down, the words must be exactly [Chưa trúng lần này, Chúc bạn may mắn lần sau!, Vé 111111 · Bạc Liêu · 10/11/2026, Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 111111, Tỉnh: Bạc Liêu, Ngày: 10-11-2026, Chưa trúng lần này]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/results_driver.dart 154:7         main.<fn>.<fn>
+
+01:14 +0 -4: Outside the feed's days Given the feed above, when a ticket dated after the newest draw day in the feed is scanned (Cần Thơ · 11-11-2026), then 4c shows "Chưa có kết quả"
+01:32 +0 -5: Outside the feed's days Given the feed above, when a ticket dated after the newest draw day in the feed is scanned (Cần Thơ · 11-11-2026), then 4c shows "Chưa có kết quả" [E]
+  Expected: true
+    Actual: <false>
+  4c did not show "Chưa có kết quả" at the top, then "Vé 123456 · Cần Thơ · 11/11/2026" and the one button "Quét vé khác" at the bottom. On screen: [Số vé: 123456, Tỉnh: Cần Thơ, Ngày: 11-11-2026, Chưa có kết quả]
+
+  package:matcher                             expect
+  integration_test/results_driver.dart 197:7  main.<fn>.<fn>
+
+01:32 +0 -5: Outside the feed's days Given the feed above, when a ticket dated before the oldest draw day in the feed is scanned (An Giang · 05-11-2026), then the "too old" screen shows "Vé quá cũ"
+01:51 +0 -6: Outside the feed's days Given the feed above, when a ticket dated before the oldest draw day in the feed is scanned (An Giang · 05-11-2026), then the "too old" screen shows "Vé quá cũ" [E]
+  Expected: true
+    Actual: <false>
+  "too old" did not show: from "Vé quá cũ" down, the words must be exactly [Vé quá cũ, Chỉ dò được vé trong 5 kỳ quay gần nhất., Quét vé khác], and "Quét vé khác" its one button. On screen: [Số vé: 123456, Tỉnh: An Giang, Ngày: 05-11-2026, Vé quá cũ, không dò được]. Buttons: []
+
+  package:matcher                                    expect
+  integration_test/helpers/answer_screens.dart 98:3  expectAnswerScreen
+  ===== asynchronous gap ===========================
+  integration_test/results_driver.dart 219:7         main.<fn>.<fn>
+
+01:51 +0 -6: (tearDownAll)
+01:51 +0 -6: Some tests failed.
+
+Failing tests:
+  integration_test/results_driver.dart: Lost Given the feed above, when ticket 111111 · Bạc Liêu · 10-11-2026 is scanned, then 4b shows "Chưa trúng lần này"
+  integration_test/results_driver.dart: Outside the feed's days Given the feed above, when a ticket dated after the newest draw day in the feed is scanned (Cần Thơ · 11-11-2026), then 4c shows "Chưa có kết quả"
+  integration_test/results_driver.dart: Outside the feed's days Given the feed above, when a ticket dated before the oldest draw day in the feed is scanned (An Giang · 05-11-2026), then the "too old" screen shows "Vé quá cũ"
+  integration_test/results_driver.dart: Won Given the feed above, when ticket 123482 · Bạc Liêu · 10-11-2026 is scanned, then 4a shows "Bạn trúng Giải Tám" and "100.000đ", read from "7: 8078: 82"
+  ... and 2 more
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+
