@@ -134,6 +134,25 @@ Future<void> _givenHomeAfterPreviousTest() async {
   );
 }
 
+/// Waits until 4a's title shows, sketch 3's words are gone, and the screen
+/// has stopped changing, so the page change from sketch 3 is over and a
+/// screenshot shows 4a settled. It checks nothing: the test's checks come
+/// after it.
+Future<void> _waitUntil4aSettled() async {
+  await waitUntil(() async {
+    final screen = await appScreen();
+    return wordsFrom(screen, wonTitle) != null && !showsReading(screen);
+  });
+  var before = await phone.screenshot();
+  await waitUntil(() async {
+    await Future<void>.delayed(const Duration(milliseconds: 300));
+    final now = await phone.screenshot();
+    final isStill = now.changedPixels(before) == 0;
+    before = now;
+    return isStill;
+  }, timeout: const Duration(seconds: 5));
+}
+
 /// The feed requests the app has made since the test began.
 Future<List<Request>> _feedRequests() async =>
     (await requestsSoFar()).where((request) => request.isFeed).toList();
@@ -262,6 +281,7 @@ void main() {
         ticketText(number: '123456', province: 'BẠC LIÊU', date: '10-11-2026'),
       );
 
+      await _waitUntil4aSettled();
       await saveScreenshotIfAsked('4a-eight-prizes-top');
       await expectEverythingSeenByScrolling(
         wonScreen(
