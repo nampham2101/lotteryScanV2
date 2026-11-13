@@ -49,12 +49,14 @@ flowchart LR
     E7["Prize check ✅<br/>ticket #27, PR #29"]
     E8["Fetch results + show answer ✅<br/>ticket #28, PR #30"]
     E9["Sketched answer screens ✅<br/>ticket #31, PR #33"]
-    E10["Movement on 4a and 4b ⏳<br/>ticket #32"]
+    E10["Movement on 4a and 4b ✅<br/>ticket #32, PR #34"]
   end
 ```
 
-## Latest session (2026-11-12)
+## Latest session (2026-11-13)
 
+- #32 done (PR #34): 4a and 4b now move. On 4a the party-popper icon, "Chúc mừng!" and each amount pop in one after another with a slight bounce, and confetti bursts from the icon and falls for about 2 seconds, once. On 4b the smiley grows slightly and winks once about half a second after the screen opens. "Quét vé khác" and back work while it moves, and afterwards both screens look exactly as in #31. Nothing else moves. Analyze, the 28 widget tests, #32's 7 new integration tests and the 3 updated #31 tests passed on the final code (`Pixel_10` for the device tests), and the screenshots match the sketches. The reviewer found no problems, so no fix rounds were used. Before the review, Nam had the test writer fix a test helper that crashed when the screen was correctly still. Backlog items 125–132 added.
+- The test writer chose limits for #32's vague words: confetti 1.3 to 3 s, a bounce of at least 2% and at most 1.5 times, the smiley growing to 1.05 to 1.5 times its width, and 4b starting 0.25 to 1 s after it opens. Nam hasn't confirmed them (backlog item 125).
 - #31 done (PR #33): the temporary screen is gone. After the shutter, sketch 3 shows through the read and the feed load, then one full answer screen: 4a (one block per prize, highest amount first, no total, scrolls), 4b, 4c (16:15, with the date when it isn't today), "too old", "couldn't load" (with "Thử lại") or 4d, unchanged. No movement yet (#32). Analyze, the 19 widget tests, #31's 27 new tests and the 51 updated older tests of #10, #18, #22, #24 and #28 passed on `Pixel_10`, and the 10 screenshots match the sketches. The reviewer found no problems. Two fix rounds, both test-only: a wrong two-prize ticket and the camera left open between tests (Nam chose the test writer to fix both), then a screenshot taken mid-transition. Backlog items 117–124 added; item 117 (a camera add-on error after "Quét vé khác" then back) should be checked first, on the Pixel 7.
 - Decision: when a ticket removes a feature on purpose, the test writer deletes the older tests that check only that feature and lists each, with the reason, under "Removed" in `docs/tests/<number>.md`. It never deletes a test because it fails or is in the way, and an older test whose behaviour stays is still updated. Nam raised it after #31's test writer deleted 15 tests of the temporary screen, which its instructions didn't allow. Changed in the test writer and `docs/WORKFLOW.md`. Revisit if a deleted test turns out to have checked something still in the app.
 - Backlog item 10 refined and split into two tickets, both posted unassigned, and both need test cases. #31 replaces the temporary screen with sketch 3, then one full answer screen: 4a, 4b, 4c, "too old", "couldn't load" or 4d, with no movement. #32 adds the movement to 4a and 4b, and builds on #31. Not included: any change to reading or checking, results older than 5 draw days, the retake option (item 90), the Lâm Đồng test (item 108), ML Kit's logging (item 109), changes to 4d, the home button text (item 11), sound or vibration, and a scan history.
@@ -144,6 +146,7 @@ flowchart LR
 
 ## Waiting on Nam
 
+- Whether the limits the test writer chose for #32's movement are right (backlog item 125).
 - Whether to turn off ML Kit's usage logging now that the app has the internet (backlog item 109).
 - Confirm the crop-failure note's look, which has no sketch (backlog item 74), and where the "Lỗi camera, thử lại" note sits on home (backlog item 91).
 - Whether the implementer's before-and-after screenshots are saved as proof. For now they're only described in its report.
