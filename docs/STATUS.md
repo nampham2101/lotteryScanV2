@@ -2,6 +2,8 @@
 
 What's done, where we are, and what's next. Updated every time something is finished.
 
+> **Archived on 13 November 2026.** No more work is planned. The app reads real tickets, fetches the results and shows the sketched answer screens, but it was never released. Everything below is how it stood when it stopped.
+
 **Legend:** ✅ done · 🔄 in progress · ⏳ not started
 
 "Latest session" shows only the most recent session. Older history is in `git log`. Ticket details live in [BACKLOG.md](BACKLOG.md), workflow details in [WORKFLOW.md](WORKFLOW.md).
@@ -54,6 +56,8 @@ flowchart LR
 ```
 
 ## Latest session (2026-11-13)
+
+- Decision: the project is archived after #32. Nam's goal was to learn to build a harness for Claude, and that's done; the harness goes on to Nam's next project. The app isn't finished: CI, the regression run and a first release were never done, and the backlog items below stay open as they are. Revisit if Nam picks the app up again.
 
 - #32 done (PR #34): 4a and 4b now move. On 4a the party-popper icon, "Chúc mừng!" and each amount pop in one after another with a slight bounce, and confetti bursts from the icon and falls for about 2 seconds, once. On 4b the smiley grows slightly and winks once about half a second after the screen opens. "Quét vé khác" and back work while it moves, and afterwards both screens look exactly as in #31. Nothing else moves. Analyze, the 28 widget tests, #32's 7 new integration tests and the 3 updated #31 tests passed on the final code (`Pixel_10` for the device tests), and the screenshots match the sketches. The reviewer found no problems, so no fix rounds were used. Before the review, Nam had the test writer fix a test helper that crashed when the screen was correctly still. Backlog items 125–132 added.
 - The test writer chose limits for #32's vague words: confetti 1.3 to 3 s, a bounce of at least 2% and at most 1.5 times, the smiley growing to 1.05 to 1.5 times its width, and 4b starting 0.25 to 1 s after it opens. Nam hasn't confirmed them (backlog item 125).
@@ -136,6 +140,8 @@ flowchart LR
 
 ## Next up
 
+None: the project is archived. These were next when it stopped:
+
 1. Decide how to handle backlog items 21–22 (`/work`'s link rule, someone holding the phone during a run, and tests that need a moving picture), since CI depends on them.
 2. Design CI, so "tests must pass to merge" is enforced. Confirm GitHub Actions is free for this public repository first.
 3. Design the regression run, which is needed before the first release.
@@ -145,6 +151,8 @@ flowchart LR
 - None right now.
 
 ## Waiting on Nam
+
+None: the project is archived. These were left open:
 
 - Whether the limits the test writer chose for #32's movement are right (backlog item 125).
 - Whether to turn off ML Kit's usage logging now that the app has the internet (backlog item 109).
