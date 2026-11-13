@@ -245,7 +245,7 @@ void expectConfettiOnce(
       reason:
           'the screen did not stay still after the confetti, last seen at '
           '${seconds(last.at)}: at ${seconds(look.at)}, ${changes.length} '
-          'sampled pixels still changed, the first at ${changes.first}',
+          'sampled pixels still changed, the first at ${changes.firstOrNull}',
     );
   }
 }
