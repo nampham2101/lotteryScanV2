@@ -136,7 +136,7 @@ class _WonScreenState extends State<WonScreen>
   // The icon and the title pop in first, then one amount per prize.
   late final _clock = CelebrationClock(this, popCount: 2 + widget.prizes.length)
     ..play();
-  final _iconLink = LayerLink();
+  final _iconKey = GlobalKey();
 
   @override
   void dispose() {
@@ -153,13 +153,8 @@ class _WonScreenState extends State<WonScreen>
           children: [
             Positioned.fill(child: _content()),
             // Over everything, so the confetti falls in front of the card.
-            CompositedTransformFollower(
-              link: _iconLink,
-              showWhenUnlinked: false,
-              child: SizedBox.square(
-                dimension: _iconSize,
-                child: ConfettiBurst(clock: _clock),
-              ),
+            Positioned.fill(
+              child: ConfettiBurst(clock: _clock, originKey: _iconKey),
             ),
           ],
         ),
@@ -178,8 +173,8 @@ class _WonScreenState extends State<WonScreen>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CompositedTransformTarget(
-                  link: _iconLink,
+                KeyedSubtree(
+                  key: _iconKey,
                   child: PopIn(
                     clock: _clock,
                     place: 0,

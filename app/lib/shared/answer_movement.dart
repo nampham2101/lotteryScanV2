@@ -71,18 +71,38 @@ class PopIn extends StatelessWidget {
   }
 }
 
-/// The confetti, burst from the middle of its box and falling down the screen.
-/// It overflows its box on every side, so put it where it can draw over the
-/// whole screen, and not where it takes touches.
+/// The confetti, burst from the middle of the widget with [originKey] and
+/// falling down the screen. It fills the box it's given, so put it over the
+/// whole screen. It takes no touches.
 class ConfettiBurst extends StatelessWidget {
-  const ConfettiBurst({required this.clock, super.key});
+  const ConfettiBurst({
+    required this.clock,
+    required this.originKey,
+    super.key,
+  });
 
   final CelebrationClock clock;
+  final GlobalKey originKey;
+
+  // Looked up as it's drawn, so it follows the icon if the screen scrolls.
+  Offset? _origin(BuildContext context) {
+    final area = context.findRenderObject();
+    final origin = originKey.currentContext?.findRenderObject();
+    if (area is! RenderBox || origin is! RenderBox || !origin.hasSize) {
+      return null;
+    }
+    return area.globalToLocal(
+      origin.localToGlobal(origin.size.center(Offset.zero)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
-      child: CustomPaint(painter: _ConfettiPainter(clock.controller)),
+      child: CustomPaint(
+        painter: _ConfettiPainter(clock.controller, () => _origin(context)),
+        child: const SizedBox.expand(),
+      ),
     );
   }
 }
@@ -119,9 +139,10 @@ const _drag = 1.6;
 const _fadeFrom = 0.7;
 
 class _ConfettiPainter extends CustomPainter {
-  _ConfettiPainter(this.controller) : super(repaint: controller);
+  _ConfettiPainter(this.controller, this.origin) : super(repaint: controller);
 
   final AnimationController controller;
+  final Offset? Function() origin;
 
   // The same pieces on every run, so the movement is the same every time.
   static final _pieces = _makePieces();
@@ -135,7 +156,8 @@ class _ConfettiPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final seconds = controller.value / 1000;
     final share = seconds / (_confettiTime.inMilliseconds / 1000);
-    if (share >= 1) return;
+    final from = origin();
+    if (share >= 1 || from == null) return;
     final opacity = share < _fadeFrom
         ? 1.0
         : 1 - (share - _fadeFrom) / (1 - _fadeFrom);
@@ -145,7 +167,7 @@ class _ConfettiPainter extends CustomPainter {
       final x = across * (1 - math.exp(-_drag * seconds)) / _drag;
       final y = up * seconds + 0.5 * _gravity * seconds * seconds;
       canvas.save();
-      canvas.translate(size.width / 2 + x, size.height / 2 + y);
+      canvas.translate(from.dx + x, from.dy + y);
       canvas.rotate(piece.spin * seconds);
       canvas.drawRect(
         Rect.fromCenter(
