@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart' show TestDefaultBinaryMessenger;
 
+import 'movement_report.dart';
 import 'ticket_text_app.dart' as ticket_text_app;
 
 // The real app for the "Camera won't start" tests of ticket #24: the same start
@@ -28,6 +29,9 @@ import 'ticket_text_app.dart' as ticket_text_app;
 // camera, so this works however the app starts it. The one limit: the app must
 // start the camera through the camera add-on, as it does today. Orders come
 // through a service extension, so ticket_text_app.dart stays as it is.
+//
+// Since ticket #32, the app also says whether anything on screen is moving
+// (movement_report.dart), for the tests of 4a's and 4b's movement.
 
 const _askAccessChannel =
     'dev.flutter.pigeon.camera_android_camerax.SystemServicesManager.'
@@ -60,6 +64,7 @@ var _failedStarts = 0;
 
 void main() {
   developer.registerExtension('ext.lotteryscan.cameraStart', _obey);
+  reportMovement();
   ticket_text_app.main();
   _messenger
     ..setMockMessageHandler(_askAccessChannel, _answerAccess)

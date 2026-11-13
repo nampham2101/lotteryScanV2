@@ -1,0 +1,918 @@
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 103.0.0 (111.0.0 available)
+  analyzer 13.3.0 (14.7.0 available)
+  camera_web 0.3.5+7 (0.3.6 available)
+  code_assets 1.2.1 (2.2.0 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  google_mlkit_commons 0.13.0 (1.0.3 available)
+  google_mlkit_text_recognition 0.17.1 (1.0.3 available)
+  hooks 2.0.2 (2.2.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  objective_c 9.5.0 (9.6.4 available)
+  package_config 2.2.0 (3.0.0 available)
+  record_use 0.6.0 (1.1.1 available)
+  test 1.31.1 (1.33.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  test_core 0.6.18 (0.6.21 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+18 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                           2,803ms
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          336ms
+D/WindowLayoutComponentImpl(18739): Register WindowLayoutInfoListener on Context=com.nampham.lotteryscan.MainActivity@f34936, of which baseContext=android.app.ContextImpl@13038d3
+D/FlutterJNI(18739): Sending viewport metrics to the engine.
+I/HWUI    (18739): Using FreeType backend (prop=Auto)
+Running build hooks...Running build hooks...00:00 +0: loading integration_test/answer_screens_driver.dart
+00:00 +0: (setUpAll)
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:58923/5-_JNgDd9wY=/
+VMServiceFlutterDriver: Isolate found with number: 8341899211274459
+VMServiceFlutterDriver: Isolate 8341899211274459 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+VMServiceFlutterDriver: Connected to Flutter application.
+00:00 +0: Answers Given a ticket that wins one prize (123482 · Bạc Liêu · 10-11-2026, Giải Tám), when the answer is ready, then 4a shows "Chúc mừng!", "Bạn trúng Giải Tám", "100.000đ" in large type, the card "Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and once its movement has ended, nothing moves
+D/FlutterJNI(18739): Sending viewport metrics to the engine.
+D/InsetsController(18739): hide(ime())
+I/ImeTracker(18739): com.nampham.lotteryscan:64ff64c1: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/QuirkSettingsLoader(18739): QuirkSettings$MetadataHolderService is not found.
+D/CameraX (18739): QuirkSettings from app metadata: null
+D/CameraX (18739): QuirkSettings by default: QuirkSettings{enabledWhenDeviceHasQuirk=true, forceEnabledQuirks=[], forceDisabledQuirks=[]}
+D/DeviceQuirks(18739): camera2 DeviceQuirks = 
+D/CXCP    (18739): Created UseCaseConfigurationMap
+D/CXCP    (18739): Created CameraPipe in 3.300 ms
+D/CXCP    (18739): Camera2DeviceCache: Expected minimum camera count = 2
+D/CXCP    (18739): Created CameraFactoryAdapter in 0.077 ms
+I/CameraManagerGlobal(18739): Connecting to camera service
+I/CXCP    (18739): Loaded CameraIdList [CameraId-1, CameraId-10]
+D/CXCP    (18739): Loading metadata for CameraId-10
+I/CXCP    (18739): Loaded metadata for CameraId-10 in 4.668 ms
+D/CXCP    (18739): Updated available camera list: [] -> [1, 10]
+D/CXCP    (18739): Creating new surface combinations for: [1, 10]
+D/CXCP    (18739): Loading metadata for CameraId-1
+I/CXCP    (18739): Loaded metadata for CameraId-1 in 3.951 ms
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CXCP    (18739): Committed new surface combination map. Total cameras: 2
+D/CameraRepository(18739): Added camera: 1
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+I/CXCP    (18739): Device Level: INFO_SUPPORTED_HARDWARE_LEVEL_FULL
+D/CXCP    (18739): Created CameraInternalAdapter<CameraId-1(1)> for CameraId-1
+D/CameraRepository(18739): Added camera: 10
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+I/CXCP    (18739): Device Level: INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED
+D/CXCP    (18739): Created CameraInternalAdapter<CameraId-10(2)> for CameraId-10
+D/CXCP    (18739): Loaded ConcurrentCameraIdsSet {{1}}
+I/CameraPresencePrvdr(18739): Starting CameraPresenceProvider monitoring.
+I/CameraPresenceSrc(18739): First observer added. Starting monitoring.
+I/PipePresenceSrc(18739): Starting to collect camera ID flow.
+D/CameraPresencePrvdr(18739): Registered state observer for camera: 1
+D/CameraPresencePrvdr(18739): Registered state observer for camera: 10
+D/CameraValidator(18739): Verifying camera lens facing on emu64a16k
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/PipePresenceSrc(18739): Flow emitted new camera set: CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}
+I/PipePresenceSrc(18739): Handling first camera set, triggering fresh query.
+D/PipePresenceSrc(18739): [FetchData] Refreshed camera list from hardware: [CameraIdentifier{cameraIds=1}, CameraIdentifier{cameraIds=10}]
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/Recorder(18739): mRequiredFreeStorageBytes = 50 MB
+D/DeviceQuirks(18739): core DeviceQuirks = SurfaceOrderQuirk
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/ResolvedFeatureGroup(18739): resolveFeatureGroup: sessionConfig = SessionConfig@aaafdf2 {useCases=[Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d, ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795, ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter(18739): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d, ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795, ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0], featureGroup = null
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.PreviewConfig@f5a0c43, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@7e5d2c0, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@3916bf9, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0
+D/CXCP    (18739): DynamicRangeResolver: Resolved dynamic range for use case androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d to no compatible HDR dynamic ranges.
+D/CXCP    (18739): DynamicRange@b07299f{encoding=UNSPECIFIED, bitDepth=0}
+D/CXCP    (18739): ->
+D/CXCP    (18739): DynamicRange@f67073e{encoding=SDR, bitDepth=8}
+D/CXCP    (18739): resolvedDynamicRanges = {androidx.camera.core.impl.ImageCaptureConfig@7e5d2c0=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.ImageAnalysisConfig@3916bf9=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.PreviewConfig@f5a0c43=DynamicRange@f67073e{encoding=SDR, bitDepth=8}}
+D/CXCP    (18739): getSuggestedStreamSpecifications: isPreviewStabilizationSupported = false, isFeatureComboInvocation = false
+D/CXCP    (18739): resolveSpecsByCheckingMethod: checkingMethod = WITHOUT_FEATURE_COMBO
+D/CXCP    (18739): resolveSpecsBySettings: featureSettings = FeatureSettings(cameraMode=0, requiredMaxBitDepth=8, hasVideoCapture=false, videoStabilization=UNSPECIFIED, isUltraHdrOn=false, isHighSpeedOn=false, isFeatureComboInvocation=false, requiresFeatureComboQuery=false, targetFpsRange=[0, 0], isStrictFpsRequired=false)
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CXCP    (18739): resolveSpecsBySettings: bestSizesAndFps = BestSizesAndMaxFpsForConfigs(bestSizes=[1280x720, 1280x720, 1280x720], bestSizesForStreamUseCase=null, maxFpsForBestSizes=30, maxFpsForStreamUseCase=2147483647, maxFpsForAllSizes=2147483647)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d
+D/Preview (18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@b3ac016, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface(18739): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@58ead97}
+D/DeferrableSurface(18739): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@868c33}
+D/DeferrableSurface(18739): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@868c33}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@868c33
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795
+D/ImageCapture(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@23b571c, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture(18739): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@23b571c, zslDisabled=false})
+I/Surface (18739): Creating surface for consumer unnamed-18739-2 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f21m4-18739-0 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@376cf25}
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0
+D/ImageAnalysis(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@79d4eab, zslDisabled=false}, secondaryStreamSpec null
+I/Surface (18739): Creating surface for consumer unnamed-18739-3 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-1 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer unnamed-18739-4 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-2 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@8815ac6}
+D/CXCP    (18739): Attaching [Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d, ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795, ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+D/CXCP    (18739): Prepared UseCaseGraphContext (Deferred)
+D/CXCP    (18739): Configured UseCaseCamera-1
+D/CXCP    (18739): populateSurfaceToStreamUseCaseMapping() - streamUseCaseMap = {}
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e8ae823
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.SurfaceRequest$2@868c33, null cannot be set!
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@376cf25, null cannot be set!
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@8815ac6, null cannot be set!
+D/CXCP    (18739): Notifying [] camera control ready
+D/ImageCapture(18739): onCameraControlReady
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e8ae823
+D/CXCP    (18739): Camera 10 has become available
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1) (CameraId-10) camera status changed: CameraAvailable(camera=CameraId-10)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STOPPED@1e8937c, last camera error = null, camera availability = CameraAvailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88243511478492).
+I/CXCP    (18739): CameraGraph-1 (Camera 10)
+I/CXCP    (18739):   Facing:    Back (Physical, Limited)
+I/CXCP    (18739):   Mode:      Normal
+I/CXCP    (18739): Outputs:
+I/CXCP    (18739):   Stream-1    Output-1    1280x720    PRIVATE          [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-2    Output-2    1280x720    JPEG             [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-3    Output-3    1280x720    YUV_420_888      [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739): Session Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Session Parameters: (None)
+I/CXCP    (18739): Default Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Default Parameters
+I/CXCP    (18739):   Metadata.Key(androidx.camera.camera2.pipe.captureRequestTag) android.hardware.camera2.CaptureRequest.setTag.CX
+I/CXCP    (18739): Required Parameters: (None)
+D/CXCP    (18739): Camera graph updated from null to CameraGraph-1
+I/CXCP    (18739): Starting CameraGraph-1
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStarting
+D/CXCP    (18739): CameraGraph-1 state updated to GRAPH_STARTING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPENING, error=null)
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestOpen(virtualCamera=VirtualCamera-1, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-1), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@adec405)]
+I/Surface (18739): Creating surface for consumer unnamed-18739-5 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f22m7-18739-3 with slotExpansion=1 for 64 slots
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestOpen(virtualCamera=VirtualCamera-1, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-1), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@adec405)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestOpen(CameraId-10)
+D/CXCP    (18739): Opening CameraId-10 with retries...
+I/CXCP    (18739): Opening CameraId-10
+D/CXCP    (18739): CameraId-10 has become available! Notifying listeners...
+D/CXCP    (18739): Started Camera2CameraController(CameraGraph-1)
+D/CXCP    (18739): Setting up Surfaces with UseCaseSurfaceManager
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@868c33
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@376cf25}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@376cf25
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@8815ac6}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@8815ac6
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997958624)/@0xa05b426 for Stream-1
+I/CXCP    (18739): Configured Stream-1 with Surface(name=null mNativeObject=-5476246051997958624)/@0xa05b426
+D/CXCP    (18739): SurfaceActive androidx.camera.core.SurfaceRequest$2@868c33 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@868c33
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051998041024)/@0xe4f0d5f for Stream-2
+I/CXCP    (18739): Configured Stream-2 with Surface(name=null mNativeObject=-5476246051998041024)/@0xe4f0d5f
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@376cf25 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@376cf25
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997970160)/@0x435d3ac for Stream-3
+I/CXCP    (18739): Configured Stream-3 with Surface(name=null mNativeObject=-5476246051997970160)/@0x435d3ac
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@8815ac6 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@8815ac6
+D/CXCP    (18739): Configured androidx.camera.camera2.impl.UseCaseCameraRequestControlImpl@a1d600a
+I/CXCP    (18739): Surface setup complete
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, optionPriority = OPTIONAL
+D/DeferrableSurface(18739): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@868c33
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@376cf25
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@8815ac6
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#removeParametersAsync: [DEFAULT] keys = [CaptureRequest.Key(android.control.zoomRatio), CaptureRequest.Key(android.control.settingsOverride)]
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: Building SessionConfig...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: SessionConfig built. Updating state...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: State update processing.
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = [Stream-1], template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@aee88b0
+D/CXCP    (18739): State3AControl.getFinalPreferredAeMode: preferAeMode = 1
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@d560329
+D/CXCP    (18739): UseCaseCameraState: Updating 3A modes: AE(AeMode(value=1), changed=true), AF(AfMode(value=1), changed=true), AWB(AwbMode(value=1), changed=true)
+D/CXCP    (18739): Controller3A#update3A: cancelling previous request null
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-1], template=RequestTemplate(value=1))@5a2a8e5
+D/CXCP    (18739): Camera 10 has become unavailable
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1) (CameraId-10) camera status changed: CameraUnavailable(camera=CameraId-10)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STARTED@edebdc8, last camera error = null, camera availability = CameraUnavailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88243529333950).
+I/CXCP    (18739): Unavailable camera 10 detected
+I/CXCP    (18739): Loaded CameraIdList [CameraId-1, CameraId-10]
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/CXCP    (18739): tryOpenCamera: openCamera() for CameraId-10 returned
+I/CXCP    (18739): Opened CameraId-10 in 29.890 ms
+D/CXCP    (18739): tryOpenCamera: CameraId-10 opened
+I/CXCP    (18739): Camera open completed: OpenCameraResult(cameraState=CameraState-1, errorCode=null)
+I/CXCP    (18739): PruningCameraDeviceManager: CameraId-10 opened successfully
+I/CXCP    (18739): Creating CameraCaptureSession from CameraId-10 using CaptureSessionState-1 with {Stream-1=Surface(name=null mNativeObject=-5476246051997958624)/@0xa05b426, Stream-2=Surface(name=null mNativeObject=-5476246051998041024)/@0xe4f0d5f, Stream-3=Surface(name=null mNativeObject=-5476246051997970160)/@0x435d3ac}
+D/CXCP    (18739): CaptureSessionState-1 Configured
+D/CXCP    (18739): CXCP#createCaptureSession-10 - 34.062 ms
+I/CXCP    (18739): Configured CaptureSessionState-1 in 34.575 ms
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStarted
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-1], template=RequestTemplate(value=1))@5a2a8e5
+D/CXCP    (18739): CameraGraph-1 state updated to GRAPH_STARTED
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPEN, error=null)
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 0.113 ms
+D/CXCP    (18739): CaptureSessionState-1 Ready
+D/CXCP    (18739): GraphRequestProcessor-1 submitting Camera2CaptureSequence-1
+D/CXCP    (18739): CXCP#setRepeatingRequest-10 - 0.393 ms
+D/CXCP    (18739): GraphRequestProcessor-1 submitted Camera2CaptureSequence-1
+D/CXCP    (18739): CaptureSessionState-1 Active
+D/WindowOnBackDispatcher(18739): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@99d775e
+D/ImageCapture(18739): takePictureInternal
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/ProcessingRequest(18739): ProcessingRequest: mRequestId = 0, mTagBundleKey = 127671356
+D/CXCP    (18739): StillCaptureRequestControl: submitting CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@66c2e4b], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@b2cc028) at androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e8ae823
+D/CXCP    (18739): FlashControl: Waiting for any ongoing update to be completed
+D/CXCP    (18739): awaitFlashModeUpdate: initialFlashMode = 2
+D/CXCP    (18739): StillCaptureRequestControl: Issuing single capture
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#issueSingleCaptureAsync
+D/CXCP    (18739): UseCaseCameraRequestControl: Submitting still captures to capture pipeline
+D/CXCP    (18739): CapturePipeline#invokeCaptureTasks: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE], captureMode = 1, flashMode = 2, flashType = 0
+D/CXCP    (18739): CapturePipeline#defaultNoFlashCapture
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE]
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting PRE_CAPTURE
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: PRE_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting MAIN_CAPTURE
+D/CXCP    (18739): CapturePipeline#submitRequestInternal; Submitting [androidx.camera.core.impl.CaptureConfig@66c2e4b] with CameraPipe
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: MAIN_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Acquiring session for submitting requests
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Submitting [Request(streams=[Stream-2], template=RequestTemplate(value=2))@e1ef6e6]
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-2], template=RequestTemplate(value=2))@e1ef6e6
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@66c2e4b], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@b2cc028)
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 3.489 ms
+D/CXCP    (18739): GraphRequestProcessor-1 submitting Camera2CaptureSequence-2
+D/CXCP    (18739): CXCP#capture-10 - 0.381 ms
+D/CXCP    (18739): GraphRequestProcessor-1 submitted Camera2CaptureSequence-2
+D/CXCP    (18739): CaptureSessionState-1 CaptureQueueEmpty
+D/ProcessingRequest(18739): onCaptureStarted: request ID = 0
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@66c2e4b], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@b2cc028) done
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal done
+D/CaptureNode(18739): OnImageAvailableListener: mCurrentRequest ID = 0, image.isNull = false
+I/ProcessingRequest(18739): onImageCaptured: request ID = 0
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl(18739): No new request.
+D/ProcessingNode(18739): processOnDiskCapture: request ID = 0
+I/ProcessingRequest(18739): onFinalResult(OutputFileResults): request ID = 0
+D/ProfileInstaller(18739): Installing profile for com.nampham.lotteryscan
+E/ConsumerBase(18739): [ImageReader-1280x720f22m7-18739-3] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface(18739): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@868c33
+D/DeferrableSurface(18739): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@58ead97
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@58ead97}
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@868c33
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+D/ImageCapture(18739): clearPipeline
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@376cf25
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@8815ac6
+D/CXCP    (18739): Detaching [Preview:androidx.camera.core.Preview-2658323a-d809-46e2-ae23-b8489263488d, ImageCapture:androidx.camera.core.ImageCapture-0e89240d-7efe-4abd-9ff9-6d05aeb33795, ImageAnalysis:androidx.camera.core.ImageAnalysis-ef6d3055-a722-41fe-a8f1-da724c4ebce0] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+D/CXCP    (18739): UseCaseCameraRequestControl: closed
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+D/CXCP    (18739): Closing UseCaseCamera-1
+I/CXCP    (18739): Closing CameraGraph-1
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+D/CXCP    (18739): reset: videoUsage = 0
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) queueBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): Closing GraphRequestProcessor-1
+D/CXCP    (18739): Closed Camera2CameraController(CameraGraph-1)
+D/CXCP    (18739): LowLightBoostControl#setLowLightBoostAsync: lowLightBoost = false
+D/CXCP    (18739): Closing GraphRequestProcessor-1
+W/CXCP    (18739): Attach [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStopping
+D/CXCP    (18739): CameraGraph-1 state updated to GRAPH_STOPPING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSING, error=null)
+D/CXCP    (18739): CaptureSessionState-1 Shutdown
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-1#stopRepeating
+D/CXCP    (18739): CXCP#stopRepeating-10 - 16.903 ms
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-1#abortCaptures
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): CXCP#abortCaptures-10 - 22.604 ms
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-3](id:493300000005,api:4,p:530,c:18739) dequeueBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): Closing capture session for CaptureSessionState-1
+D/CXCP    (18739): CaptureSessionState-1 Ready
+D/CXCP    (18739): CaptureSessionState-1 Closed
+D/CXCP    (18739): CaptureSessionState-1 session finalizing
+D/CXCP    (18739): Finalizing CaptureSessionState-1
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.SurfaceRequest$2@868c33 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@868c33
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@868c33}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@868c33}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@376cf25 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@376cf25
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@376cf25}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@376cf25}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@8815ac6 in androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@8815ac6
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@8815ac6}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@8815ac6}
+D/CXCP    (18739): androidx.camera.camera2.impl.UseCaseSurfaceManager@471b875 remove surface listener
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-1) onGraphStopped
+D/CXCP    (18739): CameraGraph-1 state updated to GRAPH_STOPPED
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSED, error=null)
+I/CXCP    (18739): Disconnecting VirtualCamera-1
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1) is closed
+D/CXCP    (18739): Camera2CameraController(CameraGraph-1) finalized
+E/ConsumerBase(18739): [ImageReader-1280x720f21m4-18739-0] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-1] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-2] abandonLocked: ConsumerBase is abandoned!
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@605ee74)]
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@605ee74)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestClose(CameraId-10)
+D/CXCP    (18739): handleQuirksBeforeClosing(android.hardware.camera2.impl.CameraDeviceImpl@9e9e0b)
+D/CXCP    (18739): CaptureSessionState-1 session disconnecting
+D/CXCP    (18739): closeCameraDevice(10)
+I/CXCP    (18739): Closing Camera 10
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb40077394805a980) with descriptor: '(not cached)'
+D/CXCP    (18739): CXCP#CameraDevice-10#close - 130.691 ms
+D/CXCP    (18739): CameraId-10: onClosed
+D/CXCP    (18739): CameraState-1: onFinalized
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+00:11 +1: Answers Given a ticket that wins several prizes (117988 · Bình Dương · 06-11-2026, Giải Sáu and Giải Tám), when the answer is ready, then 4a shows one block per prize, "Bạn trúng <giải>" with its amount in large type, from the highest prize down, with no total
+D/WindowOnBackDispatcher(18739): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@c389175
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/Recorder(18739): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup(18739): resolveFeatureGroup: sessionConfig = SessionConfig@1239373 {useCases=[Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502, ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede, ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter(18739): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502, ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede, ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c], featureGroup = null
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.PreviewConfig@1050230, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@6ecbea9, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@49adc2e, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c
+D/CXCP    (18739): DynamicRangeResolver: Resolved dynamic range for use case androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502 to no compatible HDR dynamic ranges.
+D/CXCP    (18739): DynamicRange@b07299f{encoding=UNSPECIFIED, bitDepth=0}
+D/CXCP    (18739): ->
+D/CXCP    (18739): DynamicRange@f67073e{encoding=SDR, bitDepth=8}
+D/CXCP    (18739): resolvedDynamicRanges = {androidx.camera.core.impl.ImageCaptureConfig@6ecbea9=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.ImageAnalysisConfig@49adc2e=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.PreviewConfig@1050230=DynamicRange@f67073e{encoding=SDR, bitDepth=8}}
+D/CXCP    (18739): getSuggestedStreamSpecifications: isPreviewStabilizationSupported = false, isFeatureComboInvocation = false
+D/CXCP    (18739): resolveSpecsByCheckingMethod: checkingMethod = WITHOUT_FEATURE_COMBO
+D/CXCP    (18739): resolveSpecsBySettings: featureSettings = FeatureSettings(cameraMode=0, requiredMaxBitDepth=8, hasVideoCapture=false, videoStabilization=UNSPECIFIED, isUltraHdrOn=false, isHighSpeedOn=false, isFeatureComboInvocation=false, requiresFeatureComboQuery=false, targetFpsRange=[0, 0], isStrictFpsRequired=false)
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CXCP    (18739): resolveSpecsBySettings: bestSizesAndFps = BestSizesAndMaxFpsForConfigs(bestSizes=[1280x720, 1280x720, 1280x720], bestSizesForStreamUseCase=null, maxFpsForBestSizes=30, maxFpsForStreamUseCase=2147483647, maxFpsForAllSizes=2147483647)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502
+D/Preview (18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@e99f3cf, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface(18739): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f0115c}
+D/DeferrableSurface(18739): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@f1ae748}
+D/DeferrableSurface(18739): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@f1ae748}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@f1ae748
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede
+D/ImageCapture(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@467f31d, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture(18739): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@467f31d, zslDisabled=false})
+I/Surface (18739): Creating surface for consumer unnamed-18739-6 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f21m4-18739-4 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@1c38992}
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c
+D/ImageAnalysis(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@355760, zslDisabled=false}, secondaryStreamSpec null
+I/Surface (18739): Creating surface for consumer unnamed-18739-7 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-5 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer unnamed-18739-8 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-6 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@b95a419}
+D/CXCP    (18739): Attaching [Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502, ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede, ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+D/CXCP    (18739): Prepared UseCaseGraphContext (Deferred)
+D/CXCP    (18739): Configured UseCaseCamera-2
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e5368d5
+D/CXCP    (18739): populateSurfaceToStreamUseCaseMapping() - streamUseCaseMap = {}
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.SurfaceRequest$2@f1ae748, null cannot be set!
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@1c38992, null cannot be set!
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@b95a419, null cannot be set!
+D/CXCP    (18739): Notifying [] camera control ready
+D/ImageCapture(18739): onCameraControlReady
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e5368d5
+I/CXCP    (18739): CameraGraph-2 (Camera 10)
+I/CXCP    (18739):   Facing:    Back (Physical, Limited)
+I/CXCP    (18739):   Mode:      Normal
+I/CXCP    (18739): Outputs:
+I/CXCP    (18739):   Stream-4    Output-4    1280x720    PRIVATE          [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-5    Output-5    1280x720    JPEG             [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-6    Output-6    1280x720    YUV_420_888      [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739): Session Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Session Parameters: (None)
+I/CXCP    (18739): Default Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Default Parameters
+I/CXCP    (18739):   Metadata.Key(androidx.camera.camera2.pipe.captureRequestTag) android.hardware.camera2.CaptureRequest.setTag.CX
+I/CXCP    (18739): Required Parameters: (None)
+D/CXCP    (18739): Camera graph updated from CameraGraph-1 to CameraGraph-2
+I/CXCP    (18739): Starting CameraGraph-2
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-2) onGraphStarting
+D/CXCP    (18739): CameraGraph-2 state updated to GRAPH_STARTING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPENING, error=null)
+D/CXCP    (18739): Started Camera2CameraController(CameraGraph-2)
+D/CXCP    (18739): Setting up Surfaces with UseCaseSurfaceManager
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@f1ae748
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@1c38992}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@1c38992
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@b95a419}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@b95a419
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestOpen(virtualCamera=VirtualCamera-2, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-2), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@e3309a)]
+D/CXCP    (18739): Configured androidx.camera.camera2.impl.UseCaseCameraRequestControlImpl@aa6cdcb
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, optionPriority = OPTIONAL
+D/CXCP    (18739): Camera 10 has become available
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestOpen(virtualCamera=VirtualCamera-2, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-2), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@e3309a)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestOpen(CameraId-10)
+D/CXCP    (18739): Opening CameraId-10 with retries...
+I/CXCP    (18739): Opening CameraId-10
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.zoomRatio)=1.0}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): CameraId-10 has become available! Notifying listeners...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2) (CameraId-10) camera status changed: CameraAvailable(camera=CameraId-10)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STARTED@edebdc8, last camera error = null, camera availability = CameraAvailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88258930824916).
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: Building SessionConfig...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: SessionConfig built. Updating state...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: State update processing.
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = [Stream-4], template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-4], template=RequestTemplate(value=1))@6f5b854
+D/CXCP    (18739): State3AControl.getFinalPreferredAeMode: preferAeMode = 1
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-4], template=RequestTemplate(value=1))@7212b43
+D/CXCP    (18739): UseCaseCameraState: Updating 3A modes: AE(AeMode(value=1), changed=true), AF(AfMode(value=1), changed=true), AWB(AwbMode(value=1), changed=true)
+D/CXCP    (18739): Controller3A#update3A: cancelling previous request null
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-4], template=RequestTemplate(value=1))@d2005c0
+D/CXCP    (18739): Camera 10 has become unavailable
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2) (CameraId-10) camera status changed: CameraUnavailable(camera=CameraId-10)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STARTED@edebdc8, last camera error = null, camera availability = CameraUnavailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88258934008582).
+I/CXCP    (18739): Unavailable camera 10 detected
+I/CXCP    (18739): Loaded CameraIdList [CameraId-1, CameraId-10]
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/CXCP    (18739): tryOpenCamera: openCamera() for CameraId-10 returned
+I/CXCP    (18739): Opened CameraId-10 in 5.788 ms
+D/CXCP    (18739): tryOpenCamera: CameraId-10 opened
+I/CXCP    (18739): Camera open completed: OpenCameraResult(cameraState=CameraState-2, errorCode=null)
+I/CXCP    (18739): PruningCameraDeviceManager: CameraId-10 opened successfully
+I/Surface (18739): Creating surface for consumer unnamed-18739-9 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f22m7-18739-7 with slotExpansion=1 for 64 slots
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997968512)/@0x2eabfbb for Stream-4
+I/CXCP    (18739): Configured Stream-4 with Surface(name=null mNativeObject=-5476246051997968512)/@0x2eabfbb
+D/CXCP    (18739): SurfaceActive androidx.camera.core.SurfaceRequest$2@f1ae748 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@f1ae748
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997960272)/@0xa1a0b16 for Stream-5
+I/CXCP    (18739): Configured Stream-5 with Surface(name=null mNativeObject=-5476246051997960272)/@0xa1a0b16
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@1c38992 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@1c38992
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997922368)/@0x57b9c97 for Stream-6
+I/CXCP    (18739): Configured Stream-6 with Surface(name=null mNativeObject=-5476246051997922368)/@0x57b9c97
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@b95a419 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@b95a419
+I/CXCP    (18739): Surface setup complete
+D/DeferrableSurface(18739): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@f1ae748
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@1c38992
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@b95a419
+I/CXCP    (18739): Creating CameraCaptureSession from CameraId-10 using CaptureSessionState-2 with {Stream-4=Surface(name=null mNativeObject=-5476246051997968512)/@0x2eabfbb, Stream-5=Surface(name=null mNativeObject=-5476246051997960272)/@0xa1a0b16, Stream-6=Surface(name=null mNativeObject=-5476246051997922368)/@0x57b9c97}
+D/CXCP    (18739): CXCP#createCaptureSession-10 - 6.173 ms
+D/CXCP    (18739): CaptureSessionState-2 Configured
+D/CXCP    (18739): CaptureSessionState-2 Ready
+I/CXCP    (18739): Configured CaptureSessionState-2 in 6.882 ms
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-2) onGraphStarted
+D/CXCP    (18739): CameraGraph-2 state updated to GRAPH_STARTED
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-4], template=RequestTemplate(value=1))@d2005c0
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPEN, error=null)
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 0.056 ms
+D/CXCP    (18739): GraphRequestProcessor-2 submitting Camera2CaptureSequence-3
+D/CXCP    (18739): CXCP#setRepeatingRequest-10 - 0.494 ms
+D/CXCP    (18739): CaptureSessionState-2 Active
+D/CXCP    (18739): GraphRequestProcessor-2 submitted Camera2CaptureSequence-3
+D/WindowOnBackDispatcher(18739): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@99d775e
+D/ImageCapture(18739): takePictureInternal
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/ProcessingRequest(18739): ProcessingRequest: mRequestId = 1, mTagBundleKey = 90412856
+D/CXCP    (18739): StillCaptureRequestControl: submitting CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@caa311], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@41ccc76) at androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@e5368d5
+D/CXCP    (18739): FlashControl: Waiting for any ongoing update to be completed
+D/CXCP    (18739): awaitFlashModeUpdate: initialFlashMode = 2
+D/CXCP    (18739): StillCaptureRequestControl: Issuing single capture
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#issueSingleCaptureAsync
+D/CXCP    (18739): UseCaseCameraRequestControl: Submitting still captures to capture pipeline
+D/CXCP    (18739): CapturePipeline#invokeCaptureTasks: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE], captureMode = 1, flashMode = 2, flashType = 0
+D/CXCP    (18739): CapturePipeline#defaultNoFlashCapture
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE]
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting PRE_CAPTURE
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: PRE_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting MAIN_CAPTURE
+D/CXCP    (18739): CapturePipeline#submitRequestInternal; Submitting [androidx.camera.core.impl.CaptureConfig@caa311] with CameraPipe
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: MAIN_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Acquiring session for submitting requests
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Submitting [Request(streams=[Stream-5], template=RequestTemplate(value=2))@556eee4]
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@caa311], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@41ccc76)
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-5], template=RequestTemplate(value=2))@556eee4
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 1.018 ms
+D/CXCP    (18739): GraphRequestProcessor-2 submitting Camera2CaptureSequence-4
+D/CXCP    (18739): CXCP#capture-10 - 0.773 ms
+D/CXCP    (18739): GraphRequestProcessor-2 submitted Camera2CaptureSequence-4
+D/CXCP    (18739): CaptureSessionState-2 CaptureQueueEmpty
+D/ProcessingRequest(18739): onCaptureStarted: request ID = 1
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@caa311], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@41ccc76) done
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal done
+D/CaptureNode(18739): OnImageAvailableListener: mCurrentRequest ID = 1, image.isNull = false
+I/ProcessingRequest(18739): onImageCaptured: request ID = 1
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl(18739): No new request.
+D/ProcessingNode(18739): processOnDiskCapture: request ID = 1
+I/ProcessingRequest(18739): onFinalResult(OutputFileResults): request ID = 1
+E/ConsumerBase(18739): [ImageReader-1280x720f22m7-18739-7] abandonLocked: ConsumerBase is abandoned!
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-7](id:493300000009,api:4,p:530,c:18739) dequeueBuffer: BufferQueue has been abandoned
+D/DeferrableSurface(18739): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@f1ae748
+D/DeferrableSurface(18739): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@f0115c
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f0115c}
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@f1ae748
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+D/ImageCapture(18739): clearPipeline
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@1c38992
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@b95a419
+D/CXCP    (18739): Detaching [Preview:androidx.camera.core.Preview-614a04a9-fcea-436a-a95e-6a89244c9502, ImageCapture:androidx.camera.core.ImageCapture-41272763-1a62-4f1c-b512-cf8c3d55cede, ImageAnalysis:androidx.camera.core.ImageAnalysis-160c1ed4-2189-43bf-93a4-a637f603619c] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+D/CXCP    (18739): UseCaseCameraRequestControl: closed
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+D/CXCP    (18739): Closing UseCaseCamera-2
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+I/CXCP    (18739): Closing CameraGraph-2
+D/CXCP    (18739): reset: videoUsage = 0
+D/CXCP    (18739): Closed Camera2CameraController(CameraGraph-2)
+D/CXCP    (18739): Closing GraphRequestProcessor-2
+D/CXCP    (18739): Closing GraphRequestProcessor-2
+D/CXCP    (18739): LowLightBoostControl#setLowLightBoostAsync: lowLightBoost = false
+W/CXCP    (18739): Attach [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-2) onGraphStopping
+D/CXCP    (18739): CameraGraph-2 state updated to GRAPH_STOPPING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSING, error=null)
+D/CXCP    (18739): CaptureSessionState-2 Shutdown
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-7](id:493300000009,api:4,p:530,c:18739) queueBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-2#stopRepeating
+D/CXCP    (18739): CXCP#stopRepeating-10 - 0.011 ms
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-2#abortCaptures
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-7](id:493300000009,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-7](id:493300000009,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): CXCP#abortCaptures-10 - 22.960 ms
+D/CXCP    (18739): Closing capture session for CaptureSessionState-2
+D/CXCP    (18739): CaptureSessionState-2 Ready
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-2) onGraphStopped
+D/CXCP    (18739): CaptureSessionState-2 Closed
+D/CXCP    (18739): CameraGraph-2 state updated to GRAPH_STOPPED
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSED, error=null)
+D/CXCP    (18739): CaptureSessionState-2 session finalizing
+D/CXCP    (18739): Finalizing CaptureSessionState-2
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.SurfaceRequest$2@f1ae748 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@f1ae748
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@f1ae748}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@f1ae748}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@1c38992 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@1c38992
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@1c38992}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@1c38992}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@b95a419 in androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@b95a419
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@b95a419}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@b95a419}
+D/CXCP    (18739): androidx.camera.camera2.impl.UseCaseSurfaceManager@321de84 remove surface listener
+E/ConsumerBase(18739): [ImageReader-1280x720f21m4-18739-4] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-5] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-6] abandonLocked: ConsumerBase is abandoned!
+I/CXCP    (18739): Disconnecting VirtualCamera-2
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2) is closed
+D/CXCP    (18739): Camera2CameraController(CameraGraph-2) finalized
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-7](id:493300000009,api:4,p:530,c:18739) queueBuffer: BufferQueue has been abandoned
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb400773948069a20) with descriptor: '(not cached)'
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb4007739480694a0) with descriptor: '(not cached)'
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@1a1389f)]
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@1a1389f)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestClose(CameraId-10)
+D/CXCP    (18739): handleQuirksBeforeClosing(android.hardware.camera2.impl.CameraDeviceImpl@58830e0)
+D/CXCP    (18739): CaptureSessionState-2 session disconnecting
+D/CXCP    (18739): closeCameraDevice(10)
+I/CXCP    (18739): Closing Camera 10
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb40077394806a730) with descriptor: '(not cached)'
+D/CXCP    (18739): CXCP#CameraDevice-10#close - 15.523 ms
+D/CXCP    (18739): CameraId-10: onClosed
+D/CXCP    (18739): CameraState-2: onFinalized
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+00:21 +2: Answers Given a ticket that wins nothing (111111 · Bạc Liêu · 10-11-2026), when the answer is ready, then 4b shows "Chưa trúng lần này", "Chúc bạn may mắn lần sau!", the ticket card and "Quét vé khác", and once its movement has ended, nothing moves
+D/WindowOnBackDispatcher(18739): setTopOnBackInvokedCallback (unwrapped): android.app.Activity$$ExternalSyntheticLambda0@c389175
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/Recorder(18739): mRequiredFreeStorageBytes = 50 MB
+D/ResolvedFeatureGroup(18739): resolveFeatureGroup: sessionConfig = SessionConfig@5419e1a {useCases=[Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc, ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e, ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d], frameRateRange=[0, 0], requiredFeatureGroup=[], preferredFeatureGroup=[], effects=[], viewPort=null}, lensFacing = 1
+D/CameraUseCaseAdapter(18739): addUseCases: appUseCasesToAdd = [Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc, ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e, ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d], featureGroup = null
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/CXCP    (18739): Creating config for PREVIEW
+D/CXCP    (18739): Creating config for IMAGE_CAPTURE
+D/CXCP    (18739): Creating config for IMAGE_ANALYSIS
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.PreviewConfig@d386d4b, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageCaptureConfig@5559328, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d
+D/SupportedOutputSizesCollector(18739): useCaseConfig = androidx.camera.core.impl.ImageAnalysisConfig@1360841, candidateSizes = [1280x960, 1280x720, 640x480, 352x288, 320x240]
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d
+D/CXCP    (18739): DynamicRangeResolver: Resolved dynamic range for use case androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc to no compatible HDR dynamic ranges.
+D/CXCP    (18739): DynamicRange@b07299f{encoding=UNSPECIFIED, bitDepth=0}
+D/CXCP    (18739): ->
+D/CXCP    (18739): DynamicRange@f67073e{encoding=SDR, bitDepth=8}
+D/CXCP    (18739): resolvedDynamicRanges = {androidx.camera.core.impl.ImageCaptureConfig@5559328=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.ImageAnalysisConfig@1360841=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, androidx.camera.core.impl.PreviewConfig@d386d4b=DynamicRange@f67073e{encoding=SDR, bitDepth=8}}
+D/CXCP    (18739): getSuggestedStreamSpecifications: isPreviewStabilizationSupported = false, isFeatureComboInvocation = false
+D/CXCP    (18739): resolveSpecsByCheckingMethod: checkingMethod = WITHOUT_FEATURE_COMBO
+D/CXCP    (18739): resolveSpecsBySettings: featureSettings = FeatureSettings(cameraMode=0, requiredMaxBitDepth=8, hasVideoCapture=false, videoStabilization=UNSPECIFIED, isUltraHdrOn=false, isHighSpeedOn=false, isFeatureComboInvocation=false, requiresFeatureComboQuery=false, targetFpsRange=[0, 0], isStrictFpsRequired=false)
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CameraQuirks(18739): camera2 CameraQuirks = CloseCaptureSessionOnVideoQuirk | FinalizeSessionOnCloseQuirk
+D/CXCP    (18739): resolveSpecsBySettings: bestSizesAndFps = BestSizesAndMaxFpsForConfigs(bestSizes=[1280x720, 1280x720, 1280x720], bestSizesForStreamUseCase=null, maxFpsForBestSizes=30, maxFpsForStreamUseCase=2147483647, maxFpsForAllSizes=2147483647)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc
+D/Preview (18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@dcb81e6, zslDisabled=false}, secondaryStreamSpec null
+D/DeferrableSurface(18739): Surface created[total_surfaces=1, used_surfaces=0](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f1e9327}
+D/DeferrableSurface(18739): Surface created[total_surfaces=2, used_surfaces=0](androidx.camera.core.SurfaceRequest$2@7573ac3}
+D/DeferrableSurface(18739): New surface in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.SurfaceRequest$2@7573ac3}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.SurfaceRequest$2@7573ac3
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e
+D/ImageCapture(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@b9d6f6c, zslDisabled=false}, secondaryStreamSpec null
+D/ImageCapture(18739): createPipeline(cameraId: 10, streamSpec: StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@b9d6f6c, zslDisabled=false})
+I/Surface (18739): Creating surface for consumer unnamed-18739-10 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f21m4-18739-8 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=3, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@3838935}
+D/UseCase (18739): applyFeaturesToConfig: mFeatureGroup = null, this = ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d
+D/ImageAnalysis(18739): onSuggestedStreamSpecUpdated: primaryStreamSpec = StreamSpec{resolution=1280x720, originalConfiguredResolution=1280x720, dynamicRange=DynamicRange@f67073e{encoding=SDR, bitDepth=8}, sessionType=0, expectedFrameRateRange=[0, 0], implementationOptions=androidx.camera.camera2.impl.Camera2ImplConfig@2e33f3b, zslDisabled=false}, secondaryStreamSpec null
+I/Surface (18739): Creating surface for consumer unnamed-18739-11 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-9 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer unnamed-18739-12 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f23m4-18739-10 with slotExpansion=1 for 64 slots
+D/DeferrableSurface(18739): Surface created[total_surfaces=4, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@aa81658}
+D/CXCP    (18739): Attaching [Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc, ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e, ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+D/CXCP    (18739): Prepared UseCaseGraphContext (Deferred)
+D/CXCP    (18739): Configured UseCaseCamera-3
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@4b44004
+D/CXCP    (18739): populateSurfaceToStreamUseCaseMapping() - streamUseCaseMap = {}
+D/CXCP    (18739): Notifying [] camera control ready
+D/ImageCapture(18739): onCameraControlReady
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.SurfaceRequest$2@7573ac3, null cannot be set!
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@4b44004
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@3838935, null cannot be set!
+W/CXCP    (18739): Expected stream use case for androidx.camera.core.impl.ImmediateSurface@aa81658, null cannot be set!
+I/CXCP    (18739): CameraGraph-3 (Camera 10)
+I/CXCP    (18739):   Facing:    Back (Physical, Limited)
+I/CXCP    (18739):   Mode:      Normal
+I/CXCP    (18739): Outputs:
+I/CXCP    (18739):   Stream-7    Output-7    1280x720    PRIVATE          [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-8    Output-8    1280x720    JPEG             [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739):   Stream-9    Output-9    1280x720    YUV_420_888      [DynamicRangeProfile(value=1)] [StreamUseHint(value=0)]
+I/CXCP    (18739): Session Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Session Parameters: (None)
+I/CXCP    (18739): Default Template: TEMPLATE_PREVIEW
+I/CXCP    (18739): Default Parameters
+I/CXCP    (18739):   Metadata.Key(androidx.camera.camera2.pipe.captureRequestTag) android.hardware.camera2.CaptureRequest.setTag.CX
+I/CXCP    (18739): Required Parameters: (None)
+D/CXCP    (18739): Camera graph updated from CameraGraph-2 to CameraGraph-3
+I/CXCP    (18739): Starting CameraGraph-3
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-3) onGraphStarting
+D/CXCP    (18739): CameraGraph-3 state updated to GRAPH_STARTING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPENING, error=null)
+D/CXCP    (18739): Started Camera2CameraController(CameraGraph-3)
+D/CXCP    (18739): Setting up Surfaces with UseCaseSurfaceManager
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.SurfaceRequest$2@7573ac3
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=2](androidx.camera.core.impl.ImmediateSurface@3838935}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@3838935
+D/DeferrableSurface(18739): New surface in use[total_surfaces=4, used_surfaces=3](androidx.camera.core.impl.ImmediateSurface@aa81658}
+D/DeferrableSurface(18739): use count+1, useCount=1 androidx.camera.core.impl.ImmediateSurface@aa81658
+D/CXCP    (18739): Configured androidx.camera.camera2.impl.UseCaseCameraRequestControlImpl@d29b234
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.zoomRatio)=1.0}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: Building SessionConfig...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: SessionConfig built. Updating state...
+D/CXCP    (18739): UseCaseCameraRequestControlImpl: State update processing.
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = [Stream-7], template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-7], template=RequestTemplate(value=1))@c1175d2
+D/CXCP    (18739): State3AControl.getFinalPreferredAeMode: preferAeMode = 1
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#setParametersAsync: [DEFAULT] values = {CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1}, optionPriority = OPTIONAL
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-7], template=RequestTemplate(value=1))@7c156a3
+D/CXCP    (18739): UseCaseCameraState: Updating 3A modes: AE(AeMode(value=1), changed=true), AF(AfMode(value=1), changed=true), AWB(AwbMode(value=1), changed=true)
+D/CXCP    (18739): Controller3A#update3A: cancelling previous request null
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#updateCamera2ConfigAsync
+D/CXCP    (18739): UseCaseCameraState#updateState: parameters = {CaptureRequest.Key(android.control.aeExposureCompensation)=0, CaptureRequest.Key(android.control.aeMode)=1, CaptureRequest.Key(android.control.afMode)=1, CaptureRequest.Key(android.control.awbMode)=1, CaptureRequest.Key(android.control.zoomRatio)=1.0}, internalParameters = {Metadata.Key(camerax.tag_bundle)=android.hardware.camera2.CaptureRequest.setTag.CX}, streams = null, template = RequestTemplate(value=1)
+D/CXCP    (18739): Update RepeatingRequest: Request(streams=[Stream-7], template=RequestTemplate(value=1))@ac9bda0
+I/Surface (18739): Creating surface for consumer unnamed-18739-13 with slotExpansion=1 for 64 slots
+I/Surface (18739): Creating surface for consumer ImageReader-1280x720f22m7-18739-11 with slotExpansion=1 for 64 slots
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestOpen(virtualCamera=VirtualCamera-3, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-3), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@549ed2a)]
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestOpen(virtualCamera=VirtualCamera-3, sharedCameraIds=[], graphListener=GraphProcessor(cameraGraph: CameraGraph-3), isPrewarm=false, isForegroundObserver=androidx.camera.camera2.pipe.compat.Camera2CameraController$$ExternalSyntheticLambda1@549ed2a)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestOpen(CameraId-10)
+D/CXCP    (18739): Opening CameraId-10 with retries...
+I/CXCP    (18739): Opening CameraId-10
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997823488)/@0xf38f71b for Stream-7
+I/CXCP    (18739): Configured Stream-7 with Surface(name=null mNativeObject=-5476246051997823488)/@0xf38f71b
+D/CXCP    (18739): SurfaceActive androidx.camera.core.SurfaceRequest$2@7573ac3 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count+1, useCount=3 androidx.camera.core.SurfaceRequest$2@7573ac3
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997861392)/@0x6da0b8 for Stream-8
+D/CXCP    (18739): Camera 10 has become available
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3) (CameraId-10) camera status changed: CameraAvailable(camera=CameraId-10)
+D/CXCP    (18739): CameraId-10 has become available! Notifying listeners...
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STARTED@edebdc8, last camera error = null, camera availability = CameraAvailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88268992953212).
+I/CXCP    (18739): Configured Stream-8 with Surface(name=null mNativeObject=-5476246051997861392)/@0x6da0b8
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@3838935 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@3838935
+D/CXCP    (18739): Configured Surface(name=null mNativeObject=-5476246051997953680)/@0xbf5ae91 for Stream-9
+I/CXCP    (18739): Configured Stream-9 with Surface(name=null mNativeObject=-5476246051997953680)/@0xbf5ae91
+D/CXCP    (18739): SurfaceActive androidx.camera.core.impl.ImmediateSurface@aa81658 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count+1, useCount=2 androidx.camera.core.impl.ImmediateSurface@aa81658
+I/CXCP    (18739): Surface setup complete
+D/DeferrableSurface(18739): use count-1,  useCount=2 closed=false androidx.camera.core.SurfaceRequest$2@7573ac3
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@3838935
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=false androidx.camera.core.impl.ImmediateSurface@aa81658
+D/CXCP    (18739): Camera 10 has become unavailable
+I/CXCP    (18739): Unavailable camera 10 detected
+I/CXCP    (18739): Loaded CameraIdList [CameraId-1, CameraId-10]
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3) (CameraId-10) camera status changed: CameraUnavailable(camera=CameraId-10)
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3): Not restarting. Controller state = androidx.camera.camera2.pipe.CameraController$ControllerState$STARTED@edebdc8, last camera error = null, camera availability = CameraUnavailable(camera=CameraId-10), last camera priorities changed = null, current timestamp = TimestampNs(value=88268995654837).
+D/CXCP    (18739): tryOpenCamera: openCamera() for CameraId-10 returned
+I/CXCP    (18739): Opened CameraId-10 in 8.936 ms
+D/CXCP    (18739): tryOpenCamera: CameraId-10 opened
+I/CXCP    (18739): Camera open completed: OpenCameraResult(cameraState=CameraState-3, errorCode=null)
+I/CXCP    (18739): PruningCameraDeviceManager: CameraId-10 opened successfully
+I/CXCP    (18739): Creating CameraCaptureSession from CameraId-10 using CaptureSessionState-3 with {Stream-7=Surface(name=null mNativeObject=-5476246051997823488)/@0xf38f71b, Stream-8=Surface(name=null mNativeObject=-5476246051997861392)/@0x6da0b8, Stream-9=Surface(name=null mNativeObject=-5476246051997953680)/@0xbf5ae91}
+D/CXCP    (18739): CXCP#createCaptureSession-10 - 7.429 ms
+D/CXCP    (18739): CaptureSessionState-3 Configured
+I/CXCP    (18739): Configured CaptureSessionState-3 in 11.497 ms
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-3) onGraphStarted
+D/CXCP    (18739): CameraGraph-3 state updated to GRAPH_STARTED
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=OPEN, error=null)
+D/CXCP    (18739): CaptureSessionState-3 Ready
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-7], template=RequestTemplate(value=1))@ac9bda0
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 0.786 ms
+D/CXCP    (18739): GraphRequestProcessor-3 submitting Camera2CaptureSequence-5
+D/CXCP    (18739): CaptureSessionState-3 Active
+D/CXCP    (18739): CXCP#setRepeatingRequest-10 - 9.659 ms
+D/CXCP    (18739): GraphRequestProcessor-3 submitted Camera2CaptureSequence-5
+D/WindowOnBackDispatcher(18739): setTopOnBackInvokedCallback (unwrapped): io.flutter.embedding.android.FlutterActivity$1@99d775e
+D/ImageCapture(18739): takePictureInternal
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/ProcessingRequest(18739): ProcessingRequest: mRequestId = 2, mTagBundleKey = 131428979
+D/CXCP    (18739): StillCaptureRequestControl: submitting CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@321872e], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@80ac2cf) at androidx.camera.camera2.impl.DeferredUseCaseCameraRequestControl@4b44004
+D/CXCP    (18739): FlashControl: Waiting for any ongoing update to be completed
+D/CXCP    (18739): awaitFlashModeUpdate: initialFlashMode = 2
+D/CXCP    (18739): StillCaptureRequestControl: Issuing single capture
+D/CXCP    (18739): UseCaseCameraRequestControlImpl#issueSingleCaptureAsync
+D/CXCP    (18739): UseCaseCameraRequestControl: Submitting still captures to capture pipeline
+D/CXCP    (18739): CapturePipeline#invokeCaptureTasks: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE], captureMode = 1, flashMode = 2, flashType = 0
+D/CXCP    (18739): CapturePipeline#defaultNoFlashCapture
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: tasks = [PRE_CAPTURE, MAIN_CAPTURE, POST_CAPTURE]
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting PRE_CAPTURE
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: PRE_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: starting MAIN_CAPTURE
+D/CXCP    (18739): CapturePipeline#submitRequestInternal; Submitting [androidx.camera.core.impl.CaptureConfig@321872e] with CameraPipe
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: MAIN_CAPTURE completed
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Acquiring session for submitting requests
+D/CXCP    (18739): CapturePipeline#submitRequestInternal: Submitting [Request(streams=[Stream-8], template=RequestTemplate(value=2))@e748365]
+D/CXCP    (18739): Building CaptureRequest for Request(streams=[Stream-8], template=RequestTemplate(value=2))@e748365
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@321872e], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@80ac2cf)
+D/CXCP    (18739): CXCP#createCaptureRequest-10 - 0.698 ms
+D/CXCP    (18739): GraphRequestProcessor-3 submitting Camera2CaptureSequence-6
+D/CXCP    (18739): CXCP#capture-10 - 0.321 ms
+D/CXCP    (18739): GraphRequestProcessor-3 submitted Camera2CaptureSequence-6
+D/CXCP    (18739): CaptureSessionState-3 CaptureQueueEmpty
+D/CXCP    (18739): StillCaptureRequestControl: Waiting for deferred list from CaptureRequest(captureConfigs=[androidx.camera.core.impl.CaptureConfig@321872e], captureMode=1, flashType=0, result=CompletableDeferredImpl{Active}@80ac2cf) done
+D/ProcessingRequest(18739): onCaptureStarted: request ID = 2
+D/CXCP    (18739): CapturePipeline#List<PipelineTask>.invoke: Waiting for POST_CAPTURE signal done
+D/CaptureNode(18739): OnImageAvailableListener: mCurrentRequest ID = 2, image.isNull = false
+I/ProcessingRequest(18739): onImageCaptured: request ID = 2
+D/TakePictureManagerImpl(18739): Issue the next TakePictureRequest.
+D/TakePictureManagerImpl(18739): No new request.
+D/ProcessingNode(18739): processOnDiskCapture: request ID = 2
+I/ProcessingRequest(18739): onFinalResult(OutputFileResults): request ID = 2
+E/ConsumerBase(18739): [ImageReader-1280x720f22m7-18739-11] abandonLocked: ConsumerBase is abandoned!
+D/DeferrableSurface(18739): surface closed,  useCount=2 closed=true androidx.camera.core.SurfaceRequest$2@7573ac3
+D/DeferrableSurface(18739): surface closed,  useCount=0 closed=true androidx.camera.core.processing.SurfaceEdge$SettableSurface@f1e9327
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=3, used_surfaces=3](androidx.camera.core.processing.SurfaceEdge$SettableSurface@f1e9327}
+D/DeferrableSurface(18739): use count-1,  useCount=1 closed=true androidx.camera.core.SurfaceRequest$2@7573ac3
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+D/ImageCapture(18739): clearPipeline
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@3838935
+D/DeferrableSurface(18739): surface closed,  useCount=1 closed=true androidx.camera.core.impl.ImmediateSurface@aa81658
+D/CXCP    (18739): Detaching [Preview:androidx.camera.core.Preview-1f841bbd-b3de-40ac-bb6e-ae12cff4c0cc, ImageCapture:androidx.camera.core.ImageCapture-19cc8897-04d4-4cf1-9ae1-29e401a4098e, ImageAnalysis:androidx.camera.core.ImageAnalysis-ee09c0e2-418d-436e-9435-39d9f40f391d] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>>
+W/ScreenFlashWrapper(18739): completePendingScreenFlashClear: none pending!
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-11](id:49330000000d,api:4,p:530,c:18739) dequeueBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): UseCaseCameraRequestControl: closed
+D/CXCP    (18739): Closing UseCaseCamera-3
+I/CXCP    (18739): Closing CameraGraph-3
+D/CXCP    (18739): Closed Camera2CameraController(CameraGraph-3)
+D/CXCP    (18739): Closing GraphRequestProcessor-3
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+D/CXCP    (18739): setFlashAsync: flashMode = 2, requestControl = null
+D/CXCP    (18739): reset: videoUsage = 0
+D/CXCP    (18739): LowLightBoostControl#setLowLightBoostAsync: lowLightBoost = false
+W/CXCP    (18739): Attach [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+W/CXCP    (18739): Detaching [] from UseCaseManager<CameraGraphConfigProvider<CameraId-10>> (Ignored)
+D/CXCP    (18739): Closing GraphRequestProcessor-3
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-3) onGraphStopping
+D/CXCP    (18739): CameraGraph-3 state updated to GRAPH_STOPPING
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSING, error=null)
+D/CXCP    (18739): CaptureSessionState-3 Shutdown
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-3#stopRepeating
+D/CXCP    (18739): CXCP#stopRepeating-10 - 0.004 ms
+D/CXCP    (18739): Camera2CaptureSequenceProcessor-3#abortCaptures
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-11](id:49330000000d,api:4,p:530,c:18739) queueBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-11](id:49330000000d,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+E/BufferQueueProducer(18739): [ImageReader-1280x720f22m7-18739-11](id:49330000000d,api:4,p:530,c:18739) cancelBuffer: BufferQueue has been abandoned
+D/CXCP    (18739): CXCP#abortCaptures-10 - 18.366 ms
+D/CXCP    (18739): CaptureSessionState-3 Ready
+D/CXCP    (18739): Closing capture session for CaptureSessionState-3
+D/CXCP    (18739): CaptureSessionState-3 Closed
+D/CXCP    (18739): CaptureSessionState-3 session finalizing
+D/CXCP    (18739): Finalizing CaptureSessionState-3
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.SurfaceRequest$2@7573ac3 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.SurfaceRequest$2@7573ac3
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=3, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@7573ac3}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=2, used_surfaces=2](androidx.camera.core.SurfaceRequest$2@7573ac3}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@3838935 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@3838935
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=2, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@3838935}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=1, used_surfaces=1](androidx.camera.core.impl.ImmediateSurface@3838935}
+D/CXCP    (18739): SurfaceInactive androidx.camera.core.impl.ImmediateSurface@aa81658 in androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6
+D/DeferrableSurface(18739): use count-1,  useCount=0 closed=true androidx.camera.core.impl.ImmediateSurface@aa81658
+D/DeferrableSurface(18739): Surface no longer in use[total_surfaces=1, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@aa81658}
+D/DeferrableSurface(18739): Surface terminated[total_surfaces=0, used_surfaces=0](androidx.camera.core.impl.ImmediateSurface@aa81658}
+D/CXCP    (18739): androidx.camera.camera2.impl.UseCaseSurfaceManager@7f1b1f6 remove surface listener
+D/CXCP    (18739): GraphProcessor(cameraGraph: CameraGraph-3) onGraphStopped
+D/CXCP    (18739): CameraGraph-3 state updated to GRAPH_STOPPED
+D/CXCP    (18739): Updated current camera internal state to CombinedCameraState(state=CLOSED, error=null)
+I/CXCP    (18739): Disconnecting VirtualCamera-3
+E/ConsumerBase(18739): [ImageReader-1280x720f21m4-18739-8] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-9] abandonLocked: ConsumerBase is abandoned!
+E/ConsumerBase(18739): [ImageReader-1280x720f23m4-18739-10] abandonLocked: ConsumerBase is abandoned!
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3) is closed
+D/CXCP    (18739): Camera2CameraController(CameraGraph-3) finalized
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb400773948056620) with descriptor: '(not cached)'
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb400773948069a20) with descriptor: '(not cached)'
+D/CXCP    (18739): PruningProcessingQueue: Pruning [RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@7e6a7e8)]
+D/CXCP    (18739): PruningProcessingQueue: Processing RequestClose(activeCamera=ActiveCamera(cameraId=CameraId-10)@7e6a7e8)
+I/CXCP    (18739): PruningCamera2DeviceManager#processRequestClose(CameraId-10)
+D/CXCP    (18739): handleQuirksBeforeClosing(android.hardware.camera2.impl.CameraDeviceImpl@2d7479f)
+D/CXCP    (18739): CaptureSessionState-3 session disconnecting
+D/CXCP    (18739): closeCameraDevice(10)
+I/CXCP    (18739): Closing Camera 10
+I/libbinder.BpBinder(18739): onLastStrongRef automatically unlinking death recipients for binder (0xb40077394806e9e0) with descriptor: '(not cached)'
+D/CXCP    (18739): CXCP#CameraDevice-10#close - 54.215 ms
+D/CXCP    (18739): Emitting camera ID list: [CameraId-1, CameraId-10]
+D/CXCP    (18739): CameraId-10: onClosed
+D/CXCP    (18739): CameraState-3: onFinalized
+00:35 +3: (tearDownAll)
+00:35 +3: All tests passed!

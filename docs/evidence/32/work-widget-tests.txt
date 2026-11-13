@@ -1,0 +1,30 @@
+00:00 +0: loading /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart
+00:00 +0: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +1: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +2: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +3: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +4: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +5: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +6: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +7: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +8: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +9: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +10: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +11: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +12: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +13: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/home_screen_test.dart: 1. Opens to the home screen the app opens to the home screen, not a blank screen
+00:00 +14: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +15: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +16: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +17: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +18: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +19: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then the party-popper icon, "Chúc mừng!" and the amount pop in one after another, each growing from small with a slight bounce
+00:00 +20: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, one prize Given a ticket that wins one prize, when 4a opens, then as they pop in, confetti bursts from the icon and falls down the screen for about 2 seconds, then the screen stays still
+00:01 +21: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, several prizes Given a ticket that wins several prizes, when 4a opens, then the icon and "Chúc mừng!" pop in, then each prize's amount pops in one after another, and the confetti plays once as above
+00:02 +22: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4a, played once Given 4a is open, when the movement has finished, then it doesn't play again while the screen stays open
+00:03 +23: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: 4b Given a ticket that wins nothing, when 4b opens, then about half a second later the smiley grows slightly, then the screen stays still, exactly as it was before it moved
+00:03 +24: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: Nothing moves on the other answer screens Given 4c, when the screen opens, then nothing moves
+00:03 +25: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: Nothing moves on the other answer screens Given "too old", when the screen opens, then nothing moves
+00:03 +26: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: Nothing moves on the other answer screens Given "couldn't load", when the screen opens, then nothing moves
+00:04 +27: /Users/nampham/Code/claude-code/lotteryScanV2/app/test/answer_movement_test.dart: Nothing moves on the other answer screens Given 4d, when the screen opens, then nothing moves
+00:04 +28: All tests passed!

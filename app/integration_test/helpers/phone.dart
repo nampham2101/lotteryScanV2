@@ -589,6 +589,34 @@ class Phone {
     return ScreenPixels(result.stdout as List<int>);
   }
 
+  static const _recordingOnPhone = '/sdcard/lotteryscan-recording.mp4';
+
+  /// Starts recording the screen as a video, for at most [longest]. Returns
+  /// a function that stops it and saves the video as [path], on the Mac.
+  Future<Future<void> Function()> recordScreen(
+    String path, {
+    Duration longest = const Duration(seconds: 30),
+  }) async {
+    final recording = await Process.start(_adb, [
+      '-s',
+      _serial,
+      'shell',
+      'screenrecord',
+      '--time-limit',
+      '${longest.inSeconds}',
+      _recordingOnPhone,
+    ]);
+    return () async {
+      // An interrupted recording still ends its video properly.
+      await _shell('pkill -INT screenrecord || true');
+      await recording.exitCode;
+      // The phone needs a moment to finish writing the video.
+      await Future<void>.delayed(const Duration(seconds: 1));
+      await _run(['pull', _recordingOnPhone, path]);
+      await _shell('rm -f $_recordingOnPhone');
+    };
+  }
+
   /// Saves what the screen shows now as a PNG file at [path], on the Mac.
   Future<void> saveScreenshot(String path) async {
     final result = await Process.run(_adb, [

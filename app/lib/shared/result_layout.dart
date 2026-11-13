@@ -78,6 +78,7 @@ class ResultLayout extends StatelessWidget {
     required this.buttonLabel,
     required this.onPressed,
     this.card,
+    this.iconBuilder,
     super.key,
   });
 
@@ -88,6 +89,9 @@ class ResultLayout extends StatelessWidget {
   final TicketCard? card;
   final String buttonLabel;
   final VoidCallback onPressed;
+
+  /// Draws the icon in place of the plain one, for a screen whose icon moves.
+  final Widget Function(IconData icon, double size, Color color)? iconBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +105,11 @@ class ResultLayout extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ExcludeSemantics(child: Icon(icon, size: 56, color: iconColor)),
+                ExcludeSemantics(
+                  child:
+                      iconBuilder?.call(icon, 56, iconColor) ??
+                      Icon(icon, size: 56, color: iconColor),
+                ),
                 const SizedBox(height: 16),
                 Text(
                   title,

@@ -27,7 +27,7 @@ Goal: prove the app can read a ticket from a photo before building the rest.
 |---|---|---|---|
 | 8 | Find a free source for the official miền Nam winning results. Source: xskt.com.vn's miền Nam RSS feed, `https://xskt.com.vn/rss-feed/mien-nam-xsmn.rss`. Decided by Nam, 11 November | — | done |
 | 9 | Check a read ticket against the results (won, lost, or not drawn yet) | The prize table (given: Vĩnh Long ticket photo IMG_5947) | done: #27 prize check (PR #29), #28 fetch and show the answer (PR #30) |
-| 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | posted: #31 result screens (done, PR #33); #32 movement on 4a and 4b |
+| 10 | Result screens: won with celebration, lost with animation, not drawn yet, can't read (sketches 4a–4d) | — | posted: #31 result screens (done, PR #33); #32 movement on 4a and 4b (done, PR #34) |
 
 ## Found along the way
 
@@ -149,6 +149,14 @@ Items noticed during other work. They go through `/refine` like everything else.
 | 122 | A ticket dated before today but after the feed's newest day (the feed hasn't updated yet) shows 4c's "mở thưởng lúc 16:15 ngày <a past date>. Quay lại sau nhé.", which reads wrongly. #31 only defined today and later days (found in #31) | What it should say | not refined |
 | 123 | Out-of-date notes after #31: `docs/tests/10.md`, `18.md`, `22.md`, `24.md` and `28.md` still describe the temporary screen (extends items 99 and 115); `app/integration_test/helpers/ticket_text.dart` keeps scrolling helpers nothing uses; item 113 names `photo_screen.dart`, which #31 deleted, so it needs rechecking against `reading_screen.dart` (found in #31) | — | not refined |
 | 124 | Sketch 3 and #31's ticket write "Đang đọc vé…" with one "…" character; the app shows three dots. The tests accept both (found in #31) | Which one to use | not refined |
+| 125 | The test writer chose limits for #32's vague words, listed in `docs/tests/32.md`: confetti lasts 1.3 to 3 s ("about 2 seconds"), the pop-in goes at least 2% past its size and never above 1.5 times ("slight bounce"), the smiley grows to 1.05 to 1.5 times its width ("grows slightly"), and 4b's movement starts 0.25 to 1 s after it opens ("about half a second") (found in #32) | Whether these limits are right | not refined |
+| 126 | A first failing run proves a test can fail, not that it can pass. #32's confetti check built its failure message with `.first` on an empty list, so it crashed whenever the screen was correctly still. The first run couldn't show it, because an earlier check failed first; the implementer found it and Nam had the test writer fix it (`cf32d91`) (found in #32) | — | not refined |
+| 127 | The phone's "remove animations" setting is ignored: 4a's confetti and pop-in and 4b's wink play even when animations are turned off (found in #32) | Whether to follow the setting | not refined |
+| 128 | 4b's wink hides the open eye by painting a white dot over it, in `app/lib/shared/answer_movement.dart`. If 4b's background ever stops being white, the dot will show (found in #32) | — | not refined |
+| 129 | "Straight away" for "Quét vé khác" mid-movement is checked loosely: the camera test allows 1 s, so a screen that held the tap until the movement ended could still pass, mostly on 4b. The back test's 0.3 s doesn't have this weakness (found in #32) | — | not refined |
+| 130 | When a test fails while recording (`MOVEMENT_RECORDINGS`), the screen recording keeps running for up to 30 s and can clash with the next test's recording, in `app/integration_test/helpers/phone.dart` and `answer_movement_driver.dart` (found in #32) | — | not refined |
+| 131 | Out-of-date notes after #32: `docs/tests/31.md` manual steps 2 and 5 still say nothing moves on 4a and 4b; the header comment in `app/integration_test/helpers/phone.dart` lists only tickets #5 to #10 (extends items 115 and 123) (found in #32) | — | not refined |
+| 132 | Small cleanup after #32: the 56-pixel answer icon size is written twice in `result_layout.dart` and once more as its own constant for 4a (extends item 120) (found in #32) | — | not refined |
 
 ## Built along the way
 

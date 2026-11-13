@@ -5,6 +5,7 @@ import 'package:test/test.dart';
 import 'helpers/answer_screens.dart';
 import 'helpers/camera_start.dart';
 import 'helpers/driven_app.dart';
+import 'helpers/movement.dart';
 import 'helpers/photo_screen.dart';
 import 'helpers/results.dart';
 import 'helpers/ticket_fields.dart';
@@ -215,11 +216,13 @@ void main() {
     test('Given a ticket that wins one prize (123482 · Bạc Liêu · '
         '10-11-2026, Giải Tám), when the answer is ready, then 4a shows '
         '"Chúc mừng!", "Bạn trúng Giải Tám", "100.000đ" in large type, the card '
-        '"Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and nothing '
-        'moves', () async {
+        '"Vé 123482 · Bạc Liêu · 10/11/2026" and "Quét vé khác", and once its '
+        'movement has ended, nothing moves', () async {
       final photo = await _whenScanned(_wonText);
 
       await expectAnswerScreen(_wonAnswer, photo: photo);
+      // Since ticket #32, 4a pops in with confetti, so it's measured still.
+      await waitUntilMovementEnds();
       await expectAmountsInLargeType([_oneTam]);
       await expectNothingMoves();
       await saveScreenshotIfAsked('4a-one-prize');
@@ -255,6 +258,8 @@ void main() {
         ),
         photo: photo,
       );
+      // Since ticket #32, 4a pops in with confetti, so it's measured still.
+      await waitUntilMovementEnds();
       await expectAmountsInLargeType(prizes);
       await saveScreenshotIfAsked('4a-two-prizes');
       await expectNoAppErrors();
@@ -299,11 +304,13 @@ void main() {
 
     test('Given a ticket that wins nothing (111111 · Bạc Liêu · 10-11-2026), '
         'when the answer is ready, then 4b shows "Chưa trúng lần này", "Chúc '
-        'bạn may mắn lần sau!", the ticket card and "Quét vé khác", and '
-        'nothing moves', () async {
+        'bạn may mắn lần sau!", the ticket card and "Quét vé khác", and once '
+        'its movement has ended, nothing moves', () async {
       final photo = await _whenScanned(_lostText);
 
       await expectAnswerScreen(_lostAnswer, photo: photo);
+      // Since ticket #32, 4b's smiley winks after it opens.
+      await waitUntilMovementEnds();
       await expectNothingMoves();
       await saveScreenshotIfAsked('4b');
       await expectFeedFetched();
